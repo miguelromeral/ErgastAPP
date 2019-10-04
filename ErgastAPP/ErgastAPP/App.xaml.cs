@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ErgastAPP.Views;
 using ErgastAPP.Services;
+using ErgastAPP.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ErgastAPP
@@ -10,12 +11,15 @@ namespace ErgastAPP
     public partial class App : Application
     {
         public static RestService RestService;
+        public static ErgastAPI API;
 
         public App()
         {
             InitializeComponent();
 
             RestService = new RestService();
+            API = new ErgastAPI();
+
             MainPage = new MainPage();
         }
 
