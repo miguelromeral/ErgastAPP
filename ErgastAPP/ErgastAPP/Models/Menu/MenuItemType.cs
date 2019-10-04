@@ -6,6 +6,7 @@ namespace ErgastAPP.Models
 {
     public enum MenuItemType
     {
+        Home,
         About,
         Seasons
     }

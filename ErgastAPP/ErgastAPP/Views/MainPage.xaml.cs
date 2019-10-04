@@ -17,7 +17,7 @@ namespace ErgastAPP.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Home, (NavigationPage) Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -26,6 +26,10 @@ namespace ErgastAPP.Views
             {
                 switch (id)
                 {
+                    case (int)MenuItemType.Home:
+                        MenuPages.Add(id, new NavigationPage(new HomePage()));
+                        break;
+
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;

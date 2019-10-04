@@ -18,6 +18,7 @@ namespace ErgastAPP.Views
 
             menuItems = new List<HomeMenuItem>
             {
+                new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
                 new HomeMenuItem {Id = MenuItemType.Seasons, Title="Seasons" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };

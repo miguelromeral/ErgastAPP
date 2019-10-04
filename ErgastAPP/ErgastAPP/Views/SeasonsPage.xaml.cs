@@ -19,8 +19,7 @@ namespace ErgastAPP.Views
 		public SeasonsPage()
 		{
 			InitializeComponent();
-
-            Title = ""
+            
             BindingContext = viewModel = new SeasonViewModel();
         }
 

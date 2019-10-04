@@ -16,7 +16,7 @@ namespace ErgastAPP.ViewModels
 
         public SeasonViewModel()
         {
-            Title = "Browse";
+            Title = "Seasons";
             Items = new ObservableCollection<Season>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
