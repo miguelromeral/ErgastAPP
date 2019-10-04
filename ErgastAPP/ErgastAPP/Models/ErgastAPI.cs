@@ -23,7 +23,15 @@ namespace ErgastAPP.Models
         
         private string AddLimit()
         {
+            if (limit == 0)
+                return "";
+
             return "limit=" + limit;
+        }
+
+        public string RacesBySeason(int year)
+        {
+            return URL + "/" + year + _json + "?" + AddLimit();
         }
     }
 }

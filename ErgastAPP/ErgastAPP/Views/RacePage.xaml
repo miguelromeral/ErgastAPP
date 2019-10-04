@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ErgastAPP.Views.SeasonsPage"
+             x:Class="ErgastAPP.Views.RacePage"
              Title="{Binding Title}">
 
     <StackLayout>
@@ -18,14 +18,28 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Year}"
-                                   LineBreakMode="NoWrap"
+                            <Label LineBreakMode="NoWrap"
                                    Style="{DynamicResource ListItemTextStyle}"
-                                   FontSize="16" />
-                            <Label Text="{Binding URL}"
+                                   FontSize="16">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{Binding Round}" />
+                                            <Span Text=". " />
+                                            <Span Text="{Binding Name}" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Text="{Binding Circuit.Name}"
                                    LineBreakMode="NoWrap"
                                    Style="{DynamicResource ListItemDetailTextStyle}"
                                    FontSize="13" />
+                            <Label Text="{Binding Date}"
+                                   LineBreakMode="NoWrap"
+                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                   FontSize="11" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

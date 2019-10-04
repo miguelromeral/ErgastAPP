@@ -8,10 +8,10 @@ namespace ErgastAPP.Models
     public class DataErgastSeasons : DataErgast
     {
         [JsonProperty("SeasonTable")]
-        public DataSeason SeasonTable { get; set; }
+        public SeasonTable SeasonTable { get; set; }
     }
 
-    public class DataSeason
+    public class SeasonTable
     {
         [JsonProperty("seasons")]
         public List<Season> Seasons { get; set; }
@@ -21,7 +21,7 @@ namespace ErgastAPP.Models
     public class Season
     {
         [JsonProperty("season")]
-        public string Year { get; set; }
+        public int Year { get; set; }
 
         [JsonProperty("url")]
         public string URL { get; set; }
