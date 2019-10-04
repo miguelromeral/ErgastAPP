@@ -6,6 +6,7 @@ using System.Text;
 using ErgastAPP.Models;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace ErgastAPP.Services
 {
@@ -20,15 +21,14 @@ namespace ErgastAPP.Services
 
         public async Task<DataErgast> GetSeasonsDataAsync(string uri)
         {
-            DataErgast data = null;
+            DataErgastSeasons data = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
-                    //string content = await response.Content.ReadAsStringAsync();
-                    string content = @"{""MRData"": ""eeeeoo""}";
-                    data = JsonConvert.DeserializeObject<DataErgast>(content);
+                    string content = await response.Content.ReadAsStringAsync();
+                    data = JsonConvert.DeserializeObject<DataErgastSeasons>(DataErgast.RemoveMRData(content));
                 }
             }
             catch (Exception ex)
