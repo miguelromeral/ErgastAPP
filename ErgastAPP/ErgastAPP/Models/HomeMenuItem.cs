@@ -4,11 +4,6 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
-    public enum MenuItemType
-    {
-        Browse,
-        About
-    }
     public class HomeMenuItem
     {
         public MenuItemType Id { get; set; }

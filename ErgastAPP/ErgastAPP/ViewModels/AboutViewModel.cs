@@ -15,5 +15,7 @@ namespace ErgastAPP.ViewModels
         }
 
         public ICommand OpenWebCommand { get; }
+
+
     }
 }
