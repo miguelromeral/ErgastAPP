@@ -48,13 +48,11 @@
                         <StackLayout Padding="10">
                             <Label Text="{Binding Fullname}"
                                    LineBreakMode="NoWrap"
-                                   Style="{DynamicResource ListItemTextStyle}"
-                                   FontSize="16" />
+                                   Style="{StaticResource LabelListItemHeader}"/>
 
                             <Label Text="{Binding Nationality}"
                                    LineBreakMode="NoWrap"
-                                   Style="{DynamicResource ListItemDetailTextStyle}"
-                                   FontSize="13" />
+                                   Style="{StaticResource LabelListItemDetails}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

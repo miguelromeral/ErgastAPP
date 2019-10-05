@@ -23,8 +23,7 @@
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label LineBreakMode="NoWrap"
-                                   Style="{DynamicResource ListItemTextStyle}"
-                                   FontSize="16">
+                                   Style="{StaticResource LabelListItemHeader}">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
@@ -37,12 +36,10 @@
                             </Label>
 
                             <Label Text="{Binding Circuit.Name}"
-                                   LineBreakMode="NoWrap"
-                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                   Style="{StaticResource LabelListItemDetails}"
                                    FontSize="13" />
                             <Label Text="{Binding Date}"
-                                   LineBreakMode="NoWrap"
-                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                   Style="{StaticResource LabelListItemDetails}"
                                    FontSize="11" />
                         </StackLayout>
                     </ViewCell>

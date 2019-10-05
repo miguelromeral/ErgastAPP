@@ -4,7 +4,7 @@
              x:Class="ErgastAPP.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles-->
+            <!-- COLOR STYLES -->
             <Color x:Key="NavigationPrimary">#FF0000</Color>
             <Color x:Key="Primary">#FF0000</Color>
             <Color x:Key="Accent">#ff8b85</Color>
@@ -18,6 +18,30 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+
+            <!-- LABEL STYLES -->
+            <Style TargetType="Label"
+                   x:Key="LabelListItemHeader">
+                <Setter Property="LineBreakMode"
+                        Value="NoWrap" />
+                <Setter Property="Style"
+                        Value="{DynamicResource ListItemTextStyle}" />
+                <Setter Property="FontSize"
+                        Value="18" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="LabelListItemDetails">
+                <Setter Property="LineBreakMode"
+                        Value="NoWrap" />
+                <Setter Property="Style"
+                        Value="{DynamicResource ListItemDetailTextStyle}" />
+                <Setter Property="FontSize"
+                        Value="13" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

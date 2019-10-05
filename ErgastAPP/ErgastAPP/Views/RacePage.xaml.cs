@@ -46,22 +46,12 @@ namespace ErgastAPP.Views
                 viewModel.LoadItemsCommand.Execute(null);
         }
 
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Source: https://www.youtube.com/watch?v=_YefBlDAUHA
-
-            var _container = BindingContext as RaceViewModel;
-            var c = viewModel.Items.Where(i => i.Round.ToString() == e.NewTextValue.ToString());
-
-            ItemsListView.BeginRefresh();
-
             if (string.IsNullOrWhiteSpace(e.NewTextValue.ToString()))
-                ItemsListView.ItemsSource = _container.Items;
+                viewModel.LoadItemsFromData();
             else
-                //ItemsListView.ItemsSource = _container.Items.Where(i => i.Name.Contains(e.NewTextValue));
-                ItemsListView.ItemsSource = c;
-
-            ItemsListView.EndRefresh();
+                viewModel.LoadItemsFromData(e.NewTextValue.ToString());
         }
     }
 }

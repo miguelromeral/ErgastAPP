@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,13 +38,9 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Items.Clear();
                 Data = await App.RestService.GetRacesBySeasonAsync(_year);
                 Title = Data.RaceTable.Season.ToString();
-                foreach (var item in Data.RaceTable.Races)
-                {
-                    Items.Add(item);
-                }
+                LoadItemsFromData();
             }
             catch (Exception ex)
             {
@@ -52,6 +49,18 @@ namespace ErgastAPP.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        public void LoadItemsFromData(string content = "")
+        {
+            Items.Clear();
+
+            var aux = Data.RaceTable.Races.Where(i => i.Name.ToLower().Contains(content.ToLower()));
+
+            foreach (var item in aux)
+            {
+                Items.Add(item);
             }
         }
     }
