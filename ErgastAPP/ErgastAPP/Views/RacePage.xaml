@@ -5,6 +5,10 @@
              Title="{Binding Title}">
 
     <StackLayout>
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Search races"
+                   TextChanged="SearchBar_TextChanged"/>
+
         <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Items}"
                   VerticalOptions="FillAndExpand"

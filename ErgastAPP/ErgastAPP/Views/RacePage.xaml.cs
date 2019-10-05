@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Models;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace ErgastAPP.Views
 
             BindingContext = this.viewModel = viewModel;
         }
-
+        
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             //var item = args.SelectedItem as Season;
@@ -43,6 +44,24 @@ namespace ErgastAPP.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Source: https://www.youtube.com/watch?v=_YefBlDAUHA
+
+            var _container = BindingContext as RaceViewModel;
+            var c = viewModel.Items.Where(i => i.Round.ToString() == e.NewTextValue.ToString());
+
+            ItemsListView.BeginRefresh();
+
+            if (string.IsNullOrWhiteSpace(e.NewTextValue.ToString()))
+                ItemsListView.ItemsSource = _container.Items;
+            else
+                //ItemsListView.ItemsSource = _container.Items.Where(i => i.Name.Contains(e.NewTextValue));
+                ItemsListView.ItemsSource = c;
+
+            ItemsListView.EndRefresh();
         }
     }
 }
