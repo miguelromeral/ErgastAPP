@@ -6,6 +6,7 @@
 
     <StackLayout>
         <SearchBar x:Name="searchBar"
+                   Style="{StaticResource SearchBar}"
                    Placeholder="Search races"
                    TextChanged="SearchBar_TextChanged"/>
 

@@ -15,7 +15,7 @@ namespace ErgastAPP.ViewModels
         public ObservableCollection<Driver> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
    
-        public ObservableCollection<int> Years { get; set; }
+        public ObservableCollection<string> Years { get; set; }
         public ObservableCollection<int> Rounds { get; set; }
 
         public int? YearPicked { get; set; }
@@ -24,6 +24,9 @@ namespace ErgastAPP.ViewModels
         public string Racename { get; set; }
 
         DataErgastRaces _races;
+        DataErgastDrivers _drivers;
+
+        public static string ALL_TEXT = "All";
 
         public DriversViewModel(int? year = null, int? round = null)
         {
@@ -31,7 +34,7 @@ namespace ErgastAPP.ViewModels
             YearPicked = year;
             RoundPicked = round;
             Items = new ObservableCollection<Driver>();
-            Years = new ObservableCollection<int>();
+            Years = new ObservableCollection<string>();
             Rounds = new ObservableCollection<int>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
@@ -49,30 +52,30 @@ namespace ErgastAPP.ViewModels
                 if (Years.Count == 0)
                 {
                     Years.Clear();
+                    Years.Add(ALL_TEXT);
                     var seasons = await App.RestService.GetSeasonsDataAsync();
                     foreach (var s in seasons.SeasonTable.Seasons)
                     {
-                        Years.Add(s.Year);
+                        Years.Add(s.Year.ToString());
                     }
                 }
 
                 if(Rounds.Count == 0)
                 {
                     Rounds.Clear();
-                    _races = await App.RestService.GetRacesBySeasonAsync((int) YearPicked);
-                    foreach (var s in _races.RaceTable.Races)
+                    if (YearPicked != null)
                     {
-                        Rounds.Add(s.Round);
+                        _races = await App.RestService.GetRacesBySeasonAsync((int)YearPicked);
+                        foreach (var s in _races.RaceTable.Races)
+                        {
+                            Rounds.Add(s.Round);
+                        }
                     }
                 }
-
-                Items.Clear();
-                var data = await App.RestService.GetDriversAsync(YearPicked, RoundPicked);
-                data.DriverTable.Drivers = data.DriverTable.Drivers.OrderBy(o => o.Fullname).ToList();
-                foreach (var item in data.DriverTable.Drivers)
-                {
-                    Items.Add(item);
-                }
+                
+                _drivers = await App.RestService.GetDriversAsync(YearPicked, RoundPicked);
+                _drivers.DriverTable.Drivers = _drivers.DriverTable.Drivers.OrderBy(o => o.Fullname).ToList();
+                LoadItemsFromData();
             }
             catch (Exception ex)
             {
@@ -83,6 +86,17 @@ namespace ErgastAPP.ViewModels
                 IsBusy = false;
             }
         }
+
+
+        public void LoadItemsFromData(string content = "")
+        {
+            Items.Clear();
+            foreach (var item in _drivers.DriverTable.Drivers.Where(i => i.Fullname.ToLower().Contains(content.ToLower())))
+            {
+                Items.Add(item);
+            }
+        }
+
 
         public void SetGPInfo()
         {

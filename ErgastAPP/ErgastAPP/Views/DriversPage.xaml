@@ -5,9 +5,14 @@
              Title="{Binding Title}">
 
     <StackLayout>
-
-        <StackLayout BackgroundColor="{StaticResource BackgroundDark}">
         
+        <StackLayout BackgroundColor="{StaticResource BackgroundDark}">
+
+            <SearchBar x:Name="searchBar"
+                       Style="{StaticResource SearchBar}"
+                       Placeholder="Search drivers"
+                       TextChanged="SearchBar_TextChanged" />
+
             <StackLayout Orientation="Horizontal">
             
                 <Picker x:Name="pickerYear"

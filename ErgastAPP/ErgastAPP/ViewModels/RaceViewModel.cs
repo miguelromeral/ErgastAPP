@@ -55,10 +55,7 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-
-            var aux = Data.RaceTable.Races.Where(i => i.Name.ToLower().Contains(content.ToLower()));
-
-            foreach (var item in aux)
+            foreach (var item in Data.RaceTable.Races.Where(i => i.Name.ToLower().Contains(content.ToLower())))
             {
                 Items.Add(item);
             }

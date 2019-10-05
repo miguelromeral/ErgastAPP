@@ -10,7 +10,7 @@
             <Color x:Key="Accent">#ff8b85</Color>
             <Color x:Key="LightTextColor">#999999</Color>
 
-            <Color x:Key="BackgroundWhite">#999999</Color>
+            <Color x:Key="BackgroundWhite">#FFFFFF</Color>
             <Color x:Key="BackgroundDark">#050505</Color>
             
 
@@ -40,6 +40,16 @@
                         Value="{DynamicResource ListItemDetailTextStyle}" />
                 <Setter Property="FontSize"
                         Value="13" />
+            </Style>
+
+            
+            <Style TargetType="SearchBar"
+                   x:Key="SearchBar">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundWhite}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource NavigationPrimary}" />
+
             </Style>
 
         </ResourceDictionary>

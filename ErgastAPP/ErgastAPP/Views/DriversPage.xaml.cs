@@ -47,7 +47,13 @@ namespace ErgastAPP.Views
 
         private void PickerYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            viewModel.YearPicked = Convert.ToInt32(pickerYear.SelectedItem);
+            try
+            {
+                viewModel.YearPicked = Convert.ToInt32(pickerYear.SelectedItem);
+            }catch(Exception)
+            {
+                viewModel.YearPicked = null;
+            }
             viewModel.Rounds.Clear();
             viewModel.RoundPicked = null;
             viewModel.Racename = viewModel.YearPicked +  " Season";
@@ -66,6 +72,14 @@ namespace ErgastAPP.Views
 
             // This sould be removed if the binding works fine.
             labelRace.Text = viewModel.Racename;
+        }
+
+        private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(e.NewTextValue.ToString()))
+                viewModel.LoadItemsFromData();
+            else
+                viewModel.LoadItemsFromData(e.NewTextValue.ToString());
         }
     }
 }
