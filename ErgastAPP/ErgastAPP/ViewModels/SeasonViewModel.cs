@@ -32,7 +32,7 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Items.Clear();
-                DataErgastSeasons data = await App.RestService.GetSeasonsDataAsync(App.API.Seasons) as DataErgastSeasons;
+                DataErgastSeasons data = await App.RestService.GetSeasonsDataAsync();
                 foreach (var item in data.SeasonTable.Seasons)
                 {
                     Items.Add(item);

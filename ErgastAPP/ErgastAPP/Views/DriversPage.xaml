@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErgastAPP.Views.DriversPage"
+             Title="{Binding Title}">
+
+    <StackLayout>
+
+        <StackLayout BackgroundColor="{StaticResource BackgroundDark}">
+        
+            <StackLayout Orientation="Horizontal">
+            
+                <Picker x:Name="pickerYear"
+                        TextColor="{StaticResource BackgroundWhite}"
+                        Title="Year"
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Years}"
+                        SelectedIndexChanged="PickerYear_SelectedIndexChanged" />
+                <Picker x:Name="pickerRound"
+                        TextColor="{StaticResource BackgroundWhite}"
+                        Title="Round"
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Rounds}"
+                        SelectedIndexChanged="PickerRound_SelectedIndexChanged" />
+            </StackLayout>
+
+            <Label x:Name="labelRace"
+                   HorizontalTextAlignment="Center"
+                   Margin="10"
+                   Text="{Binding Racename}"
+                   TextColor="{StaticResource BackgroundWhite}"
+                   FontSize="18" />
+        
+        </StackLayout>
+
+        <ListView x:Name="ItemsListView"
+                  ItemsSource="{Binding Items}"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="true"
+                  RefreshCommand="{Binding LoadItemsCommand}"
+                  IsPullToRefreshEnabled="true"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  CachingStrategy="RecycleElement"
+                  ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Fullname}"
+                                   LineBreakMode="NoWrap"
+                                   Style="{DynamicResource ListItemTextStyle}"
+                                   FontSize="16" />
+
+                            <Label Text="{Binding Nationality}"
+                                   LineBreakMode="NoWrap"
+                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                   FontSize="13" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

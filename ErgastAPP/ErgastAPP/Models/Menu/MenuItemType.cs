@@ -8,6 +8,7 @@ namespace ErgastAPP.Models
     {
         Home,
         About,
-        Seasons
+        Seasons,
+        Drivers
     }
 }

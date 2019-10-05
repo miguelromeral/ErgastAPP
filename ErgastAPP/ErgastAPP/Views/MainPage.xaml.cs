@@ -30,13 +30,18 @@ namespace ErgastAPP.Views
                         MenuPages.Add(id, new NavigationPage(new HomePage()));
                         break;
 
+                    case (int)MenuItemType.Seasons:
+                        MenuPages.Add(id, new NavigationPage(new SeasonsPage()));
+                        break;
+
+                    case (int)MenuItemType.Drivers:
+                        MenuPages.Add(id, new NavigationPage(new DriversPage()));
+                        break;
+
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
 
-                    case (int)MenuItemType.Seasons:
-                        MenuPages.Add(id, new NavigationPage(new SeasonsPage()));
-                        break;
                 }
             }
 

@@ -38,7 +38,7 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Items.Clear();
-                Data = await App.RestService.GetRacesBySeasonAsync(App.API.RacesBySeason(_year)) as DataErgastRaces;
+                Data = await App.RestService.GetRacesBySeasonAsync(_year);
                 Title = Data.RaceTable.Season.ToString();
                 foreach (var item in Data.RaceTable.Races)
                 {

@@ -33,5 +33,19 @@ namespace ErgastAPP.Models
         {
             return URL + "/" + year + _json + "?" + AddLimit();
         }
+
+        public string Drivers(int? year = null, int? round = null)
+        {
+            string extra = "";
+
+            if(year != null)
+            {
+                extra += year + "/";
+                if(round != null)
+                    extra += round + "/";
+            }
+
+            return URL + "/" + extra + "drivers" + _json + "?" + AddLimit();
+        }
     }
 }

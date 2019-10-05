@@ -11,14 +11,12 @@ namespace ErgastAPP
     public partial class App : Application
     {
         public static RestService RestService;
-        public static ErgastAPI API;
 
         public App()
         {
             InitializeComponent();
 
             RestService = new RestService();
-            API = new ErgastAPI();
 
             MainPage = new MainPage();
         }
