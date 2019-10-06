@@ -10,6 +10,7 @@ namespace ErgastAPP.Models
         Seasons,
         Drivers,
         Circuits,
+        Constructors,
         About,
     }
 }

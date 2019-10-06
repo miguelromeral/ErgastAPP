@@ -116,7 +116,28 @@ namespace ErgastAPP.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgastDrivers.RemoveMRData(content));
+                    data = JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgast.RemoveMRData(content));
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return data;
+        }
+
+        public async Task<DataErgastConstructors> GetConstructorsAsync()
+        {
+            string uri = _api.Constructors;
+            DataErgastConstructors data = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    data = JsonConvert.DeserializeObject<DataErgastConstructors>(DataErgast.RemoveMRData(content));
                 }
             }
             catch (Exception ex)

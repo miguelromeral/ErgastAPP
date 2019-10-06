@@ -53,6 +53,8 @@ namespace ErgastAPP.Models
             return URL + "/drivers/" + driverId + _json;
         }
 
+        public string Constructors { get { return URL + "/constructors" + _json + "?" + AddLimit(); } }
+        
         public string Circuits(int? year = null)
         {
             string extra = "";
