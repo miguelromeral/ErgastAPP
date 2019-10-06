@@ -104,5 +104,27 @@ namespace ErgastAPP.Services
 
             return data;
         }
+
+
+        public async Task<DataErgastDrivers> GetDriverInfoAsync(string driverId)
+        {
+            string uri = _api.Drivers(driverId);
+            DataErgastDrivers data = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    data = JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgastDrivers.RemoveMRData(content));
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return data;
+        }
     }
 }
