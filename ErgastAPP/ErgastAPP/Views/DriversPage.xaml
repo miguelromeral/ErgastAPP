@@ -9,22 +9,20 @@
         <StackLayout BackgroundColor="{StaticResource BackgroundDark}">
 
             <SearchBar x:Name="searchBar"
-                       Style="{StaticResource SearchBar}"
+                       Style="{StaticResource SearchBarDefault}"
                        Placeholder="Search drivers"
                        TextChanged="SearchBar_TextChanged" />
 
             <StackLayout Orientation="Horizontal">
             
                 <Picker x:Name="pickerYear"
-                        TextColor="{StaticResource BackgroundWhite}"
+                        Style="{StaticResource PickerDefault}"
                         Title="Year"
-                        HorizontalOptions="FillAndExpand"
                         ItemsSource="{Binding Years}"
                         SelectedIndexChanged="PickerYear_SelectedIndexChanged" />
                 <Picker x:Name="pickerRound"
-                        TextColor="{StaticResource BackgroundWhite}"
+                        Style="{StaticResource PickerDefault}"
                         Title="Round"
-                        HorizontalOptions="FillAndExpand"
                         ItemsSource="{Binding Rounds}"
                         SelectedIndexChanged="PickerRound_SelectedIndexChanged" />
             </StackLayout>

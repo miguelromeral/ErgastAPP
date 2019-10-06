@@ -10,16 +10,15 @@
                      BackgroundColor="{StaticResource BackgroundDark}">
 
             <SearchBar x:Name="searchBar"
+                       Style="{StaticResource SearchBarDefault}"
                        Placeholder="Search circuits"
                        TextChanged="SearchBar_TextChanged"
-                       HorizontalOptions="FillAndExpand"
                        Margin="2" />
             <Picker x:Name="pickerYear"
-                        TextColor="{StaticResource BackgroundWhite}"
+                        Style="{StaticResource PickerDefault}"
                         Title="Year"
                         ItemsSource="{Binding Years}"
                         SelectedIndexChanged="PickerYear_SelectedIndexChanged"
-                        HorizontalOptions="FillAndExpand"
                         Margin="2" />
         </StackLayout>
 

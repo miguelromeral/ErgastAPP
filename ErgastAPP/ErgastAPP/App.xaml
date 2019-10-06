@@ -58,13 +58,28 @@
 
             <!-- SEARCHBAR STYLES -->
             <Style TargetType="SearchBar"
-                   x:Key="SearchBar">
+                   x:Key="SearchBarDefault">
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
                 <Setter Property="BackgroundColor"
                         Value="{StaticResource BackgroundWhite}" />
                 <Setter Property="TextColor"
                         Value="{StaticResource BackgroundDark}" />
 
             </Style>
+            
+            <!-- PICKER STYLES -->
+
+            <Style TargetType="Picker"
+                   x:Key="PickerDefault">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BackgroundDark}" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundWhite}" />
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+            </Style>
+            
 
             <!-- BUTTON STYLES -->
             <Style TargetType="Button"
