@@ -38,14 +38,26 @@ namespace ErgastAPP.Models
         {
             string extra = "";
 
-            if(year != null)
+            if (year != null)
             {
                 extra += year + "/";
-                if(round != null)
+                if (round != null)
                     extra += round + "/";
             }
 
             return URL + "/" + extra + "drivers" + _json + "?" + AddLimit();
+        }
+
+        public string Circuits(int? year = null)
+        {
+            string extra = "";
+
+            if (year != null)
+            {
+                extra += year + "/";
+            }
+
+            return URL + "/" + extra + "circuits" + _json + "?" + AddLimit();
         }
     }
 }

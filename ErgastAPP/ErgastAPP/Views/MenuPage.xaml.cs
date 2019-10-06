@@ -21,6 +21,7 @@ namespace ErgastAPP.Views
                 new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
                 new HomeMenuItem {Id = MenuItemType.Seasons, Title="Seasons" },
                 new HomeMenuItem {Id = MenuItemType.Drivers, Title="Drivers" },
+                new HomeMenuItem {Id = MenuItemType.Circuits, Title="Circuits" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 

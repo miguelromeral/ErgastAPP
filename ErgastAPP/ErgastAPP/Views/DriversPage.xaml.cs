@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Models;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,16 +25,12 @@ namespace ErgastAPP.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            //var item = args.SelectedItem as Season;
-            //if (item == null)
-            //    return;
 
-            //DataErgastRaces data = await App.RestService.GetRacesBySeasonAsync(App.API.RacesBySeason(item.Year)) as DataErgastRaces;
+            var item = args.SelectedItem as Driver;
+            if (item == null)
+                return;
 
-            ////await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
-            //// Manually deselect item.
-            //ItemsListView.SelectedItem = null;
+            Device.OpenUri(new Uri(item.URL));
         }
 
 

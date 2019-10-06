@@ -37,6 +37,12 @@ namespace ErgastAPP.Models
         [JsonProperty("nationality")]
         public string Nationality { get; set; }
 
+        [JsonProperty("permanentNumber")]
+        public int Number { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
+        
         public string Fullname { get { return GivenName + " " + FamilyName; } }
     }
 }

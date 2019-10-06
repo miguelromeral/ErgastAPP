@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErgastAPP.Views.CircuitsPage"
+             Title="{Binding Title}">
+
+    <StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                     BackgroundColor="{StaticResource BackgroundDark}">
+
+            <SearchBar x:Name="searchBar"
+                       Placeholder="Search circuits"
+                       TextChanged="SearchBar_TextChanged"
+                       HorizontalOptions="FillAndExpand"
+                       Margin="2" />
+            <Picker x:Name="pickerYear"
+                        TextColor="{StaticResource BackgroundWhite}"
+                        Title="Year"
+                        ItemsSource="{Binding Years}"
+                        SelectedIndexChanged="PickerYear_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="2" />
+        </StackLayout>
+
+            <ListView x:Name="ItemsListView"
+                  ItemsSource="{Binding Items}"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="true"
+                  RefreshCommand="{Binding LoadItemsCommand}"
+                  IsPullToRefreshEnabled="true"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  CachingStrategy="RecycleElement"
+                  ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Name}"
+                                   LineBreakMode="NoWrap"
+                                   Style="{StaticResource LabelListItemHeader}" />
+
+                            <Label Text="{Binding Location.Address}"
+                                   LineBreakMode="NoWrap"
+                                   Style="{StaticResource LabelListItemDetails}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
