@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ErgastAPP.Views.DriverDetailPage"
-             xmlns:vm="clr-namespace:ErgastAPP.ViewModels"
              Title="{Binding Title}">
 
     <StackLayout Spacing="20"
@@ -73,7 +72,7 @@
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
-            <Button Text="Show Report"
+            <Button Text="SHOW REPORT"
                     Clicked="ReportButton_Clicked"
                     Style="{StaticResource ButtonMark}"
                     Grid.Row="5"

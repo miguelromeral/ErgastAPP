@@ -90,6 +90,8 @@
                         Value="#FFFFFF" />
                 <Setter Property="VerticalOptions"
                         Value="CenterAndExpand" />
+                <Setter Property="Margin"
+                        Value="5" />
                 <Setter Property="HorizontalOptions"
                         Value="Center" />
                 <Setter Property="BorderColor"

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErgastAPP.Views.RaceDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20"
+                 Padding="15">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Text="Grand Prix"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding Race.Name}"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
+            <Button Text="SHOW REPORT"
+                    Clicked="ReportButton_Clicked"
+                    Style="{StaticResource ButtonMark}"
+                    Grid.Row="5"
+                    Grid.Column="1" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

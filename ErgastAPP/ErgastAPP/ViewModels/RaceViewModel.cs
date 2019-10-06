@@ -16,14 +16,15 @@ namespace ErgastAPP.ViewModels
     {
         public ObservableCollection<Race> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
-        private int _year;
+
+        public Season Season;
 
         public DataErgastRaces Data { get; set; }
 
-        public RaceViewModel(int year)
+        public RaceViewModel(Season s)
         {
-            Title = "Races";
-            _year = year;
+            Title = s.Year+" Races";
+            Season = s;
             Items = new ObservableCollection<Race>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
@@ -38,7 +39,7 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Data = await App.RestService.GetRacesBySeasonAsync(_year);
+                Data = await App.RestService.GetRacesBySeasonAsync(Season.Year);
                 Title = Data.RaceTable.Season.ToString();
                 LoadItemsFromData();
             }

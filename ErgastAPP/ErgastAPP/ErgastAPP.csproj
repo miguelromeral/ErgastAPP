@@ -21,25 +21,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\CircuitsPage.xaml">
+    <EmbeddedResource Update="Views\Lists\CircuitsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ConstructorPage.xaml">
+    <EmbeddedResource Update="Views\Lists\ConstructorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DriverDetailPage.xaml">
+    <EmbeddedResource Update="Views\Details\DriverDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DriversPage.xaml">
+    <EmbeddedResource Update="Views\Lists\DriversPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\HomePage.xaml">
+    <EmbeddedResource Update="Views\Main\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\RacePage.xaml">
+    <EmbeddedResource Update="Views\Details\RaceDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SeasonsPage.xaml">
+    <EmbeddedResource Update="Views\Lists\RacePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Lists\SeasonsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Testing.xaml">

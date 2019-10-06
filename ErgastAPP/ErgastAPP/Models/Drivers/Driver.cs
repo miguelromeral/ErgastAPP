@@ -6,18 +6,6 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
-    public class DataErgastDrivers : DataErgast
-    {
-        [JsonProperty("DriverTable")]
-        public DriverTable DriverTable { get; set; }
-    }
-
-    public class DriverTable
-    {
-        [JsonProperty("Drivers")]
-        public List<Driver> Drivers { get; set; }
-    }
-
     public class Driver
     {
         [JsonProperty("driverId")]
@@ -25,7 +13,7 @@ namespace ErgastAPP.Models
 
         [JsonProperty("url")]
         public string URL { get; set; }
-        
+
         [JsonProperty("givenName")]
         public string GivenName { get; set; }
 
@@ -35,13 +23,17 @@ namespace ErgastAPP.Models
         [JsonProperty("dateOfBirth")]
         public string DateOfBirth { get; set; }
 
-        public string Birthday { get {
+        public string Birthday
+        {
+            get
+            {
                 if (String.IsNullOrWhiteSpace(DateOfBirth))
                     return "";
 
                 var sp = DateOfBirth.Split('-');
                 return new DateTime(Convert.ToInt32(sp[0]), Convert.ToInt32(sp[1]), Convert.ToInt32(sp[2])).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-            } }
+            }
+        }
 
         [JsonProperty("nationality")]
         public string Nationality { get; set; }
@@ -53,7 +45,7 @@ namespace ErgastAPP.Models
 
         [JsonProperty("code")]
         public string Code { get; set; }
-        
+
         public string PrettyCode { get { return (String.IsNullOrEmpty(Code) ? "No code assigned" : Code); } }
 
         public string Fullname { get { return GivenName + " " + FamilyName; } }

@@ -5,19 +5,6 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
-    public class DataErgastSeasons : DataErgast
-    {
-        [JsonProperty("SeasonTable")]
-        public SeasonTable SeasonTable { get; set; }
-    }
-
-    public class SeasonTable
-    {
-        [JsonProperty("seasons")]
-        public List<Season> Seasons { get; set; }
-    }
-
-
     public class Season
     {
         [JsonProperty("season")]

@@ -5,18 +5,6 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
-    public class DataErgastCircuits : DataErgast
-    {
-        [JsonProperty("CircuitTable")]
-        public CircuitTable CircuitTable { get; set; }
-    }
-
-    public class CircuitTable
-    {
-        [JsonProperty("Circuits")]
-        public List<Circuit> Circuits { get; set; }
-    }
-
     public class Circuit
     {
         [JsonProperty("circuitId")]

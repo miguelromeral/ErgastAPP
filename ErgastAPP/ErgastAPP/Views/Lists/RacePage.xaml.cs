@@ -25,16 +25,14 @@ namespace ErgastAPP.Views
         
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            //var item = args.SelectedItem as Season;
-            //if (item == null)
-            //    return;
+            var item = args.SelectedItem as Race;
+            if (item == null)
+                return;
+            
+            await Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(item.Season, item.Round)));
 
-            //DataErgastRaces data = await App.RestService.GetRacesBySeasonAsync(App.API.RacesBySeason(item.Year)) as DataErgastRaces;
-
-            ////await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
-            //// Manually deselect item.
-            //ItemsListView.SelectedItem = null;
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
         }
 
 
@@ -52,6 +50,12 @@ namespace ErgastAPP.Views
                 viewModel.LoadItemsFromData();
             else
                 viewModel.LoadItemsFromData(e.NewTextValue.ToString());
+        }
+
+        private void ShowReport_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Season != null)
+                Device.OpenUri(new Uri(viewModel.Season.URL));
         }
     }
 }

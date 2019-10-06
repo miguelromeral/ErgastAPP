@@ -66,5 +66,10 @@ namespace ErgastAPP.Models
 
             return URL + "/" + extra + "circuits" + _json + "?" + AddLimit();
         }
+
+        public string RaceResults(int year, int round)
+        {
+            return URL + "/" + year + "/" + round + "/results" + _json;
+        }
     }
 }

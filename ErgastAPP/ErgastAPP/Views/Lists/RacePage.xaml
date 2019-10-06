@@ -5,8 +5,13 @@
              Title="{Binding Title}">
 
     <StackLayout>
+
+        <Button Text="SHOW SEASON REPORT"
+                Clicked="ShowReport_Clicked"
+                Style="{StaticResource ButtonMark}" />
+
         <SearchBar x:Name="searchBar"
-                   Style="{StaticResource SearchBar}"
+                   Style="{StaticResource SearchBarDefault}"
                    Placeholder="Search races"
                    TextChanged="SearchBar_TextChanged"/>
 

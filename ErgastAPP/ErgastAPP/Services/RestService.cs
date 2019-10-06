@@ -147,5 +147,27 @@ namespace ErgastAPP.Services
 
             return data;
         }
+
+
+        public async Task<DataErgastRaces> GetRaceResultsAsync(int year, int round)
+        {
+            string uri = _api.RaceResults(year, round);
+            DataErgastRaces data = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    data = JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content));
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return data;
+        }
     }
 }

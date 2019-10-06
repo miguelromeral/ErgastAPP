@@ -19,9 +19,7 @@
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label Text="{Binding Year}"
-                                   Style="{StaticResource LabelListItemHeader}"/>
-                            <Label Text="{Binding URL}"
-                                   Style="{StaticResource LabelListItemDetails}"/>
+                                   Style="{StaticResource LabelListItemHeader}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -30,7 +30,7 @@ namespace ErgastAPP.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new RacePage(new RaceViewModel(item.Year)));
+            await Navigation.PushAsync(new RacePage(new RaceViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;

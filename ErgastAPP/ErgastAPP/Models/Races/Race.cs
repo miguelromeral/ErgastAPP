@@ -1,28 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
-using Xamarin.Forms;
 
 namespace ErgastAPP.Models
 {
-	public class DataErgastRaces : DataErgast
-    {
-        [JsonProperty("RaceTable")]
-        public RaceTable RaceTable { get; set; }
-    }
-
-    public class RaceTable
-    {
-        [JsonProperty("season")]
-        public int Season { get; set; }
-
-        [JsonProperty("Races")]
-        public List<Race> Races { get; set; }
-    }
-
     public class Race
     {
         [JsonProperty("season")]
@@ -36,7 +18,7 @@ namespace ErgastAPP.Models
 
         [JsonProperty("raceName")]
         public string Name { get; set; }
-        
+
         [JsonProperty("Circuit")]
         public Circuit Circuit { get; set; }
 
@@ -45,5 +27,8 @@ namespace ErgastAPP.Models
 
         [JsonProperty("time")]
         public string Time { get; set; }
+
+        [JsonProperty("Results")]
+        public List<Result> Results { get; set; }
     }
 }
