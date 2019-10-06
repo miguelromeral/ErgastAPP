@@ -13,7 +13,7 @@
             <Color x:Key="BackgroundWhite">#FFFFFF</Color>
             <Color x:Key="BackgroundDark">#050505</Color>
             
-
+            <!-- NAVIGATIONPAGE -->
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
@@ -42,16 +42,49 @@
                         Value="13" />
             </Style>
 
-            
+            <Style TargetType="Label"
+                   x:Key="Details_Header">
+                <Setter Property="FontSize"
+                        Value="Medium" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="Details_Info">
+                <Setter Property="FontSize"
+                        Value="Medium" />
+            </Style>
+
+            <!-- SEARCHBAR STYLES -->
             <Style TargetType="SearchBar"
                    x:Key="SearchBar">
                 <Setter Property="BackgroundColor"
                         Value="{StaticResource BackgroundWhite}" />
                 <Setter Property="TextColor"
-                        Value="{StaticResource NavigationPrimary}" />
+                        Value="{StaticResource BackgroundDark}" />
 
             </Style>
 
+            <!-- BUTTON STYLES -->
+            <Style TargetType="Button"
+                   x:Key="ButtonMark">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="TextColor"
+                        Value="#FFFFFF" />
+                <Setter Property="VerticalOptions"
+                        Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="BorderColor"
+                        Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BorderRadius"
+                        Value="5" />
+                <Setter Property="BorderWidth"
+                        Value="2" />
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

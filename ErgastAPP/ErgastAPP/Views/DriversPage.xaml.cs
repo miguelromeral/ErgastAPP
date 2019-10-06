@@ -29,8 +29,7 @@ namespace ErgastAPP.Views
             var item = args.SelectedItem as Driver;
             if (item == null)
                 return;
-
-            //Device.OpenUri(new Uri(item.URL));
+            
             await Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel(item.Id)));
 
             // Manually deselect item.

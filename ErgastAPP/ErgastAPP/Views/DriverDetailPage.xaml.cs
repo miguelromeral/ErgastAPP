@@ -29,12 +29,12 @@ namespace ErgastAPP.Views
 
             if (viewModel.Item == null)
                 viewModel.LoadItemsCommand.Execute(null);
-            //viewModel.Item = new Models.Driver()
-            //{
-            //    GivenName = "Miguel",
-            //    FamilyName = "Romeral",
-            //    Nationality = "Spanish"
-            //};
+        }
+
+        private void ReportButton_Clicked(object sender, EventArgs e)
+        {
+            if(viewModel.Item != null)
+                Device.OpenUri(new Uri(viewModel.Item.URL));
         }
     }
 }

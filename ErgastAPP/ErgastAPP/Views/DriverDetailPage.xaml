@@ -5,19 +5,79 @@
              xmlns:vm="clr-namespace:ErgastAPP.ViewModels"
              Title="{Binding Title}">
 
-    <!--<ContentPage.BindingContext>
-        <vm:DriverDetailViewModel />
-    </ContentPage.BindingContext>-->
-
     <StackLayout Spacing="20"
                  Padding="15">
-        <Label Text="Text:"
-               FontSize="Medium" />
-        <Label Text="{Binding Item.Fullname}"
-               FontSize="Small" />
-        <Label Text="Description:"
-               FontSize="Medium" />
-        <Label Text="{Binding Item.Nationality}"
-               FontSize="Small" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Text="Fullname"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}"/>
+
+            <Label Text="{Binding Item.Fullname}"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
+            
+            
+            <Label Text="Nationality"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding Item.Nationality}"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
+            <Label Text="Birthday"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding Item.Birthday}"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
+            <Label Text="Number"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding Item.PrettyNumber}"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+            
+            <Label Text="Code"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding Item.PrettyCode}"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
+            <Button Text="Show Report"
+                    Clicked="ReportButton_Clicked"
+                    Style="{StaticResource ButtonMark}"
+                    Grid.Row="5"
+                    Grid.Column="1" />
+        </Grid>
     </StackLayout>
 </ContentPage>
