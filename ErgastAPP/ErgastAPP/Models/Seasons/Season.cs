@@ -12,5 +12,10 @@ namespace ErgastAPP.Models
 
         [JsonProperty("url")]
         public string URL { get; set; }
+
+
+        public Driver DriverChampion { get; set; }
+        public Constructor DriverConstructorChampion { get; set; }
+        public Constructor ConstructorChampion { get; set; }
     }
 }

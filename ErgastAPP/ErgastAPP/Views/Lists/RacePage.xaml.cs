@@ -52,9 +52,9 @@ namespace ErgastAPP.Views
                 viewModel.LoadItemsFromData(e.NewTextValue.ToString());
         }
 
-        private void ShowReport_Clicked(object sender, EventArgs e)
+        private async void ShowReport_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Season != null)
+            if(viewModel.Season != null)
                 Device.OpenUri(new Uri(viewModel.Season.URL));
         }
     }

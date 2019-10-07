@@ -25,7 +25,8 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
@@ -79,7 +80,13 @@
                        Grid.Row="5"
                        Grid.Column="1"
                        Style="{StaticResource Details_Info}" />
-            </Grid>
+
+                    <Button Text="SHOW RESULTS"
+                            Clicked="Results_Clicked"
+                            Style="{StaticResource ButtonMark}"
+                            Grid.Row="6"
+                            Grid.Column="1" />
+                </Grid>
         </StackLayout>
 
         <StackLayout Style="{StaticResource SectionLayout}"

@@ -53,5 +53,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ErgastAPP\ErgastAPP\ErgastAPP.csproj">
+      <Project>{5a12dc82-3533-4a02-89ef-956faa7ffbf5}</Project>
+      <Name>ErgastAPP</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

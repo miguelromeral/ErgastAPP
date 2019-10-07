@@ -16,7 +16,7 @@ namespace ErgastAPP.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            DataErgast weatherData = await App.RestService.GetSeasonsDataAsync();
+            //DataErgast weatherData = await App.RestService.GetSeasonsDataAsync();
         }
     }
 }

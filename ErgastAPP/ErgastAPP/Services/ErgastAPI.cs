@@ -25,6 +25,10 @@ namespace ErgastAPP.Models
             }
         }
         
+        public string SeasonByYear(int year)
+        {
+            return URL + "/" + year + _seasons + _json;
+        }
         private string AddLimit()
         {
             if (limit == 0)
@@ -81,6 +85,11 @@ namespace ErgastAPP.Models
             return URL + _drivers + "/" + driver + _driverStandings + "/1" + _seasons + _json;
         }
 
+        public string SeasonWorldChampionByYear(int year)
+        {
+            return URL + year + _driverStandings + "/1" + _json;
+        }
+
         public string RaceByDriverPosition(string driver, int position)
         {
             return URL + _drivers + "/" + driver + _results + "/" + position + _json + "?" + AddLimit();
@@ -94,6 +103,12 @@ namespace ErgastAPP.Models
         public string QualifyingByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _qualifying + _json + "?" + AddLimit();
+        }
+
+
+        public string ChampionsByYear()
+        {
+            return URL + _driverStandings + "/1" + _json + "?" + AddLimit();
         }
     }
 }

@@ -23,8 +23,8 @@ namespace ErgastAPP.ViewModels
 
         public RaceViewModel(Season s)
         {
-            Title = s.Year+" Races";
             Season = s;
+            Title = s.Year+" Races";
             Items = new ObservableCollection<Race>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }

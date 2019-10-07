@@ -36,5 +36,10 @@ namespace ErgastAPP.Views
             if (viewModel.Race != null)
                 Device.OpenUri(new Uri(viewModel.Race.URL));
         }
+
+        private async void Results_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ResultsDetailPage(new ResultDetailViewModel(viewModel.Race, viewModel._year)));
+        }
     }
 }

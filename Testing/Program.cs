@@ -1,6 +1,10 @@
-﻿using System;
+﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -12,23 +16,30 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            /* RestService RestService = new RestService();
-            string uri = "https://ergast.com/api/f1/seasons";
-
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(args[0]);
-
-            XslTransform xslTransform = new XslTransform();
-            xslTransform.Load("mrd-1.4.xsl");
+            //Prueba();
 
 
-            StringWriter stringWriter = new StringWriter();
-            XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
-            xmlTextWriter.Formatting = Formatting.Indented;
-            xslTransform.Transform(xmlDocument, null, xmlTextWriter);
-
-            xmlTextWriter.Flush();
-            Console.Write(stringWriter.ToString()); */
         }
+
+        //public static async void Prueba()
+        //{
+        //    RestService _client = new RestSerivce();
+        //    ErgastAPI _api = new ErgastAPI();
+
+        //    string uri = _api.ChampionsByYear();
+        //    try
+        //    {
+        //        HttpResponseMessage response = await _client.GetAsync(uri);
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            string content = await response.Content.ReadAsStringAsync();
+        //            var aux = JsonConvert.DeserializeObject<DataErgastStandings>(DataErgast.RemoveMRData(content));
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine("\tERROR {0}", ex.Message);
+        //    }
+        //}
     }
 }

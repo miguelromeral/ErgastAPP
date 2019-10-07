@@ -192,6 +192,28 @@ namespace ErgastAPP.Services
             return data;
         }
 
+        public async Task<DriverStandings> GetSeasonsDriverWorldChampionAsync(int year)
+        {
+            string uri = _api.SeasonWorldChampionByYear(year);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    var aux = JsonConvert.DeserializeObject<DataErgastStandings>(DataErgast.RemoveMRData(content));
+                    return null;
+                    //if (aux != null)
+                    //    return aux.StandingsTable.Standings[0].DriverStandings[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
 
         public async Task<RaceTable> RacesByDriverPositionAsync(string driver, int position)
         {
@@ -243,6 +265,27 @@ namespace ErgastAPP.Services
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable.Races[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<StandingsTable> DriverStandingsBySeason()
+        {
+            string uri = _api.ChampionsByYear();
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    var aux = JsonConvert.DeserializeObject<DataErgastStandings>(DataErgast.RemoveMRData(content));
+                    if (aux != null)
+                        return aux.StandingsTable;
                 }
             }
             catch (Exception ex)

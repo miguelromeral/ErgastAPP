@@ -18,8 +18,13 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
+                            
                             <Label Text="{Binding Year}"
                                    Style="{StaticResource LabelListItemHeader}" />
+
+                            <Label Text="{Binding DriverChampion.Fullname}"
+                                   Style="{StaticResource LabelListItemDetails}" />
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

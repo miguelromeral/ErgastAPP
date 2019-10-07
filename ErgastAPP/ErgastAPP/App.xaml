@@ -87,10 +87,8 @@
                    x:Key="LabelListItemHeader">
                 <Setter Property="LineBreakMode"
                         Value="NoWrap" />
-                <Setter Property="Style"
-                        Value="{DynamicResource ListItemTextStyle}" />
                 <Setter Property="FontSize"
-                        Value="18" />
+                        Value="Medium" />
                 <Setter Property="FontAttributes"
                         Value="Bold" />
             </Style>
@@ -99,10 +97,10 @@
                    x:Key="LabelListItemDetails">
                 <Setter Property="LineBreakMode"
                         Value="NoWrap" />
-                <Setter Property="Style"
-                        Value="{DynamicResource ListItemDetailTextStyle}" />
                 <Setter Property="FontSize"
-                        Value="13" />
+                        Value="Small" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource BackgroundWhite}" />
             </Style>
 
             <Style TargetType="Label"
