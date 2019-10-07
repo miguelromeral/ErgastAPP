@@ -4,10 +4,9 @@
              x:Class="ErgastAPP.Views.ConstructorPage"
              Title="{Binding Title}">
 
-    <StackLayout>
+    <StackLayout Style="{StaticResource MainLayout}">
 
         <SearchBar x:Name="searchBar"
-                   Style="{StaticResource SearchBarDefault}"
                    Placeholder="Search constructors"
                    TextChanged="SearchBar_TextChanged" />
 

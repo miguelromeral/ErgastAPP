@@ -4,21 +4,21 @@
              x:Class="ErgastAPP.Views.DriverDetailPage"
              Title="{Binding Title}">
 
-    <StackLayout Spacing="20"
-                 Padding="15">
+    <StackLayout Style="{StaticResource MainLayout}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Label Text="Fullname"
@@ -56,12 +56,12 @@
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />
 
-            <Label Text="{Binding SeasonsWorldChampions.Seasons.Count}"
+            <Label Text="{Binding SeasonsWorldChampions.PrettySeasons}"
                    Grid.Row="3"
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
-            <Label Text="Number"
+            <Label Text="Car Number"
                    Grid.Row="4"
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />

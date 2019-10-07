@@ -4,14 +4,13 @@
              x:Class="ErgastAPP.Views.RacePage"
              Title="{Binding Title}">
 
-    <StackLayout>
+    <StackLayout Style="{StaticResource MainLayout}">
 
         <Button Text="SHOW SEASON REPORT"
                 Clicked="ShowReport_Clicked"
                 Style="{StaticResource ButtonMark}" />
 
         <SearchBar x:Name="searchBar"
-                   Style="{StaticResource SearchBarDefault}"
                    Placeholder="Search races"
                    TextChanged="SearchBar_TextChanged"/>
 

@@ -4,33 +4,60 @@
              x:Class="ErgastAPP.Views.RaceDetailPage"
              Title="{Binding Title}">
 
-    <StackLayout Spacing="20"
-                 Padding="15">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+    <StackLayout Style="{StaticResource MainLayout}">
+        <Button Text="SHOW REPORT"
+                    Clicked="ReportButton_Clicked"
+                    Style="{StaticResource ButtonMark}"
+                    Grid.Row="0"
+                    Grid.Column="1" />
 
             <Label Text="Grand Prix"
-                   Grid.Row="0"
+                   Grid.Row="1"
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />
 
             <Label Text="{Binding Race.Name}"
-                   Grid.Row="0"
+                   Grid.Row="1"
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
-            <Button Text="SHOW REPORT"
-                    Clicked="ReportButton_Clicked"
-                    Style="{StaticResource ButtonMark}"
-                    Grid.Row="5"
-                    Grid.Column="1" />
-        </Grid>
-    </StackLayout>
+            
+
+            
+
+        <StackLayout Style="{StaticResource SectionLayout}">
+
+            <Label Style="{StaticResource SectionHeader}"
+                   Text="WINNER" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label Text="DRIVER"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Style="{StaticResource Details_Header}" />
+
+                <Label Text="{Binding Race.Winner.Driver.Fullname}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Style="{StaticResource Details_Info}" />
+
+                <Label Text="{Binding Race.Winner.Time.TotalTime}"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Style="{StaticResource Details_MoreInfo}" />
+            </Grid>
+        </StackLayout>
+        
+        
+        </StackLayout>
+    
 </ContentPage>

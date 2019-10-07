@@ -4,22 +4,18 @@
              x:Class="ErgastAPP.Views.CircuitsPage"
              Title="{Binding Title}">
 
-    <StackLayout>
+    <StackLayout Style="{StaticResource MainLayout}">
 
         <StackLayout Orientation="Vertical"
                      BackgroundColor="{StaticResource BackgroundDark}">
 
             <SearchBar x:Name="searchBar"
-                       Style="{StaticResource SearchBarDefault}"
                        Placeholder="Search circuits"
-                       TextChanged="SearchBar_TextChanged"
-                       Margin="2" />
+                       TextChanged="SearchBar_TextChanged" />
             <Picker x:Name="pickerYear"
-                        Style="{StaticResource PickerDefault}"
                         Title="Year"
                         ItemsSource="{Binding Years}"
-                        SelectedIndexChanged="PickerYear_SelectedIndexChanged"
-                        Margin="2" />
+                        SelectedIndexChanged="PickerYear_SelectedIndexChanged"/>
         </StackLayout>
 
             <ListView x:Name="ItemsListView"

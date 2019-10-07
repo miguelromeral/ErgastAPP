@@ -38,8 +38,11 @@ namespace ErgastAPP.ViewModels
             try
             {
                 var data = await App.RestService.GetRaceResultsAsync(_year, _round);
-
                 Race = data.RaceTable.Races[0];
+
+                var res = await App.RestService.ResultsByRaceAsync(_year, _round);
+                Race.Results = res.Results;
+
                 Title = _year + " " + Race.Name;
             }
             catch (Exception ex)

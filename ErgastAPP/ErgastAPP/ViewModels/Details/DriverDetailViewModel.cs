@@ -21,7 +21,7 @@ namespace ErgastAPP.ViewModels
 
         RaceTable racesWon;
         public RaceTable RacesWon { get { return racesWon; } set { SetProperty(ref racesWon, value); } }
-
+        
         string _driverId;
         DataErgastDrivers _drivers;
 

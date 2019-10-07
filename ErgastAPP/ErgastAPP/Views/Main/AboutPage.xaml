@@ -9,6 +9,8 @@
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
 
+    <StackLayout Style="{StaticResource MainLayout}">
+        
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -66,4 +68,5 @@
             </StackLayout>
         </ScrollView>
     </Grid>
+        </StackLayout> 
 </ContentPage>

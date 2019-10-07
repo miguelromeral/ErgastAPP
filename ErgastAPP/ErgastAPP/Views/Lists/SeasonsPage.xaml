@@ -4,7 +4,7 @@
              x:Class="ErgastAPP.Views.SeasonsPage"
              Title="{Binding Title}">
 
-    <StackLayout>
+    <StackLayout Style="{StaticResource MainLayout}">
         <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Items}"
                   VerticalOptions="FillAndExpand"

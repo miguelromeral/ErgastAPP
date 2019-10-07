@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ErgastAPP.Models
@@ -30,5 +31,10 @@ namespace ErgastAPP.Models
 
         [JsonProperty("Results")]
         public List<Result> Results { get; set; }
+
+
+        public Result Winner { get { return Results?.Where(x => x.Position == 1).FirstOrDefault(); } }
+
+        public Result FastestLap { get { return Results?.Where(x => x.FastestLap.Rank == 1).FirstOrDefault(); } }
     }
 }

@@ -57,22 +57,23 @@ namespace ErgastAPP.Views
             }
             viewModel.Rounds.Clear();
             viewModel.RoundPicked = null;
-            viewModel.Racename = viewModel.YearPicked +  " Season";
-            // This sould be removed if the binding works fine.
-            labelRace.Text = viewModel.Racename;
 
             viewModel.LoadItemsCommand.Execute(null);
         }
 
         private void PickerRound_SelectedIndexChanged(object sender, EventArgs e)
         {
-            viewModel.RoundPicked = Convert.ToInt32(pickerRound.SelectedItem);
-            viewModel.SetGPInfo();
+
+            try
+            {
+                viewModel.RoundPicked = Convert.ToInt32(pickerRound.SelectedItem);
+            }
+            catch (Exception)
+            {
+                viewModel.RoundPicked = null;
+            }
 
             viewModel.LoadItemsCommand.Execute(null);
-
-            // This sould be removed if the binding works fine.
-            labelRace.Text = viewModel.Racename;
         }
 
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

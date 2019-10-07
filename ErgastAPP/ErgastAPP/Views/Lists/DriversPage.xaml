@@ -4,24 +4,21 @@
              x:Class="ErgastAPP.Views.DriversPage"
              Title="{Binding Title}">
 
-    <StackLayout>
+    <StackLayout Style="{StaticResource MainLayout}">
         
-        <StackLayout BackgroundColor="{StaticResource BackgroundDark}">
+        <StackLayout>
 
             <SearchBar x:Name="searchBar"
-                       Style="{StaticResource SearchBarDefault}"
                        Placeholder="Search drivers"
                        TextChanged="SearchBar_TextChanged" />
 
             <StackLayout Orientation="Horizontal">
             
                 <Picker x:Name="pickerYear"
-                        Style="{StaticResource PickerDefault}"
                         Title="Year"
                         ItemsSource="{Binding Years}"
                         SelectedIndexChanged="PickerYear_SelectedIndexChanged" />
                 <Picker x:Name="pickerRound"
-                        Style="{StaticResource PickerDefault}"
                         Title="Round"
                         ItemsSource="{Binding Rounds}"
                         SelectedIndexChanged="PickerRound_SelectedIndexChanged" />

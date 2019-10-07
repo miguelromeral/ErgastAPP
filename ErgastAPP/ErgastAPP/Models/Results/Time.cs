@@ -11,6 +11,6 @@ namespace ErgastAPP.Models
         public long Millis { get; set; }
 
         [JsonProperty("time")]
-        public string LapTime { get; set; }
+        public string TotalTime { get; set; }
     }
 }

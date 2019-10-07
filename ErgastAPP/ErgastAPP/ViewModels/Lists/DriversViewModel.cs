@@ -16,12 +16,13 @@ namespace ErgastAPP.ViewModels
         public Command LoadItemsCommand { get; set; }
    
         public ObservableCollection<string> Years { get; set; }
-        public ObservableCollection<int> Rounds { get; set; }
+        public ObservableCollection<string> Rounds { get; set; }
 
         public int? YearPicked { get; set; }
         public int? RoundPicked { get; set; }
 
-        public string Racename { get; set; }
+        string racename;
+        public string Racename { get { return racename; } set { SetProperty(ref racename, value); } }
 
         DataErgastRaces _races;
         DataErgastDrivers _drivers;
@@ -35,7 +36,7 @@ namespace ErgastAPP.ViewModels
             RoundPicked = round;
             Items = new ObservableCollection<Driver>();
             Years = new ObservableCollection<string>();
-            Rounds = new ObservableCollection<int>();
+            Rounds = new ObservableCollection<string>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
@@ -63,12 +64,13 @@ namespace ErgastAPP.ViewModels
                 if(Rounds.Count == 0)
                 {
                     Rounds.Clear();
+                    Rounds.Add(ALL_TEXT);
                     if (YearPicked != null)
                     {
                         _races = await App.RestService.GetRacesBySeasonAsync((int)YearPicked);
                         foreach (var s in _races.RaceTable.Races)
                         {
-                            Rounds.Add(s.Round);
+                            Rounds.Add(s.Round.ToString());
                         }
                     }
                 }
@@ -95,19 +97,27 @@ namespace ErgastAPP.ViewModels
             {
                 Items.Add(item);
             }
+            SetGPInfo();
         }
 
 
         public void SetGPInfo()
         {
-            foreach(var r in _races.RaceTable.Races)
+            if (_races != null)
             {
-                if(r.Round == RoundPicked)
+                foreach (var r in _races.RaceTable.Races)
                 {
-                    Racename = r.Season + " " + r.Name;
-                    return;
+                    if (r.Round == RoundPicked)
+                    {
+                        Racename = r.Season + " " + r.Name;
+                        return;
+                    }
                 }
             }
+            if (YearPicked == null)
+                Racename = "ALL DRIVERS";
+            else 
+                Racename = YearPicked + " Season";
         }
     }
 }

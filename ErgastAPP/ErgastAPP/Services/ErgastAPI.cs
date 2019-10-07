@@ -85,5 +85,10 @@ namespace ErgastAPP.Models
         {
             return URL + _drivers + "/" + driver + _results + "/" + position + _json + "?" + AddLimit();
         }
+
+        public string ResultsByRace(int year, int round)
+        {
+            return URL + "/" + year + "/" + round + _results + _json + "?" + AddLimit();
+        }
     }
 }

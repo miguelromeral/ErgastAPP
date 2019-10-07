@@ -12,6 +12,7 @@
 
             <Color x:Key="BackgroundWhite">#FFFFFF</Color>
             <Color x:Key="BackgroundDark">#050505</Color>
+            <Color x:Key="BackgroundLightDark">#454545</Color>
             
             <!-- NAVIGATIONPAGE -->
             <Style TargetType="NavigationPage">
@@ -19,7 +20,69 @@
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
 
+            <!-- STACKLAYOUT STYES -->
+            <Style TargetType="StackLayout"
+                   x:Key="MainLayout">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundDark}" />
+                <Setter Property="Padding"
+                        Value="10" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                   x:Key="SectionLayout">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundLightDark}" />
+                <Setter Property="Spacing"
+                        Value="20" />
+                <Setter Property="Padding"
+                        Value="5" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                   x:Key="MenuLayout">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="VerticalOptions"
+                        Value="FillAndExpand" />
+            </Style>
+            
+            
             <!-- LABEL STYLES -->
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BackgroundWhite}" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="MenuItem">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BackgroundWhite}" />
+                <Setter Property="FontSize"
+                        Value="Medium" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="SectionHeader">
+                <Setter Property="LineBreakMode"
+                        Value="WordWrap" />
+                <Setter Property="FontSize"
+                        Value="Medium" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource BackgroundWhite}" />
+                <Setter Property="HorizontalOptions"
+                        Value="Fill" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="0,0,0,5" />
+            </Style>
+
             <Style TargetType="Label"
                    x:Key="LabelListItemHeader">
                 <Setter Property="LineBreakMode"
@@ -54,27 +117,35 @@
                    x:Key="Details_Info">
                 <Setter Property="FontSize"
                         Value="Medium" />
+                <Setter Property="LineBreakMode"
+                        Value="WordWrap" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="Details_MoreInfo">
+                <Setter Property="FontSize"
+                        Value="Small" />
+                <Setter Property="LineBreakMode"
+                        Value="MiddleTruncation" />
             </Style>
 
             <!-- SEARCHBAR STYLES -->
-            <Style TargetType="SearchBar"
-                   x:Key="SearchBarDefault">
+            <Style TargetType="SearchBar">
                 <Setter Property="HorizontalOptions"
                         Value="FillAndExpand" />
                 <Setter Property="BackgroundColor"
-                        Value="{StaticResource BackgroundWhite}" />
+                        Value="{StaticResource BackgroundLightDark}" />
                 <Setter Property="TextColor"
-                        Value="{StaticResource BackgroundDark}" />
+                        Value="{StaticResource BackgroundWhite}" />
 
             </Style>
             
             <!-- PICKER STYLES -->
 
-            <Style TargetType="Picker"
-                   x:Key="PickerDefault">
-                <Setter Property="TextColor"
-                        Value="{StaticResource BackgroundDark}" />
+            <Style TargetType="Picker">
                 <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundLightDark}" />
+                <Setter Property="TextColor"
                         Value="{StaticResource BackgroundWhite}" />
                 <Setter Property="HorizontalOptions"
                         Value="FillAndExpand" />
