@@ -10,6 +10,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <Grid Padding="10">
+                            <Image Source="https://cdn.iconscout.com/icon/free/png-512/xamarin-5-896159.png"
+                                   HeightRequest="48" />
                             <Label Text="{Binding Title}"
                                    Style="{StaticResource MenuItem}" />
                         </Grid>
