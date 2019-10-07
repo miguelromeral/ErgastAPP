@@ -19,6 +19,9 @@ namespace ErgastAPP.ViewModels
         SeasonTable seasonsWorldChampion;
         public SeasonTable SeasonsWorldChampions { get { return seasonsWorldChampion; } set { SetProperty(ref seasonsWorldChampion, value); } }
 
+        RaceTable racesWon;
+        public RaceTable RacesWon { get { return racesWon; } set { SetProperty(ref racesWon, value); } }
+
         string _driverId;
         DataErgastDrivers _drivers;
 
@@ -45,6 +48,8 @@ namespace ErgastAPP.ViewModels
                 var s = await App.RestService.GetSeasonsDriverWorldChampionAsync(_driverId);
                 if (s != null)
                     SeasonsWorldChampions = s.SeasonTable;
+
+                RacesWon = await App.RestService.RacesByDriverPositionAsync(_driverId, 1);
             }
             catch (Exception ex)
             {

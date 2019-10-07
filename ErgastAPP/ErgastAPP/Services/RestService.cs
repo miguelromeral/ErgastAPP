@@ -191,5 +191,25 @@ namespace ErgastAPP.Services
 
             return data;
         }
+
+
+        public async Task<RaceTable> RacesByDriverPositionAsync(string driver, int position)
+        {
+            string uri = _api.RaceByDriverPosition(driver, position);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
     }
 }

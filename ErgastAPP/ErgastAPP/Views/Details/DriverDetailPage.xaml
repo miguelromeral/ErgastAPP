@@ -70,7 +70,7 @@
                    Grid.Row="4"
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
-            
+
             <Label Text="Code"
                    Grid.Row="5"
                    Grid.Column="0"
@@ -81,10 +81,20 @@
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
+            <Label Text="Races Won"
+                   Grid.Row="6"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding RacesWon.Races.Count}"
+                   Grid.Row="6"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
             <Button Text="SHOW REPORT"
                     Clicked="ReportButton_Clicked"
                     Style="{StaticResource ButtonMark}"
-                    Grid.Row="6"
+                    Grid.Row="7"
                     Grid.Column="1" />
         </Grid>
     </StackLayout>
