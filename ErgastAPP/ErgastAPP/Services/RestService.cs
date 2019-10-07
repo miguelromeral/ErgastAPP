@@ -169,5 +169,27 @@ namespace ErgastAPP.Services
 
             return data;
         }
+
+
+        public async Task<DataErgastSeasons> GetSeasonsDriverWorldChampionAsync(string driver)
+        {
+            string uri = _api.SeasonWorldChampionByDriver(driver);
+            DataErgastSeasons data = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    data = JsonConvert.DeserializeObject<DataErgastSeasons>(DataErgast.RemoveMRData(content));
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return data;
+        }
     }
 }

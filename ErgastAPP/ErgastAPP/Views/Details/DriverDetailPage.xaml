@@ -18,6 +18,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Label Text="Fullname"
@@ -30,8 +31,6 @@
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
-            
-            
             <Label Text="Nationality"
                    Grid.Row="1"
                    Grid.Column="0"
@@ -52,30 +51,40 @@
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
-            <Label Text="Number"
+            <Label Text="World Champion"
                    Grid.Row="3"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding SeasonsWorldChampions.Seasons.Count}"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
+            <Label Text="Number"
+                   Grid.Row="4"
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />
 
             <Label Text="{Binding Item.PrettyNumber}"
-                   Grid.Row="3"
+                   Grid.Row="4"
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
             
             <Label Text="Code"
-                   Grid.Row="4"
+                   Grid.Row="5"
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />
 
             <Label Text="{Binding Item.PrettyCode}"
-                   Grid.Row="4"
+                   Grid.Row="5"
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
             <Button Text="SHOW REPORT"
                     Clicked="ReportButton_Clicked"
                     Style="{StaticResource ButtonMark}"
-                    Grid.Row="5"
+                    Grid.Row="6"
                     Grid.Column="1" />
         </Grid>
     </StackLayout>

@@ -16,6 +16,9 @@ namespace ErgastAPP.ViewModels
         Driver driver;
         public Driver Item { get { return driver; } set { SetProperty(ref driver, value); } }
 
+        SeasonTable seasonsWorldChampion;
+        public SeasonTable SeasonsWorldChampions { get { return seasonsWorldChampion; } set { SetProperty(ref seasonsWorldChampion, value); } }
+
         string _driverId;
         DataErgastDrivers _drivers;
 
@@ -39,6 +42,9 @@ namespace ErgastAPP.ViewModels
                 _drivers = await App.RestService.GetDriverInfoAsync(_driverId);
                 Item = _drivers.DriverTable.Drivers[0];
                 Title = Item.Fullname;
+                var s = await App.RestService.GetSeasonsDriverWorldChampionAsync(_driverId);
+                if (s != null)
+                    SeasonsWorldChampions = s.SeasonTable;
             }
             catch (Exception ex)
             {
