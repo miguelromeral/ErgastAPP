@@ -33,8 +33,8 @@
                    x:Key="SectionLayout">
                 <Setter Property="BackgroundColor"
                         Value="{StaticResource BackgroundLightDark}" />
-                <Setter Property="Spacing"
-                        Value="20" />
+                <Setter Property="Margin"
+                        Value="5,20,5,20" />
                 <Setter Property="Padding"
                         Value="5" />
             </Style>
@@ -109,6 +109,14 @@
                    x:Key="Details_Header">
                 <Setter Property="FontSize"
                         Value="Medium" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="Details_MoreHeader">
+                <Setter Property="FontSize"
+                        Value="Small" />
                 <Setter Property="FontAttributes"
                         Value="Bold" />
             </Style>

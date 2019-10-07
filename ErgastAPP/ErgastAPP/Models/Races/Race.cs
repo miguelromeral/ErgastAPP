@@ -32,9 +32,21 @@ namespace ErgastAPP.Models
         [JsonProperty("Results")]
         public List<Result> Results { get; set; }
 
+        [JsonProperty("QualifyingResults")]
+        public List<Qualifying> Qualifying { get; set; }
+        
+
 
         public Result Winner { get { return Results?.Where(x => x.Position == 1).FirstOrDefault(); } }
+        public Result Second { get { return Results?.Where(x => x.Position == 2).FirstOrDefault(); } }
+        public Result Third { get { return Results?.Where(x => x.Position == 3).FirstOrDefault(); } }
 
-        public Result FastestLap { get { return Results?.Where(x => x.FastestLap.Rank == 1).FirstOrDefault(); } }
+
+        public Qualifying Qualy_First { get { return Qualifying?.Where(x => x.Position == 1).FirstOrDefault(); } }
+        public Qualifying Qualy_Second { get { return Qualifying?.Where(x => x.Position == 2).FirstOrDefault(); } }
+        public Qualifying Qualy_Third { get { return Qualifying?.Where(x => x.Position == 3).FirstOrDefault(); } }
+
+
+        public Result FastestLap { get { return Results?.Where(x => x.FastestLap != null && x.FastestLap.Rank == 1).FirstOrDefault(); } }
     }
 }

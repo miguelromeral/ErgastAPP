@@ -17,6 +17,8 @@ namespace ErgastAPP.Models
         public Time Time { get; set; }
 
         [JsonProperty("AverageSpeed")]
-        public AverageSpeed AverageSpeed { get; set; }                            
+        public AverageSpeed AverageSpeed { get; set; }     
+        
+        public string PrettyTime { get { return Time.TotalTime + " on lap " + Lap; } }
     }
 }

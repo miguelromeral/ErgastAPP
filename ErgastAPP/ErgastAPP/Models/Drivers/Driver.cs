@@ -48,6 +48,6 @@ namespace ErgastAPP.Models
 
         public string PrettyCode { get { return (String.IsNullOrEmpty(Code) ? "No code assigned" : Code); } }
 
-        public string Fullname { get { return GivenName + " " + FamilyName; } }
+        public string Fullname { get { return GivenName + " " + FamilyName.ToUpper(); } }
     }
 }

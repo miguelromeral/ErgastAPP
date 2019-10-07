@@ -37,11 +37,19 @@ namespace ErgastAPP.ViewModels
 
             try
             {
+                Race r = null;
+
                 var data = await App.RestService.GetRaceResultsAsync(_year, _round);
-                Race = data.RaceTable.Races[0];
+                r = data.RaceTable.Races[0];
 
                 var res = await App.RestService.ResultsByRaceAsync(_year, _round);
-                Race.Results = res.Results;
+                r.Results = res.Results;
+
+                var q = await App.RestService.QualifyingByRaceAsync(_year, _round);
+                if (q != null)
+                    r.Qualifying = q.Qualifying;
+
+                Race = r;
 
                 Title = _year + " " + Race.Name;
             }

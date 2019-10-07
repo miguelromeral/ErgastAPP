@@ -16,7 +16,7 @@ namespace ErgastAPP.Models
         private string _driverStandings = "/driverStandings";
         private string _results = "/results";
         private string _constructors = "/constructors";
-
+        private string _qualifying = "/qualifying";
         public string Seasons
         {
             get
@@ -89,6 +89,11 @@ namespace ErgastAPP.Models
         public string ResultsByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _results + _json + "?" + AddLimit();
+        }
+        
+        public string QualifyingByRace(int year, int round)
+        {
+            return URL + "/" + year + "/" + round + _qualifying + _json + "?" + AddLimit();
         }
     }
 }
