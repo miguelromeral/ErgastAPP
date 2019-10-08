@@ -46,8 +46,15 @@
                 <Setter Property="VerticalOptions"
                         Value="FillAndExpand" />
             </Style>
-            
-            
+
+            <Style TargetType="StackLayout"
+                   x:Key="TableLayout">
+                <Setter Property="Margin"
+                        Value="0" />
+                <Setter Property="Padding"
+                        Value="0" />
+            </Style>
+
             <!-- LABEL STYLES -->
 
             <Style TargetType="Label">
@@ -133,6 +140,33 @@
                         Value="Small" />
                 <Setter Property="LineBreakMode"
                         Value="MiddleTruncation" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="HeaderResult">
+                <Setter Property="FontSize"
+                        Value="Medium" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="BackgroundColor"
+                        Value="#000000" />
+                <Setter Property="Margin"
+                        Value="0" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="ListItemOdd">
+                <Setter Property="Margin"
+                        Value="0" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="ListItemEven">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundLightDark}" />
+
+                <Setter Property="Margin"
+                        Value="0" />
             </Style>
 
             <!-- SEARCHBAR STYLES -->

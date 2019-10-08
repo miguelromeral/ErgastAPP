@@ -16,14 +16,16 @@ namespace ErgastAPP.ViewModels
         private Race _race;
         public Race Race { get { return _race; } set { SetProperty(ref _race, value); } }
 
-        private int year;
+        public int Year;
 
         public ResultsDetailPage Page { get; set; }
 
         public ResultDetailViewModel(Race r, int year)
         {
             Race = r;
-            this.year = year;
+            Year = year;
+            
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
 
@@ -36,7 +38,8 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Title = year + " " + Race.Name;
+                var aux = await App.RestService.ResultsByRaceAsync(Year, Race.Round);
+                Race.Results = aux.Results;
             }
             catch (Exception ex)
             {

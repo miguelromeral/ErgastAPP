@@ -6,8 +6,9 @@
 
     <StackLayout Style="{StaticResource MainLayout}">
 
-        <StackLayout Style="{StaticResource SectionLayout}"
-                     x:Name="table">
+        <StackLayout x:Name="table"
+                     Style="{StaticResource TableLayout}">
+            
             <Grid x:Name="grid">
                 
             </Grid>

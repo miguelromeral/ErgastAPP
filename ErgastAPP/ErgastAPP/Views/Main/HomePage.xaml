@@ -84,7 +84,13 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
+
+                    <Button Text="TEST: Russian GP"
+                            Clicked="Button_Clicked"
+                            Style="{StaticResource ButtonMark}" />
+                    
                 </StackLayout>
+                
             </ScrollView>
         </Grid>
     </StackLayout>

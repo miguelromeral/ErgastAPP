@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ErgastAPP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,11 @@ namespace ErgastAPP.Views
 		{
 			InitializeComponent();
 		}
-	}
+
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(2019, 16)));
+        }
+    }
 }
