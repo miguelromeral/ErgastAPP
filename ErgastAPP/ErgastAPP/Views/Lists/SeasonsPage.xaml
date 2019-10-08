@@ -18,34 +18,55 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="3*" />
+                            <Grid VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions >
+                                    <RowDefinition Height="auto" />
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
                             </Grid>
                             
                             
                             <Label Text="{Binding Year}"
                                    Style="{StaticResource LabelListItemHeader}"
-                                   Grid.Row="0"/>
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
 
                             <Label Style="{StaticResource LabelListItemDetails}"
-                                   Grid.Row="1">
+                                   Grid.Row="1"
+                                   Grid.Column="0">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
                                             <Span Text="{Binding DriverChampion.Fullname}"
                                                   FontAttributes="Bold" />
-                                <Span Text=" (" />
-                                <Span Text="{Binding DriverConstructorChampion.Name}"
-                                      FontAttributes="Italic"/>
-                                <Span Text=")" />
-                                </FormattedString.Spans>
-                                </FormattedString>
+                                            <Span Text=" (" />
+                                            <Span Text="{Binding DriverConstructorChampion.Name}"
+                                                  FontAttributes="Italic" />
+                                            <Span Text=")" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
                                 </Label.FormattedText>
                             </Label>
+
+                            <Label Text="{Binding ConstructorChampion.Name}"
+                                   Style="{StaticResource LabelListItemDetails}"
+                                   Grid.Row="2"
+                                   Grid.Column="0"/>
+
+                            <!--<Button Text="SHOW REPORT"
+                                    Clicked="ShowReport_Clicked"
+                                    Style="{StaticResource ButtonMark}"
+                                    HorizontalOptions="End"
+                                    Grid.Row="1"
+                                    Grid.Column="1" />-->
+
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

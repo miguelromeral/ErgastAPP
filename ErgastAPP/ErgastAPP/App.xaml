@@ -11,7 +11,7 @@
             <Color x:Key="LightTextColor">#999999</Color>
 
             <Color x:Key="BackgroundWhite">#FFFFFF</Color>
-            <Color x:Key="BackgroundDark">#050505</Color>
+            <Color x:Key="BackgroundDark">#1c1c1c</Color>
             <Color x:Key="BackgroundLightDark">#454545</Color>
             
             <!-- NAVIGATIONPAGE -->

@@ -16,9 +16,13 @@ namespace ErgastAPP.Models
 
         [JsonProperty("DriverStandings")]
         public List<DriverStandings> DriverStandings { get; set; }
+        
+        [JsonProperty("ConstructorStandings")]
+        public List<ConstructorStandings> ConstructorStandings { get; set; }
 
+        
 
-
+        
         public Constructor DriverConstructorChampion
         {
             get
@@ -32,5 +36,7 @@ namespace ErgastAPP.Models
         }
 
         public Driver DriverChampion { get { return DriverStandings?.Where(x => x.Position == 1).FirstOrDefault()?.Driver; } }
+
+        public Constructor ConstructorChampion { get { return ConstructorStandings?.Where(x => x.Position == 1).FirstOrDefault()?.Constructor; } }
     }
 }

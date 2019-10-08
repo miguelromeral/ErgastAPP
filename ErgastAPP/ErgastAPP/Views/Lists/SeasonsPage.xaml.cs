@@ -44,5 +44,21 @@ namespace ErgastAPP.Views
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
+
+        //void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
+        //{
+        //    var item = args.SelectedItem as Button;
+        //    var aux = item.Parent;
+
+
+        //    var item = args.SelectedItem as Season;
+        //    if (item == null)
+        //        return;
+
+        //    Device.OpenUri(new Uri(item.URL));
+
+        //    // Manually deselect item.
+        //    ItemsListView.SelectedItem = null;
+        //}
     }
 }

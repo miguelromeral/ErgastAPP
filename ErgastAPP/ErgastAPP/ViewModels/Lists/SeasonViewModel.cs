@@ -39,11 +39,14 @@ namespace ErgastAPP.ViewModels
                 var data = await App.RestService.GetSeasonsDataAsync();
 
                 var ds = await App.RestService.DriverStandingsBySeason();
+                var cs = await App.RestService.ConstructorStandingsBySeason();
 
                 foreach (var item in data.SeasonTable.Seasons)
                 {
                     item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
                     item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
+                    item.ConstructorChampion = cs.Standings.Where(x => x.Season == item.Year).Select(x => x.ConstructorChampion).FirstOrDefault();
+
                     Items.Add(item);
                 }
             }
