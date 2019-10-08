@@ -152,21 +152,22 @@
                         Value="#000000" />
                 <Setter Property="Margin"
                         Value="0" />
+                <Setter Property="HorizontalOptions"
+                        Value="Fill" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalOptions"
+                        Value="Fill" />
             </Style>
 
             <Style TargetType="Label"
-                   x:Key="ListItemOdd">
+                   x:Key="ListItem">
                 <Setter Property="Margin"
-                        Value="0" />
-            </Style>
-
-            <Style TargetType="Label"
-                   x:Key="ListItemEven">
-                <Setter Property="BackgroundColor"
-                        Value="{StaticResource BackgroundLightDark}" />
-
-                <Setter Property="Margin"
-                        Value="0" />
+                        Value="2" />
+                <Setter Property="HorizontalOptions"
+                        Value="Fill" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
             </Style>
 
             <!-- SEARCHBAR STYLES -->

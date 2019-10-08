@@ -3,18 +3,106 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ErgastAPP.Views.ResultsDetailPage"
              Title="{Binding Title}">
-
+    
+    
     <StackLayout Style="{StaticResource MainLayout}">
 
-        <StackLayout x:Name="table"
-                     Style="{StaticResource TableLayout}">
-            
-            <Grid x:Name="grid">
-                
-            </Grid>
-            
-        </StackLayout>
-        
+
+        <ListView x:Name="ItemsListView"
+                  ItemsSource="{Binding Items}"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="true"
+                  RefreshCommand="{Binding LoadItemsCommand}"
+                  IsPullToRefreshEnabled="true"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  CachingStrategy="RecycleElement">
+            <ListView.Header>
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="POS."
+                           Style="{StaticResource HeaderResult}"
+                           Grid.Column="0"/>
+                    <Label Text="NO."
+                           Style="{StaticResource HeaderResult}"
+                           Grid.Column="1"/>
+                    <Label Text="Driver"
+                           Style="{StaticResource HeaderResult}"
+                           HorizontalTextAlignment="Start"
+                           Grid.Column="2"/>
+                    <Label Text="Constructor"
+                           Style="{StaticResource HeaderResult}"
+                           HorizontalTextAlignment="Start"
+                           Grid.Column="3" />
+                    <Label Text="Laps"
+                           Style="{StaticResource HeaderResult}"
+                           Grid.Column="4"/>
+                    <Label Text="Result"
+                           Style="{StaticResource HeaderResult}"
+                           HorizontalTextAlignment="Start"
+                           Grid.Column="5"/>
+                    <Label Text="Grid"
+                           Style="{StaticResource HeaderResult}"
+                           Grid.Column="6"/>
+                    <Label Text="Pts."
+                           Style="{StaticResource HeaderResult}"
+                           Grid.Column="7" />
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Text="{Binding Position}"
+                                   Style="{StaticResource ListItem}" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding Number}"
+                                   Style="{StaticResource ListItem}"/>
+                            <Label Grid.Column="2"
+                                   Text="{Binding Driver.Fullname}"
+                                   Style="{StaticResource ListItem}"
+                                   HorizontalTextAlignment="Start" />
+                            <Label Grid.Column="3"
+                                   Text="{Binding Constructor.Name}"
+                                   Style="{StaticResource ListItem}"
+                                   HorizontalTextAlignment="Start" />
+                            <Label Grid.Column="4"
+                                   Text="{Binding Laps}"
+                                   Style="{StaticResource ListItem}" />
+                            <Label Grid.Column="5"
+                                   Text="{Binding PrettyResult}"
+                                   Style="{StaticResource ListItem}"
+                                   HorizontalTextAlignment="Start" />
+                            <Label Grid.Column="6"
+                                   Text="{Binding Grid}"
+                                   Style="{StaticResource ListItem}" />
+                            <Label Grid.Column="7"
+                                   Text="{Binding Points}"
+                                   Style="{StaticResource ListItem}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
-    
 </ContentPage>

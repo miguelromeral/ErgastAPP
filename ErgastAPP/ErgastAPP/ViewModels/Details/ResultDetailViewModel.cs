@@ -2,7 +2,9 @@
 using ErgastAPP.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,6 +13,8 @@ namespace ErgastAPP.ViewModels
 {
     public class ResultDetailViewModel : BaseViewModel
     {
+        public ObservableCollection<Result> Items { get; set; }
+
         public Command LoadItemsCommand { get; set; }
 
         private Race _race;
@@ -24,7 +28,8 @@ namespace ErgastAPP.ViewModels
         {
             Race = r;
             Year = year;
-            
+
+            Items = new ObservableCollection<Result>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
@@ -40,6 +45,12 @@ namespace ErgastAPP.ViewModels
             {
                 var aux = await App.RestService.ResultsByRaceAsync(Year, Race.Round);
                 Race.Results = aux.Results;
+
+                Items.Clear();
+                foreach(var r in Race.Results.OrderBy(x => x.Position))
+                {
+                    Items.Add(r);
+                }
             }
             catch (Exception ex)
             {

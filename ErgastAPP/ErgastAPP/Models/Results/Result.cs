@@ -36,8 +36,12 @@ namespace ErgastAPP.Models
 
         [JsonProperty("Time")]
         public Time Time { get; set; }
-
+        
         [JsonProperty("FastestLap")]
         public FastestLap FastestLap { get; set; }
+
+
+
+        public string PrettyResult { get { return (Time != null ? Time.TotalTime : Status); } }
     }
 }
