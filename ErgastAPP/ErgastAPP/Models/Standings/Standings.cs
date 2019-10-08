@@ -18,6 +18,19 @@ namespace ErgastAPP.Models
         public List<DriverStandings> DriverStandings { get; set; }
 
 
+
+        public Constructor DriverConstructorChampion
+        {
+            get
+            {
+                var aux = DriverStandings?.Where(x => x.Position == 1).FirstOrDefault();
+                if (aux?.Constructor == null)
+                    return null;
+
+                return aux.Constructor[aux.Constructor.Count - 1];
+            }
+        }
+
         public Driver DriverChampion { get { return DriverStandings?.Where(x => x.Position == 1).FirstOrDefault()?.Driver; } }
     }
 }

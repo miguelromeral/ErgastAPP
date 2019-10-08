@@ -43,7 +43,7 @@ namespace ErgastAPP.ViewModels
                 foreach (var item in data.SeasonTable.Seasons)
                 {
                     item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
-
+                    item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
                     Items.Add(item);
                 }
             }

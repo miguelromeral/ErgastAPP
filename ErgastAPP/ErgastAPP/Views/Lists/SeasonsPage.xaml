@@ -18,13 +18,34 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                            </Grid>
+                            
                             
                             <Label Text="{Binding Year}"
-                                   Style="{StaticResource LabelListItemHeader}" />
+                                   Style="{StaticResource LabelListItemHeader}"
+                                   Grid.Row="0"/>
 
-                            <Label Text="{Binding DriverChampion.Fullname}"
-                                   Style="{StaticResource LabelListItemDetails}" />
-                            
+                            <Label Style="{StaticResource LabelListItemDetails}"
+                                   Grid.Row="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{Binding DriverChampion.Fullname}"
+                                                  FontAttributes="Bold" />
+                                <Span Text=" (" />
+                                <Span Text="{Binding DriverConstructorChampion.Name}"
+                                      FontAttributes="Italic"/>
+                                <Span Text=")" />
+                                </FormattedString.Spans>
+                                </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

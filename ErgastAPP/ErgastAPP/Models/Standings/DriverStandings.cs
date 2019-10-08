@@ -24,5 +24,6 @@ namespace ErgastAPP.Models
 
         [JsonProperty("Constructors")]
         public List<Constructor> Constructor { get; set; }
+
     }
 }

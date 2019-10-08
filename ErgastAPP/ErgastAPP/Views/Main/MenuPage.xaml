@@ -10,9 +10,16 @@
                 <DataTemplate>
                     <ViewCell>
                         <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            
                             <Image Source="{Binding Image}"
-                                   HeightRequest="48" />
+                                   HeightRequest="48" 
+                                   Grid.Column="0"/>
                             <Label Text="{Binding Title}"
+                                   Grid.Column="1"
                                    Style="{StaticResource MenuItem}" />
                         </Grid>
                     </ViewCell>

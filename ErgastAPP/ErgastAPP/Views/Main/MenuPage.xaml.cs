@@ -18,12 +18,18 @@ namespace ErgastAPP.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Home, Title="Home", Image = ""},
-                new HomeMenuItem {Id = MenuItemType.Seasons, Title="Seasons", Image = "" },
-                new HomeMenuItem {Id = MenuItemType.Circuits, Title="Circuits", Image = "" },
-                new HomeMenuItem {Id = MenuItemType.Drivers, Title="Drivers", Image = "" },
-                new HomeMenuItem {Id = MenuItemType.Constructors, Title="Constructors", Image = "" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About", Image = "" }
+                new HomeMenuItem {Id = MenuItemType.Home, Title="Home",
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/house.png"},
+                new HomeMenuItem {Id = MenuItemType.Seasons, Title="Seasons",
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/season.png" },
+                new HomeMenuItem {Id = MenuItemType.Circuits, Title="Circuits",
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/circuit.png" },
+                new HomeMenuItem {Id = MenuItemType.Drivers, Title="Drivers",
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/driver.png" },
+                new HomeMenuItem {Id = MenuItemType.Constructors, Title="Constructors",
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/constructor.png" },
+                new HomeMenuItem {Id = MenuItemType.About, Title="About",
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/about.png" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
