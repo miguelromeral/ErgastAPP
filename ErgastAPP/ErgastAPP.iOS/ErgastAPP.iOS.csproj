@@ -68,8 +68,14 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\exo2medium.ttf" />
+    <BundleResource Include="Resources\exo2mediumitalic.ttf" />
+    <BundleResource Include="Resources\exo2black.ttf" />
+    <BundleResource Include="Resources\exo2extrabold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

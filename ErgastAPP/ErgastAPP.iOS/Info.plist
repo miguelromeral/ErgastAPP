@@ -34,5 +34,12 @@
     <string>ErgastAPP</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+    <key>UIAppFonts</key>
+    <array>
+      <string>exo2black.ttf</string>
+      <string>exo2extrabold.ttf</string>
+      <string>exo2medium.ttf</string>
+      <string>exo2mediumitalic.ttf</string>
+    </array>
 </dict>
 </plist>

@@ -4,6 +4,35 @@
              x:Class="ErgastAPP.App">
     <Application.Resources>
         <ResourceDictionary>
+
+            <!--<OnPlatform x:TypeArguments="x:String"
+                        x:Key="BoldFont"
+                        WPF="/Assets/exo2extrablod.ttf#Exo 2 Extra Bold"/>
+            <OnPlatform x:TypeArguments="x:String"
+                        x:Key="NormalFont"
+                        Android="exo2medium.ttf#Exo 2 Medium"
+                        iOS="exo2medium" />
+            <OnPlatform x:TypeArguments="x:String"
+                        x:Key="ItalicFont"
+                        Android="exo2mediumitalic.ttf#Exo 2 Medium"
+                        iOS="exo2mediumitalic" />-->
+
+            <!--<OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="exo2extrablod.ttf#Exo 2 Extra Bold" />
+                <On Platform="UWP" Value="/Assets/exo2extrablod.ttf#Exo 2 Extra Bold" />
+                <On Platform="iOS" Value="exo2extrablod" />
+            </OnPlatform>-->
+            <!--<OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="exo2medium.ttf#Exo 2 Medium" />
+                <On Platform="UWP" Value="/Assets/exo2medium.ttf#Exo 2 Medium" />
+                <On Platform="iOS" Value="exo2medium" />
+            </OnPlatform>-->
+            <!--<OnPlatform x:TypeArguments="x:String" x:Key="ItalicFont">
+                <On Platform="Android" Value="exo2mediumitalic.ttf#Exo 2 Medium" />
+                <On Platform="UWP" Value="/Assets/exo2mediumitalic.ttf#Exo 2 Medium" />
+                <On Platform="iOS" Value="exo2mediumitalic" />
+            </OnPlatform>-->
+
             <!-- COLOR STYLES -->
             <Color x:Key="NavigationPrimary">#FF0000</Color>
             <Color x:Key="Primary">#FF0000</Color>
@@ -60,6 +89,8 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor"
                         Value="{StaticResource BackgroundWhite}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource BoldFont}" />
             </Style>
 
             <Style TargetType="Label"
