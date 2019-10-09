@@ -45,6 +45,17 @@ namespace ErgastAPP.Views
                 viewModel.LoadItemsCommand.Execute(null);
         }
 
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (viewModel.Items != null || viewModel.Items.Count != 0)
+            {
+                if (string.IsNullOrWhiteSpace(e.NewTextValue.ToString()))
+                    viewModel.LoadItemsFromData();
+                else
+                    viewModel.LoadItemsFromData(e.NewTextValue.ToString());
+            }
+        }
+
         //void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
         //{
         //    var item = args.SelectedItem as Button;

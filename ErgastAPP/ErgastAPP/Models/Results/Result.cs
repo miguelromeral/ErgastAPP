@@ -17,7 +17,7 @@ namespace ErgastAPP.Models
         public string PositionText { get; set; }
 
         [JsonProperty("points")]
-        public int Points { get; set; }
+        public double Points { get; set; }
 
         [JsonProperty("Driver")]
         public Driver Driver { get; set; }

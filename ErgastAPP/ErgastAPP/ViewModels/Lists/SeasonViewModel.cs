@@ -18,6 +18,10 @@ namespace ErgastAPP.ViewModels
         StandingsTable _standings;
         public StandingsTable Standings { get { return _standings; } set { SetProperty(ref _standings, value); } }
 
+        DataErgastSeasons data;
+        StandingsTable ds;
+        StandingsTable cs;
+
         public SeasonViewModel()
         {
             Title = "Seasons";
@@ -35,20 +39,11 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Items.Clear();
-                var data = await App.RestService.GetSeasonsDataAsync();
+                data = await App.RestService.GetSeasonsDataAsync();
+                ds = await App.RestService.DriverStandingsBySeason();
+                cs = await App.RestService.ConstructorStandingsBySeason();
 
-                var ds = await App.RestService.DriverStandingsBySeason();
-                var cs = await App.RestService.ConstructorStandingsBySeason();
-
-                foreach (var item in data.SeasonTable.Seasons)
-                {
-                    item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
-                    item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
-                    item.ConstructorChampion = cs.Standings.Where(x => x.Season == item.Year).Select(x => x.ConstructorChampion).FirstOrDefault();
-
-                    Items.Add(item);
-                }
+                LoadItemsFromData();
             }
             catch (Exception ex)
             {
@@ -57,6 +52,19 @@ namespace ErgastAPP.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        public void LoadItemsFromData(string content = "")
+        {
+            Items.Clear();
+            foreach (var item in data.SeasonTable.Seasons.Where(x => x.Year.ToString().Contains(content)))
+            {
+                item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
+                item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
+                item.ConstructorChampion = cs.Standings.Where(x => x.Season == item.Year).Select(x => x.ConstructorChampion).FirstOrDefault();
+
+                Items.Add(item);
             }
         }
     }

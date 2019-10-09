@@ -19,17 +19,17 @@ namespace ErgastAPP.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Home, Title="Home",
-                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/house.png"},
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/house_white.png"},
                 new HomeMenuItem {Id = MenuItemType.Seasons, Title="Seasons",
-                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/season.png" },
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/season_white.png" },
                 new HomeMenuItem {Id = MenuItemType.Circuits, Title="Circuits",
-                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/circuit.png" },
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/circuit_white.png" },
                 new HomeMenuItem {Id = MenuItemType.Drivers, Title="Drivers",
-                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/driver.png" },
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/driver_white.png" },
                 new HomeMenuItem {Id = MenuItemType.Constructors, Title="Constructors",
-                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/constructor.png" },
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/constructor_white.png" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About",
-                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/about.png" }
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/about_white.png" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

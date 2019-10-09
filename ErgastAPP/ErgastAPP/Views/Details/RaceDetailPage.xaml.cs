@@ -39,10 +39,11 @@ namespace ErgastAPP.Views
 
         private void Results_Clicked(object sender, EventArgs e)
         {
-            try
+            if (viewModel.Race != null)
             {
                 Navigation.PushAsync(new ResultsDetailPage(new ResultDetailViewModel(viewModel.Race, viewModel._year)));
-            }catch(Exception ex)
+            }
+            else
             {
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
             }

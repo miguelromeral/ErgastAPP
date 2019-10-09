@@ -71,7 +71,7 @@
             <Style TargetType="StackLayout"
                    x:Key="MenuLayout">
                 <Setter Property="BackgroundColor"
-                        Value="{StaticResource NavigationPrimary}" />
+                        Value="{StaticResource Accent}" />
                 <Setter Property="VerticalOptions"
                         Value="FillAndExpand" />
             </Style>
@@ -97,6 +97,10 @@
                         Value="{StaticResource BackgroundWhite}" />
                 <Setter Property="FontSize"
                         Value="Medium" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
             </Style>
 
             <Style TargetType="Label"
