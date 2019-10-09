@@ -13,10 +13,21 @@ namespace ErgastAPP.Views
         {
             InitializeComponent();
         }
+        
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked_1(object sender, EventArgs e)
         {
-            //DataErgast weatherData = await App.RestService.GetSeasonsDataAsync();
+            Device.OpenUri(new Uri("https://www.linkedin.com/in/miguelromeral/"));
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("https://ergast.com/mrd/"));
+        }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("https://dotnet.microsoft.com/apps/xamarin"));
         }
     }
 }

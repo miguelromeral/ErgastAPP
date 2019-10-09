@@ -10,63 +10,95 @@
     </ContentPage.BindingContext>
 
     <StackLayout Style="{StaticResource MainLayout}">
-        
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                <Label FontSize="22">
+
+        <ScrollView>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label FontSize="Large"
+                       Grid.Row="0">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="AppName" FontAttributes="Bold" FontSize="22" />
+                                <Span Text="F1 Stats"
+                                      FontAttributes="Bold" />
                                 <Span Text=" " />
-                                <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+                                <Span Text="1.0"
+                                      ForegroundColor="{StaticResource LightTextColor}"
+                                      FontSize="Medium" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label>
+
+                <Label Text="This is an application that shows the all time Formula 1 Statistics along its history."
+                       Style="{StaticResource Details_Info}"
+                       Grid.Row="1" />
+
+                <Label Style="{StaticResource Details_Info}"
+                       Grid.Row="2">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="This app is written in C# and native APIs using the" />
-                                <Span Text=" " />
-                                <Span Text="Xamarin Platform" FontAttributes="Bold" />
-                                <Span Text="." />
+                                <Span Text="App developed by " />
+                                <Span Text="MiguelRomeral"
+                                      FontAttributes="Bold" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label>
+
+                <Button Text="LinkedIn"
+                        Clicked="Button_Clicked_1"
+                        Style="{StaticResource ButtonMark}"
+                        Grid.Row="3"
+                        HorizontalOptions="End"/>
+
+                <Label Style="{StaticResource Details_Info}"
+                       Grid.Row="4">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="It shares code with its" />
-                                <Span Text=" " />
-                                <Span Text="iOS, Android, and Windows" FontAttributes="Bold" />
-                                <Span Text=" " />
-                                <Span Text="versions." />
+                                <Span Text="Data provided by " />
+                                <Span Text="Ergast"
+                                      FontAttributes="Bold" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
+
+                <Button Text="API WEBSITE"
                         Clicked="Button_Clicked"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
-            </StackLayout>
+                        Style="{StaticResource ButtonMark}"
+                        Grid.Row="5"
+                        HorizontalOptions="End" />
+
+                <Label Style="{StaticResource Details_Info}"
+                       Grid.Row="6">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Powered by " />
+                                <Span Text="Xamarin"
+                                      FontAttributes="Bold" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Button Text="XAMARIN INFO"
+                        Clicked="Button_Clicked_2"
+                        Style="{StaticResource ButtonMark}"
+                        Grid.Row="7"
+                        HorizontalOptions="End"/>
+
+            </Grid>
         </ScrollView>
-    </Grid>
-        </StackLayout> 
+    </StackLayout> 
 </ContentPage>
