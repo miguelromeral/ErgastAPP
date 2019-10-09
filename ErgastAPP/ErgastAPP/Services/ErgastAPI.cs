@@ -118,5 +118,11 @@ namespace ErgastAPP.Models
         {
             return URL + _constructorStandings + "/1" + _json + "?" + AddLimit();
         }
+
+
+        public string DriverStandingsByRace(int year, int round)
+        {
+            return URL + "/" + year + "/" + round +  _driverStandings + _json + "?" + AddLimit();
+        }
     }
 }

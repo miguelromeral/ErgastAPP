@@ -315,5 +315,27 @@ namespace ErgastAPP.Services
             }
             return null;
         }
+
+
+        public async Task<StandingsTable> DriverStandingsByRace(int year, int round)
+        {
+            string uri = _api.DriverStandingsByRace(year, round);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    var aux = JsonConvert.DeserializeObject<DataErgastStandings>(DataErgast.RemoveMRData(content));
+                    if (aux != null)
+                        return aux.StandingsTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
     }
 }

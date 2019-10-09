@@ -37,9 +37,25 @@ namespace ErgastAPP.Views
                 Device.OpenUri(new Uri(viewModel.Race.URL));
         }
 
-        private async void Results_Clicked(object sender, EventArgs e)
+        private void Results_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ResultsDetailPage(new ResultDetailViewModel(viewModel.Race, viewModel._year)));
+            try
+            {
+                Navigation.PushAsync(new ResultsDetailPage(new ResultDetailViewModel(viewModel.Race, viewModel._year)));
+            }catch(Exception ex)
+            {
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            }
+        }
+
+        private async void Qualy_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new QualyDetailPage(new QualyDetailViewModel(viewModel.Race, viewModel._year)));
+        }
+
+        private async void DriverStandings_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverStandingDetailPage(new DriverStandingDetailViewModel(viewModel.Race, viewModel._year)));
         }
     }
 }

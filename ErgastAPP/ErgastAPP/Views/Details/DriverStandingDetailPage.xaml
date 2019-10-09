@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErgastAPP.Views.DriverStandingDetailPage"
+            Title="{Binding Title}">
+
+        <StackLayout Style="{StaticResource MainLayout}">
+
+            <ListView x:Name="ItemsListView"
+                      ItemsSource="{Binding Items}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      RefreshCommand="{Binding LoadItemsCommand}"
+                      IsPullToRefreshEnabled="true"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement">
+                <ListView.Header>
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                        <Label Text="POS."
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="0" />
+                        <Label Text="Driver"
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="1" />
+                        <Label Text="Constructor"
+                               Style="{StaticResource HeaderResult}"
+                               HorizontalTextAlignment="Start"
+                               Grid.Column="2" />
+                        <Label Text="Pts."
+                               Style="{StaticResource HeaderResult}"
+                               HorizontalTextAlignment="Start"
+                               Grid.Column="3" />
+                    <Label Text="Wins"
+                           Style="{StaticResource HeaderResult}"
+                           Grid.Column="4" />
+                </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Text="{Binding PositionText}"
+                                   Style="{StaticResource ListItem}" />
+                            <Label Grid.Column="1"
+                                       Text="{Binding Driver.Fullname}"
+                                       Style="{StaticResource ListItem}"
+                                       HorizontalTextAlignment="Start" />
+                                <Label Grid.Column="2"
+                                   Text="{Binding LastConstructor.Name}"
+                                       Style="{StaticResource ListItem}"
+                                       HorizontalTextAlignment="Start" />
+                                <Label Grid.Column="3"
+                                   Text="{Binding PrettyPoints}"
+                                       Style="{StaticResource ListItem}" />
+                            <Label Grid.Column="4"
+                                   Text="{Binding Wins}"
+                                   Style="{StaticResource ListItem}" />
+                        </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>

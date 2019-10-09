@@ -37,7 +37,6 @@
                                 <FormattedString.Spans>
                                     <Span Text="F1 Stats"
                                           FontAttributes="Bold"
-                                          FontFamily="{StaticResource BoldFont}"
                                           FontSize="22" />
                                     <Span Text=" " />
                                     <Span Text="1.0"

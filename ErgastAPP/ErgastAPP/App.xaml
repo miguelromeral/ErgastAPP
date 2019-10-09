@@ -89,8 +89,6 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor"
                         Value="{StaticResource BackgroundWhite}" />
-                <Setter Property="FontFamily"
-                        Value="{StaticResource BoldFont}" />
             </Style>
 
             <Style TargetType="Label"
