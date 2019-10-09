@@ -6,9 +6,14 @@
 
     <StackLayout Style="{StaticResource MainLayout}">
 
-        <Button Text="SHOW SEASON REPORT"
+        <!--
+        
+            QUITADO, PORQUE SE MOSTRABA EN LA LISTA DE PILOTOS
+        
+        <Button x:Name="bSeason"
+                Text="SHOW SEASON REPORT"
                 Clicked="ShowReport_Clicked"
-                Style="{StaticResource ButtonMark}" />
+                Style="{StaticResource ButtonMark}" />-->
 
         <SearchBar x:Name="searchBar"
                    Placeholder="Search races"
@@ -32,7 +37,7 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
-                                            <Span Text="{Binding Round}" />
+                                            <Span Text="{Binding Number}" />
                                             <Span Text=". " />
                                             <Span Text="{Binding Name}" />
                                         </FormattedString.Spans>

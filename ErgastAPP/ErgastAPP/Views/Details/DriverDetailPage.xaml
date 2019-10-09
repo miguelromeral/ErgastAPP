@@ -19,6 +19,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Label Text="Fullname"
@@ -86,15 +87,36 @@
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />
 
-            <Label Text="{Binding RacesWon.Races.Count}"
+            <Label Text="{Binding Races.RacesWon.Count}"
                    Grid.Row="6"
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
+            <Label Text="POLE POSITIONS"
+                   Grid.Row="7"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Label Text="{Binding Races.RacesPolePosition.Count}"
+                   Grid.Row="7"
+                   Grid.Column="1"
+                   Style="{StaticResource Details_Info}" />
+
+            <Label Text="RACE STARTS"
+                   Grid.Row="8"
+                   Grid.Column="0"
+                   Style="{StaticResource Details_Header}" />
+
+            <Button Text="{Binding Races.Races.Count}"
+                    Clicked="Races_Clicked"
+                    Style="{StaticResource ButtonTransparent}"
+                    Grid.Row="8"
+                    Grid.Column="1" />
+
             <Button Text="SHOW REPORT"
                     Clicked="ReportButton_Clicked"
                     Style="{StaticResource ButtonMark}"
-                    Grid.Row="7"
+                    Grid.Row="9"
                     Grid.Column="1" />
         </Grid>
     </StackLayout>

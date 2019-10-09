@@ -48,5 +48,8 @@ namespace ErgastAPP.Models
 
 
         public Result FastestLap { get { return Results?.Where(x => x.FastestLap != null && x.FastestLap.Rank == 1).FirstOrDefault(); } }
+
+
+        public int Number { get; set; }
     }
 }

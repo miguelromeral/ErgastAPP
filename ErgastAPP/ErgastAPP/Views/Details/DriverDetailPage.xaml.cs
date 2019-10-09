@@ -36,5 +36,13 @@ namespace ErgastAPP.Views
             if(viewModel.Item != null)
                 Device.OpenUri(new Uri(viewModel.Item.URL));
         }
+
+        private void Races_Clicked(object sender, EventArgs e)
+        {
+            if(viewModel.Item != null && viewModel.Races != null)
+                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, viewModel.Races)));
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ErgastAPP.Models
@@ -15,5 +16,12 @@ namespace ErgastAPP.Models
 
         [JsonProperty("Races")]
         public List<Race> Races { get; set; }
+
+        [JsonProperty("driverId")]
+        public string DriverId { get; set; }
+
+
+        public List<Race> RacesWon { get { return Races?.Where(x => x.Results[0].Position == 1).ToList(); } }
+        public List<Race> RacesPolePosition { get { return Races?.Where(x => x.Results[0].Grid == 1).ToList(); } }
     }
 }

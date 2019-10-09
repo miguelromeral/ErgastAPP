@@ -18,19 +18,29 @@ namespace ErgastAPP.ViewModels
         public Command LoadItemsCommand { get; set; }
 
         public Season Season;
+        public Driver Driver;
 
-        public DataErgastRaces Data { get; set; }
+        public RaceTable Data { get; set; }
 
         public RaceViewModel(Season s)
         {
             Season = s;
-            Title = s.Year+" Races";
+            Title = s.Year + " Races";
             Items = new ObservableCollection<Race>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandSeason());
+        }
+        
+        public RaceViewModel(Driver d, RaceTable races)
+        {
+            Driver = d;
+            Title = d.Fullname + " Races";
+            Data = races;
+            Items = new ObservableCollection<Race>();
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandDriver());
         }
 
 
-        async Task ExecuteLoadItemsCommand()
+        async Task ExecuteLoadItemsCommandSeason()
         {
             if (IsBusy)
                 return;
@@ -40,7 +50,28 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Data = await App.RestService.GetRacesBySeasonAsync(Season.Year);
-                Title = Data.RaceTable.Season.ToString();
+                LoadItemsFromData();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+
+        async Task ExecuteLoadItemsCommandDriver()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
                 LoadItemsFromData();
             }
             catch (Exception ex)
@@ -56,9 +87,12 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in Data.RaceTable.Races.Where(i => i.Name.ToLower().Contains(content.ToLower())))
+            int count = 1;
+            foreach (var item in Data.Races.Where(i => i.Name.ToLower().Contains(content.ToLower())))
             {
+                item.Number = count;
                 Items.Add(item);
+                count++;
             }
         }
     }

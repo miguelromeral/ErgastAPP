@@ -42,6 +42,7 @@ namespace ErgastAPP.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+            
         }
 
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

@@ -24,7 +24,7 @@ namespace ErgastAPP.ViewModels
         string racename;
         public string Racename { get { return racename; } set { SetProperty(ref racename, value); } }
 
-        DataErgastRaces _races;
+        RaceTable _races;
         DataErgastDrivers _drivers;
 
         public static string ALL_TEXT = "All";
@@ -68,7 +68,7 @@ namespace ErgastAPP.ViewModels
                     if (YearPicked != null)
                     {
                         _races = await App.RestService.GetRacesBySeasonAsync((int)YearPicked);
-                        foreach (var s in _races.RaceTable.Races)
+                        foreach (var s in _races.Races)
                         {
                             Rounds.Add(s.Round.ToString());
                         }
@@ -105,7 +105,7 @@ namespace ErgastAPP.ViewModels
         {
             if (_races != null)
             {
-                foreach (var r in _races.RaceTable.Races)
+                foreach (var r in _races.Races)
                 {
                     if (r.Round == RoundPicked)
                     {

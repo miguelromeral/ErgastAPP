@@ -20,6 +20,7 @@ namespace ErgastAPP.Models
         private string _qualifying = "/qualifying";
 
 
+        #region SEASONS
         public string Seasons
         {
             get
@@ -32,6 +33,12 @@ namespace ErgastAPP.Models
         {
             return URL + "/" + year + _seasons + _json;
         }
+        public string SeasonWorldChampionByYear(int year)
+        {
+            return URL + year + _driverStandings + "/1" + _json;
+        }
+        #endregion
+
         private string AddLimit()
         {
             if (limit == 0)
@@ -40,11 +47,18 @@ namespace ErgastAPP.Models
             return "limit=" + limit;
         }
 
+        #region RACES
         public string RacesBySeason(int year)
         {
             return URL + "/" + year + _json + "?" + AddLimit();
         }
+        public string RaceByDriverPosition(string driver, int position)
+        {
+            return URL + _drivers + "/" + driver + _results + "/" + position + _json + "?" + AddLimit();
+        }
+        #endregion
 
+        #region DRIVERS
         public string Drivers(int? year = null, int? round = null)
         {
             string extra = "";
@@ -64,8 +78,17 @@ namespace ErgastAPP.Models
             return URL + _drivers + "/" + driverId + _json;
         }
 
+        public string SeasonWorldChampionByDriver(string driver)
+        {
+            return URL + _drivers + "/" + driver + _driverStandings + "/1" + _seasons + _json;
+        }
+        #endregion
+
+        #region CONSTRUCTORS
         public string Constructors { get { return URL + _constructors + _json + "?" + AddLimit(); } }
-        
+        #endregion
+
+        #region CIRCUITS
         public string Circuits(int? year = null)
         {
             string extra = "";
@@ -77,38 +100,29 @@ namespace ErgastAPP.Models
 
             return URL + "/" + extra + "circuits" + _json + "?" + AddLimit();
         }
+        #endregion
 
+        #region RESULTS
         public string RaceResults(int year, int round)
-        {
-            return URL + "/" + year + "/" + round + _results + _json;
-        }
-
-        public string SeasonWorldChampionByDriver(string driver)
-        {
-            return URL + _drivers + "/" + driver + _driverStandings + "/1" + _seasons + _json;
-        }
-
-        public string SeasonWorldChampionByYear(int year)
-        {
-            return URL + year + _driverStandings + "/1" + _json;
-        }
-
-        public string RaceByDriverPosition(string driver, int position)
-        {
-            return URL + _drivers + "/" + driver + _results + "/" + position + _json + "?" + AddLimit();
-        }
-
-        public string ResultsByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _results + _json + "?" + AddLimit();
         }
-        
+
+        public string RacesByDriver(string driver)
+        {
+            return URL + _drivers + "/" + driver + _results + _json + "?" + AddLimit();
+        }
+        #endregion
+
+
+        #region QUALIFYING
         public string QualifyingByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _qualifying + _json + "?" + AddLimit();
         }
+        #endregion
 
-
+        #region STANDINGS
         public string ChampionsByYear()
         {
             return URL + _driverStandings + "/1" + _json + "?" + AddLimit();
@@ -118,15 +132,15 @@ namespace ErgastAPP.Models
         {
             return URL + _constructorStandings + "/1" + _json + "?" + AddLimit();
         }
-
-
         public string DriverStandingsByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _driverStandings + _json + "?" + AddLimit();
         }
+
         public string ConstructorStandingsByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _constructorStandings + _json + "?" + AddLimit();
         }
+        #endregion
     }
 }

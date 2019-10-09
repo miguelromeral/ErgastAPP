@@ -42,17 +42,19 @@ namespace ErgastAPP.Services
             return data;
         }
 
-        public async Task<DataErgastRaces> GetRacesBySeasonAsync(int year)
+        public async Task<RaceTable> GetRacesBySeasonAsync(int year)
         {
             string uri = _api.RacesBySeason(year);
-            DataErgastRaces data = null;
             try
             {
+                DataErgastRaces data = null;
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     data = JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content));
+                    if (data != null)
+                        return data.RaceTable;
                 }
             }
             catch (Exception ex)
@@ -60,7 +62,7 @@ namespace ErgastAPP.Services
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return data;
+            return null;
         }
 
         public async Task<DataErgastDrivers> GetDriversAsync(int? year = null, int? round = null)
@@ -237,7 +239,7 @@ namespace ErgastAPP.Services
 
         public async Task<Race> ResultsByRaceAsync(int year, int round)
         {
-            string uri = _api.ResultsByRace(year, round);
+            string uri = _api.RaceResults(year, round);
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
@@ -337,6 +339,8 @@ namespace ErgastAPP.Services
             }
             return null;
         }
+
+
         public async Task<StandingsTable> ConstructorStandingsByRace(int year, int round)
         {
             string uri = _api.ConstructorStandingsByRace(year, round);
@@ -349,6 +353,28 @@ namespace ErgastAPP.Services
                     var aux = JsonConvert.DeserializeObject<DataErgastStandings>(DataErgast.RemoveMRData(content));
                     if (aux != null)
                         return aux.StandingsTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+
+        public async Task<RaceTable> RacesByDriverAsync(string driver)
+        {
+            string uri = _api.RacesByDriver(driver);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    var aux = JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content));
+                    if (aux != null)
+                        return aux.RaceTable;
                 }
             }
             catch (Exception ex)

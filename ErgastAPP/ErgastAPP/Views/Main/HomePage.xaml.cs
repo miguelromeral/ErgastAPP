@@ -23,5 +23,10 @@ namespace ErgastAPP.Views
         {
             await Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(2019, 16)));
         }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel("alonso")));
+        }
     }
 }

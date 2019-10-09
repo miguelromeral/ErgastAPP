@@ -224,7 +224,6 @@
                 <Setter Property="HorizontalOptions"
                         Value="FillAndExpand" />
             </Style>
-            
 
             <!-- BUTTON STYLES -->
             <Style TargetType="Button"
@@ -246,7 +245,29 @@
                 <Setter Property="BorderWidth"
                         Value="2" />
             </Style>
-            
+
+            <Style TargetType="Button"
+                   x:Key="ButtonTransparent">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundLightDark}" />
+                <Setter Property="TextColor"
+                        Value="#FFFFFF" />
+                <Setter Property="VerticalOptions"
+                        Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+                <Setter Property="BorderColor"
+                        Value="{StaticResource BackgroundLightDark}" />
+                <Setter Property="BorderRadius"
+                        Value="5" />
+                <Setter Property="BorderWidth"
+                        Value="2" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="FontSize"
+                        Value="Medium" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
