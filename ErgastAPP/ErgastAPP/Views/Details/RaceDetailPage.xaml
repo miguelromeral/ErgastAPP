@@ -87,6 +87,7 @@
                                 Clicked="Results_Clicked"
                                 Style="{StaticResource ButtonMark}"
                                 Grid.Row="6"
+                                HorizontalOptions="FillAndExpand"
                                 Grid.Column="1" />
                     </Grid>
                 </StackLayout>
@@ -181,6 +182,7 @@
                         <Button Text="FULL QUALYFING"
                                 Clicked="Qualy_Clicked"
                                 Style="{StaticResource ButtonMark}"
+                                HorizontalOptions="FillAndExpand"
                                 Grid.Row="9"
                                 Grid.Column="1" />
 
@@ -253,7 +255,14 @@
                         <Button Text="DRIVERS"
                                 Clicked="DriverStandings_Clicked"
                                 Style="{StaticResource ButtonMark}"
-                                Grid.Column="0" />
+                                Grid.Column="0"
+                                HorizontalOptions="FillAndExpand" />
+                        
+                        <Button Text="CONSTRUCTORS"
+                                Clicked="ConstructorStandings_Clicked"
+                                Style="{StaticResource ButtonMark}"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Column="1" />
 
                     </Grid>
                 </StackLayout>

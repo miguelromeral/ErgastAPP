@@ -43,6 +43,14 @@ namespace ErgastAPP.ViewModels
                 ds = await App.RestService.DriverStandingsBySeason();
                 cs = await App.RestService.ConstructorStandingsBySeason();
 
+                foreach (var item in data.SeasonTable.Seasons)
+                {
+                    item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
+                    item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
+                    item.ConstructorChampion = cs.Standings.Where(x => x.Season == item.Year).Select(x => x.ConstructorChampion).FirstOrDefault();
+                    
+                }
+
                 LoadItemsFromData();
             }
             catch (Exception ex)
@@ -60,10 +68,6 @@ namespace ErgastAPP.ViewModels
             Items.Clear();
             foreach (var item in data.SeasonTable.Seasons.Where(x => x.Year.ToString().Contains(content)))
             {
-                item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
-                item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
-                item.ConstructorChampion = cs.Standings.Where(x => x.Season == item.Year).Select(x => x.ConstructorChampion).FirstOrDefault();
-
                 Items.Add(item);
             }
         }

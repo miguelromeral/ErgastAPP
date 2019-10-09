@@ -38,5 +38,21 @@ namespace ErgastAPP.Models
         public Driver DriverChampion { get { return DriverStandings?.Where(x => x.Position == 1).FirstOrDefault()?.Driver; } }
 
         public Constructor ConstructorChampion { get { return ConstructorStandings?.Where(x => x.Position == 1).FirstOrDefault()?.Constructor; } }
+
+
+        public static string DoFormat(double myNumber)
+        {
+            var s = string.Format("{0:0.0}", myNumber);
+
+            if (s.EndsWith("0"))
+            {
+                return ((int)myNumber).ToString();
+            }
+            else
+            {
+                return s;
+            }
+        }
     }
 }
+

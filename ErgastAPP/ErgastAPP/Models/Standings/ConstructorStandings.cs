@@ -21,5 +21,8 @@ namespace ErgastAPP.Models
 
         [JsonProperty("Constructor")]
         public Constructor Constructor { get; set; }
+
+
+        public string PrettyPoints { get { return Standings.DoFormat(Points); } }
     }
 }

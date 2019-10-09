@@ -26,22 +26,9 @@ namespace ErgastAPP.Models
         public List<Constructor> Constructor { get; set; }
 
 
-        public string PrettyPoints { get { return DoFormat(Points); } }
+        public string PrettyPoints { get { return Standings.DoFormat(Points); } }
 
         public Constructor LastConstructor { get { return Constructor?[Constructor.Count - 1]; } }
 
-        private string DoFormat(double myNumber)
-        {
-            var s = string.Format("{0:0.0}", myNumber);
-
-            if (s.EndsWith("0"))
-            {
-                return ((int)myNumber).ToString();
-            }
-            else
-            {
-                return s;
-            }
-        }
     }
 }

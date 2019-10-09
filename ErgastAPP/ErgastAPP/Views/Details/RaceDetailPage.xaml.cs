@@ -49,14 +49,31 @@ namespace ErgastAPP.Views
             }
         }
 
-        private async void Qualy_Clicked(object sender, EventArgs e)
+        private void Qualy_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QualyDetailPage(new QualyDetailViewModel(viewModel.Race, viewModel._year)));
+            if (viewModel.Race != null)
+                Navigation.PushAsync(new QualyDetailPage(new QualyDetailViewModel(viewModel.Race, viewModel._year)));
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
 
-        private async void DriverStandings_Clicked(object sender, EventArgs e)
+        private void DriverStandings_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DriverStandingDetailPage(new DriverStandingDetailViewModel(viewModel.Race, viewModel._year)));
+            if (viewModel.Race != null)
+                Navigation.PushAsync(new DriverStandingDetailPage(new DriverStandingDetailViewModel(viewModel.Race, viewModel._year)));
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
+
+        private void ConstructorStandings_Clicked(object sender, EventArgs e)
+        {
+            if(viewModel.Race == null)
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            else
+                if(viewModel.Race?.Season >= 1958)
+                    Navigation.PushAsync(new ConstructorStandingDetailPage(new ConstructorStandingDetailViewModel(viewModel.Race, viewModel._year)));
+                else
+                    DisplayAlert("Constructor Standings Missing", "The Constructor Championship wasn't be awarded since 1958.", "OK");
         }
     }
 }
