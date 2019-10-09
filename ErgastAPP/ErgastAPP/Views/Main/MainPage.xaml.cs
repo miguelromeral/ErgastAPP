@@ -65,5 +65,7 @@ namespace ErgastAPP.Views
                 IsPresented = false;
             }
         }
+
+
     }
 }

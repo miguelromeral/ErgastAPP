@@ -30,10 +30,10 @@ namespace ErgastAPP.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandSeason());
         }
         
-        public RaceViewModel(Driver d, RaceTable races)
+        public RaceViewModel(Driver d, RaceTable races, string title = "Races")
         {
             Driver = d;
-            Title = d.Fullname + " Races";
+            Title = title;
             Data = races;
             Items = new ObservableCollection<Race>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandDriver());

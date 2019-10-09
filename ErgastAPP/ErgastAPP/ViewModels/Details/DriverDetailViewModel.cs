@@ -22,18 +22,15 @@ namespace ErgastAPP.ViewModels
         RaceTable races;
         public RaceTable Races { get { return races; } set { SetProperty(ref races, value); } }
 
+      
 
-        RaceTable poles;
-        public RaceTable Poles { get { return poles; } set { SetProperty(ref poles, value); } }
-
-
-        string _driverId;
+        public string DriverId;
         DataErgastDrivers _drivers;
 
 
         public DriverDetailViewModel(string driverId)
         {
-            _driverId = driverId;
+            DriverId = driverId;
             
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
@@ -47,14 +44,14 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                _drivers = await App.RestService.GetDriverInfoAsync(_driverId);
+                _drivers = await App.RestService.GetDriverInfoAsync(DriverId);
                 Item = _drivers.DriverTable.Drivers[0];
                 Title = Item.Fullname;
-                var s = await App.RestService.GetSeasonsDriverWorldChampionAsync(_driverId);
+                var s = await App.RestService.GetSeasonsDriverWorldChampionAsync(DriverId);
                 if (s != null)
                     SeasonsWorldChampions = s.SeasonTable;
 
-                Races = await App.RestService.RacesByDriverAsync(_driverId);
+                Races = await App.RestService.RacesByDriverAsync(DriverId);
             }
             catch (Exception ex)
             {

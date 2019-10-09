@@ -82,25 +82,28 @@
                    Grid.Column="1"
                    Style="{StaticResource Details_Info}" />
 
-            <Label Text="Races Won"
+            <Label Text="RACES WON"
                    Grid.Row="6"
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />
 
-            <Label Text="{Binding Races.RacesWon.Count}"
-                   Grid.Row="6"
-                   Grid.Column="1"
-                   Style="{StaticResource Details_Info}" />
-
+            <Button Text="{Binding Races.RacesWon.Count}"
+                    Clicked="RacesWon_Clicked"
+                    Style="{StaticResource ButtonTransparent}"
+                    Grid.Row="6"
+                    Grid.Column="1" />
+            
+            
             <Label Text="POLE POSITIONS"
                    Grid.Row="7"
                    Grid.Column="0"
                    Style="{StaticResource Details_Header}" />
 
-            <Label Text="{Binding Races.RacesPolePosition.Count}"
-                   Grid.Row="7"
-                   Grid.Column="1"
-                   Style="{StaticResource Details_Info}" />
+            <Button Text="{Binding Races.RacesPolePosition.Count}"
+                    Clicked="RacesPoles_Clicked"
+                    Style="{StaticResource ButtonTransparent}"
+                    Grid.Row="7"
+                    Grid.Column="1" />
 
             <Label Text="RACE STARTS"
                    Grid.Row="8"
