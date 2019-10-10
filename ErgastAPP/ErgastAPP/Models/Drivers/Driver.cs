@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ErgastAPP.Resources;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -37,6 +38,8 @@ namespace ErgastAPP.Models
 
         [JsonProperty("nationality")]
         public string Nationality { get; set; }
+
+        public string Flag { get { return Images.FlagByNationality(Nationality); } }
 
         [JsonProperty("permanentNumber")]
         public int Number { get; set; }

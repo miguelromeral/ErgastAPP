@@ -268,6 +268,23 @@
                         Value="Medium" />
             </Style>
 
+            <!-- IMAGES STYLES -->
+            <Style TargetType="Image"
+                   x:Key="ImageFlag">
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="HeightRequest"
+                        Value="14" />
+                <Setter Property="WidthRequest"
+                        Value="20" />
+                <Setter Property="Aspect"
+                        Value="AspectFill" />
+                <Setter Property="Margin"
+                        Value="3" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
