@@ -45,36 +45,7 @@ namespace ErgastAPP.Views
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
-
-        private void PickerYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                viewModel.YearPicked = Convert.ToInt32(pickerYear.SelectedItem);
-            }catch(Exception)
-            {
-                viewModel.YearPicked = null;
-            }
-            viewModel.Rounds.Clear();
-            viewModel.RoundPicked = null;
-
-            viewModel.LoadItemsCommand.Execute(null);
-        }
-
-        private void PickerRound_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                viewModel.RoundPicked = Convert.ToInt32(pickerRound.SelectedItem);
-            }
-            catch (Exception)
-            {
-                viewModel.RoundPicked = null;
-            }
-
-            viewModel.LoadItemsCommand.Execute(null);
-        }
+        
 
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {

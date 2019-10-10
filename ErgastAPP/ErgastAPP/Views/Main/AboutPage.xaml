@@ -37,7 +37,7 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Label Text="This is an application that shows the all time Formula 1 Statistics along its history."
+                <Label Text="This is an application that shows the all time Formula 1 Statistics along its History."
                        Style="{StaticResource Details_Info}"
                        Grid.Row="1" />
 

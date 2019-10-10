@@ -5,34 +5,12 @@
              Title="{Binding Title}">
 
     <StackLayout Style="{StaticResource MainLayout}">
-        
-        <StackLayout>
 
-            <SearchBar x:Name="searchBar"
-                       Placeholder="Search drivers"
-                       TextChanged="SearchBar_TextChanged" />
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Search drivers"
+                   TextChanged="SearchBar_TextChanged" />
 
-            <StackLayout Orientation="Horizontal">
-            
-                <Picker x:Name="pickerYear"
-                        Title="Year"
-                        ItemsSource="{Binding Years}"
-                        SelectedIndexChanged="PickerYear_SelectedIndexChanged" />
-                <Picker x:Name="pickerRound"
-                        Title="Round"
-                        ItemsSource="{Binding Rounds}"
-                        SelectedIndexChanged="PickerRound_SelectedIndexChanged" />
-            </StackLayout>
-
-            <Label x:Name="labelRace"
-                   HorizontalTextAlignment="Center"
-                   Margin="10"
-                   Text="{Binding Racename}"
-                   TextColor="{StaticResource BackgroundWhite}"
-                   FontSize="18" />
-        
-        </StackLayout>
-
+      
         <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Items}"
                   VerticalOptions="FillAndExpand"

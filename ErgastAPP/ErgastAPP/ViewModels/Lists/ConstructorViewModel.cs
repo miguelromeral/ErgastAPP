@@ -16,7 +16,7 @@ namespace ErgastAPP.ViewModels
         public Command LoadItemsCommand { get; set; }
 
         ConstructorTable Data;
-
+        
         public ConstructorViewModel()
         {
             Title = "Constructors";
@@ -77,6 +77,7 @@ namespace ErgastAPP.ViewModels
             }
         }
 
+        
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
@@ -86,6 +87,7 @@ namespace ErgastAPP.ViewModels
                 Items.Add(item);
             }
         }
+        
 
     }
 }

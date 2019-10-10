@@ -10,6 +10,7 @@
                    Placeholder="Search constructors"
                    TextChanged="SearchBar_TextChanged" />
 
+        
         <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Items}"
                   VerticalOptions="FillAndExpand"
