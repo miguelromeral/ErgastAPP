@@ -110,7 +110,9 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in data.Seasons.Where(x => x.Year.ToString().Contains(content)))
+            foreach (var item in data.Seasons.Where(x => x.Year.ToString().Contains(content) ||
+            (x.DriverChampion != null && x.DriverChampion.Fullname.ToLower().Contains(content.ToLower())) ||
+            (x.ConstructorChampion != null && x.ConstructorChampion.Name.ToLower().Contains(content.ToLower()))))
             {
                 Items.Add(item);
             }

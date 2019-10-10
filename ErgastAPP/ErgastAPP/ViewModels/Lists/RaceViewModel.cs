@@ -88,7 +88,8 @@ namespace ErgastAPP.ViewModels
         {
             Items.Clear();
             int count = 1;
-            foreach (var item in Data.Races.Where(i => i.Name.ToLower().Contains(content.ToLower())))
+            foreach (var item in Data.Races.Where(i => i.Name.ToLower().Contains(content.ToLower()) ||
+            i.Circuit.Name.ToLower().Contains(content.ToLower()) || i.Date.ToLower().Contains(content.ToLower())))
             {
                 item.Number = count;
                 Items.Add(item);

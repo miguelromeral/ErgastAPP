@@ -19,8 +19,8 @@ namespace ErgastAPP.ViewModels
 
         public int? YearPicked { get; set; }
         
-        DataErgastRaces _races;
-        DataErgastCircuits _circuits;
+        RaceTable _races;
+        CircuitTable _circuits;
 
         public static string ALL_TEXT = "All";
 
@@ -55,7 +55,7 @@ namespace ErgastAPP.ViewModels
                 }
                 
                 _circuits = await App.RestService.GetCircuitsAsync(YearPicked);
-                _circuits.CircuitTable.Circuits = _circuits.CircuitTable.Circuits.OrderBy(o => o.Name).ToList();
+                _circuits.Circuits = _circuits.Circuits.OrderBy(o => o.Name).ToList();
                 LoadItemsFromData();
             }
             catch (Exception ex)
@@ -72,7 +72,7 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in _circuits.CircuitTable.Circuits.Where(i => i.Name.ToLower().Contains(content.ToLower()) || 
+            foreach (var item in _circuits.Circuits.Where(i => i.Name.ToLower().Contains(content.ToLower()) || 
             i.Location.Address.ToLower().Contains(content.ToLower())))
             {
                 Items.Add(item);

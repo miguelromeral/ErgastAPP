@@ -93,7 +93,8 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in _drivers.DriverTable.Drivers.Where(i => i.Fullname.ToLower().Contains(content.ToLower())))
+            foreach (var item in _drivers.DriverTable.Drivers.Where(i => i.Fullname.ToLower().Contains(content.ToLower()) ||
+            i.Nationality.ToLower().Contains(content.ToLower()) || i.Number.ToString().Contains(content.ToLower())))
             {
                 Items.Add(item);
             }
