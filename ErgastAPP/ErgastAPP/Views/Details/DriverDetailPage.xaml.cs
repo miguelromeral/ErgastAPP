@@ -64,8 +64,19 @@ namespace ErgastAPP.Views
             if (viewModel.Item != null && viewModel.Races != null)
             {
                 var table = new RaceTable();
-                table.Races = viewModel.Races.RacesPolePosition;
+                table.Races = viewModel.Races.RacesWon;
+
                 Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, table, viewModel.Item.Fullname + " Wins")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
+
+        private void WorldChampion_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.SeasonsWorldChampions != null && viewModel.Item != null)
+            {
+                Navigation.PushAsync(new SeasonsPage(new SeasonViewModel(viewModel.SeasonsWorldChampions, viewModel.Item.Fullname + " World Champions")));
             }
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");

@@ -31,7 +31,7 @@ namespace ErgastAPP.Views
                         break;
 
                     case (int)MenuItemType.Seasons:
-                        MenuPages.Add(id, new NavigationPage(new SeasonsPage()));
+                        MenuPages.Add(id, new NavigationPage(new SeasonsPage(new ViewModels.SeasonViewModel())));
                         break;
 
                     case (int)MenuItemType.Drivers:

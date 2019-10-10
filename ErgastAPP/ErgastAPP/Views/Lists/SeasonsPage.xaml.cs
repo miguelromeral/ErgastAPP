@@ -16,11 +16,11 @@ namespace ErgastAPP.Views
 	{
         SeasonViewModel viewModel;
 
-		public SeasonsPage()
+		public SeasonsPage(SeasonViewModel viewModel)
 		{
 			InitializeComponent();
             
-            BindingContext = viewModel = new SeasonViewModel();
+            BindingContext = this.viewModel = viewModel;
         }
 
 

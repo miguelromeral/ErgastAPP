@@ -251,13 +251,13 @@
                 <Setter Property="BackgroundColor"
                         Value="{StaticResource BackgroundDark}" />
                 <Setter Property="TextColor"
-                        Value="#FFFFFF" />
+                        Value="{StaticResource Accent}" />
                 <Setter Property="VerticalOptions"
                         Value="CenterAndExpand" />
                 <Setter Property="HorizontalOptions"
                         Value="FillAndExpand" />
                 <Setter Property="BorderColor"
-                        Value="{StaticResource BackgroundDark}" />
+                        Value="{StaticResource Accent}" />
                 <Setter Property="BorderRadius"
                         Value="5" />
                 <Setter Property="BorderWidth"

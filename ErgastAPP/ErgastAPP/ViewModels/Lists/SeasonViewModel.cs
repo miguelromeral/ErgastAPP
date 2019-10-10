@@ -18,7 +18,10 @@ namespace ErgastAPP.ViewModels
         StandingsTable _standings;
         public StandingsTable Standings { get { return _standings; } set { SetProperty(ref _standings, value); } }
 
-        DataErgastSeasons data;
+
+        private SeasonTable data { get; set; }
+
+
         StandingsTable ds;
         StandingsTable cs;
 
@@ -29,6 +32,13 @@ namespace ErgastAPP.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
+        public SeasonViewModel(SeasonTable seasons, string title)
+        {
+            Title = title;
+            data = seasons;
+            Items = new ObservableCollection<Season>();
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandSeasons());
+        }
 
         async Task ExecuteLoadItemsCommand()
         {
@@ -39,11 +49,11 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                data = await App.RestService.GetSeasonsDataAsync();
+                data = (await App.RestService.GetSeasonsDataAsync() as DataErgastSeasons).SeasonTable;
                 ds = await App.RestService.DriverStandingsBySeason();
                 cs = await App.RestService.ConstructorStandingsBySeason();
 
-                foreach (var item in data.SeasonTable.Seasons)
+                foreach (var item in data.Seasons)
                 {
                     item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
                     item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
@@ -63,10 +73,44 @@ namespace ErgastAPP.ViewModels
             }
         }
 
+
+        async Task ExecuteLoadItemsCommandSeasons()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                ds = await App.RestService.DriverStandingsBySeason();
+                cs = await App.RestService.ConstructorStandingsBySeason();
+
+                foreach (var item in data.Seasons)
+                {
+                    item.DriverChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverStandings[0].Driver).FirstOrDefault();
+                    item.DriverConstructorChampion = ds.Standings.Where(x => x.Season == item.Year).Select(x => x.DriverConstructorChampion).FirstOrDefault();
+                    item.ConstructorChampion = cs.Standings.Where(x => x.Season == item.Year).Select(x => x.ConstructorChampion).FirstOrDefault();
+
+                }
+
+                LoadItemsFromData();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in data.SeasonTable.Seasons.Where(x => x.Year.ToString().Contains(content)))
+            foreach (var item in data.Seasons.Where(x => x.Year.ToString().Contains(content)))
             {
                 Items.Add(item);
             }
