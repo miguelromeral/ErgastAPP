@@ -15,7 +15,7 @@ namespace ErgastAPP.ViewModels
         public ObservableCollection<Constructor> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        DataErgastConstructors Data;
+        ConstructorTable Data;
 
         public ConstructorViewModel()
         {
@@ -24,6 +24,13 @@ namespace ErgastAPP.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
+        public ConstructorViewModel(ConstructorTable data, string title)
+        {
+            this.Data = data;
+            Title = title;
+            Items = new ObservableCollection<Constructor>();
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandConstructor());
+        }
 
         async Task ExecuteLoadItemsCommand()
         {
@@ -35,7 +42,29 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Data = await App.RestService.GetConstructorsAsync();
-                Data.ConstructorTable.Constructors = Data.ConstructorTable.Constructors.OrderBy(o => o.Name).ToList();
+                Data.Constructors = Data.Constructors.OrderBy(o => o.Name).ToList();
+                LoadItemsFromData();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        async Task ExecuteLoadItemsCommandConstructor()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                Data.Constructors = Data.Constructors.OrderBy(o => o.Name).ToList();
                 LoadItemsFromData();
             }
             catch (Exception ex)
@@ -51,7 +80,7 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in Data.ConstructorTable.Constructors.Where(i => i.Name.ToLower().Contains(content.ToLower())))
+            foreach (var item in Data.Constructors.Where(i => i.Name.ToLower().Contains(content.ToLower())))
             {
                 Items.Add(item);
             }

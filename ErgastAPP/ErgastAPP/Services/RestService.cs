@@ -129,17 +129,16 @@ namespace ErgastAPP.Services
             return data;
         }
 
-        public async Task<DataErgastConstructors> GetConstructorsAsync()
+        public async Task<ConstructorTable> GetConstructorsAsync()
         {
             string uri = _api.Constructors;
-            DataErgastConstructors data = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<DataErgastConstructors>(DataErgast.RemoveMRData(content));
+                    return JsonConvert.DeserializeObject<DataErgastConstructors>(DataErgast.RemoveMRData(content))?.ConstructorTable;
                 }
             }
             catch (Exception ex)
@@ -147,7 +146,7 @@ namespace ErgastAPP.Services
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return data;
+            return null;
         }
 
 
@@ -375,6 +374,27 @@ namespace ErgastAPP.Services
                     var aux = JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content));
                     if (aux != null)
                         return aux.RaceTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+
+
+        public async Task<ConstructorTable> ConstructorsByDriverAsync(string driver)
+        {
+            string uri = _api.ConstructorsByDriver(driver);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastConstructors>(DataErgast.RemoveMRData(content))?.ConstructorTable;
                 }
             }
             catch (Exception ex)

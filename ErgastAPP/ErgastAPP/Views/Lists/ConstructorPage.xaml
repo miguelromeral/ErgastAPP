@@ -27,9 +27,19 @@
                                    LineBreakMode="NoWrap"
                                    Style="{StaticResource LabelListItemHeader}" />
 
-                            <Label Text="{Binding Nationality}"
-                                   LineBreakMode="NoWrap"
-                                   Style="{StaticResource LabelListItemDetails}" />
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="{Binding Flag}"
+                                       Style="{StaticResource ImageFlag}"
+                                       HorizontalOptions="Start" />
+
+                                <Label Text="{Binding Nationality}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{StaticResource LabelListItemDetails}"
+                                       HorizontalOptions="Start" />
+
+                            </StackLayout>
+
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -191,6 +191,25 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
+                        <Label Text="TEAMS"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Constructors.Constructors.Count}"
+                                Clicked="Constructors_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
                         <Button Text="SHOW REPORT"
                                 Clicked="ReportButton_Clicked"
                                 Style="{StaticResource ButtonMark}"

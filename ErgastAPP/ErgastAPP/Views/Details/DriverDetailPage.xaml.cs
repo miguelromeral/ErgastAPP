@@ -94,5 +94,15 @@ namespace ErgastAPP.Views
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
+
+        private void Constructors_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Constructors != null && viewModel.Races != null)
+            {
+                Navigation.PushAsync(new ConstructorPage(new ConstructorViewModel(viewModel.Constructors, viewModel.Item.Fullname + " Teams")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ErgastAPP.ViewModels;
 
 namespace ErgastAPP.Views
 {
@@ -31,7 +32,7 @@ namespace ErgastAPP.Views
                         break;
 
                     case (int)MenuItemType.Seasons:
-                        MenuPages.Add(id, new NavigationPage(new SeasonsPage(new ViewModels.SeasonViewModel())));
+                        MenuPages.Add(id, new NavigationPage(new SeasonsPage(new SeasonViewModel())));
                         break;
 
                     case (int)MenuItemType.Drivers:
@@ -43,7 +44,7 @@ namespace ErgastAPP.Views
                         break;
 
                     case (int)MenuItemType.Constructors:
-                        MenuPages.Add(id, new NavigationPage(new ConstructorPage()));
+                        MenuPages.Add(id, new NavigationPage(new ConstructorPage(new ConstructorViewModel())));
                         break;
 
                     case (int)MenuItemType.About:

@@ -15,11 +15,11 @@ namespace ErgastAPP.Views
 	{
         ConstructorViewModel viewModel;
 
-		public ConstructorPage ()
+		public ConstructorPage (ConstructorViewModel viewModel)
 		{
 			InitializeComponent ();
 
-            BindingContext = viewModel = new ConstructorViewModel();
+            BindingContext = this.viewModel = viewModel;
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
