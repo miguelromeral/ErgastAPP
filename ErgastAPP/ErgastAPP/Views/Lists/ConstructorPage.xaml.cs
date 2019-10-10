@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Models;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,14 +26,14 @@ namespace ErgastAPP.Views
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
 
-            //var item = args.SelectedItem as Driver;
-            //if (item == null)
-            //    return;
+            var item = args.SelectedItem as Constructor;
+            if (item == null)
+                return;
 
-            //await Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel(item.Id)));
+            await Navigation.PushAsync(new ConstructorDetailPage(new ConstructorDetailViewModel(item)));
 
-            //// Manually deselect item.
-            //ItemsListView.SelectedItem = null;
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
 
         }
 

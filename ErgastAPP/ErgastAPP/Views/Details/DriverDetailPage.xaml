@@ -36,9 +36,15 @@
                                Grid.Column="0"
                                Style="{StaticResource Details_Header}" />
 
-                        <Label Text="{Binding Item.Nationality}"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                        <StackLayout Grid.Column="1"
+                                     Orientation="Horizontal">
+                            <Image Source="{Binding Item.Flag}"
+                                   Style="{StaticResource ImageFlag}" />
+
+                            <Label Text="{Binding Item.Nationality}"
+                                   Style="{StaticResource Details_Info}" />
+
+                        </StackLayout>
 
                     </Grid>
                 </StackLayout>
