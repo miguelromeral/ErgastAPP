@@ -71,8 +71,6 @@ namespace ErgastAPP.Resources
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1280px-Flag_of_India.svg.png";
                 case "Irish":
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/1920px-Flag_of_Ireland.svg.png";
-                case "Argentine-Italian":
-                    return "";
                 case "Czech":
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/1280px-Flag_of_the_Czech_Republic.svg.png";
                 case "East German":
@@ -85,16 +83,16 @@ namespace ErgastAPP.Resources
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/1280px-Flag_of_Indonesia.svg.png";
                 case "Rhodesian":
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Flag_of_Rhodesia_%281968%E2%80%931979%29.svg/1920px-Flag_of_Rhodesia_%281968%E2%80%931979%29.svg.png";
-                case "American-Italian":
-                    return "";
                 case "Liechtensteiner":
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Liechtenstein.svg/1280px-Flag_of_Liechtenstein.svg.png";
                 case "Malaysian":
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/1920px-Flag_of_Malaysia.svg.png";
                 case "Hong Kong":
                     return "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Flag_of_Hong_Kong.svg/1280px-Flag_of_Hong_Kong.svg.png";
+                case "American-Italian":
+                case "Argentine-Italian":
                 default:
-                    return "";
+                    return "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/1280px-Flag_of_None.svg.png";
             }
         }
     }

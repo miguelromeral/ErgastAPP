@@ -56,20 +56,11 @@ namespace ErgastAPP.Views
             }
         }
 
-        //void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
-        //{
-        //    var item = args.SelectedItem as Button;
-        //    var aux = item.Parent;
+        void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
+        {
+            var selectedLocation = viewModel.Items.First(item => item.Year == int.Parse((sender as Button).CommandParameter.ToString()));
 
-
-        //    var item = args.SelectedItem as Season;
-        //    if (item == null)
-        //        return;
-
-        //    Device.OpenUri(new Uri(item.URL));
-
-        //    // Manually deselect item.
-        //    ItemsListView.SelectedItem = null;
-        //}
+            Device.OpenUri(new Uri(selectedLocation.URL));
+        }
     }
 }
