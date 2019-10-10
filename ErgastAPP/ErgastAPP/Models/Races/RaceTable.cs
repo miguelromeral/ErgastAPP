@@ -23,5 +23,9 @@ namespace ErgastAPP.Models
 
         public List<Race> RacesWon { get { return Races?.Where(x => x.Results[0].Position == 1).ToList(); } }
         public List<Race> RacesPolePosition { get { return Races?.Where(x => x.Results[0].Grid == 1).ToList(); } }
+        public List<Race> RacesPodiums { get { return Races?.Where(x => x.Results[0].Position == 1 ||
+                                                                    x.Results[0].Position == 2 ||
+                                                                    x.Results[0].Position == 3).ToList(); } }
+
     }
 }

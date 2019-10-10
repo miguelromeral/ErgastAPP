@@ -44,12 +44,12 @@ namespace ErgastAPP.Models
         [JsonProperty("permanentNumber")]
         public int Number { get; set; }
 
-        public string PrettyNumber { get { return (Number == 0 ? "No number assigned" : Number.ToString()); } }
+        public string PrettyNumber { get { return (Number == 0 ? "-" : Number.ToString()); } }
 
         [JsonProperty("code")]
         public string Code { get; set; }
 
-        public string PrettyCode { get { return (String.IsNullOrEmpty(Code) ? "No code assigned" : Code); } }
+        public string PrettyCode { get { return (String.IsNullOrEmpty(Code) ? "-" : Code); } }
 
         public string Fullname { get { return GivenName + " " + FamilyName.ToUpper(); } }
     }

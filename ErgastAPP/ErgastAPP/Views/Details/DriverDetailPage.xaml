@@ -5,123 +5,202 @@
              Title="{Binding Title}">
 
     <StackLayout Style="{StaticResource MainLayout}">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
+        <ScrollView>
+            <StackLayout>
 
-            <Label Text="Fullname"
-                   Grid.Row="0"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}"/>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-            <Label Text="{Binding Item.Fullname}"
-                   Grid.Row="0"
-                   Grid.Column="1"
-                   Style="{StaticResource Details_Info}" />
+                        <Label Text="Fullname"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
 
-            <Label Text="Nationality"
-                   Grid.Row="1"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                        <Label Text="{Binding Item.Fullname}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
 
-            <Label Text="{Binding Item.Nationality}"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   Style="{StaticResource Details_Info}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-            <Label Text="Birthday"
-                   Grid.Row="2"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                        <Label Text="Nationality"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
 
-            <Label Text="{Binding Item.Birthday}"
-                   Grid.Row="2"
-                   Grid.Column="1"
-                   Style="{StaticResource Details_Info}" />
+                        <Label Text="{Binding Item.Nationality}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
 
-            <Label Text="World Champion"
-                   Grid.Row="3"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-            <Button Text="{Binding SeasonsWorldChampions.PrettySeasons}"
-                    Clicked="WorldChampion_Clicked"
-                    Style="{StaticResource ButtonTransparent}"
-                    Grid.Row="3"
-                    Grid.Column="1" />
+                        <Label Text="Birthday"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
 
-            <Label Text="Car Number"
-                   Grid.Row="4"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                        <Label Text="{Binding Item.Birthday}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
 
-            <Label Text="{Binding Item.PrettyNumber}"
-                   Grid.Row="4"
-                   Grid.Column="1"
-                   Style="{StaticResource Details_Info}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-            <Label Text="Code"
-                   Grid.Row="5"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                        <Label Text="World Champion"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
 
-            <Label Text="{Binding Item.PrettyCode}"
-                   Grid.Row="5"
-                   Grid.Column="1"
-                   Style="{StaticResource Details_Info}" />
+                        <Button Text="{Binding SeasonsWorldChampions.PrettySeasons}"
+                                Clicked="WorldChampion_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
 
-            <Label Text="RACES WON"
-                   Grid.Row="6"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-            <Button Text="{Binding Races.RacesWon.Count}"
-                    Clicked="RacesWon_Clicked"
-                    Style="{StaticResource ButtonTransparent}"
-                    Grid.Row="6"
-                    Grid.Column="1" />
-            
-            
-            <Label Text="POLE POSITIONS"
-                   Grid.Row="7"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                        <Label Text="Car Number"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
 
-            <Button Text="{Binding Races.RacesPolePosition.Count}"
-                    Clicked="RacesPoles_Clicked"
-                    Style="{StaticResource ButtonTransparent}"
-                    Grid.Row="7"
-                    Grid.Column="1" />
+                        <Label Text="{Binding Item.PrettyNumber}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
 
-            <Label Text="RACE STARTS"
-                   Grid.Row="8"
-                   Grid.Column="0"
-                   Style="{StaticResource Details_Header}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-            <Button Text="{Binding Races.Races.Count}"
-                    Clicked="Races_Clicked"
-                    Style="{StaticResource ButtonTransparent}"
-                    Grid.Row="8"
-                    Grid.Column="1" />
+                        <Label Text="Code"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
 
-            <Button Text="SHOW REPORT"
-                    Clicked="ReportButton_Clicked"
-                    Style="{StaticResource ButtonMark}"
-                    Grid.Row="9"
-                    Grid.Column="1" />
-        </Grid>
+                        <Label Text="{Binding Item.PrettyCode}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="RACES WON"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.RacesWon.Count}"
+                                Clicked="RacesWon_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="POLE POSITIONS"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.RacesPolePosition.Count}"
+                                Clicked="RacesPoles_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="RACE STARTS"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.Races.Count}"
+                                Clicked="Races_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="PODIUMS"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.RacesPodiums.Count}"
+                                Clicked="Podiums_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Text="SHOW REPORT"
+                                Clicked="ReportButton_Clicked"
+                                Style="{StaticResource ButtonMark}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+                
+                
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
 </ContentPage>

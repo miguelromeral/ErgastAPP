@@ -81,5 +81,18 @@ namespace ErgastAPP.Views
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
+
+        private void Podiums_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Item != null && viewModel.Races != null)
+            {
+                var table = new RaceTable();
+                table.Races = viewModel.Races.RacesPodiums;
+
+                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, table, viewModel.Item.Fullname + " Podiums")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
     }
 }

@@ -278,7 +278,7 @@
                 <Setter Property="HeightRequest"
                         Value="14" />
                 <Setter Property="WidthRequest"
-                        Value="20" />
+                        Value="24" />
                 <Setter Property="Aspect"
                         Value="AspectFill" />
                 <Setter Property="Margin"
