@@ -4,6 +4,17 @@
              x:Class="ErgastAPP.Views.MenuPage"
              Title="Menu">
     <StackLayout Style="{StaticResource MenuLayout}">
+
+        <StackLayout BackgroundColor="#000000"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="Fill">
+            <ContentView Padding="40"
+                         VerticalOptions="FillAndExpand">
+                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1000px-F1.svg.png"
+                       VerticalOptions="Center" />
+            </ContentView>
+        </StackLayout>
+
         <ListView x:Name="ListViewMenu"
                     HasUnevenRows="True">
             <ListView.ItemTemplate>

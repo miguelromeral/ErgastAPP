@@ -45,25 +45,47 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Fullname}"
-                                   LineBreakMode="NoWrap"
-                                   Style="{StaticResource LabelListItemHeader}"/>
 
-                            <StackLayout Orientation="Horizontal">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                                <Image Source="{Binding Flag}"
-                                       Style="{StaticResource ImageFlag}"
-                                       HorizontalOptions="Start" />
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding Fullname}"
+                                               LineBreakMode="NoWrap"
+                                               Style="{StaticResource LabelListItemHeader}" />
 
-                                <Label Text="{Binding Nationality}"
-                                       LineBreakMode="NoWrap"
-                                       Style="{StaticResource LabelListItemDetails}"
-                                       HorizontalOptions="Start" />
+                                        <StackLayout Orientation="Horizontal">
 
-                            </StackLayout>
+                                            <Image Source="{Binding Flag}"
+                                                   Style="{StaticResource ImageFlag}"
+                                                   HorizontalOptions="Start" />
+
+                                            <Label Text="{Binding Nationality}"
+                                                   LineBreakMode="NoWrap"
+                                                   Style="{StaticResource LabelListItemDetails}"
+                                                   HorizontalOptions="Start" />
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <Button Text="SHOW REPORT"
+                                        Clicked="ShowReport_Clicked"
+                                        CommandParameter="{Binding Id}"
+                                        Style="{StaticResource ButtonMark}"
+                                        HorizontalOptions="End"
+                                        Grid.Column="1" />
+
+                            </Grid>
 
                         </StackLayout>
+
+                        
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
