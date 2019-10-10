@@ -18,7 +18,7 @@
                     <Grid ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                             <ColumnDefinition Width="1*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
@@ -27,7 +27,6 @@
                            Grid.Column="0" />
                     <Label Text="Constructor"
                                Style="{StaticResource HeaderResult}"
-                               HorizontalTextAlignment="Start"
                                Grid.Column="1" />
                         <Label Text="Pts."
                                Style="{StaticResource HeaderResult}"
@@ -44,6 +43,7 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -51,14 +51,17 @@
                             <Label Grid.Column="0"
                                    Text="{Binding PositionText}"
                                    Style="{StaticResource ListItem}" />
-                            <Label Grid.Column="1"
+                            <Image Source="{Binding Constructor.Flag}"
+                                   Style="{StaticResource ImageFlag}"
+                                   Grid.Column="1" />
+                            <Label Grid.Column="2"
                                        Text="{Binding Constructor.Name}"
                                        Style="{StaticResource ListItem}"
                                        HorizontalTextAlignment="Start" />
-                                <Label Grid.Column="2"
+                                <Label Grid.Column="3"
                                        Text="{Binding PrettyPoints}"
                                        Style="{StaticResource ListItem}" />
-                                <Label Grid.Column="3"
+                                <Label Grid.Column="4"
                                        Text="{Binding Wins}"
                                        Style="{StaticResource ListItem}" />
                             </Grid>

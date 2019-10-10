@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ErgastAPP.Resources;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,5 +19,9 @@ namespace ErgastAPP.Models
 
         [JsonProperty("nationality")]
         public string Nationality { get; set; }
+
+
+
+        public string Flag { get { return Images.FlagByNationality(Nationality); } }
     }
 }

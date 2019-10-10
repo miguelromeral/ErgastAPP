@@ -21,7 +21,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
                         <ColumnDefinition Width="3*"></ColumnDefinition>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -36,7 +36,6 @@
                            Grid.Column="1"/>
                     <Label Text="Driver"
                            Style="{StaticResource HeaderResult}"
-                           HorizontalTextAlignment="Start"
                            Grid.Column="2"/>
                     <Label Text="Constructor"
                            Style="{StaticResource HeaderResult}"
@@ -65,6 +64,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -77,26 +77,29 @@
                                    Style="{StaticResource ListItem}" />
                             <Label Grid.Column="1"
                                    Text="{Binding Number}"
-                                   Style="{StaticResource ListItem}"/>
-                            <Label Grid.Column="2"
+                                   Style="{StaticResource ListItem}" />
+                            <Image Source="{Binding Driver.Flag}"
+                                   Style="{StaticResource ImageFlag}"
+                                   Grid.Column="2" />
+                            <Label Grid.Column="3"
                                    Text="{Binding Driver.Fullname}"
                                    Style="{StaticResource ListItem}"
                                    HorizontalTextAlignment="Start" />
-                            <Label Grid.Column="3"
+                            <Label Grid.Column="4"
                                    Text="{Binding Constructor.Name}"
                                    Style="{StaticResource ListItem}"
                                    HorizontalTextAlignment="Start" />
-                            <Label Grid.Column="4"
+                            <Label Grid.Column="5"
                                    Text="{Binding Laps}"
                                    Style="{StaticResource ListItem}" />
-                            <Label Grid.Column="5"
+                            <Label Grid.Column="6"
                                    Text="{Binding PrettyResult}"
                                    Style="{StaticResource ListItem}"
                                    HorizontalTextAlignment="Start" />
-                            <Label Grid.Column="6"
+                            <Label Grid.Column="7"
                                    Text="{Binding Grid}"
                                    Style="{StaticResource ListItem}" />
-                            <Label Grid.Column="7"
+                            <Label Grid.Column="8"
                                    Text="{Binding Points}"
                                    Style="{StaticResource ListItem}" />
                         </Grid>
