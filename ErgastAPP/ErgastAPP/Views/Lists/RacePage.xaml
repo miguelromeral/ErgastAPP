@@ -32,8 +32,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label LineBreakMode="NoWrap"
-                                   Style="{StaticResource LabelListItemHeader}">
+                            <Label Style="{StaticResource LabelListItemHeader}">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>

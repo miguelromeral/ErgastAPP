@@ -72,7 +72,8 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in _circuits.CircuitTable.Circuits.Where(i => i.Name.ToLower().Contains(content.ToLower())))
+            foreach (var item in _circuits.CircuitTable.Circuits.Where(i => i.Name.ToLower().Contains(content.ToLower()) || 
+            i.Location.Address.ToLower().Contains(content.ToLower())))
             {
                 Items.Add(item);
             }

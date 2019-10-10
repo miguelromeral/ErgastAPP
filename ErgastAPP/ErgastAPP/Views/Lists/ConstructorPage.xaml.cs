@@ -53,5 +53,13 @@ namespace ErgastAPP.Views
                 viewModel.LoadItemsFromData(e.NewTextValue.ToString());
             
         }
+        
+
+        void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
+        {
+            var selectedLocation = viewModel.Items.First(item => item.Id == (sender as Button).CommandParameter.ToString());
+
+            Device.OpenUri(new Uri(selectedLocation.URL));
+        }
     }
 }

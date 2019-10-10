@@ -30,15 +30,37 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Name}"
-                                   LineBreakMode="NoWrap"
-                                   Style="{StaticResource LabelListItemHeader}" />
 
-                            <Label Text="{Binding Location.Address}"
-                                   LineBreakMode="NoWrap"
-                                   Style="{StaticResource LabelListItemDetails}" />
+                        <StackLayout Padding="10">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="0">
+
+                                    <Label Text="{Binding Name}"
+                                           Style="{StaticResource LabelListItemHeader}" />
+
+                                    <Label Text="{Binding Location.Address}"
+                                           Style="{StaticResource LabelListItemDetails}" />
+
+                                </StackLayout>
+
+                                <Button Text="SHOW REPORT"
+                                        Clicked="ShowReport_Clicked"
+                                        CommandParameter="{Binding Id}"
+                                        Style="{StaticResource ButtonMark}"
+                                        HorizontalOptions="End"
+                                        Grid.Column="1" />
+
+                            </Grid>
+
                         </StackLayout>
+                        
+
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

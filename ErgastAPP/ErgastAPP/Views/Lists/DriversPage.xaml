@@ -66,7 +66,6 @@
                                                    HorizontalOptions="Start" />
 
                                             <Label Text="{Binding Nationality}"
-                                                   LineBreakMode="NoWrap"
                                                    Style="{StaticResource LabelListItemDetails}"
                                                    HorizontalOptions="Start" />
 
