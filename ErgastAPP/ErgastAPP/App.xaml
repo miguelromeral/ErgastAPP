@@ -249,7 +249,7 @@
             <Style TargetType="Button"
                    x:Key="ButtonTransparent">
 
-                <Setter Property="BackgroundColor"
+                <!--<Setter Property="BackgroundColor"
                         Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="TextColor"
                         Value="#FFFFFF" />
@@ -269,9 +269,9 @@
                 <Setter Property="FontAttributes"
                         Value="Bold" />
                 <Setter Property="FontSize"
-                        Value="Medium" />
+                        Value="Medium" />-->
 
-                <!--<Setter Property="BackgroundColor"
+                <Setter Property="BackgroundColor"
                         Value="#000000" />
                 <Setter Property="BorderColor"
                         Value="#000000" />
@@ -288,7 +288,7 @@
                 <Setter Property="FontAttributes"
                         Value="Bold" />
                 <Setter Property="FontSize"
-                        Value="Medium" />-->
+                        Value="Medium" />
             </Style>
 
             <!-- IMAGES STYLES -->

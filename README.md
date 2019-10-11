@@ -8,6 +8,24 @@ This is an application that shows the all time Formula 1 Statistics along its Hi
 
 You can check the [DEMO Android version](https://github.com/miguelromeral/ErgastAPP/blob/master/es.miguelromeral.f1stats.apk?raw=true), deployed on 2019 October 10th ('unknown sources' required).
 
+## Screenshots
+
+Some application screenshots in UWP (design susceptible to change)
+
+![Home](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Home.png)
+
+![Seasons](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Seasons.png)
+
+![Races](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Races.png)
+
+![Results](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Results.png)
+
+![Driver](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Driver.png)
+
+![Constructors](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Constructors.png)
+
+![Circuits](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Circuits.png)
+
 ## About
 
 App developed by [MiguelRomeral](https://www.linkedin.com/in/miguelromeral/).
