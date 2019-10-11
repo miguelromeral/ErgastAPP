@@ -22,6 +22,13 @@ namespace ErgastAPP.ViewModels
 
         public RaceTable Data { get; set; }
 
+        public RaceViewModel()
+        {
+            Title = "Races";
+            Items = new ObservableCollection<Race>();
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandRaces());
+        }
+
         public RaceViewModel(Season s)
         {
             Season = s;
@@ -29,7 +36,7 @@ namespace ErgastAPP.ViewModels
             Items = new ObservableCollection<Race>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandSeason());
         }
-        
+
         public RaceViewModel(Driver d, RaceTable races, string title = "Races")
         {
             Driver = d;
@@ -50,6 +57,29 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Data = await App.RestService.GetRacesBySeasonAsync(Season.Year);
+                LoadItemsFromData();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+
+        async Task ExecuteLoadItemsCommandRaces()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                Data = await App.RestService.GetRacesAsync();
                 LoadItemsFromData();
             }
             catch (Exception ex)

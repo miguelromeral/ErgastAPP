@@ -65,6 +65,39 @@ namespace ErgastAPP.Services
             return null;
         }
 
+
+        public async Task<RaceTable> GetRacesByURIAsync(string uri)
+        {
+            try
+            {
+                DataErgastRaces data = null;
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return null;
+        }
+
+        public async Task<RaceTable> GetRacesAsync()
+        {
+            var r1 = await GetRacesByURIAsync(_api.RacesPt1());
+            var r2 = await GetRacesByURIAsync(_api.RacesPt2());
+
+            foreach(var r in r2.Races)
+            {
+                r1.Races.Add(r);
+            }
+            return r1;
+        }
+
         public async Task<DataErgastDrivers> GetDriversAsync(int? year = null, int? round = null)
         {
             string uri = _api.Drivers(year, round);

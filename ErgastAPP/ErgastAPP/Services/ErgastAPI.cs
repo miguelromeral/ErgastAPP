@@ -7,11 +7,11 @@ namespace ErgastAPP.Models
     public class ErgastAPI
     {
         public static string URL = "https://ergast.com/api/f1";
-        public int limit = 10000;
+        public int limit = 1000;
 
         private string _json = ".json";
         private string _seasons = "/seasons";
-
+        private string _races = "/races";
         private string _drivers = "/drivers";
         private string _driverStandings = "/driverStandings";
         private string _constructorStandings = "/constructorStandings";
@@ -46,8 +46,20 @@ namespace ErgastAPP.Models
 
             return "limit=" + limit;
         }
+        private string AddOffset(int offset)
+        {
+            return "offset=" + offset;
+        }
 
         #region RACES
+        public string RacesPt1()
+        {
+            return URL + _races + _json + "?" + AddLimit();
+        }
+        public string RacesPt2()
+        {
+            return URL + _races + _json + "?" + AddLimit() + "&" + AddOffset(limit);
+        }
         public string RacesBySeason(int year)
         {
             return URL + "/" + year + _json + "?" + AddLimit();

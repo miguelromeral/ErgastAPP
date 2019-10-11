@@ -22,6 +22,8 @@ namespace ErgastAPP.Views
                     Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/house_white.png"},
                 new HomeMenuItem {Id = MenuItemType.Seasons, Title="Seasons",
                     Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/season_white.png" },
+                new HomeMenuItem {Id = MenuItemType.Races, Title="Races",
+                    Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/trophy_white.png" },
                 new HomeMenuItem {Id = MenuItemType.Circuits, Title="Circuits",
                     Image = "https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/Resources/Icons/circuit_white.png" },
                 new HomeMenuItem {Id = MenuItemType.Drivers, Title="Drivers",

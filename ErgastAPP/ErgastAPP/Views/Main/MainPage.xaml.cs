@@ -39,6 +39,10 @@ namespace ErgastAPP.Views
                         MenuPages.Add(id, new NavigationPage(new DriversPage()));
                         break;
 
+                    case (int)MenuItemType.Races:
+                        MenuPages.Add(id, new NavigationPage(new RacePage(new RaceViewModel())));
+                        break;
+
                     case (int)MenuItemType.Circuits:
                         MenuPages.Add(id, new NavigationPage(new CircuitsPage()));
                         break;
