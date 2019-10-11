@@ -22,11 +22,22 @@ namespace ErgastAPP.ViewModels
 
         public RaceTable Data { get; set; }
 
+
+        enum DataSource
+        {
+            All,
+            Seasons,
+            RacesProvided
+        }
+
+        DataSource _source;
+
         public RaceViewModel()
         {
             Title = "Races";
             Items = new ObservableCollection<Race>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandRaces());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            _source = DataSource.All;
         }
 
         public RaceViewModel(Season s)
@@ -34,7 +45,8 @@ namespace ErgastAPP.ViewModels
             Season = s;
             Title = s.Year + " Races";
             Items = new ObservableCollection<Race>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandSeason());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            _source = DataSource.Seasons;
         }
 
         public RaceViewModel(Driver d, RaceTable races, string title = "Races")
@@ -43,11 +55,11 @@ namespace ErgastAPP.ViewModels
             Title = title;
             Data = races;
             Items = new ObservableCollection<Race>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandDriver());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            _source = DataSource.RacesProvided;
         }
 
-
-        async Task ExecuteLoadItemsCommandSeason()
+        async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
                 return;
@@ -56,52 +68,20 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Data = await App.RestService.GetRacesBySeasonAsync(Season.Year);
-                LoadItemsFromData();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-
-
-        async Task ExecuteLoadItemsCommandRaces()
-        {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
-            try
-            {
-                Data = await App.RestService.GetRacesAsync();
-                LoadItemsFromData();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-
-
-        async Task ExecuteLoadItemsCommandDriver()
-        {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
-            try
-            {
+                switch (_source)
+                {
+                    case DataSource.Seasons:
+                        Data = await App.RestService.GetRacesBySeasonAsync(Season.Year);
+                        break;
+                    case DataSource.RacesProvided:
+                        // If it's already provided, there's no need to request the data.
+                        break;
+                    case DataSource.All:
+                    default:
+                        Data = await App.RestService.GetRacesAsync();
+                        break;
+                }
+                
                 LoadItemsFromData();
             }
             catch (Exception ex)

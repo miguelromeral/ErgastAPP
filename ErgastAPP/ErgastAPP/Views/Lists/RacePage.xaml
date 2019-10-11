@@ -6,15 +6,6 @@
 
     <StackLayout Style="{StaticResource MainLayout}">
 
-        <!--
-        
-            QUITADO, PORQUE SE MOSTRABA EN LA LISTA DE PILOTOS
-        
-        <Button x:Name="bSeason"
-                Text="SHOW SEASON REPORT"
-                Clicked="ShowReport_Clicked"
-                Style="{StaticResource ButtonMark}" />-->
-
         <SearchBar x:Name="searchBar"
                    Placeholder="Search races"
                    TextChanged="SearchBar_TextChanged"/>
@@ -26,31 +17,50 @@
                   RefreshCommand="{Binding LoadItemsCommand}"
                   IsPullToRefreshEnabled="true"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                  CachingStrategy="RecycleElement"
                   ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Style="{StaticResource LabelListItemHeader}">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <FormattedString.Spans>
-                                            <Span Text="{Binding Number}" />
-                                            <Span Text=". " />
-                                            <Span Text="{Binding Name}" />
-                                        </FormattedString.Spans>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
 
-                            <Label Text="{Binding Circuit.Name}"
-                                   Style="{StaticResource LabelListItemDetails}"
-                                   FontSize="13" />
-                            <Label Text="{Binding Date}"
-                                   Style="{StaticResource LabelListItemDetails}"
-                                   FontSize="11" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="0">
+                                    <Label Style="{StaticResource LabelListItemHeader}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{Binding Number}" />
+                                                    <Span Text=". " />
+                                                    <Span Text="{Binding Name}" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Text="{Binding Circuit.Name}"
+                                           Style="{StaticResource LabelListItemDetails}"
+                                           FontSize="13" />
+                                    <Label Text="{Binding Date}"
+                                           Style="{StaticResource LabelListItemDetails}"
+                                           FontSize="11" />
+                                </StackLayout>
+
+                                <Button Text="SHOW REPORT"
+                                        Clicked="ShowReport_Clicked"
+                                        CommandParameter="{Binding URL}"
+                                        Style="{StaticResource ButtonMark}"
+                                        HorizontalOptions="End"
+                                        Grid.Column="1" />
+
+                            </Grid>
+
                         </StackLayout>
+
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

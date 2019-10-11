@@ -52,11 +52,11 @@ namespace ErgastAPP.Views
             else
                 viewModel.LoadItemsFromData(e.NewTextValue.ToString());
         }
-
-        private async void ShowReport_Clicked(object sender, EventArgs e)
+        
+        
+        void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
         {
-            if(viewModel.Season != null)
-                Device.OpenUri(new Uri(viewModel.Season.URL));
+            Device.OpenUri(new Uri((sender as Button).CommandParameter.ToString()));
         }
     }
 }
