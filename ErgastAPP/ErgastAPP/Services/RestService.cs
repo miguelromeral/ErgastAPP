@@ -42,6 +42,25 @@ namespace ErgastAPP.Services
             return data;
         }
 
+        public async Task<Race> GetLastRaceAsync()
+        {
+            string uri = _api.Last;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable?.Races[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return null;
+        }
         public async Task<RaceTable> GetRacesBySeasonAsync(int year)
         {
             string uri = _api.RacesBySeason(year);
@@ -496,6 +515,25 @@ namespace ErgastAPP.Services
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<Race> LapsByRaceAndDriverAsync(int year, int round, string driver)
+        {
+            string uri = _api.LapsByRaceAndDriver(year, round, driver);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable?.Races[0];
                 }
             }
             catch (Exception ex)

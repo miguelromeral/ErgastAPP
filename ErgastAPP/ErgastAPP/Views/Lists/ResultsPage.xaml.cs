@@ -45,7 +45,7 @@ namespace ErgastAPP.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ResultDetailPage(new ResultDetailViewModel(item, item.Driver.Fullname + " in " + viewModel.Race.Season +" "+ viewModel.Race.Name)));
+            await Navigation.PushAsync(new ResultDetailPage(new ResultDetailViewModel(item, viewModel.Race, item.Driver, item.Driver.Fullname + " in " + viewModel.Race.Season +" "+ viewModel.Race.Name)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;

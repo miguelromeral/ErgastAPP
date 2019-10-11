@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Models;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,12 @@ namespace ErgastAPP.Views
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel("alonso")));
+        }
+
+        private async void LastRace_Clicked(object sender, EventArgs e)
+        {
+            Race last = await App.RestService.GetLastRaceAsync();
+            await Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(last.Season, last.Round)));
         }
     }
 }

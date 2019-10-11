@@ -8,6 +8,7 @@
 
         <ScrollView>
             <StackLayout>
+            <StackLayout>
 
                 <StackLayout>
                     <Grid>
@@ -172,6 +173,79 @@
                     </Grid>
                 </StackLayout>
 
+            </StackLayout>
+
+                <StackLayout>
+                    <Grid ColumnSpacing="0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="LAP"
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="0" />
+                        <Label Text="POS."
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="1" />
+                        <Label Text="TIME"
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="2" />
+
+                    </Grid>
+
+                </StackLayout>
+                
+                <StackLayout>
+                    <ListView x:Name="ItemsListView"
+                              ItemsSource="{Binding Laps}"
+                              VerticalOptions="FillAndExpand"
+                              HasUnevenRows="true"
+                              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                              Grid.Row="1">
+                        <!--<ListView.Header>
+                           
+                        </ListView.Header>-->
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+                                    <StackLayout Padding="10">
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*" />
+                                                <ColumnDefinition Width="1*" />
+                                                <ColumnDefinition Width="3*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding Number}"
+                                                   LineBreakMode="NoWrap"
+                                                   Style="{StaticResource LabelListItemHeader}"
+                                                   HorizontalOptions="Center"
+                                                   Grid.Column="0" />
+                                            <Label Text="{Binding Timings[0].Position}"
+                                                   LineBreakMode="NoWrap"
+                                                   Style="{StaticResource LabelListItemHeader}"
+                                                   HorizontalOptions="Center"
+                                                   Grid.Column="1" />
+                                            <Label Text="{Binding Timings[0].Time}"
+                                                   LineBreakMode="NoWrap"
+                                                   Style="{StaticResource LabelListItemHeader}"
+                                                   HorizontalOptions="Center"
+                                                   Grid.Column="2" />
+
+                                        </Grid>
+
+                                    </StackLayout>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
 

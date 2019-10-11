@@ -35,6 +35,10 @@ namespace ErgastAPP.Models
         [JsonProperty("QualifyingResults")]
         public List<Qualifying> Qualifying { get; set; }
         
+        [JsonProperty("Laps")]
+        public List<Lap> Laps { get; set; }
+
+
 
 
         public Result Winner { get { return Results?.Where(x => x.Position == 1).FirstOrDefault(); } }

@@ -19,6 +19,14 @@ namespace ErgastAPP.Models
         private string _constructors = "/constructors";
         private string _qualifying = "/qualifying";
         private string _fastest = "/fastest";
+        private string _laps = "/laps";
+        private string _current = "/current";
+        private string _last = "/last";
+
+        public string Last
+        {
+            get { return URL + _current + _last + _json; }
+        }
 
 
         #region SEASONS
@@ -167,6 +175,13 @@ namespace ErgastAPP.Models
         public string ConstructorStandingsByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _constructorStandings + _json + "?" + AddLimit();
+        }
+        #endregion
+
+        #region LAPS
+        public string LapsByRaceAndDriver(int year, int round, string driver)
+        {
+            return URL + "/" + year  + "/" + round + _drivers + "/" + driver + _laps + _json + "?" + AddLimit();
         }
         #endregion
     }

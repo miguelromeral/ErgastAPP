@@ -25,9 +25,8 @@ namespace ErgastAPP.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (viewModel.Result == null)
-                viewModel.LoadItemsCommand.Execute(null);
+            
+            viewModel.LoadItemsCommand.Execute(null);
         }
 
 

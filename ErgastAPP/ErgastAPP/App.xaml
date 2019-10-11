@@ -272,9 +272,9 @@
                         Value="Medium" />-->
 
                 <Setter Property="BackgroundColor"
-                        Value="#000000" />
+                        Value="{StaticResource BackgroundDark}" />
                 <Setter Property="BorderColor"
-                        Value="#000000" />
+                        Value="{StaticResource BackgroundDark}" />
                 <Setter Property="TextColor"
                         Value="{StaticResource Accent}" />
                 <Setter Property="VerticalOptions"

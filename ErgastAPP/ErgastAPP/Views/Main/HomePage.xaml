@@ -15,7 +15,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout BackgroundColor="#000000"
+            <StackLayout Grid.Row="0"
+                         BackgroundColor="#000000"
                          VerticalOptions="FillAndExpand"
                          HorizontalOptions="Fill">
                 <StackLayout Orientation="Horizontal"
@@ -30,17 +31,23 @@
                 </StackLayout>
             </StackLayout>
 
-            <ScrollView>
+            <ScrollView Grid.Row="1">
 
                 <StackLayout>
 
                     <!--<Button Text="TEST: Russian GP"
                             Clicked="Button_Clicked"
                             Style="{StaticResource ButtonMark}" />
+                    
 
                     <Button Text="TEST: Alonso"
                             Clicked="Button_Clicked_1"
                             Style="{StaticResource ButtonMark}" />-->
+
+                    <Button Text="LAST RACE"
+                            Clicked="LastRace_Clicked"
+                            Style="{StaticResource ButtonMark}"
+                            HorizontalOptions="FillAndExpand"/>
 
                     <Label Text="The Formula 1 Statistics application."
                            Style="{StaticResource Details_Info}"/>
