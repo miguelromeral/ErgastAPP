@@ -30,5 +30,53 @@ namespace ErgastAPP.Views
             
             viewModel.LoadItemsCommand.Execute(null);
         }
+
+
+        private void Races_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Constructor != null && viewModel.Races != null)
+                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Races, viewModel.Constructor.Name + " Races")));
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
+        
+        private void RacesPoles_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Constructor != null && viewModel.Races != null)
+            {
+                var table = new RaceTable();
+                table.Races = viewModel.Races.RacesPolePosition;
+
+                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Constructor.Name + " Pole positions")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
+
+        private void RacesWon_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Constructor != null && viewModel.Races != null)
+            {
+                var table = new RaceTable();
+                table.Races = viewModel.Races.RacesWon;
+
+                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Constructor.Name + " Wins")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
+
+        private void Podiums_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Constructor != null && viewModel.Races != null)
+            {
+                var table = new RaceTable();
+                table.Races = viewModel.Races.RacesPodiums;
+
+                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Constructor.Name + " Podiums")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
     }
 }

@@ -20,11 +20,15 @@ namespace ErgastAPP.ViewModels
         public string ConstructorId;
 
 
+        RaceTable races;
+        public RaceTable Races { get { return races; } set { SetProperty(ref races, value); } }
+
+
         public ConstructorDetailViewModel(Constructor c)
         {
             Constructor = c;
             Title = c.Name;
-
+            ConstructorId = c.Id;
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
@@ -37,6 +41,7 @@ namespace ErgastAPP.ViewModels
 
             try
             {
+                Races = await App.RestService.GetRacesByConstructorAsync(ConstructorId);
             }
             catch (Exception ex)
             {

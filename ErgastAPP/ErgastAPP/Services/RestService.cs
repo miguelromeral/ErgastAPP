@@ -88,8 +88,8 @@ namespace ErgastAPP.Services
 
         public async Task<RaceTable> GetRacesAsync()
         {
-            var r1 = await GetRacesByURIAsync(_api.RacesPt1());
-            var r2 = await GetRacesByURIAsync(_api.RacesPt2());
+            var r1 = await GetRacesByURIAsync(_api.Races(0));
+            var r2 = await GetRacesByURIAsync(_api.Races(_api.limit));
 
             foreach(var r in r2.Races)
             {
@@ -413,8 +413,43 @@ namespace ErgastAPP.Services
             return null;
         }
 
+        public async Task<RaceTable> RacesByConstructorFragmentAsync(string constructor, int offset)
+        {
+            string uri = _api.RacesByConstructor(constructor, offset);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
 
 
+        public async Task<RaceTable> GetRacesByConstructorAsync(string constructor)
+        {
+            var r1 = await RacesByConstructorFragmentAsync(constructor, 0);
+            var r2 = await RacesByConstructorFragmentAsync(constructor, _api.limit);
+            var r3 = await RacesByConstructorFragmentAsync(constructor, _api.limit * 2);
+
+            foreach (var r in r2.Races)
+            {
+                r1.Races.Add(r);
+            }
+            foreach (var r in r3.Races)
+            {
+                r1.Races.Add(r);
+            }
+            return r1;
+        }
+        
         public async Task<ConstructorTable> ConstructorsByDriverAsync(string driver)
         {
             string uri = _api.ConstructorsByDriver(driver);

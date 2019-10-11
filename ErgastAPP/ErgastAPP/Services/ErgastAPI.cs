@@ -53,11 +53,7 @@ namespace ErgastAPP.Models
         }
 
         #region RACES
-        public string RacesPt1()
-        {
-            return URL + _races + _json + "?" + AddLimit();
-        }
-        public string RacesPt2()
+        public string Races(int offset)
         {
             return URL + _races + _json + "?" + AddLimit() + "&" + AddOffset(limit);
         }
@@ -127,6 +123,10 @@ namespace ErgastAPP.Models
         public string RacesByDriver(string driver)
         {
             return URL + _drivers + "/" + driver + _results + _json + "?" + AddLimit();
+        }
+        public string RacesByConstructor(string constructor, int offset)
+        {
+            return URL + _constructors + "/" + constructor + _results + _json + "?" + AddLimit() + "&" + AddOffset(offset);
         }
         public string FastestLapsByDriver(string driver)
         {

@@ -34,7 +34,10 @@ namespace ErgastAPP.Models
                 double total = 0;
                 foreach(var r in Races)
                 {
-                    total += r.Results[0].Points;
+                    foreach(var res in r.Results)
+                    {
+                        total += res.Points;
+                    }
                 }
                 return total;
             }

@@ -41,7 +41,7 @@ namespace ErgastAPP.Views
         private void Races_Clicked(object sender, EventArgs e)
         {
             if(viewModel.Item != null && viewModel.Races != null)
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, viewModel.Races, viewModel.Item.Fullname + " Races")));
+                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Races, viewModel.Item.Fullname + " Races")));
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
@@ -53,7 +53,7 @@ namespace ErgastAPP.Views
                 var table = new RaceTable();
                 table.Races = viewModel.Races.RacesPolePosition;
 
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, table, viewModel.Item.Fullname + " Pole positions")));
+                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Item.Fullname + " Pole positions")));
             }
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
@@ -66,7 +66,7 @@ namespace ErgastAPP.Views
                 var table = new RaceTable();
                 table.Races = viewModel.Races.RacesWon;
 
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, table, viewModel.Item.Fullname + " Wins")));
+                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Item.Fullname + " Wins")));
             }
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
@@ -89,7 +89,7 @@ namespace ErgastAPP.Views
                 var table = new RaceTable();
                 table.Races = viewModel.Races.RacesPodiums;
 
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, table, viewModel.Item.Fullname + " Podiums")));
+                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Item.Fullname + " Podiums")));
             }
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
@@ -109,7 +109,7 @@ namespace ErgastAPP.Views
         {
             if (viewModel.Item != null && viewModel.FastestLaps != null)
             {
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, viewModel.FastestLaps, viewModel.Item.Fullname + " Fastest Laps")));
+                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.FastestLaps, viewModel.Item.Fullname + " Fastest Laps")));
             }
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");

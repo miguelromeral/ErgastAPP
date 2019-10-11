@@ -8,7 +8,7 @@ namespace ErgastAPP.Models
     public class Time
     {
         [JsonProperty("millis")]
-        public long Millis { get; set; }
+        public string Millis { get; set; }
 
         [JsonProperty("time")]
         public string TotalTime { get; set; }

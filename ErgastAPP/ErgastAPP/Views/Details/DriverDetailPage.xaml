@@ -179,7 +179,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="RACE STARTS"
+                        <Label Text="RACES"
                                Grid.Column="0"
                                Style="{StaticResource Details_Header}" />
 

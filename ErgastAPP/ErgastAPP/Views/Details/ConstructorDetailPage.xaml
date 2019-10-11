@@ -15,7 +15,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Fullname"
+                        <Label Text="Name"
                                Grid.Column="0"
                                Style="{StaticResource Details_Header}" />
 
@@ -46,7 +46,96 @@
                         </StackLayout>
                     </Grid>
                 </StackLayout>
-                
+               
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Points"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Races.TotalPoints}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="RACES WON"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.RacesWon.Count}"
+                                Clicked="RacesWon_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="POLE POSITIONS"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.RacesPolePosition.Count}"
+                                Clicked="RacesPoles_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="RACES"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.Races.Count}"
+                                Clicked="Races_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="PODIUMS"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Races.RacesPodiums.Count}"
+                                Clicked="Podiums_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
 
             </StackLayout>
         </ScrollView>

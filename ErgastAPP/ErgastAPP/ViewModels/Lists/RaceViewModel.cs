@@ -18,7 +18,6 @@ namespace ErgastAPP.ViewModels
         public Command LoadItemsCommand { get; set; }
 
         public Season Season;
-        public Driver Driver;
 
         public RaceTable Data { get; set; }
 
@@ -49,9 +48,8 @@ namespace ErgastAPP.ViewModels
             _source = DataSource.Seasons;
         }
 
-        public RaceViewModel(Driver d, RaceTable races, string title = "Races")
+        public RaceViewModel(RaceTable races, string title = "Races")
         {
-            Driver = d;
             Title = title;
             Data = races;
             Items = new ObservableCollection<Race>();
