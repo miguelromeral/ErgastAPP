@@ -23,6 +23,9 @@ namespace ErgastAPP.ViewModels
         RaceTable races;
         public RaceTable Races { get { return races; } set { SetProperty(ref races, value); } }
 
+        SeasonTable seasonsWorldChampion;
+        public SeasonTable SeasonsWorldChampions { get { return seasonsWorldChampion; } set { SetProperty(ref seasonsWorldChampion, value); } }
+
 
         public ConstructorDetailViewModel(Constructor c)
         {
@@ -41,6 +44,7 @@ namespace ErgastAPP.ViewModels
 
             try
             {
+                SeasonsWorldChampions = await App.RestService.GetSeasonsConstructorsWorldChampionAsync(ConstructorId);
                 Races = await App.RestService.GetRacesByConstructorAsync(ConstructorId);
             }
             catch (Exception ex)

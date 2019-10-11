@@ -91,6 +91,11 @@ namespace ErgastAPP.Models
         {
             return URL + _drivers + "/" + driver + _driverStandings + "/1" + _seasons + _json;
         }
+
+        public string SeasonWorldChampionByConstructor(string constructor)
+        {
+            return URL + _constructors + "/" + constructor + _constructorStandings + "/1" + _seasons + _json + "?" + AddLimit();
+        }
         #endregion
 
         #region CONSTRUCTORS

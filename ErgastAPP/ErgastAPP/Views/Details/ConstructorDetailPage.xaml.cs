@@ -78,5 +78,17 @@ namespace ErgastAPP.Views
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
+
+
+        private void WorldChampion_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.SeasonsWorldChampions != null && viewModel.Constructor != null)
+            {
+                Navigation.PushAsync(new SeasonsPage(new SeasonViewModel(viewModel.SeasonsWorldChampions, viewModel.Constructor.Name + " World Champions")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
+
     }
 }
