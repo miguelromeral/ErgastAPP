@@ -52,7 +52,7 @@ namespace ErgastAPP.Views
         private void Qualy_Clicked(object sender, EventArgs e)
         {
             if (viewModel.Race != null)
-                Navigation.PushAsync(new QualyDetailPage(new QualyDetailViewModel(viewModel.Race, viewModel._year)));
+                Navigation.PushAsync(new QualyPage(new QualyViewModel(viewModel.Race, viewModel._year)));
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
@@ -74,6 +74,19 @@ namespace ErgastAPP.Views
                     Navigation.PushAsync(new ConstructorStandingDetailPage(new ConstructorStandingDetailViewModel(viewModel.Race, viewModel._year)));
                 else
                     DisplayAlert("Constructor Standings Missing", "The Constructor Championship wasn't be awarded since 1958.", "OK");
+        }
+
+
+        private void Circuit_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Race?.Circuit != null)
+            {
+                Navigation.PushAsync(new CircuitDetailPage(new CircuitDetailViewModel(viewModel.Race.Circuit)));
+            }
+            else
+            {
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            }
         }
     }
 }

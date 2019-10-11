@@ -6,19 +6,11 @@
 
     <StackLayout Style="{StaticResource MainLayout}">
 
-        <StackLayout Orientation="Vertical"
-                     BackgroundColor="{StaticResource BackgroundDark}">
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Search circuits"
+                   TextChanged="SearchBar_TextChanged" />
 
-            <SearchBar x:Name="searchBar"
-                       Placeholder="Search circuits"
-                       TextChanged="SearchBar_TextChanged" />
-            <Picker x:Name="pickerYear"
-                        Title="Year"
-                        ItemsSource="{Binding Years}"
-                        SelectedIndexChanged="PickerYear_SelectedIndexChanged"/>
-        </StackLayout>
-
-            <ListView x:Name="ItemsListView"
+        <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Items}"
                   VerticalOptions="FillAndExpand"
                   HasUnevenRows="true"
@@ -35,21 +27,35 @@
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="1*" />
                                 </Grid.ColumnDefinitions>
 
                                 <StackLayout Grid.Column="0">
-
+                                    
                                     <Label Text="{Binding Name}"
-                                           Style="{StaticResource LabelListItemHeader}" />
+                                            LineBreakMode="NoWrap"
+                                            Style="{StaticResource LabelListItemHeader}" />
 
-                                    <Label Text="{Binding Location.Address}"
-                                           Style="{StaticResource LabelListItemDetails}" />
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <Image Source="{Binding Location.Flag}"
+                                               Style="{StaticResource ImageFlag}"
+                                               HorizontalOptions="Start" />
+
+                                        <Label Text="{Binding Location.Country}"
+                                               Style="{StaticResource LabelListItemDetails}"
+                                               FontSize="13" />
+
+                                    </StackLayout>
+
+                                    <Label Text="{Binding Location.Locality}"
+                                           Style="{StaticResource LabelListItemDetails}"
+                                           FontSize="11" />
 
                                 </StackLayout>
 
-                                <Button Text="SHOW REPORT"
+                                <Button Text="REPORT"
                                         Clicked="ShowReport_Clicked"
                                         CommandParameter="{Binding Id}"
                                         Style="{StaticResource ButtonMark}"

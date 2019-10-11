@@ -238,6 +238,11 @@
                     </Grid>
                 </StackLayout>
 
+                <Button Text="CIRCUIT INFO"
+                        Clicked="Circuit_Clicked"
+                        Style="{StaticResource ButtonMark}"
+                        HorizontalOptions="FillAndExpand"/>
+
                 <StackLayout Style="{StaticResource SectionLayout}">
 
                     <Label Style="{StaticResource SectionHeader}"
@@ -257,7 +262,7 @@
                                 Style="{StaticResource ButtonMark}"
                                 Grid.Column="0"
                                 HorizontalOptions="FillAndExpand" />
-                        
+
                         <Button Text="CONSTRUCTORS"
                                 Clicked="ConstructorStandings_Clicked"
                                 Style="{StaticResource ButtonMark}"

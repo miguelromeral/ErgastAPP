@@ -42,9 +42,18 @@
                                         </Label.FormattedText>
                                     </Label>
 
-                                    <Label Text="{Binding Circuit.Name}"
-                                           Style="{StaticResource LabelListItemDetails}"
-                                           FontSize="13" />
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <Image Source="{Binding Circuit.Location.Flag}"
+                                               Style="{StaticResource ImageFlag}"
+                                               HorizontalOptions="Start" />
+
+                                        <Label Text="{Binding Circuit.Name}"
+                                               Style="{StaticResource LabelListItemDetails}"
+                                               FontSize="13" />
+
+                                    </StackLayout>
+
                                     <Label Text="{Binding Date}"
                                            Style="{StaticResource LabelListItemDetails}"
                                            FontSize="11" />

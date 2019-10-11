@@ -21,12 +21,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Lists\QualyPage.xaml.cs">
+      <DependentUpon>QualyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Lists\ResultsPage.xaml.cs">
       <DependentUpon>ResultsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Details\CircuitDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Details\ConstructorDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -36,7 +42,7 @@
     <EmbeddedResource Update="Views\Details\DriverStandingDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Details\QualyDetailPage.xaml">
+    <EmbeddedResource Update="Views\Lists\QualyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Lists\ResultsPage.xaml">
@@ -64,9 +70,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Lists\SeasonsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Testing.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Details\ResultDetailPage.xaml">

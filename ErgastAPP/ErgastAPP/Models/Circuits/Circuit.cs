@@ -18,5 +18,7 @@ namespace ErgastAPP.Models
 
         [JsonProperty("Location")]
         public Location Location { get; set; }
+
+        public string GoogleMapsURI { get { return String.Format("https://www.google.com/maps/search/?api=1&query={0},{1}", Location.Latitud, Location.Longitud); } }
     }
 }

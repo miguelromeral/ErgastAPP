@@ -29,18 +29,18 @@
                     </ContentView>
                 </StackLayout>
             </StackLayout>
-            
-            <ScrollView Grid.Row="1">
+
+            <ScrollView>
 
                 <StackLayout>
 
-                    <Button Text="TEST: Russian GP"
+                    <!--<Button Text="TEST: Russian GP"
                             Clicked="Button_Clicked"
                             Style="{StaticResource ButtonMark}" />
 
                     <Button Text="TEST: Alonso"
                             Clicked="Button_Clicked_1"
-                            Style="{StaticResource ButtonMark}" />
+                            Style="{StaticResource ButtonMark}" />-->
 
                     <Label Text="The Formula 1 Statistics application."
                            Style="{StaticResource Details_Info}"/>

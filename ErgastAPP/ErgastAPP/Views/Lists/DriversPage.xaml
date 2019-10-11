@@ -28,8 +28,8 @@
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="1*" />
                                 </Grid.ColumnDefinitions>
 
                                 <StackLayout Grid.Column="0">
@@ -51,7 +51,7 @@
 
                                     </StackLayout>
 
-                                    <Button Text="SHOW REPORT"
+                                    <Button Text="REPORT"
                                         Clicked="ShowReport_Clicked"
                                         CommandParameter="{Binding Id}"
                                         Style="{StaticResource ButtonMark}"

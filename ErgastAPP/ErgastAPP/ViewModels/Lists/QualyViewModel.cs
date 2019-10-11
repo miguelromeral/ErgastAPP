@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace ErgastAPP.ViewModels
 {
-    public class QualyDetailViewModel : BaseViewModel
+    public class QualyViewModel : BaseViewModel
     {
         public ObservableCollection<Qualifying> Items { get; set; }
 
@@ -21,7 +21,7 @@ namespace ErgastAPP.ViewModels
 
         public int Year;
 
-        public QualyDetailViewModel(Race r, int year)
+        public QualyViewModel(Race r, int year)
         {
             Race = r;
             Year = year;

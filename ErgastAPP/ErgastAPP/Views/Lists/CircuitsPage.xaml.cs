@@ -26,13 +26,14 @@ namespace ErgastAPP.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-
             var item = args.SelectedItem as Circuit;
             if (item == null)
                 return;
 
-            var uri = new Uri(String.Format("https://www.google.com/maps/search/?api=1&query={0},{1}", item.Location.Latitud,item.Location.Longitud));
-            Device.OpenUri(uri);
+            await Navigation.PushAsync(new CircuitDetailPage(new CircuitDetailViewModel(item)));
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
         }
 
 
@@ -42,20 +43,6 @@ namespace ErgastAPP.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
-        }
-
-        private void PickerYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                viewModel.YearPicked = Convert.ToInt32(pickerYear.SelectedItem);
-            }
-            catch (Exception)
-            {
-                viewModel.YearPicked = null;
-            }
-
-            viewModel.LoadItemsCommand.Execute(null);
         }
         
 

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErgastAPP.Views.CircuitDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Style="{StaticResource MainLayout}">
+
+        <ScrollView>
+            <StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Circuit"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Circuit.Name}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Country"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <StackLayout Grid.Column="1"
+                                     Orientation="Horizontal">
+                            <Image Source="{Binding Circuit.Location.Flag}"
+                                   Style="{StaticResource ImageFlag}" />
+
+                            <Label Text="{Binding Circuit.Location.Country}"
+                                   Style="{StaticResource Details_Info}" />
+
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Locality"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Circuit.Location.Locality}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Text="OPEN MAPS"
+                                Clicked="Maps_Clicked"
+                                Style="{StaticResource ButtonMark}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+
+
+
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
+
+</ContentPage>

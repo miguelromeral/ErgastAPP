@@ -16,18 +16,16 @@ namespace ErgastAPP.ViewModels
         public Command LoadItemsCommand { get; set; }
 
         public ObservableCollection<string> Years { get; set; }
-
-        public int? YearPicked { get; set; }
+        
         
         RaceTable _races;
         CircuitTable _circuits;
 
         public static string ALL_TEXT = "All";
 
-        public CircuitViewModel(int? year = null)
+        public CircuitViewModel()
         {
             Title = "Circuits";
-            YearPicked = year;
             Items = new ObservableCollection<Circuit>();
             Years = new ObservableCollection<string>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -43,18 +41,7 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                if (Years.Count == 0)
-                {
-                    Years.Clear();
-                    Years.Add(ALL_TEXT);
-                    var seasons = await App.RestService.GetSeasonsDataAsync();
-                    foreach (var s in seasons.SeasonTable.Seasons)
-                    {
-                        Years.Add(s.Year.ToString());
-                    }
-                }
-                
-                _circuits = await App.RestService.GetCircuitsAsync(YearPicked);
+                _circuits = await App.RestService.GetCircuitsAsync();
                 _circuits.Circuits = _circuits.Circuits.OrderBy(o => o.Name).ToList();
                 LoadItemsFromData();
             }

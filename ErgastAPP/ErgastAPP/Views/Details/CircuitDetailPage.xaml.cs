@@ -11,27 +11,29 @@ using Xamarin.Forms.Xaml;
 namespace ErgastAPP.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class QualyDetailPage : ContentPage
+	public partial class CircuitDetailPage : ContentPage
 	{
-        QualyDetailViewModel viewModel;
+        CircuitDetailViewModel viewModel;
 
-		public QualyDetailPage (QualyDetailViewModel viewModel)
+        public CircuitDetailPage(CircuitDetailViewModel viewModel)
         {
             InitializeComponent();
-            
+
             BindingContext = this.viewModel = viewModel;
         }
+
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            Title = viewModel.Year + " " + viewModel.Race.Name;
-
-            if (viewModel.Items != null)
-            {
-                viewModel.LoadItemsCommand.Execute(null);
-            }
+            
+            viewModel.LoadItemsCommand.Execute(null);
         }
+
+        private void Maps_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri(viewModel.Circuit.GoogleMapsURI));
+        }
+        
     }
 }
