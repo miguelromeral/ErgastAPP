@@ -1,4 +1,4 @@
-# <img alt='ErgastAPP' src='https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/ErgastApp.ico' height="35" width="auto" /> ErgastAPP (beta) ![Minimum Android version required](https://img.shields.io/badge/android-5.0-green) ![Minimum Windows version required](https://img.shields.io/badge/Windows-16299-green) ![iOS not fully supported yet](https://img.shields.io/badge/iOS-7-red)
+# <img alt='ErgastAPP' src='https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/ErgastApp.ico' height="35" width="auto" /> ErgastAPP (in progress) ![Minimum Android version required](https://img.shields.io/badge/android-5.0-green) ![Minimum Windows version required](https://img.shields.io/badge/Windows-16299-green) ![iOS not fully supported yet](https://img.shields.io/badge/iOS-7-red)
 
 Application for Ergast API.
 

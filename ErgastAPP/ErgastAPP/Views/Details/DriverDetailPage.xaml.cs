@@ -104,5 +104,15 @@ namespace ErgastAPP.Views
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
+
+        private void FastestLaps_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Item != null && viewModel.FastestLaps != null)
+            {
+                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Item, viewModel.FastestLaps, viewModel.Item.Fullname + " Fastest Laps")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
     }
 }

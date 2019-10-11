@@ -197,6 +197,25 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
+                        <Label Text="FASTEST LAPS"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding FastestLaps.Races.Count}"
+                                Clicked="FastestLaps_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
                         <Label Text="TEAMS"
                                Grid.Column="0"
                                Style="{StaticResource Details_Header}" />

@@ -18,6 +18,7 @@ namespace ErgastAPP.Models
         private string _results = "/results";
         private string _constructors = "/constructors";
         private string _qualifying = "/qualifying";
+        private string _fastest = "/fastest";
 
 
         #region SEASONS
@@ -127,6 +128,12 @@ namespace ErgastAPP.Models
         {
             return URL + _drivers + "/" + driver + _results + _json + "?" + AddLimit();
         }
+        public string FastestLapsByDriver(string driver)
+        {
+            return URL + _drivers + "/" + driver + _fastest + "/1" + _results + _json + "?" + AddLimit();
+        }
+        
+
         #endregion
 
 

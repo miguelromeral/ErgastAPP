@@ -29,6 +29,9 @@ namespace ErgastAPP.ViewModels
         public string DriverId;
         DataErgastDrivers _drivers;
 
+        RaceTable fastestLaps;
+        public RaceTable FastestLaps { get { return fastestLaps; } set { SetProperty(ref fastestLaps, value); } }
+
 
         public DriverDetailViewModel(string driverId)
         {
@@ -47,14 +50,13 @@ namespace ErgastAPP.ViewModels
             try
             {
                 _drivers = await App.RestService.GetDriverInfoAsync(DriverId);
+                Races = await App.RestService.RacesByDriverAsync(DriverId);
                 Constructors = await App.RestService.ConstructorsByDriverAsync(DriverId);
+                FastestLaps = await App.RestService.FastestLapsByDriverAsync(DriverId);
+                SeasonsWorldChampions = await App.RestService.GetSeasonsDriverWorldChampionAsync(DriverId);
                 Item = _drivers.DriverTable.Drivers[0];
                 Title = Item.Fullname;
-                var s = await App.RestService.GetSeasonsDriverWorldChampionAsync(DriverId);
-                if (s != null)
-                    SeasonsWorldChampions = s.SeasonTable;
 
-                Races = await App.RestService.RacesByDriverAsync(DriverId);
             }
             catch (Exception ex)
             {

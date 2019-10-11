@@ -204,25 +204,23 @@ namespace ErgastAPP.Services
         }
 
 
-        public async Task<DataErgastSeasons> GetSeasonsDriverWorldChampionAsync(string driver)
+        public async Task<SeasonTable> GetSeasonsDriverWorldChampionAsync(string driver)
         {
             string uri = _api.SeasonWorldChampionByDriver(driver);
-            DataErgastSeasons data = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<DataErgastSeasons>(DataErgast.RemoveMRData(content));
+                    return JsonConvert.DeserializeObject<DataErgastSeasons>(DataErgast.RemoveMRData(content))?.SeasonTable;
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
-
-            return data;
+            return null;
         }
 
         public async Task<DriverStandings> GetSeasonsDriverWorldChampionAsync(int year)
@@ -427,6 +425,25 @@ namespace ErgastAPP.Services
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<DataErgastConstructors>(DataErgast.RemoveMRData(content))?.ConstructorTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<RaceTable> FastestLapsByDriverAsync(string driver)
+        {
+            string uri = _api.FastestLapsByDriver(driver);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable;
                 }
             }
             catch (Exception ex)
