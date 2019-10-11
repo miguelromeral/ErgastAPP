@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErgastAPP.Views.ResultDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Style="{StaticResource MainLayout}">
+
+        <ScrollView>
+            <StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Number"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Result.Number}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Position"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Result.PrettyPosition}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Points"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Result.Points}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Grid"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Result.PrettyGrid}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Laps"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Result.Laps}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Status"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Result.Status}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Result"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Result.PrettyResult}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Driver"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Result.Driver.Fullname}"
+                                Clicked="Driver_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Constructor"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Button Text="{Binding Result.Constructor.Name}"
+                                Clicked="Constructor_Clicked"
+                                Style="{StaticResource ButtonTransparent}"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
+
+</ContentPage>

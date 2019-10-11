@@ -41,7 +41,7 @@ namespace ErgastAPP.Views
         {
             if (viewModel.Race != null)
             {
-                Navigation.PushAsync(new ResultsDetailPage(new ResultDetailViewModel(viewModel.Race, viewModel._year)));
+                Navigation.PushAsync(new ResultsPage(new ResultViewModel(viewModel.Race, viewModel._year)));
             }
             else
             {

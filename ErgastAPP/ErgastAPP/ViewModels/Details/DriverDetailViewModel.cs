@@ -27,18 +27,43 @@ namespace ErgastAPP.ViewModels
 
 
         public string DriverId;
-        DataErgastDrivers _drivers;
+        DriverTable _drivers;
 
         RaceTable fastestLaps;
         public RaceTable FastestLaps { get { return fastestLaps; } set { SetProperty(ref fastestLaps, value); } }
 
 
+        enum DataSource
+        {
+            Id,
+            Driver
+        }
+        DataSource _source;
+
+
         public DriverDetailViewModel(string driverId)
         {
             DriverId = driverId;
-            
+            _source = DataSource.Id;
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
+
+
+        public DriverDetailViewModel(Driver d)
+        {
+            DriverId = d.Id;
+            Item = d;
+            _source = DataSource.Driver;
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+        }
+
+
+        private async void LoadDriverFromId()
+        {
+            _drivers = await App.RestService.GetDriverInfoAsync(DriverId);
+            Item = _drivers.Drivers[0];
+        }
+
 
         async Task ExecuteLoadItemsCommand()
         {
@@ -49,12 +74,20 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                _drivers = await App.RestService.GetDriverInfoAsync(DriverId);
+                switch (_source)
+                {
+                    case DataSource.Driver:
+                        break;
+                    case DataSource.Id:
+                    default:
+                        LoadDriverFromId();
+                        break;
+                }
+
                 Races = await App.RestService.RacesByDriverAsync(DriverId);
                 Constructors = await App.RestService.ConstructorsByDriverAsync(DriverId);
                 FastestLaps = await App.RestService.FastestLapsByDriverAsync(DriverId);
                 SeasonsWorldChampions = await App.RestService.GetSeasonsDriverWorldChampionAsync(DriverId);
-                Item = _drivers.DriverTable.Drivers[0];
                 Title = Item.Fullname;
 
             }

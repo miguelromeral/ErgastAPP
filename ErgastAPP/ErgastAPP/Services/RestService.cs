@@ -66,11 +66,11 @@ namespace ErgastAPP.Services
         }
 
 
-        public async Task<RaceTable> GetRacesByURIAsync(string uri)
+        public async Task<RaceTable> GetRacesByURIAsync(int offset)
         {
             try
             {
-                DataErgastRaces data = null;
+                string uri = _api.Races(offset);
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
@@ -88,8 +88,8 @@ namespace ErgastAPP.Services
 
         public async Task<RaceTable> GetRacesAsync()
         {
-            var r1 = await GetRacesByURIAsync(_api.Races(0));
-            var r2 = await GetRacesByURIAsync(_api.Races(_api.limit));
+            var r1 = await GetRacesByURIAsync(0);
+            var r2 = await GetRacesByURIAsync(_api.limit);
 
             foreach(var r in r2.Races)
             {
@@ -140,17 +140,16 @@ namespace ErgastAPP.Services
         }
 
 
-        public async Task<DataErgastDrivers> GetDriverInfoAsync(string driverId)
+        public async Task<DriverTable> GetDriverInfoAsync(string driverId)
         {
             string uri = _api.Drivers(driverId);
-            DataErgastDrivers data = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgast.RemoveMRData(content));
+                    return JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgast.RemoveMRData(content))?.DriverTable;
                 }
             }
             catch (Exception ex)
@@ -158,7 +157,7 @@ namespace ErgastAPP.Services
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return data;
+            return null;
         }
 
         public async Task<ConstructorTable> GetConstructorsAsync()

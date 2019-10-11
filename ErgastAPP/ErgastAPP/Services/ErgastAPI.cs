@@ -55,7 +55,7 @@ namespace ErgastAPP.Models
         #region RACES
         public string Races(int offset)
         {
-            return URL + _races + _json + "?" + AddLimit() + "&" + AddOffset(limit);
+            return URL + _races + _json + "?" + AddLimit() + "&" + AddOffset(offset);
         }
         public string RacesBySeason(int year)
         {

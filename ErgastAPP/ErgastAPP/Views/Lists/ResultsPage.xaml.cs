@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Models;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ using Xamarin.Forms.Xaml;
 namespace ErgastAPP.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ResultsDetailPage : ContentPage
+	public partial class ResultsPage : ContentPage
 	{
-        ResultDetailViewModel viewModel;
+        ResultViewModel viewModel;
 
-        public ResultsDetailPage(ResultDetailViewModel viewModel)
+        public ResultsPage(ResultViewModel viewModel)
         {
             InitializeComponent();
 
@@ -38,6 +39,18 @@ namespace ErgastAPP.Views
             //LoadGUI();
         }
 
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var item = args.SelectedItem as Result;
+            if (item == null)
+                return;
+
+            await Navigation.PushAsync(new ResultDetailPage(new ResultDetailViewModel(item, item.Driver.Fullname + " in " + viewModel.Race.Season +" "+ viewModel.Race.Name)));
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
+        }
+
         //void LoadGUI()
         //{
         //    table.Children.Clear();
@@ -58,7 +71,7 @@ namespace ErgastAPP.Views
         //    {
         //        grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
         //    }
-            
+
         //    grid.Children.Add(new Label { Text = "Pos.", Style = (Style)Application.Current.Resources["HeaderResult"] }, 0, 0);
         //    grid.Children.Add(new Label { Text = "No.", Style = (Style)Application.Current.Resources["HeaderResult"] }, 1, 0);
         //    grid.Children.Add(new Label { Text = "Driver", Style = (Style)Application.Current.Resources["HeaderResult"] }, 2, 0);
@@ -87,5 +100,5 @@ namespace ErgastAPP.Views
 
         //    table.Children.Add(grid);
         //}
-	}
+    }
 }

@@ -27,9 +27,8 @@ namespace ErgastAPP.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (viewModel.Item == null)
-                viewModel.LoadItemsCommand.Execute(null);
+            
+            viewModel.LoadItemsCommand.Execute(null);
         }
 
         private void ReportButton_Clicked(object sender, EventArgs e)
