@@ -83,6 +83,25 @@
 
                     </Grid>
                 </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Points"
+                               Grid.Column="0"
+                               Style="{StaticResource Details_Header}" />
+
+                        <Label Text="{Binding Races.TotalPoints}"
+                               Grid.Column="1"
+                               Style="{StaticResource Details_Info}" />
+
+                    </Grid>
+                </StackLayout>
+                
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>

@@ -27,5 +27,17 @@ namespace ErgastAPP.Models
                                                                     x.Results[0].Position == 2 ||
                                                                     x.Results[0].Position == 3).ToList(); } }
 
+        public double TotalPoints
+        {
+            get
+            {
+                double total = 0;
+                foreach(var r in Races)
+                {
+                    total += r.Results[0].Points;
+                }
+                return total;
+            }
+        }
     }
 }

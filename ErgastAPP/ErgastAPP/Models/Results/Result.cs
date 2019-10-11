@@ -40,6 +40,30 @@ namespace ErgastAPP.Models
         [JsonProperty("FastestLap")]
         public FastestLap FastestLap { get; set; }
 
+        
+        public string PrettyPosition
+        {
+            get
+            {
+                if (int.TryParse(PositionText, out int n))
+                    return PositionText;
+                else
+                {
+                    switch (PositionText)
+                    {
+                        case "R": return "RET";
+                        case "D": return "DSQ";
+                        case "E": return "EXC";
+                        case "W": return "RET";
+                        case "F": return "DNQ";
+                        case "N": return "DNC";
+                        default: return "";
+                    }
+                }
+            }
+        }
+        
+        public string PrettyGrid { get { return (Grid != 0 ? Grid.ToString() : "PL"); } }
 
 
         public string PrettyResult { get { return (Time != null ? Time.TotalTime : Status); } }

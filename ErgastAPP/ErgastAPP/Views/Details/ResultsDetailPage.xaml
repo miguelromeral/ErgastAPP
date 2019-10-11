@@ -73,7 +73,7 @@
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0"
-                                   Text="{Binding Position}"
+                                   Text="{Binding PrettyPosition}"
                                    Style="{StaticResource ListItem}" />
                             <Label Grid.Column="1"
                                    Text="{Binding Number}"
@@ -97,7 +97,7 @@
                                    Style="{StaticResource ListItem}"
                                    HorizontalTextAlignment="Start" />
                             <Label Grid.Column="7"
-                                   Text="{Binding Grid}"
+                                   Text="{Binding PrettyGrid}"
                                    Style="{StaticResource ListItem}" />
                             <Label Grid.Column="8"
                                    Text="{Binding Points}"
