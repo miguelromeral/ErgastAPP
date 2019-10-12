@@ -1,14 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ErgastAPP.Views.ResultDetailPage"
              Title="{Binding Title}">
 
     <StackLayout Style="{StaticResource MainLayout}">
 
-        <ScrollView>
-            <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
+            <StackLayout x:Name="ResultData"
+                         Grid.Row="0"
+                         Grid.ColumnSpan="2">
+
+                <ScrollView>
+                    <StackLayout>
+                
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -26,7 +39,6 @@
 
                     </Grid>
                 </StackLayout>
-
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -44,7 +56,6 @@
 
                     </Grid>
                 </StackLayout>
-
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -62,7 +73,6 @@
 
                     </Grid>
                 </StackLayout>
-
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -97,7 +107,6 @@
 
                     </Grid>
                 </StackLayout>
-
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -115,7 +124,6 @@
 
                     </Grid>
                 </StackLayout>
-
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -133,7 +141,6 @@
 
                     </Grid>
                 </StackLayout>
-
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -152,7 +159,6 @@
 
                     </Grid>
                 </StackLayout>
-
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -172,123 +178,133 @@
                     </Grid>
                 </StackLayout>
 
-                </StackLayout>
-
-
-        </ScrollView>
-
-        <StackLayout Style="{StaticResource SectionLayout}">
-
-            <Label Style="{StaticResource SectionHeader}"
-                   Text="LAP TIMES" />
-
-            <StackLayout>
-                <Grid ColumnSpacing="0">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Label Text="LAP"
-                           Style="{StaticResource HeaderResult}"
-                           Grid.Column="0" />
-                    <Label Text="POS."
-                           Style="{StaticResource HeaderResult}"
-                           Grid.Column="1" />
-                    <Label Text="TIME"
-                           Style="{StaticResource HeaderResult}"
-                           Grid.Column="2" />
-
-                </Grid>
-
+                    </StackLayout>
+                </ScrollView>
             </StackLayout>
 
-            <ScrollView HeightRequest="400">
+            <StackLayout x:Name="LapData"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Style="{StaticResource SectionLayout}">
+
+                <Label Style="{StaticResource SectionHeader}"
+                       Text="LAP TIMES" />
+
+                <ListView x:Name="ItemsListView"
+                          ItemsSource="{Binding Laps}"
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="true"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          IsPullToRefreshEnabled="true"
+                          RefreshCommand="{Binding LoadLaps}"
+                          Grid.Row="1">
+                    <ListView.Header>
+                        <Grid ColumnSpacing="0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="LAP"
+                                   Style="{StaticResource HeaderResult}"
+                                   HorizontalOptions="Center"
+                                   Grid.Column="0" />
+                            <Label Text="POS."
+                                   Style="{StaticResource HeaderResult}"
+                                   HorizontalOptions="Center"
+                                   Grid.Column="1" />
+                            <Label Text="TIME"
+                                   Style="{StaticResource HeaderResult}"
+                                   HorizontalOptions="Center"
+                                   Grid.Column="2" />
+
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <StackLayout Padding="10">
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="3*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding Number}"
+                                               LineBreakMode="NoWrap"
+                                               Style="{StaticResource LabelListItemHeader}"
+                                               HorizontalOptions="Center"
+                                               Grid.Column="0" />
+                                        <Label Text="{Binding Timings[0].Position}"
+                                               LineBreakMode="NoWrap"
+                                               Style="{StaticResource LabelListItemHeader}"
+                                               HorizontalOptions="Center"
+                                               Grid.Column="1" />
+                                        <Label Text="{Binding Timings[0].Time}"
+                                               LineBreakMode="NoWrap"
+                                               Style="{StaticResource LabelListItemHeader}"
+                                               HorizontalOptions="Center"
+                                               Grid.Column="2" />
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
             
-            <ListView x:Name="ItemsListView"
-                      ItemsSource="{Binding Laps}"
-                      VerticalOptions="FillAndExpand"
-                      HasUnevenRows="true"
-                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                      Grid.Row="1">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-
-                            <StackLayout Padding="10">
-
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*" />
-                                        <ColumnDefinition Width="1*" />
-                                        <ColumnDefinition Width="3*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Text="{Binding Number}"
-                                           LineBreakMode="NoWrap"
-                                           Style="{StaticResource LabelListItemHeader}"
-                                           HorizontalOptions="Center"
-                                           Grid.Column="0" />
-                                    <Label Text="{Binding Timings[0].Position}"
-                                           LineBreakMode="NoWrap"
-                                           Style="{StaticResource LabelListItemHeader}"
-                                           HorizontalOptions="Center"
-                                           Grid.Column="1" />
-                                    <Label Text="{Binding Timings[0].Time}"
-                                           LineBreakMode="NoWrap"
-                                           Style="{StaticResource LabelListItemHeader}"
-                                           HorizontalOptions="Center"
-                                           Grid.Column="2" />
-
-                                </Grid>
-
-                            </StackLayout>
-
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            </ScrollView>
-        </StackLayout>
-
-        <StackLayout Style="{StaticResource SectionLayout}" HeightRequest="300">
+            
+            <StackLayout x:Name="PitStopData"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Style="{StaticResource SectionLayout}">
 
                 <Label Style="{StaticResource SectionHeader}"
                        Text="PIT STOPS" />
 
-                <StackLayout>
-                    <Grid ColumnSpacing="0">
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="3*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Text="STOP"
-                               Style="{StaticResource HeaderResult}"
-                               Grid.Column="0" />
-                        <Label Text="LAP"
-                               Style="{StaticResource HeaderResult}"
-                               Grid.Column="1" />
-                        <Label Text="TIME"
-                               Style="{StaticResource HeaderResult}"
-                               Grid.Column="2" />
-
-                    </Grid>
-
-                </StackLayout>
-
-                <ScrollView>
-                
                 <ListView x:Name="ItemsListViewStops"
                           ItemsSource="{Binding PitStops}"
                           VerticalOptions="FillAndExpand"
                           HasUnevenRows="true"
                           IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          IsPullToRefreshEnabled="true"
+                          RefreshCommand="{Binding LoadStops}"
                           Grid.Row="1">
+                    <ListView.Header>
+
+                        <Grid ColumnSpacing="0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="STOP"
+                                   Style="{StaticResource HeaderResult}"
+                                   HorizontalOptions="Center"
+                                   Grid.Column="0" />
+                            <Label Text="LAP"
+                                   Style="{StaticResource HeaderResult}"
+                                   HorizontalOptions="Center"
+                                   Grid.Column="1" />
+                            <Label Text="TIME"
+                                   Style="{StaticResource HeaderResult}"
+                                   HorizontalOptions="Center"
+                                   Grid.Column="2" />
+
+                        </Grid>
+
+                    </ListView.Header>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -326,8 +342,13 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                </ScrollView>
             </StackLayout>
+
+        </Grid>
+        
+        
+        
+
 
     </StackLayout>
 

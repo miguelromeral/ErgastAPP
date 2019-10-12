@@ -11,7 +11,8 @@ namespace ErgastAPP.ViewModels
 {
     public class ResultDetailViewModel : BaseViewModel
     {
-        public Command LoadItemsCommand { get; set; }
+        public Command LoadLaps { get; set; }
+        public Command LoadStops { get; set; }
 
         private Result _result;
         public Result Result { get { return _result; } set { SetProperty(ref _result, value); } }
@@ -36,11 +37,39 @@ namespace ErgastAPP.ViewModels
             Title = title;
             Laps = new ObservableCollection<Lap>();
             PitStops = new ObservableCollection<PitStop>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadLaps = new Command(async () => await ExecuteLoadLapsCommand());
+            LoadStops = new Command(async () => await ExecuteLoadStopsCommand());
         }
 
 
-        async Task ExecuteLoadItemsCommand()
+        async Task ExecuteLoadLapsCommand()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                var laps = await App.RestService.LapsByRaceAndDriverAsync(Race.Season, Race.Round, Driver.Id);
+                Race.Laps = laps.Laps;
+                Laps.Clear();
+                foreach (var l in laps.Laps)
+                {
+                    Laps.Add(l);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        async Task ExecuteLoadStopsCommand()
         {
             if (IsBusy)
                 return;
@@ -55,14 +84,6 @@ namespace ErgastAPP.ViewModels
                 foreach (var p in stops.PitStops)
                 {
                     PitStops.Add(p);
-                }
-
-                var laps = await App.RestService.LapsByRaceAndDriverAsync(Race.Season, Race.Round, Driver.Id);
-                Race.Laps = laps.Laps;
-                Laps.Clear();
-                foreach(var l in laps.Laps)
-                {
-                    Laps.Add(l);
                 }
             }
             catch (Exception ex)
