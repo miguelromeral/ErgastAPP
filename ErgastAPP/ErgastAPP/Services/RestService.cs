@@ -598,5 +598,24 @@ namespace ErgastAPP.Services
             }
             return null;
         }
+
+        public async Task<Constructor> GetConstructorAsync(string constructor)
+        {
+            string uri = _api.Constructor(constructor);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastConstructors>(DataErgast.RemoveMRData(content))?.ConstructorTable.Constructors[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
     }
 }

@@ -31,12 +31,27 @@ namespace ErgastAPP.ViewModels
 
 
 
+        enum DataSource
+        {
+            Id,
+            Provided
+        }
+        DataSource _source;
+
+        public ConstructorDetailViewModel(string constructor)
+        {
+            ConstructorId = constructor;
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            _source = DataSource.Id;
+        }
+
         public ConstructorDetailViewModel(Constructor c)
         {
             Constructor = c;
             Title = c.Name;
             ConstructorId = c.Id;
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            _source = DataSource.Provided;
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -48,6 +63,18 @@ namespace ErgastAPP.ViewModels
 
             try
             {
+                switch (_source)
+                {
+                    case DataSource.Id:
+                        Constructor = await App.RestService.GetConstructorAsync(ConstructorId);
+                        Title = Constructor.Name;
+                        break;
+                    case DataSource.Provided:
+                    default:
+                        break;
+                }
+
+
                 SeasonsWorldChampions = await App.RestService.GetSeasonsConstructorsWorldChampionAsync(ConstructorId);
                 Races = await App.RestService.GetRacesByConstructorAsync(ConstructorId);
                 Drivers = await App.RestService.DriversByConstructorAsync(ConstructorId);

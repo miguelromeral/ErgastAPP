@@ -204,7 +204,7 @@
                 <Setter Property="HorizontalTextAlignment"
                         Value="Center" />
                 <Setter Property="VerticalOptions"
-                        Value="Fill" />
+                        Value="FillAndExpand" />
             </Style>
 
             <Style TargetType="Label"

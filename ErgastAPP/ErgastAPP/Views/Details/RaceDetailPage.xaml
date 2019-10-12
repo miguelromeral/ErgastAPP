@@ -85,13 +85,21 @@
                                    Grid.Column="0"
                                    Style="{StaticResource Details_Header}" />
 
-                            <Label Text="{Binding Race.Winner.Driver.Fullname}"
-                                   Grid.Column="1"
-                                   Style="{StaticResource Details_Info}" />
+                            <Button Text="{Binding Race.Winner.Driver.Fullname}"
+                                    Clicked="Driver_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Winner.Driver.Id}"
+                                    Grid.Column="1" />
 
                             <Label Text="{Binding Race.Winner.Constructor.Name}"
                                    Grid.Column="2"
                                    Style="{StaticResource Details_Info}" />
+
+                            <Button Text="{Binding Race.Winner.Constructor.Name}"
+            Clicked="Constructor_Clicked"
+            Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Winner.Constructor.Id}"
+            Grid.Column="2" />
 
                         </Grid>
                     </StackLayout>
@@ -107,14 +115,22 @@
                                    Grid.Column="0"
                                    Style="{StaticResource Details_Header}" />
 
-                            <Label Text="{Binding Race.Second.Driver.Fullname}"
-                                   Grid.Column="1"
-                                   Style="{StaticResource Details_Info}" />
+                            <Button Text="{Binding Race.Second.Driver.Fullname}"
+                                    Clicked="Driver_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Second.Driver.Id}"
+                                    Grid.Column="1" />
 
                             <Label Text="{Binding Race.Second.Constructor.Name}"
                                    Grid.Column="2"
                                    Style="{StaticResource Details_Info}" />
 
+                            <Button Text="{Binding Race.Second.Constructor.Name}"
+            Clicked="Constructor_Clicked"
+            Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Second.Constructor.Id}"
+            Grid.Column="2" />
+                            
                         </Grid>
                     </StackLayout>
                     <StackLayout>
@@ -129,13 +145,21 @@
                                    Grid.Column="0"
                                    Style="{StaticResource Details_Header}" />
 
-                            <Label Text="{Binding Race.Third.Driver.Fullname}"
-                                   Grid.Column="1"
-                                   Style="{StaticResource Details_Info}" />
+                            <Button Text="{Binding Race.Third.Driver.Fullname}"
+                                    Clicked="Driver_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Third.Driver.Id}"
+                                    Grid.Column="1" />
 
                             <Label Text="{Binding Race.Third.Constructor.Name}"
                                    Grid.Column="2"
                                    Style="{StaticResource Details_Info}" />
+
+                            <Button Text="{Binding Race.Third.Constructor.Name}"
+            Clicked="Constructor_Clicked"
+            Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Third.Constructor.Id}"
+            Grid.Column="2"/>
 
                         </Grid>
                     </StackLayout>
@@ -184,15 +208,24 @@
                                    Grid.Column="0"
                                    Style="{StaticResource Details_Header}" />
 
-                            <Label Text="{Binding Race.Qualy_First.Driver.Fullname}"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Style="{StaticResource Details_Info}" />
+                            <Button Text="{Binding Race.Qualy_First.Driver.Fullname}"
+                                    Clicked="Driver_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Qualy_First.Driver.Id}"
+                                    Grid.Row="0"
+                                    Grid.Column="1" />
 
                             <Label Text="{Binding Race.Qualy_First.Constructor.Name}"
                                    Grid.Row="0"
                                    Grid.Column="2"
                                    Style="{StaticResource Details_MoreInfo}" />
+
+                            <Button Text="{Binding Race.Qualy_First.Constructor.Name}"
+                Clicked="Constructor_Clicked"
+                Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Qualy_First.Constructor.Id}"
+                Grid.Column="2"
+                Grid.Row="0" />
 
                             <Label Text="{Binding Race.Qualy_First.Q3}"
                                    Grid.Row="1"
@@ -218,15 +251,24 @@
                                    Grid.Column="0"
                                    Style="{StaticResource Details_Header}" />
 
-                            <Label Text="{Binding Race.Qualy_Second.Driver.Fullname}"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Style="{StaticResource Details_Info}" />
+                            <Button Text="{Binding Race.Qualy_Second.Driver.Fullname}"
+                                    Clicked="Driver_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Qualy_Second.Driver.Id}"
+                                    Grid.Row="0"
+                                    Grid.Column="1" />
 
                             <Label Text="{Binding Race.Qualy_Second.Constructor.Name}"
                                    Grid.Row="0"
                                    Grid.Column="2"
                                    Style="{StaticResource Details_MoreInfo}" />
+
+                            <Button Text="{Binding Race.Qualy_Second.Constructor.Name}"
+        Clicked="Constructor_Clicked"
+        Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Qualy_Second.Constructor.Id}"
+        Grid.Column="2"
+        Grid.Row="0" />
 
                             <Label Text="{Binding Race.Qualy_Second.Q3}"
                                    Grid.Row="1"
@@ -252,15 +294,19 @@
                                    Grid.Column="0"
                                    Style="{StaticResource Details_Header}" />
 
-                            <Label Text="{Binding Race.Qualy_Third.Driver.Fullname}"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Style="{StaticResource Details_Info}" />
-
-                            <Label Text="{Binding Race.Qualy_Third.Constructor.Name}"
-                                   Grid.Row="0"
-                                   Grid.Column="2"
-                                   Style="{StaticResource Details_MoreInfo}" />
+                            <Button Text="{Binding Race.Qualy_Third.Driver.Fullname}"
+                                    Clicked="Driver_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Qualy_Third.Driver.Id}"
+                                    Grid.Row="0"
+                                    Grid.Column="1" />
+                            
+                            <Button Text="{Binding Race.Qualy_Third.Constructor.Name}"
+                                    Clicked="Constructor_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Qualy_Third.Constructor.Id}"
+                                    Grid.Column="2"
+                                    Grid.Row="0"/>
 
                             <Label Text="{Binding Race.Qualy_Third.Q3}"
                                    Grid.Row="1"
@@ -300,13 +346,17 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding Race.FastestLap.Driver.Fullname}"
-                                   Grid.Column="0"
-                                   Style="{StaticResource Details_Info}" />
+                            <Button Text="{Binding Race.FastestLap.Driver.Fullname}"
+                                    Clicked="Driver_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.FastestLap.Driver.Id}"
+                                    Grid.Column="0" />
 
-                            <Label Text="{Binding Race.FastestLap.Constructor.Name}"
-                                   Grid.Column="1"
-                                   Style="{StaticResource Details_MoreInfo}" />
+                            <Button Text="{Binding Race.FastestLap.Constructor.Name}"
+                                    Clicked="Constructor_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.FastestLap.Constructor.Id}"
+                                    Grid.Column="1" />
 
                             <Label Text="{Binding Race.FastestLap.FastestLap.PrettyTime}"
                                    Grid.Column="2"
@@ -315,8 +365,6 @@
                         </Grid>
                     </StackLayout>
                 </StackLayout>
-
-                
 
                 
 

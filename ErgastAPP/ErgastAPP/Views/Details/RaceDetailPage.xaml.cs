@@ -88,5 +88,17 @@ namespace ErgastAPP.Views
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
             }
         }
+
+
+
+        void Driver_Clicked(object sender, SelectedItemChangedEventArgs args)
+        {
+            Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel((sender as Button).CommandParameter.ToString())));
+        }
+
+        void Constructor_Clicked(object sender, SelectedItemChangedEventArgs args)
+        {
+            Navigation.PushAsync(new ConstructorDetailPage(new ConstructorDetailViewModel((sender as Button).CommandParameter.ToString())));
+        }
     }
 }

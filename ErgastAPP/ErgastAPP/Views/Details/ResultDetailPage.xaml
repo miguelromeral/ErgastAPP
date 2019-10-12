@@ -202,6 +202,9 @@
                     </StackLayout>
                 </ScrollView>
             </StackLayout>
+            
+            
+            
 
             <StackLayout x:Name="LapData"
                          Grid.Row="1"

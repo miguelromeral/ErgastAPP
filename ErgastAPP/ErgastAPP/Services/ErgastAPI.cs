@@ -122,6 +122,7 @@ namespace ErgastAPP.Models
         public string Constructors { get { return URL + _constructors + _json + "?" + AddLimit(); } }
 
         public string ConstructorsByDriver(string driver) { return URL + _drivers + "/" + driver + _constructors + _json + "?" + AddLimit(); }
+        public string Constructor(string cons) { return URL + _constructors + "/" + cons + _json; }
 
         #endregion
 
