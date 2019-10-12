@@ -12,6 +12,65 @@
                 <StackLayout Style="{StaticResource SectionLayout}">
 
                     <Label Style="{StaticResource SectionHeader}"
+                           Text="GRAND PRIX INFO" />
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="NAME"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
+
+                            <Label Text="{Binding Race.Name}"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
+
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="DATE"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
+
+                            <Label Text="{Binding Race.PrettyDate}"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
+
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="CIRCUIT"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
+
+                            <Button Text="{Binding Race.Circuit.Name}"
+                                    Clicked="Circuit_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    Grid.Column="1" />
+
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource SectionLayout}">
+
+                    <Label Style="{StaticResource SectionHeader}"
                            Text="RACE" />
 
                     <StackLayout>
@@ -256,14 +315,10 @@
                         </Grid>
                     </StackLayout>
                 </StackLayout>
-                
-                
+
                 
 
-                <Button Text="CIRCUIT INFO"
-                        Clicked="Circuit_Clicked"
-                        Style="{StaticResource ButtonMark}"
-                        HorizontalOptions="FillAndExpand"/>
+                
 
                 <StackLayout Style="{StaticResource SectionLayout}">
 

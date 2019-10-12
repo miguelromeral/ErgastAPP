@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -41,6 +42,20 @@ namespace ErgastAPP.Models
         [JsonProperty("PitStops")]
         public List<PitStop> PitStops { get; set; }
 
+
+
+
+        public string PrettyDate
+        {
+            get
+            {
+                if (String.IsNullOrWhiteSpace(Date))
+                    return "";
+
+                var sp = Date.Split('-');
+                return new DateTime(Convert.ToInt32(sp[0]), Convert.ToInt32(sp[1]), Convert.ToInt32(sp[2])).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
+        }
 
 
 

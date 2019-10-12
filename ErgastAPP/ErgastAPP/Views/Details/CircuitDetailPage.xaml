@@ -43,7 +43,8 @@
                                    Style="{StaticResource Details_Header}" />
 
                             <StackLayout Grid.Column="1"
-                                         Orientation="Horizontal">
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center">
                                 <Image Source="{Binding Circuit.Location.Flag}"
                                        Style="{StaticResource ImageFlag}" />
 
