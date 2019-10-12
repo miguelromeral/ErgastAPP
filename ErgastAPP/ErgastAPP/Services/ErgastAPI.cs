@@ -158,10 +158,15 @@ namespace ErgastAPP.Models
         {
             return URL + _drivers + "/" + driver + _fastest + "/1" + _results + _json + "?" + AddLimit();
         }
-        
+
+        public string FastestLapsByConstructor(string constructor)
+        {
+            return URL + _constructors + "/" + constructor + _fastest + "/1" + _results + _json + "?" + AddLimit();
+        }
+
 
         #endregion
-        
+
         #region QUALIFYING
         public string QualifyingByRace(int year, int round)
         {

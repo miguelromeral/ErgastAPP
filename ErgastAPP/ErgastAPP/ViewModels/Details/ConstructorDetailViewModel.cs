@@ -29,6 +29,9 @@ namespace ErgastAPP.ViewModels
         DriverTable drivers;
         public DriverTable Drivers { get { return drivers; } set { SetProperty(ref drivers, value); } }
 
+        RaceTable fastestLaps;
+        public RaceTable FastestLaps { get { return fastestLaps; } set { SetProperty(ref fastestLaps, value); } }
+
 
 
         enum DataSource
@@ -74,7 +77,7 @@ namespace ErgastAPP.ViewModels
                         break;
                 }
 
-
+                FastestLaps = await App.RestService.FastestLapsByConstructorAsync(ConstructorId);
                 SeasonsWorldChampions = await App.RestService.GetSeasonsConstructorsWorldChampionAsync(ConstructorId);
                 Races = await App.RestService.GetRacesByConstructorAsync(ConstructorId);
                 Drivers = await App.RestService.DriversByConstructorAsync(ConstructorId);
