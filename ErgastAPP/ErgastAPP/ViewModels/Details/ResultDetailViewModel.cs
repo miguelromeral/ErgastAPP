@@ -13,6 +13,9 @@ namespace ErgastAPP.ViewModels
     {
         public Command LoadLaps { get; set; }
         public Command LoadStops { get; set; }
+        
+        public Command MainCommand { get; set; }
+
 
         private Result _result;
         public Result Result { get { return _result; } set { SetProperty(ref _result, value); } }
@@ -39,8 +42,14 @@ namespace ErgastAPP.ViewModels
             PitStops = new ObservableCollection<PitStop>();
             LoadLaps = new Command(async () => await ExecuteLoadLapsCommand());
             LoadStops = new Command(async () => await ExecuteLoadStopsCommand());
+            MainCommand = new Command(async () => await ExecuteMainCommand());
         }
 
+        async Task ExecuteMainCommand()
+        {
+            await ExecuteLoadStopsCommand();
+            await ExecuteLoadLapsCommand();
+        }
 
         async Task ExecuteLoadLapsCommand()
         {

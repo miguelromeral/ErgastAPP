@@ -9,46 +9,112 @@
         <ScrollView>
             <StackLayout>
 
-                <StackLayout>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                <StackLayout Style="{StaticResource SectionLayout}">
 
-                        <Label Text="Circuit"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                    <Label Style="{StaticResource SectionHeader}"
+                           Text="LOCATION" />
 
-                        <Label Text="{Binding Circuit.Name}"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                    </Grid>
-                </StackLayout>
-                <StackLayout>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                            <Label Text="Circuit"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
 
-                        <Label Text="Country"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
-
-                        <StackLayout Grid.Column="1"
-                                     Orientation="Horizontal">
-                            <Image Source="{Binding Circuit.Location.Flag}"
-                                   Style="{StaticResource ImageFlag}" />
-
-                            <Label Text="{Binding Circuit.Location.Country}"
+                            <Label Text="{Binding Circuit.Name}"
+                                   Grid.Column="1"
                                    Style="{StaticResource Details_Info}" />
 
-                        </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                    </Grid>
+                            <Label Text="Country"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
+
+                            <StackLayout Grid.Column="1"
+                                         Orientation="Horizontal">
+                                <Image Source="{Binding Circuit.Location.Flag}"
+                                       Style="{StaticResource ImageFlag}" />
+
+                                <Label Text="{Binding Circuit.Location.Country}"
+                                       Style="{StaticResource Details_Info}" />
+
+                            </StackLayout>
+
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Locality"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
+
+                            <Label Text="{Binding Circuit.Location.Locality}"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
+
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Text="OPEN MAPS"
+                                    Clicked="Maps_Clicked"
+                                    Style="{StaticResource ButtonMark}"
+                                    Grid.Column="1" />
+
+                        </Grid>
+                    </StackLayout>
+
                 </StackLayout>
+
+                <StackLayout Style="{StaticResource SectionLayout}">
+
+                    <Label Style="{StaticResource SectionHeader}"
+                           Text="APPEARANCES" />
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="RACES"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
+
+                            <Button Text="{Binding Races.Races.Count}"
+                                    Clicked="Races_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    Grid.Column="1" />
+
+                        </Grid>
+                    </StackLayout>
+
+                </StackLayout>
+
+                
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -56,43 +122,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Locality"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
-
-                        <Label Text="{Binding Circuit.Location.Locality}"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
-
-                    </Grid>
-                </StackLayout>
-                <StackLayout>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Text="RACES"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
-
-                        <Button Text="{Binding Races.Races.Count}"
-                                Clicked="Races_Clicked"
-                                Style="{StaticResource ButtonTransparent}"
-                                Grid.Column="1" />
-
-                    </Grid>
-                </StackLayout>
-                <StackLayout>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Button Text="OPEN MAPS"
-                                Clicked="Maps_Clicked"
+                        <Button Text="SHOW REPORT"
+                                Clicked="ReportButton_Clicked"
                                 Style="{StaticResource ButtonMark}"
                                 Grid.Column="1" />
 

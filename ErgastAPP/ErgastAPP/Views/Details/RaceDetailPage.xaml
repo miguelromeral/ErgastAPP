@@ -9,87 +9,97 @@
     <ScrollView>
             <StackLayout>
 
-                <Button Text="SHOW REPORT"
-                        Clicked="ReportButton_Clicked"
-                        Style="{StaticResource ButtonMark}"
-                        Grid.Row="0"
-                        Grid.Column="1" />
-
                 <StackLayout Style="{StaticResource SectionLayout}">
 
                     <Label Style="{StaticResource SectionHeader}"
-                           Text="PODIUM" />
+                           Text="RACE" />
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Label Text="FIRST"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                            <Label Text="1º"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
 
-                        <Label Text="{Binding Race.Winner.Driver.Fullname}"
-                               Grid.Row="0"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="{Binding Race.Winner.Driver.Fullname}"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="CONSTRUCTOR"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_MoreHeader}" />
+                            <Label Text="{Binding Race.Winner.Constructor.Name}"
+                                   Grid.Column="2"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="{Binding Race.Winner.Constructor.Name}"
-                               Grid.Row="1"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Label Text="SECOND"
-                               Grid.Row="2"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                            <Label Text="2º"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
 
-                        <Label Text="{Binding Race.Second.Driver.Fullname}"
-                               Grid.Row="2"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="{Binding Race.Second.Driver.Fullname}"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="{Binding Race.Second.Constructor.Name}"
-                               Grid.Row="3"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="{Binding Race.Second.Constructor.Name}"
+                                   Grid.Column="2"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="THIRD"
-                               Grid.Row="4"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Label Text="{Binding Race.Third.Driver.Fullname}"
-                               Grid.Row="4"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="3º"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
 
-                        <Label Text="{Binding Race.Third.Constructor.Name}"
-                               Grid.Row="5"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="{Binding Race.Third.Driver.Fullname}"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Button Text="SHOW RESULTS"
-                                Clicked="Results_Clicked"
-                                Style="{StaticResource ButtonMark}"
-                                Grid.Row="6"
-                                HorizontalOptions="FillAndExpand"
-                                Grid.Column="1" />
-                    </Grid>
+                            <Label Text="{Binding Race.Third.Constructor.Name}"
+                                   Grid.Column="2"
+                                   Style="{StaticResource Details_Info}" />
+
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Text="FULL RESULTS"
+                                    Clicked="Results_Clicked"
+                                    Style="{StaticResource ButtonMark}"
+                                    HorizontalOptions="FillAndExpand"
+                                    Grid.Column="1" />
+                            
+                        </Grid>
+                    </StackLayout>
+
+                    
+
+                    
+
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource SectionLayout}"
@@ -98,95 +108,124 @@
                     <Label Style="{StaticResource SectionHeader}"
                            Text="QUALIFYING" />
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
 
-                        <Label Text="FIRST"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                            <Label Text="1º"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
 
-                        <Label Text="{Binding Race.Qualy_First.Driver.Fullname}"
-                               Grid.Row="0"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="{Binding Race.Qualy_First.Driver.Fullname}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="CONSTRUCTOR"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_MoreHeader}" />
+                            <Label Text="{Binding Race.Qualy_First.Constructor.Name}"
+                                   Grid.Row="0"
+                                   Grid.Column="2"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                        <Label Text="{Binding Race.Qualy_First.Constructor.Name}"
-                               Grid.Row="1"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
+                            <Label Text="{Binding Race.Qualy_First.Q3}"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                        <Label Text="{Binding Race.Qualy_First.Q3}"
-                               Grid.Row="2"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
 
-                        <Label Text="SECOND"
-                               Grid.Row="3"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                            <Label Text="2º"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
 
-                        <Label Text="{Binding Race.Qualy_Second.Driver.Fullname}"
-                               Grid.Row="3"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="{Binding Race.Qualy_Second.Driver.Fullname}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="{Binding Race.Qualy_Second.Constructor.Name}"
-                               Grid.Row="4"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
+                            <Label Text="{Binding Race.Qualy_Second.Constructor.Name}"
+                                   Grid.Row="0"
+                                   Grid.Column="2"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                        <Label Text="{Binding Race.Qualy_Second.Q3}"
-                               Grid.Row="5"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
+                            <Label Text="{Binding Race.Qualy_Second.Q3}"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                        <Label Text="THIRD"
-                               Grid.Row="6"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
 
-                        <Label Text="{Binding Race.Qualy_Third.Driver.Fullname}"
-                               Grid.Row="6"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="3º"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
 
-                        <Label Text="{Binding Race.Qualy_Third.Constructor.Name}"
-                               Grid.Row="7"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
+                            <Label Text="{Binding Race.Qualy_Third.Driver.Fullname}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="{Binding Race.Qualy_Third.Q3}"
-                               Grid.Row="8"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
+                            <Label Text="{Binding Race.Qualy_Third.Constructor.Name}"
+                                   Grid.Row="0"
+                                   Grid.Column="2"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                        <Button Text="FULL QUALYFING"
-                                Clicked="Qualy_Clicked"
-                                Style="{StaticResource ButtonMark}"
-                                HorizontalOptions="FillAndExpand"
-                                Grid.Row="9"
-                                Grid.Column="1" />
+                            <Label Text="{Binding Race.Qualy_Third.Q3}"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                    </Grid>
+                        </Grid>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Text="FULL QUALYFING"
+                                    Clicked="Qualy_Clicked"
+                                    Style="{StaticResource ButtonMark}"
+                                    HorizontalOptions="FillAndExpand"
+                                    Grid.Column="1" />
+
+                        </Grid>
+                    </StackLayout>
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource SectionLayout}">
@@ -194,49 +233,32 @@
                     <Label Style="{StaticResource SectionHeader}"
                            Text="FASTEST LAP" />
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Label Text="DRIVER"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_Header}" />
+                            <Label Text="{Binding Race.FastestLap.Driver.Fullname}"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Info}" />
 
-                        <Label Text="{Binding Race.FastestLap.Driver.Fullname}"
-                               Grid.Row="0"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_Info}" />
+                            <Label Text="{Binding Race.FastestLap.Constructor.Name}"
+                                   Grid.Column="1"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                        <Label Text="CONSTRUCTOR"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_MoreHeader}" />
+                            <Label Text="{Binding Race.FastestLap.FastestLap.PrettyTime}"
+                                   Grid.Column="2"
+                                   Style="{StaticResource Details_MoreInfo}" />
 
-                        <Label Text="{Binding Race.FastestLap.Constructor.Name}"
-                               Grid.Row="1"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
-
-                        <Label Text="TIME"
-                               Grid.Row="2"
-                               Grid.Column="0"
-                               Style="{StaticResource Details_MoreHeader}" />
-
-                        <Label Text="{Binding Race.FastestLap.FastestLap.PrettyTime}"
-                               Grid.Row="2"
-                               Grid.Column="1"
-                               Style="{StaticResource Details_MoreInfo}" />
-
-                    </Grid>
+                        </Grid>
+                    </StackLayout>
                 </StackLayout>
+                
+                
+                
 
                 <Button Text="CIRCUIT INFO"
                         Clicked="Circuit_Clicked"
@@ -267,6 +289,21 @@
                                 Clicked="ConstructorStandings_Clicked"
                                 Style="{StaticResource ButtonMark}"
                                 HorizontalOptions="FillAndExpand"
+                                Grid.Column="1" />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Text="SHOW REPORT"
+                                Clicked="ReportButton_Clicked"
+                                Style="{StaticResource ButtonMark}"
                                 Grid.Column="1" />
 
                     </Grid>

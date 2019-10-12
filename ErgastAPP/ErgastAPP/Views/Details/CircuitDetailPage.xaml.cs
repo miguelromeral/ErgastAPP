@@ -47,5 +47,12 @@ namespace ErgastAPP.Views
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
             }
         }
+
+
+        private void ReportButton_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Circuit != null)
+                Device.OpenUri(new Uri(viewModel.Circuit.URL));
+        }
     }
 }

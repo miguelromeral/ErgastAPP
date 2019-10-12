@@ -50,7 +50,8 @@
                             HorizontalOptions="FillAndExpand"/>
 
                     <Label Text="The Formula 1 Statistics application."
-                           Style="{StaticResource Details_Info}"/>
+                           Style="{StaticResource Details_Info}"
+                           TextColor="{StaticResource BackgroundWhite}"/>
 
                 </StackLayout>
                 

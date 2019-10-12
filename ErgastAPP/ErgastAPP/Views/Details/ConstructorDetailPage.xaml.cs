@@ -100,5 +100,12 @@ namespace ErgastAPP.Views
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
+
+
+        private void ReportButton_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Constructor != null)
+                Device.OpenUri(new Uri(viewModel.Constructor.URL));
+        }
     }
 }

@@ -41,7 +41,7 @@
 
             <Color x:Key="BackgroundWhite">#FFFFFF</Color>
             <Color x:Key="BackgroundDark">#1c1c1c</Color>
-            <Color x:Key="BackgroundLightDark">#454545</Color>
+            <Color x:Key="BackgroundLightDark">#303030</Color>
             
             <!-- NAVIGATIONPAGE -->
             <Style TargetType="NavigationPage">
@@ -63,7 +63,7 @@
                 <Setter Property="BackgroundColor"
                         Value="{StaticResource BackgroundLightDark}" />
                 <Setter Property="Margin"
-                        Value="5,20,5,20" />
+                        Value="5" />
                 <Setter Property="Padding"
                         Value="5" />
                 <Setter Property="VerticalOptions"
@@ -151,6 +151,10 @@
                         Value="Medium" />
                 <Setter Property="FontAttributes"
                         Value="Bold" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
             </Style>
 
             <Style TargetType="Label"
@@ -159,6 +163,10 @@
                         Value="Small" />
                 <Setter Property="FontAttributes"
                         Value="Bold" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
             </Style>
 
             <Style TargetType="Label"
@@ -167,6 +175,8 @@
                         Value="Medium" />
                 <Setter Property="LineBreakMode"
                         Value="WordWrap" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
             </Style>
 
             <Style TargetType="Label"
@@ -175,6 +185,8 @@
                         Value="Small" />
                 <Setter Property="LineBreakMode"
                         Value="MiddleTruncation" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
             </Style>
 
             <Style TargetType="Label"
@@ -188,7 +200,7 @@
                 <Setter Property="Margin"
                         Value="0" />
                 <Setter Property="HorizontalOptions"
-                        Value="Fill" />
+                        Value="FillAndExpand" />
                 <Setter Property="HorizontalTextAlignment"
                         Value="Center" />
                 <Setter Property="VerticalOptions"
@@ -274,9 +286,9 @@
                         Value="Medium" />-->
 
                 <Setter Property="BackgroundColor"
-                        Value="{StaticResource BackgroundDark}" />
+                        Value="{StaticResource BackgroundLightDark}" />
                 <Setter Property="BorderColor"
-                        Value="{StaticResource BackgroundDark}" />
+                        Value="{StaticResource BackgroundLightDark}" />
                 <Setter Property="TextColor"
                         Value="{StaticResource Accent}" />
                 <Setter Property="VerticalOptions"
