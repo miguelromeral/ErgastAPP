@@ -34,6 +34,18 @@ namespace ErgastAPP.Views
         {
             Device.OpenUri(new Uri(viewModel.Circuit.GoogleMapsURI));
         }
-        
+
+
+        private void Races_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Races != null && viewModel.Circuit != null)
+            {
+                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Races, viewModel.Circuit.Name + " Races")));
+            }
+            else
+            {
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            }
+        }
     }
 }

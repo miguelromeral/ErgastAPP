@@ -23,6 +23,7 @@ namespace ErgastAPP.Models
         private string _current = "/current";
         private string _last = "/last";
         private string _pitstops = "/pitstops";
+        private string _circuits = "/circuits";
 
         public string Last
         {
@@ -73,6 +74,10 @@ namespace ErgastAPP.Models
         public string RaceByDriverPosition(string driver, int position)
         {
             return URL + _drivers + "/" + driver + _results + "/" + position + _json + "?" + AddLimit();
+        }
+        public string RacesByCircuit(string circuit)
+        {
+            return URL + _circuits + "/" + circuit + _races + _json + "?" + AddLimit();
         }
         #endregion
 

@@ -15,6 +15,10 @@ namespace ErgastAPP.ViewModels
         private Circuit _circuit;
         public Circuit Circuit { get { return _circuit; } set { SetProperty(ref _circuit, value); } }
 
+        private RaceTable _races;
+        public RaceTable Races { get { return _races; } set { SetProperty(ref _races, value); } }
+
+
 
         public CircuitDetailViewModel(Circuit circuit)
         {
@@ -34,7 +38,7 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-
+                Races = await App.RestService.RacesByCircuit(Circuit.Id);
             }
             catch (Exception ex)
             {

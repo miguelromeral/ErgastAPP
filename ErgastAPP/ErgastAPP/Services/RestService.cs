@@ -579,5 +579,24 @@ namespace ErgastAPP.Services
             }
             return null;
         }
+
+        public async Task<RaceTable> RacesByCircuit(string circuit)
+        {
+            string uri = _api.RacesByCircuit(circuit);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
     }
 }
