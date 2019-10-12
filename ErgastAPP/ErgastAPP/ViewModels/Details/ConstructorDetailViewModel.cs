@@ -26,6 +26,10 @@ namespace ErgastAPP.ViewModels
         SeasonTable seasonsWorldChampion;
         public SeasonTable SeasonsWorldChampions { get { return seasonsWorldChampion; } set { SetProperty(ref seasonsWorldChampion, value); } }
 
+        DriverTable drivers;
+        public DriverTable Drivers { get { return drivers; } set { SetProperty(ref drivers, value); } }
+
+
 
         public ConstructorDetailViewModel(Constructor c)
         {
@@ -46,6 +50,7 @@ namespace ErgastAPP.ViewModels
             {
                 SeasonsWorldChampions = await App.RestService.GetSeasonsConstructorsWorldChampionAsync(ConstructorId);
                 Races = await App.RestService.GetRacesByConstructorAsync(ConstructorId);
+                Drivers = await App.RestService.DriversByConstructorAsync(ConstructorId);
             }
             catch (Exception ex)
             {

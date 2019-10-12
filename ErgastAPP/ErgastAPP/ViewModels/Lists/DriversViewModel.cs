@@ -15,15 +15,34 @@ namespace ErgastAPP.ViewModels
         public ObservableCollection<Driver> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
    
-        DataErgastDrivers _drivers;
+        DriverTable _drivers;
 
         public static string ALL_TEXT = "All";
+
+        enum DataSource
+        {
+            All,
+            Specified
+        }
+
+        DataSource _source;
 
         public DriversViewModel()
         {
             Title = "Drivers";
             Items = new ObservableCollection<Driver>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            _source = DataSource.All;
+        }
+
+
+        public DriversViewModel(DriverTable dr, string title)
+        {
+            _drivers = dr;
+            Title = title;
+            Items = new ObservableCollection<Driver>();
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            _source = DataSource.Specified;
         }
 
 
@@ -36,8 +55,17 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                _drivers = await App.RestService.GetDriversAsync();
-                _drivers.DriverTable.Drivers = _drivers.DriverTable.Drivers.OrderBy(o => o.Fullname).ToList();
+                switch (_source)
+                {
+                    case DataSource.All:
+                        _drivers = await App.RestService.GetDriversAsync();
+                        break;
+                    case DataSource.Specified:
+                    default:
+                        break;
+                }
+
+                _drivers.Drivers = _drivers.Drivers.OrderBy(o => o.Fullname).ToList();
                 LoadItemsFromData();
             }
             catch (Exception ex)
@@ -54,13 +82,11 @@ namespace ErgastAPP.ViewModels
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();
-            foreach (var item in _drivers.DriverTable.Drivers.Where(i => i.Fullname.ToLower().Contains(content.ToLower()) ||
+            foreach (var item in _drivers.Drivers.Where(i => i.Fullname.ToLower().Contains(content.ToLower()) ||
             i.Nationality.ToLower().Contains(content.ToLower()) || i.Number.ToString().Contains(content.ToLower())))
             {
                 Items.Add(item);
             }
         }
-
-        
     }
 }

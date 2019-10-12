@@ -36,7 +36,7 @@ namespace ErgastAPP.Views
                         break;
 
                     case (int)MenuItemType.Drivers:
-                        MenuPages.Add(id, new NavigationPage(new DriversPage()));
+                        MenuPages.Add(id, new NavigationPage(new DriversPage(new DriversViewModel())));
                         break;
 
                     case (int)MenuItemType.Races:

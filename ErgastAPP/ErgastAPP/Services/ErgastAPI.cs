@@ -105,6 +105,12 @@ namespace ErgastAPP.Models
         {
             return URL + _constructors + "/" + constructor + _constructorStandings + "/1" + _seasons + _json + "?" + AddLimit();
         }
+
+
+        public string DriversByConstructor(string constructor)
+        {
+            return URL + _constructors + "/" + constructor + _drivers + _json + "?" + AddLimit();
+        }
         #endregion
 
         #region CONSTRUCTORS
@@ -149,8 +155,7 @@ namespace ErgastAPP.Models
         
 
         #endregion
-
-
+        
         #region QUALIFYING
         public string QualifyingByRace(int year, int round)
         {

@@ -16,11 +16,11 @@ namespace ErgastAPP.Views
 	{
         DriversViewModel viewModel;
 
-		public DriversPage()
+		public DriversPage(DriversViewModel viewModel)
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new DriversViewModel();
+            BindingContext = this.viewModel = viewModel;
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)

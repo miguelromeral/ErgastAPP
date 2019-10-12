@@ -117,17 +117,16 @@ namespace ErgastAPP.Services
             return r1;
         }
 
-        public async Task<DataErgastDrivers> GetDriversAsync(int? year = null, int? round = null)
+        public async Task<DriverTable> GetDriversAsync(int? year = null, int? round = null)
         {
             string uri = _api.Drivers(year, round);
-            DataErgastDrivers data = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgast.RemoveMRData(content));
+                    return JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgast.RemoveMRData(content))?.DriverTable;
                 }
             }
             catch (Exception ex)
@@ -135,7 +134,7 @@ namespace ErgastAPP.Services
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return data;
+            return null;
         }
 
         public async Task<CircuitTable> GetCircuitsAsync(int? year = null)
@@ -553,6 +552,25 @@ namespace ErgastAPP.Services
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content))?.RaceTable?.Races[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<DriverTable> DriversByConstructorAsync(string constructor)
+        {
+            string uri = _api.DriversByConstructor(constructor);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgast.RemoveMRData(content))?.DriverTable;
                 }
             }
             catch (Exception ex)

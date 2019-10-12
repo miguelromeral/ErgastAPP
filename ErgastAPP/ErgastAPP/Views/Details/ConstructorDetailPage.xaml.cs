@@ -90,5 +90,15 @@ namespace ErgastAPP.Views
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
 
+
+        private void Drivers_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Drivers != null && viewModel.Constructor != null)
+            {
+                Navigation.PushAsync(new DriversPage(new DriversViewModel(viewModel.Drivers, viewModel.Constructor.Name + " Drivers")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
     }
 }
