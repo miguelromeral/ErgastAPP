@@ -66,6 +66,8 @@
                         Value="5,20,5,20" />
                 <Setter Property="Padding"
                         Value="5" />
+                <Setter Property="VerticalOptions"
+                        Value="Fill" />
             </Style>
 
             <Style TargetType="StackLayout"

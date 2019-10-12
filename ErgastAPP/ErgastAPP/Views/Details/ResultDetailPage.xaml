@@ -173,9 +173,12 @@
                     </Grid>
                 </StackLayout>
 
-            </StackLayout>
+                    <StackLayout Style="{StaticResource SectionLayout}">
 
-                <StackLayout>
+                        <Label Style="{StaticResource SectionHeader}"
+                               Text="LAP TIMES" />
+
+                    <StackLayout>
                     <Grid ColumnSpacing="0">
 
                         <Grid.ColumnDefinitions>
@@ -196,8 +199,8 @@
 
                     </Grid>
 
-                </StackLayout>
-                
+                    </StackLayout>
+
                 <StackLayout>
                     <ListView x:Name="ItemsListView"
                               ItemsSource="{Binding Laps}"
@@ -246,6 +249,87 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource SectionLayout}">
+
+                    <Label Style="{StaticResource SectionHeader}"
+                           Text="PIT STOPS" />
+
+                    
+                    <StackLayout>
+                    <Grid ColumnSpacing="0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="STOP"
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="0" />
+                        <Label Text="LAP"
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="1" />
+                        <Label Text="TIME"
+                               Style="{StaticResource HeaderResult}"
+                               Grid.Column="2" />
+
+                    </Grid>
+
+                </StackLayout>
+
+                    <StackLayout>
+                        <ListView x:Name="ItemsListViewStops"
+                                  ItemsSource="{Binding PitStops}"
+                                  VerticalOptions="FillAndExpand"
+                                  HasUnevenRows="true"
+                                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                  Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <StackLayout Padding="10">
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="3*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Text="{Binding Stop}"
+                                                       LineBreakMode="NoWrap"
+                                                       Style="{StaticResource LabelListItemHeader}"
+                                                       HorizontalOptions="Center"
+                                                       Grid.Column="0" />
+                                                <Label Text="{Binding Lap}"
+                                                       LineBreakMode="NoWrap"
+                                                       Style="{StaticResource LabelListItemHeader}"
+                                                       HorizontalOptions="Center"
+                                                       Grid.Column="1" />
+                                                <Label Text="{Binding Duration}"
+                                                       LineBreakMode="NoWrap"
+                                                       Style="{StaticResource LabelListItemHeader}"
+                                                       HorizontalOptions="Center"
+                                                       Grid.Column="2" />
+
+                                            </Grid>
+
+                                        </StackLayout>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    
+                </StackLayout>
+
             </StackLayout>
         </ScrollView>
 

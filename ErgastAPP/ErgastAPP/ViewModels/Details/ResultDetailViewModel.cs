@@ -25,6 +25,7 @@ namespace ErgastAPP.ViewModels
 
 
         public ObservableCollection<Lap> Laps { get; set; }
+        public ObservableCollection<PitStop> PitStops { get; set; }
 
 
         public ResultDetailViewModel(Result r, Race ra, Driver d, string title)
@@ -34,6 +35,7 @@ namespace ErgastAPP.ViewModels
             Driver = d;
             Title = title;
             Laps = new ObservableCollection<Lap>();
+            PitStops = new ObservableCollection<PitStop>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
@@ -47,7 +49,16 @@ namespace ErgastAPP.ViewModels
 
             try
             {
+                var stops = await App.RestService.PitStopsByRaceAndDriverAsync(Race.Season, Race.Round, Driver.Id);
+                Race.PitStops = stops.PitStops;
+                PitStops.Clear();
+                foreach (var p in stops.PitStops)
+                {
+                    PitStops.Add(p);
+                }
+
                 var laps = await App.RestService.LapsByRaceAndDriverAsync(Race.Season, Race.Round, Driver.Id);
+                Race.Laps = laps.Laps;
                 Laps.Clear();
                 foreach(var l in laps.Laps)
                 {

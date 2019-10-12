@@ -34,9 +34,12 @@ namespace ErgastAPP.Models
 
         [JsonProperty("QualifyingResults")]
         public List<Qualifying> Qualifying { get; set; }
-        
+
         [JsonProperty("Laps")]
         public List<Lap> Laps { get; set; }
+
+        [JsonProperty("PitStops")]
+        public List<PitStop> PitStops { get; set; }
 
 
 
