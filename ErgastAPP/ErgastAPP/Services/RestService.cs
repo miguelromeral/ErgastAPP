@@ -685,5 +685,25 @@ namespace ErgastAPP.Services
             }
             return null;
         }
+
+
+        public async Task<SeasonTable> GetSeasonsByDriverAsync(string driver)
+        {
+            string uri = _api.SeasonsByDriver(driver);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastSeasons>(DataErgast.RemoveMRData(content))?.SeasonTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
     }
 }

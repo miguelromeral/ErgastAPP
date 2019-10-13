@@ -80,6 +80,15 @@ namespace ErgastAPP.Views
             else
                 DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
         }
+        private void Seasons_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.Seasons != null && viewModel.Item != null)
+            {
+                Navigation.PushAsync(new SeasonsPage(new SeasonViewModel(viewModel.Seasons, viewModel.Item.Fullname + " Seasons")));
+            }
+            else
+                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+        }
 
         private void Podiums_Clicked(object sender, EventArgs e)
         {

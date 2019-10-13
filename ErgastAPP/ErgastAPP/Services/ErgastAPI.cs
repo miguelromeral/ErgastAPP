@@ -48,6 +48,12 @@ namespace ErgastAPP.Models
         {
             return URL + year + _driverStandings + "/1" + _json;
         }
+
+        public string SeasonsByDriver(string driver)
+        {
+            return URL + _drivers + "/" + driver + _seasons + _json + "?" + AddLimit();
+        }
+
         #endregion
 
         private string AddLimit()

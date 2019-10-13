@@ -1,9 +1,9 @@
 # PRIVACY POLICY
 
-`` Date of last modification: October 13, 2019 ''
+```Date of last modification: October 13, 2019```
 
 
-In accordance with [Regulation (EU) 2016/679, of the European Parliament and of the Council, of April 27, 2016] (https://www.boe.es/doue/2016/119/L00001-00088.pdf) , regarding the protection of natural persons in respect of the processing of personal data and the free circulation of these data (General Data Protection Regulation - GDPR), Miguel Ángel García Romeral informs users of the application F1 Hisory (hereinafter, the Application), about the processing of personal data, which they voluntarily provided during the process of registration, access and use of the service.
+In accordance with [Regulation (EU) 2016/679, of the European Parliament and of the Council, of April 27, 2016](https://www.boe.es/doue/2016/119/L00001-00088.pdf) , regarding the protection of natural persons in respect of the processing of personal data and the free circulation of these data (General Data Protection Regulation - GDPR), Miguel Ángel García Romeral informs users of the application F1 Hisory (hereinafter, the Application), about the processing of personal data, which they voluntarily provided during the process of registration, access and use of the service.
 
 ## 1. IDENTIFICATION OF THE RESPONSIBLE FOR THE TREATMENT
 
@@ -34,7 +34,7 @@ The data is not communicated to any third party outside Miguel Romeral, except l
 
 ## 6. DATA RETENTION
 
-Miguel Romeral, informs the User that, as a provider of data hosting service and under the provisions of [Law 34/2002 of July 11, Services of the Information Society and Electronic Commerce (LSSI)] ( https://www.boe.es/buscar/pdf/2002/BOE-A-2002-13758-consolidado.pdf), retains for a maximum period of 12 months the essential information to identify the origin of the hosted data and the moment in which the provision of the service was achieved.
+Miguel Romeral, informs the User that, as a provider of data hosting service and under the provisions of [Law 34/2002 of July 11, Services of the Information Society and Electronic Commerce (LSSI)](https://www.boe.es/buscar/pdf/2002/BOE-A-2002-13758-consolidado.pdf), retains for a maximum period of 12 months the essential information to identify the origin of the hosted data and the moment in which the provision of the service was achieved.
 
 The retention of these data does not affect the secrecy of the communications and can only be used in the context of a criminal investigation or for the safeguarding of public safety, being made available to the judges and / or courts of the Ministry that so require.
 
@@ -42,7 +42,7 @@ The communication of data to the State Security Forces and Bodies will be done u
 
 ## 7. PROTECTION OF ACCOMMODATED INFORMATION
 
-The Data Controller, adopts the necessary measures for the security, integrity and confidentiality of the data in accordance with the provisions of [Regulation (EU) 2016/679, of the European Parliament and of the Council, of April 27, 2016] (https : //www.boe.es/doue/2016/119/L00001-00088.pdf), related to the protection of natural persons in respect to the processing of personal data and free
+The Data Controller, adopts the necessary measures for the security, integrity and confidentiality of the data in accordance with the provisions of [Regulation (EU) 2016/679, of the European Parliament and of the Council, of April 27, 2016](https://www.boe.es/doue/2016/119/L00001-00088.pdf), related to the protection of natural persons in respect to the processing of personal data and free
 circulation of them.
 
 The responsible party is not responsible for the loss or accidental deletion of the data by the users.

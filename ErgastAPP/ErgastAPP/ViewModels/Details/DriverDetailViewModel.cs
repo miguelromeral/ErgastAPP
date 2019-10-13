@@ -26,6 +26,11 @@ namespace ErgastAPP.ViewModels
         public ConstructorTable Constructors { get { return constructors; } set { SetProperty(ref constructors, value); } }
 
 
+        SeasonTable seasons;
+        public SeasonTable Seasons { get { return seasons; } set { SetProperty(ref seasons, value); } }
+
+
+
         public string DriverId;
         DriverTable _drivers;
 
@@ -88,6 +93,7 @@ namespace ErgastAPP.ViewModels
                 Constructors = await App.RestService.ConstructorsByDriverAsync(DriverId);
                 FastestLaps = await App.RestService.FastestLapsByDriverAsync(DriverId);
                 SeasonsWorldChampions = await App.RestService.GetSeasonsDriverWorldChampionAsync(DriverId);
+                Seasons = await App.RestService.GetSeasonsByDriverAsync(DriverId);
                 Title = Item.Fullname;
 
             }
