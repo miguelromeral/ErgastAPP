@@ -7,6 +7,7 @@ using ErgastAPP.Models;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace ErgastAPP.Services
 {
@@ -18,6 +19,7 @@ namespace ErgastAPP.Services
         public RestService()
         {
             _client = new HttpClient();
+            _client.Timeout = TimeSpan.FromSeconds(200);
             _api = new ErgastAPI();
         }
 
@@ -628,6 +630,54 @@ namespace ErgastAPP.Services
                     string content = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<DataErgastConstructors>(DataErgast.RemoveMRData(content))?.ConstructorTable.Constructors[0];
                 }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+
+
+        public async Task<Race> GetLapsByRace(int year, int round, int offset)
+        {
+            string uri = _api.LapsByRace(year, round, offset);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    var aux1 = JsonConvert.DeserializeObject<DataErgastRaces>(DataErgast.RemoveMRData(content));
+                    var aux2 = aux1.RaceTable;
+                    var aux3 = aux2.Races[0];
+                    return aux3;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<Race> GetLapsByRace(int year, int round)
+        {
+            try
+            {
+                var l1 = await GetLapsByRace(year, round, 0);
+                if (l1.Laps.Sum(x => x.Timings.Count) == _api.limit)
+                {
+                    Race l2 = await GetLapsByRace(year, round, _api.limit);
+                    if (l2 != null)
+                        foreach (var l in l2.Laps)
+                        {
+                            l1.Laps.Add(l);
+                        }
+                }
+                
+                return l1;
             }
             catch (Exception ex)
             {

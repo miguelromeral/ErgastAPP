@@ -198,7 +198,12 @@ namespace ErgastAPP.Models
         #region LAPS
         public string LapsByRaceAndDriver(int year, int round, string driver)
         {
-            return URL + "/" + year  + "/" + round + _drivers + "/" + driver + _laps + _json + "?" + AddLimit();
+            return URL + "/" + year + "/" + round + _drivers + "/" + driver + _laps + _json + "?" + AddLimit();
+        }
+
+        public string LapsByRace(int year, int round, int offset)
+        {
+            return URL + "/" + year + "/" + round + _laps + _json + "?" + AddLimit() + "&" + AddOffset(offset);
         }
         #endregion
 

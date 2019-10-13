@@ -170,6 +170,11 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
+                            <Button Text="RACE EVOLUTION"
+                                    Clicked="Evolution_Clicked"
+                                    Style="{StaticResource ButtonMark}"
+                                    Grid.Column="0" />
+
                             <Button Text="FULL RESULTS"
                                     Clicked="Results_Clicked"
                                     Style="{StaticResource ButtonMark}"

@@ -100,5 +100,10 @@ namespace ErgastAPP.Views
         {
             Navigation.PushAsync(new ConstructorDetailPage(new ConstructorDetailViewModel((sender as Button).CommandParameter.ToString())));
         }
+
+        private void Evolution_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EvolutionPage(new EvolutionViewModel(viewModel.Race)));
+        }
     }
 }
