@@ -173,6 +173,7 @@
                             <Button Text="RACE EVOLUTION"
                                     Clicked="Evolution_Clicked"
                                     Style="{StaticResource ButtonMark}"
+                                    HorizontalOptions="FillAndExpand"
                                     Grid.Column="0" />
 
                             <Button Text="FULL RESULTS"

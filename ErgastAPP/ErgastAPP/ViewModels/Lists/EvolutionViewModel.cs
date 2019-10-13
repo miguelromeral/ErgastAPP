@@ -13,7 +13,7 @@ namespace ErgastAPP.ViewModels
     public class EvolutionViewModel : BaseViewModel
     {
 
-        public ObservableCollection<CustomRow> Items { get; set; }
+        public ObservableCollection<EvolutionRaceRow> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
 
@@ -31,8 +31,8 @@ namespace ErgastAPP.ViewModels
             Race = r;
 
             Title = r.Season + " " + r.Name + " Evolution";
-            Items = new ObservableCollection<CustomRow>();
-            _rows = new List<CustomRow>();
+            Items = new ObservableCollection<EvolutionRaceRow>();
+            _rows = new List<EvolutionRaceRow>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
@@ -65,7 +65,7 @@ namespace ErgastAPP.ViewModels
             }
         }
 
-        List<CustomRow> _rows;
+        List<EvolutionRaceRow> _rows;
 
         void InitRows()
         {
@@ -73,7 +73,7 @@ namespace ErgastAPP.ViewModels
             Items.Clear();
             foreach(var r in Race.Results)
             {
-                var row = new CustomRow()
+                var row = new EvolutionRaceRow()
                 {
                     Driver = r.Driver,
                     Constructor = r.Constructor
@@ -88,58 +88,36 @@ namespace ErgastAPP.ViewModels
         {
             Lap = "LAP: " + lap;
 
-            if (Race.Laps != null)
+            try
             {
-                var aux = new ObservableCollection<CustomRow>();
-                aux.Clear();
-                foreach (var l in Race.Laps.Where(x => x.Number == lap).FirstOrDefault().Timings.OrderBy(x => x.Position).ToList())
+                if (Race.Laps != null)
                 {
-                    var row = Items.Where(x => x.Driver.Id == l.DriverId).FirstOrDefault();
-
-                    if (row == null)
+                    var aux = new ObservableCollection<EvolutionRaceRow>();
+                    aux.Clear();
+                    foreach (var l in Race.Laps.Where(x => x.Number == lap).FirstOrDefault().Timings.OrderBy(x => x.Position).ToList())
                     {
-                        row = _rows.Where(x => x.Driver.Id == l.DriverId).FirstOrDefault();
+                        var row = Items.Where(x => x.Driver.Id == l.DriverId).FirstOrDefault();
+
+                        if (row == null)
+                        {
+                            row = _rows.Where(x => x.Driver.Id == l.DriverId).FirstOrDefault();
+                        }
+
+                        row.Position = l.Position;
+                        row.Time = l.Time;
+
+                        aux.Add(row);
                     }
-
-                    row.Position = l.Position;
-                    row.Time = l.Time;
-
-                    aux.Add(row);
+                    Items.Clear();
+                    foreach (var i in aux.OrderBy(x => x.Position))
+                    {
+                        Items.Add(i);
+                    }
                 }
-                Items.Clear();
-                foreach(var i in aux.OrderBy(x => x.Position))
-                {
-                    Items.Add(i);
-                }
-                
-                //Items.OrderBy(x => x.Position);
+            }catch(Exception ex)
+            {
+                Lap = "DATA NO AVAILABLE";
             }
-
-
-            //        Items.Clear();
-
-            //foreach(var l in Race.Laps.Where(x => x.Number == lap).FirstOrDefault().Timings)
-            //{
-            //    var res = Race.Results.Where(x => x.Driver.Id == l.DriverId).Select(x => new { x.Driver, x.Constructor }).FirstOrDefault();
-            //    var row = new CustomRow()
-            //    {
-            //        Position = l.Position,
-            //        Driver = res.Driver,
-            //        Constructor = res.Constructor,
-            //        Time = l.Time
-            //    };
-            //    Items.Add(row);
-            //}
         }
-
-
-        public class CustomRow
-        {
-            public string Time { get; set; }
-            public int Position { get; set; }
-            public Driver Driver { get; set; }
-            public Constructor Constructor { get; set; }
-        }
-
     }
 }
