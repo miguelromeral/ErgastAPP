@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,22 +19,15 @@ namespace ErgastAPP.Views
 		{
 			InitializeComponent();
 		}
-
-
-        private async void Button_Clicked(object sender, EventArgs e)
+        
+        private void LastRace_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(2019, 16)));
+            Navigator.OpenRaceDetailLast(this);
         }
 
-        private async void Button_Clicked_1(object sender, EventArgs e)
+        private void Driver_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel("alonso")));
-        }
-
-        private async void LastRace_Clicked(object sender, EventArgs e)
-        {
-            Race last = await App.RestService.GetLastRaceAsync();
-            await Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(last.Season, last.Round)));
+            Navigator.OpenDriverDetail(this, (sender as Button).CommandParameter.ToString());
         }
     }
 }

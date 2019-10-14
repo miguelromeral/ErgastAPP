@@ -1,4 +1,6 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,8 @@ namespace ErgastAPP.Views
             BindingContext = this.viewModel = viewModel;
             viewModel.LayoutQualy = layoutQualifying;
             viewModel.LayoutFastestLap = layoutFastestLap;
+            viewModel.ButtonRaceEvolution = bRaceEvolution;
+            viewModel.ButtonConstructorStandings = bConstructorStandings;
         }
 
 
@@ -31,11 +35,12 @@ namespace ErgastAPP.Views
 
             layoutQualifying.IsVisible = false;
             layoutFastestLap.IsVisible = false;
-
-            if (viewModel.Race == null)
-            {
-                viewModel.LoadItemsCommand.Execute(null);
-            }
+            bRaceEvolution.IsVisible = false;
+            bConstructorStandings.IsVisible = false;
+            
+            viewModel.LoadItemsCommand.Execute(null);
+            
+            viewModel.DisplayLayouts();
         }
 
         private void ReportButton_Clicked(object sender, EventArgs e)
@@ -48,7 +53,7 @@ namespace ErgastAPP.Views
         {
             if (viewModel.Race != null)
             {
-                Navigation.PushAsync(new ResultsPage(new ResultViewModel(viewModel.Race, viewModel._year)));
+                Navigation.PushAsync(new ResultsPage(new ResultViewModel(viewModel.Race)));
             }
             else
             {
@@ -86,21 +91,12 @@ namespace ErgastAPP.Views
 
         private void Circuit_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Race?.Circuit != null)
-            {
-                Navigation.PushAsync(new CircuitDetailPage(new CircuitDetailViewModel(viewModel.Race.Circuit)));
-            }
-            else
-            {
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
-            }
+            Navigator.OpenCircuitDetail(this, viewModel?.Race?.Circuit);
         }
-
-
-
+        
         void Driver_Clicked(object sender, SelectedItemChangedEventArgs args)
         {
-            Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel((sender as Button).CommandParameter.ToString())));
+            Navigator.OpenDriverDetail(this, (sender as Button).CommandParameter as Driver);
         }
 
         void Constructor_Clicked(object sender, SelectedItemChangedEventArgs args)

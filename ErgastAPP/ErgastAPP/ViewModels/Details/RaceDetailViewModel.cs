@@ -18,19 +18,59 @@ namespace ErgastAPP.ViewModels
         public int _year;
         public int _round;
 
+        private Race original;
+
 
         public StackLayout LayoutQualy { get; set; }
         public StackLayout LayoutFastestLap { get; set; }
+        public Button ButtonRaceEvolution { get; set; }
+        public Button ButtonConstructorStandings { get; set; }
 
+
+        RaceOrigin origin;
 
         public RaceDetailViewModel(int year, int round)
         {
             _year = year;
             _round = round;
-
+            origin = RaceOrigin.YearRound;
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
+        
+        public RaceDetailViewModel(Race race)
+        {
+            _year = race.Season;
+            _round = race.Round;
+            original = race;
+            origin = RaceOrigin.Provided;
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+        }
+
+
+
+        public void DisplayLayouts()
+        {
+            if(Race?.Season != null)
+            {
+                if (Race.Season >= 1958)
+                {
+                    ButtonConstructorStandings.IsVisible = true;
+                    if (Race.Season >= 1996)
+                    {
+                        ButtonRaceEvolution.IsVisible = true;
+                        if (Race.Season >= 2003)
+                        {
+                            LayoutQualy.IsVisible = true;
+                            if (Race.Season >= 2004)
+                            {
+                                LayoutFastestLap.IsVisible = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         async Task ExecuteLoadItemsCommand()
         {
@@ -41,32 +81,36 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Race r = null;
-
-                var data = await App.RestService.GetRaceResultsAsync(_year, _round);
-                r = data.RaceTable.Races[0];
-
-                var res = await App.RestService.ResultsByRaceAsync(_year, _round);
-                r.Results = res.Results;
-
-                
-                var q = await App.RestService.QualifyingByRaceAsync(_year, _round);
-                if (q != null)
+                Race = null;
+                switch (origin)
                 {
-                    r.Qualifying = q.Qualifying;
-                    if (r.Season >= 2003)
-                        LayoutQualy.IsVisible = true;
+                    case RaceOrigin.YearRound:
+                        if (Race == null)
+                        {
+                            var data = await App.RestService.GetRaceResultsAsync(_year, _round);
+                            original = data.Races[0];
+                        }
+                        break;
+                    case RaceOrigin.Provided:
+                    default:
+                        break;
                 }
 
-                if(r.Season >= 2004)
+                if (original?.Results == null)
                 {
-                    LayoutFastestLap.IsVisible = true;
+                    var res = await App.RestService.ResultsByRaceAsync(_year, _round);
+                    original.Results = res.Results;
                 }
 
+                if (original?.Qualifying == null)
+                {
+                    var q = await App.RestService.QualifyingByRaceAsync(_year, _round);
+                    original.Qualifying = q?.Qualifying;
+                }
 
-                Race = r;
-
+                Race = original;
                 Title = _year + " " + Race.Name;
+                DisplayLayouts();
             }
             catch (Exception ex)
             {

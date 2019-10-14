@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,13 +27,7 @@ namespace ErgastAPP.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Season;
-            if (item == null)
-                return;
-
-            await Navigation.PushAsync(new RacePage(new RaceViewModel(item)));
-
-            // Manually deselect item.
+            Navigator.OpenRaces(this, args.SelectedItem as Season);
             ItemsListView.SelectedItem = null;
         }
 
@@ -45,6 +40,8 @@ namespace ErgastAPP.Views
                 viewModel.LoadItemsCommand.Execute(null);
         }
 
+
+
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (viewModel.Items != null)
@@ -55,6 +52,8 @@ namespace ErgastAPP.Views
                     viewModel.LoadItemsFromData(e.NewTextValue.ToString());
             }
         }
+
+
 
         void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
         {

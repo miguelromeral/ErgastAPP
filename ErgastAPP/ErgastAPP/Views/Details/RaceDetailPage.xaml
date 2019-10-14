@@ -88,7 +88,7 @@
                             <Button Text="{Binding Race.Winner.Driver.Fullname}"
                                     Clicked="Driver_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Winner.Driver.Id}"
+                                    CommandParameter="{Binding Race.Winner.Driver}"
                                     Grid.Column="1" />
 
                             <Label Text="{Binding Race.Winner.Constructor.Name}"
@@ -118,7 +118,7 @@
                             <Button Text="{Binding Race.Second.Driver.Fullname}"
                                     Clicked="Driver_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Second.Driver.Id}"
+                                    CommandParameter="{Binding Race.Second.Driver}"
                                     Grid.Column="1" />
 
                             <Label Text="{Binding Race.Second.Constructor.Name}"
@@ -148,7 +148,7 @@
                             <Button Text="{Binding Race.Third.Driver.Fullname}"
                                     Clicked="Driver_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Third.Driver.Id}"
+                                    CommandParameter="{Binding Race.Third.Driver}"
                                     Grid.Column="1" />
 
                             <Label Text="{Binding Race.Third.Constructor.Name}"
@@ -170,7 +170,8 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Button Text="RACE EVOLUTION"
+                            <Button x:Name="bRaceEvolution"
+                                    Text="RACE EVOLUTION"
                                     Clicked="Evolution_Clicked"
                                     Style="{StaticResource ButtonMark}"
                                     HorizontalOptions="FillAndExpand"
@@ -217,7 +218,7 @@
                             <Button Text="{Binding Race.Qualy_First.Driver.Fullname}"
                                     Clicked="Driver_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Qualy_First.Driver.Id}"
+                                    CommandParameter="{Binding Race.Qualy_First.Driver}"
                                     Grid.Row="0"
                                     Grid.Column="1" />
 
@@ -260,7 +261,7 @@
                             <Button Text="{Binding Race.Qualy_Second.Driver.Fullname}"
                                     Clicked="Driver_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Qualy_Second.Driver.Id}"
+                                    CommandParameter="{Binding Race.Qualy_Second.Driver}"
                                     Grid.Row="0"
                                     Grid.Column="1" />
 
@@ -303,7 +304,7 @@
                             <Button Text="{Binding Race.Qualy_Third.Driver.Fullname}"
                                     Clicked="Driver_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Qualy_Third.Driver.Id}"
+                                    CommandParameter="{Binding Race.Qualy_Third.Driver}"
                                     Grid.Row="0"
                                     Grid.Column="1" />
                             
@@ -355,7 +356,7 @@
                             <Button Text="{Binding Race.FastestLap.Driver.Fullname}"
                                     Clicked="Driver_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.FastestLap.Driver.Id}"
+                                    CommandParameter="{Binding Race.FastestLap.Driver}"
                                     Grid.Column="0" />
 
                             <Button Text="{Binding Race.FastestLap.Constructor.Name}"
@@ -394,7 +395,8 @@
                                 Grid.Column="0"
                                 HorizontalOptions="FillAndExpand" />
 
-                        <Button Text="CONSTRUCTORS"
+                        <Button x:Name="bConstructorStandings"
+                                Text="CONSTRUCTORS"
                                 Clicked="ConstructorStandings_Clicked"
                                 Style="{StaticResource ButtonMark}"
                                 HorizontalOptions="FillAndExpand"

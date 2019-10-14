@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -23,15 +24,9 @@ namespace ErgastAPP.Views
             BindingContext = this.viewModel = viewModel;
         }
         
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Race;
-            if (item == null)
-                return;
-            
-            await Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(item.Season, item.Round)));
-
-            // Manually deselect item.
+            Navigator.OpenRaceDetail(this, args.SelectedItem as Race);
             ItemsListView.SelectedItem = null;
         }
 

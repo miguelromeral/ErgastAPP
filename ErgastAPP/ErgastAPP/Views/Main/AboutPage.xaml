@@ -29,7 +29,6 @@
 
                             <Label Text="QUALIFYING"
                                    Style="{StaticResource Details_Header}"
-                                   HorizontalTextAlignment="Start"
                                    Grid.Row="0"/>
 
                             <StackLayout Grid.Row="1">
@@ -50,12 +49,34 @@
 
                             <Label Text="FASTEST LAPS"
                                    Style="{StaticResource Details_Header}"
-                                   HorizontalTextAlignment="Start"
                                    Grid.Row="0" />
 
                             <StackLayout Grid.Row="1">
 
                                 <Label Text="Fastest lap times are included from the 2004 season onwards."
+                                       Style="{StaticResource Details_Info}"
+                                       HorizontalTextAlignment="Start" />
+
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="LAPS &amp; RACE EVOLUTION"
+                                   Style="{StaticResource Details_Header}"
+                                   Grid.Row="0" />
+
+                            <StackLayout Grid.Row="1">
+
+                                <Label Text="Lap time data is available from the 1996 season onwards so the Race Evolution list is available on these seasons only."
+                                       Style="{StaticResource Details_Info}"
+                                       HorizontalTextAlignment="Start" />
+                                <Label Text="Data could take up to two minuts for displaying the list of laps."
                                        Style="{StaticResource Details_Info}"
                                        HorizontalTextAlignment="Start" />
 
@@ -73,7 +94,7 @@
                     <StackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="1*" />
                             </Grid.ColumnDefinitions>
 
@@ -84,6 +105,42 @@
                             <Button Text="MiguelRomeral"
                                     Clicked="Button_Clicked_1"
                                     Style="{StaticResource ButtonMark}"
+                                    Grid.Column="1" />
+
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Data provided by"
+                                   Style="{StaticResource Details_Header}"
+                                   Grid.Column="0" />
+
+                            <Button Text="ERGAST API"
+                                    Clicked="Button_Clicked"
+                                    Style="{StaticResource ButtonMark}"
+                                    Grid.Column="1" />
+
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Powered by"
+                                   Style="{StaticResource Details_Header}"
+                                   Grid.Column="0" />
+
+                            <Button Text="XAMARIN"
+                                    Clicked="Button_Clicked_2"
+                                    Style="{StaticResource ButtonMark}"
                                     Grid.Column="1"/>
 
                         </Grid>
@@ -91,92 +148,6 @@
 
                 </StackLayout>
 
-                <!--<Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-
-                <Label FontSize="Large"
-                       Grid.Row="0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="F1 Stats"
-                                      FontAttributes="Bold" />
-                                <Span Text=" " />
-                                <Span Text="1.0"
-                                      ForegroundColor="{StaticResource LightTextColor}"
-                                      FontSize="Medium" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Label Text="This is an application that shows the all time Formula 1 Statistics along its History."
-                       Style="{StaticResource Details_Info}"
-                       Grid.Row="1" />
-
-                <Label Style="{StaticResource Details_Info}"
-                       Grid.Row="2">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="App developed by " />
-                                <Span Text="MiguelRomeral"
-                                      FontAttributes="Bold" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Button Text="LinkedIn"
-                        Clicked="Button_Clicked_1"
-                        Style="{StaticResource ButtonMark}"
-                        Grid.Row="3"
-                        HorizontalOptions="End"/>
-
-                <Label Style="{StaticResource Details_Info}"
-                       Grid.Row="4">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Data provided by " />
-                                <Span Text="Ergast"
-                                      FontAttributes="Bold" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Button Text="API WEBSITE"
-                        Clicked="Button_Clicked"
-                        Style="{StaticResource ButtonMark}"
-                        Grid.Row="5"
-                        HorizontalOptions="End" />
-
-                <Label Style="{StaticResource Details_Info}"
-                       Grid.Row="6">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Powered by " />
-                                <Span Text="Xamarin"
-                                      FontAttributes="Bold" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Button Text="XAMARIN INFO"
-                        Clicked="Button_Clicked_2"
-                        Style="{StaticResource ButtonMark}"
-                        Grid.Row="7"
-                        HorizontalOptions="End"/>
-
-            </Grid>-->
 
                 </StackLayout>
         </ScrollView>

@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -39,59 +40,32 @@ namespace ErgastAPP.Views
 
         private void Races_Clicked(object sender, EventArgs e)
         {
-            if(viewModel.Item != null && viewModel.Races != null)
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Races, viewModel.Item.Fullname + " Races")));
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.DriverRaces, viewModel.Races, viewModel.Item);
         }
 
         private void RacesPoles_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Item != null && viewModel.Races != null)
-            {
-                var table = new RaceTable();
-                table.Races = viewModel.Races.RacesPolePosition;
-
-                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Item.Fullname + " Pole positions")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.DriverPoles, viewModel.Races, viewModel.Item);
         }
 
         private void RacesWon_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Item != null && viewModel.Races != null)
-            {
-                var table = new RaceTable();
-                table.Races = viewModel.Races.RacesWon;
-
-                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Item.Fullname + " Wins")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.DriverWins, viewModel.Races, viewModel.Item);
         }
 
         private void WorldChampion_Clicked(object sender, EventArgs e)
         {
-            Utilities.OpenSeasons(this, SeasonOrigin.DriverWorldChampion, viewModel.SeasonsWorldChampions, viewModel.Item);
+            Navigator.OpenSeasons(this, SeasonOrigin.DriverWorldChampion, viewModel.SeasonsWorldChampions, viewModel.Item);
         }
 
         private void Seasons_Clicked(object sender, EventArgs e)
         {
-            Utilities.OpenSeasons(this, SeasonOrigin.DriverSeasons, viewModel.Seasons, viewModel.Item);
+            Navigator.OpenSeasons(this, SeasonOrigin.DriverSeasons, viewModel.Seasons, viewModel.Item);
         }
 
         private void Podiums_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Item != null && viewModel.Races != null)
-            {
-                var table = new RaceTable();
-                table.Races = viewModel.Races.RacesPodiums;
-
-                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Item.Fullname + " Podiums")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.DriverPodiums, viewModel.Races, viewModel.Item);
         }
 
         private void Constructors_Clicked(object sender, EventArgs e)

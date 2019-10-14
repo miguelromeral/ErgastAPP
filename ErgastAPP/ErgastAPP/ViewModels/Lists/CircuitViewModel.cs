@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace ErgastAPP.ViewModels
 {
-    class CircuitViewModel : BaseViewModel
+    public class CircuitViewModel : BaseViewModel
     {
         public ObservableCollection<Circuit> Items { get; set; }
         public Command LoadItemsCommand { get; set; }

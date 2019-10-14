@@ -16,11 +16,11 @@ namespace ErgastAPP.Views
 	{
         CircuitViewModel viewModel;
 
-		public CircuitsPage ()
+        public CircuitsPage(CircuitViewModel viewModel)
 		{
 			InitializeComponent ();
 
-            BindingContext = viewModel = new CircuitViewModel();
+            BindingContext = this.viewModel = viewModel;
         }
 
 

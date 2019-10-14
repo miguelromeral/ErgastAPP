@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace ErgastAPP.Views
         {
             base.OnAppearing();
 
-            Title = viewModel.Year + " " + viewModel.Race.Name;
+            Title = viewModel.Race.Season + " " + viewModel.Race.Name;
 
             if (viewModel.Items != null)
             {
@@ -38,15 +39,10 @@ namespace ErgastAPP.Views
             
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as Result;
-            if (item == null)
-                return;
-
-            await Navigation.PushAsync(new ResultDetailPage(new ResultDetailViewModel(item, viewModel.Race, item.Driver, item.Driver.Fullname + " in " + viewModel.Race.Season +" "+ viewModel.Race.Name)));
-
-            // Manually deselect item.
+            Navigator.OpenResultDetail(this, item, viewModel.Race, item?.Driver);
             ItemsListView.SelectedItem = null;
         }
     }

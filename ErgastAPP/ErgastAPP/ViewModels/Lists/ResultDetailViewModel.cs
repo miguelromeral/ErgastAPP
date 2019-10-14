@@ -19,15 +19,13 @@ namespace ErgastAPP.ViewModels
 
         private Race _race;
         public Race Race { get { return _race; } set { SetProperty(ref _race, value); } }
-
-        public int Year;
+       
 
         public ResultsPage Page { get; set; }
 
-        public ResultViewModel(Race r, int year)
+        public ResultViewModel(Race r)
         {
             Race = r;
-            Year = year;
 
             Items = new ObservableCollection<Result>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -43,7 +41,7 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                var aux = await App.RestService.ResultsByRaceAsync(Year, Race.Round);
+                var aux = await App.RestService.ResultsByRaceAsync(Race.Season, Race.Round);
                 Race.Results = aux.Results;
 
                 Items.Clear();

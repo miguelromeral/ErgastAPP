@@ -44,7 +44,7 @@ namespace ErgastAPP.Views
                         break;
 
                     case (int)MenuItemType.Circuits:
-                        MenuPages.Add(id, new NavigationPage(new CircuitsPage()));
+                        MenuPages.Add(id, new NavigationPage(new CircuitsPage(new CircuitViewModel())));
                         break;
 
                     case (int)MenuItemType.Constructors:

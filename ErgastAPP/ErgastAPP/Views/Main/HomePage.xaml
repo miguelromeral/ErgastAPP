@@ -44,14 +44,76 @@
                             Clicked="Button_Clicked_1"
                             Style="{StaticResource ButtonMark}" />-->
 
-                    <Button Text="LAST RACE"
-                            Clicked="LastRace_Clicked"
-                            Style="{StaticResource ButtonMark}"
-                            HorizontalOptions="FillAndExpand"/>
 
                     <Label Text="The Formula 1 Statistics application."
                            Style="{StaticResource Details_Info}"
                            TextColor="{StaticResource BackgroundWhite}"/>
+
+                    
+                    <StackLayout Style="{StaticResource SectionLayout}">
+
+                        <Label Style="{StaticResource SectionHeader}"
+                               Text="QUICK LINKS" />
+
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="LAST GRAND PRIX"
+                                       Style="{StaticResource Details_Header}"
+                                       Grid.Column="0" />
+
+                                <Button Text="RACE DETAILS"
+                                        Clicked="LastRace_Clicked"
+                                        Style="{StaticResource ButtonTransparent}"
+                                        Grid.Column="1"/>
+
+                            </Grid>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="2018 WC DRIVER"
+                                       Style="{StaticResource Details_Header}"
+                                       Grid.Column="0" />
+
+                                <Button Text="Lewis HAMILTON"
+                                        Clicked="Driver_Clicked"
+                                        Style="{StaticResource ButtonTransparent}"
+                                        CommandParameter="hamilton"
+                                        Grid.Column="1" />
+
+                            </Grid>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="2019 WC CONSTRUCTOR"
+                                       Style="{StaticResource Details_Header}"
+                                       Grid.Column="0" />
+
+                                <!--<Button Text="MERCEDES"
+                                        Clicked=""
+                                        Style="{StaticResource ButtonTransparent}"
+                                        CommandParameter="mercedes"
+                                        Grid.Column="1" />-->
+
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
 
                 </StackLayout>
                 
