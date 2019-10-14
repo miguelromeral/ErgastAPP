@@ -20,15 +20,22 @@ namespace ErgastAPP.Views
 			InitializeComponent ();
 
             BindingContext = this.viewModel = viewModel;
-		}
+            viewModel.LayoutQualy = layoutQualifying;
+            viewModel.LayoutFastestLap = layoutFastestLap;
+        }
 
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
+            layoutQualifying.IsVisible = false;
+            layoutFastestLap.IsVisible = false;
+
             if (viewModel.Race == null)
+            {
                 viewModel.LoadItemsCommand.Execute(null);
+            }
         }
 
         private void ReportButton_Clicked(object sender, EventArgs e)

@@ -73,21 +73,12 @@ namespace ErgastAPP.Views
 
         private void WorldChampion_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.SeasonsWorldChampions != null && viewModel.Item != null)
-            {
-                Navigation.PushAsync(new SeasonsPage(new SeasonViewModel(viewModel.SeasonsWorldChampions, viewModel.Item.Fullname + " World Champions")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Utilities.OpenSeasons(this, SeasonOrigin.DriverWorldChampion, viewModel.SeasonsWorldChampions, viewModel.Item);
         }
+
         private void Seasons_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Seasons != null && viewModel.Item != null)
-            {
-                Navigation.PushAsync(new SeasonsPage(new SeasonViewModel(viewModel.Seasons, viewModel.Item.Fullname + " Seasons")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Utilities.OpenSeasons(this, SeasonOrigin.DriverSeasons, viewModel.Seasons, viewModel.Item);
         }
 
         private void Podiums_Clicked(object sender, EventArgs e)

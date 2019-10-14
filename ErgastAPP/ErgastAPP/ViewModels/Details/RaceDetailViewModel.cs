@@ -19,6 +19,10 @@ namespace ErgastAPP.ViewModels
         public int _round;
 
 
+        public StackLayout LayoutQualy { get; set; }
+        public StackLayout LayoutFastestLap { get; set; }
+
+
         public RaceDetailViewModel(int year, int round)
         {
             _year = year;
@@ -45,9 +49,20 @@ namespace ErgastAPP.ViewModels
                 var res = await App.RestService.ResultsByRaceAsync(_year, _round);
                 r.Results = res.Results;
 
+                
                 var q = await App.RestService.QualifyingByRaceAsync(_year, _round);
                 if (q != null)
+                {
                     r.Qualifying = q.Qualifying;
+                    if (r.Season >= 2003)
+                        LayoutQualy.IsVisible = true;
+                }
+
+                if(r.Season >= 2004)
+                {
+                    LayoutFastestLap.IsVisible = true;
+                }
+
 
                 Race = r;
 

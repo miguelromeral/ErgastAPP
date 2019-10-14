@@ -339,7 +339,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource SectionLayout}">
+                <StackLayout x:Name="layoutFastestLap" Style="{StaticResource SectionLayout}">
 
                     <Label Style="{StaticResource SectionHeader}"
                            Text="FASTEST LAP" />
