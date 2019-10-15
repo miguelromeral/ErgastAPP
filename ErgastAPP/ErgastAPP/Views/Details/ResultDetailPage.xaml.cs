@@ -26,8 +26,12 @@ namespace ErgastAPP.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            
-            viewModel.MainCommand.Execute(null);
+
+            if (viewModel.PitStops.Count == 0)
+                viewModel.LoadStops.Execute(null);
+
+            if (viewModel.Laps.Count == 0)
+                viewModel.LoadLaps.Execute(null);
         }
 
 

@@ -15,6 +15,8 @@ namespace ErgastAPP.ViewModels
         private Circuit _circuit;
         public Circuit Circuit { get { return _circuit; } set { SetProperty(ref _circuit, value); } }
 
+        Circuit dataoriginal;
+
         private RaceTable _races;
         public RaceTable Races { get { return _races; } set { SetProperty(ref _races, value); } }
 
@@ -22,8 +24,8 @@ namespace ErgastAPP.ViewModels
 
         public CircuitDetailViewModel(Circuit circuit)
         {
-            Circuit = circuit;
-            Title = Circuit.Name;
+            dataoriginal = circuit;
+            Title = dataoriginal.Name;
 
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
@@ -38,7 +40,8 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Races = await App.RestService.RacesByCircuit(Circuit.Id);
+                Races = await App.RestService.RacesByCircuit(dataoriginal.Id);
+                Circuit = dataoriginal;
             }
             catch (Exception ex)
             {

@@ -27,10 +27,8 @@ namespace ErgastAPP.Views
             base.OnAppearing();
 
 
-            if (viewModel.Items != null)
-            {
+            if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
-            }
         }
     }
 }

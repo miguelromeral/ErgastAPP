@@ -28,7 +28,8 @@ namespace ErgastAPP.Views
         {
             base.OnAppearing();
             
-            viewModel.LoadItemsCommand.Execute(null);
+            if(viewModel.Circuit == null)
+                viewModel.LoadItemsCommand.Execute(null);
         }
 
         private void Maps_Clicked(object sender, EventArgs e)

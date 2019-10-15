@@ -38,7 +38,8 @@ namespace ErgastAPP.Views
             bRaceEvolution.IsVisible = false;
             bConstructorStandings.IsVisible = false;
             
-            viewModel.LoadItemsCommand.Execute(null);
+            if(viewModel.Race == null)
+                viewModel.LoadItemsCommand.Execute(null);
             
             viewModel.DisplayLayouts();
         }

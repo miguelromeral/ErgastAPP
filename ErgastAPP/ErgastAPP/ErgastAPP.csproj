@@ -3,11 +3,22 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>MiguelRomeral</Company>
-    <Product>F1 Stats</Product>
+    <Product>Formula GP</Product>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>MiguelRomeral</Authors>
     <ApplicationIcon>ErgastApp.ico</ApplicationIcon>
     <Win32Resource />
+    <AssemblyName>FormulaGP</AssemblyName>
+    <RootNamespace>FormulaGP</RootNamespace>
+    <Description>Formula 1 Data History</Description>
+    <PackageLicenseUrl>https://github.com/miguelromeral/ErgastAPP/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/miguelromeral/ErgastAPP</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/miguelromeral/ErgastAPP/master/ErgastAPP/ErgastAPP/ErgastApp.ico</PackageIconUrl>
+    <RepositoryUrl>https://github.com/miguelromeral/ErgastAPP</RepositoryUrl>
+    <PackageTags>formula1, formula, 1, racing, grand prix, gp, formula gp, miguel, romeral, miguelromeral</PackageTags>
+    <Copyright>MiguelRomeral</Copyright>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>FormulaGP_VisualStudio_Key.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

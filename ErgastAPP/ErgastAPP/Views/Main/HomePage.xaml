@@ -35,16 +35,6 @@
 
                 <StackLayout>
 
-                    <!--<Button Text="TEST: Russian GP"
-                            Clicked="Button_Clicked"
-                            Style="{StaticResource ButtonMark}" />
-                    
-
-                    <Button Text="TEST: Alonso"
-                            Clicked="Button_Clicked_1"
-                            Style="{StaticResource ButtonMark}" />-->
-
-
                     <Label Text="The Formula 1 Statistics application."
                            Style="{StaticResource Details_Info}"
                            TextColor="{StaticResource BackgroundWhite}"/>
@@ -66,7 +56,7 @@
                                        Style="{StaticResource Details_Header}"
                                        Grid.Column="0" />
 
-                                <Button Text="RACE DETAILS"
+                                <Button Text="{Binding Last}"
                                         Clicked="LastRace_Clicked"
                                         Style="{StaticResource ButtonTransparent}"
                                         Grid.Column="1"/>
@@ -105,11 +95,11 @@
                                        Style="{StaticResource Details_Header}"
                                        Grid.Column="0" />
 
-                                <!--<Button Text="MERCEDES"
-                                        Clicked=""
+                                <Button Text="MERCEDES"
+                                        Clicked="Constructor_Clicked"
                                         Style="{StaticResource ButtonTransparent}"
                                         CommandParameter="mercedes"
-                                        Grid.Column="1" />-->
+                                        Grid.Column="1" />
 
                             </Grid>
                         </StackLayout>

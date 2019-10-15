@@ -210,15 +210,8 @@ namespace ErgastAPP.Services
             else
                 ShowWarning(page, warning);
         }
-
-        public async static void OpenRaceDetailLast(ContentPage page)
-        {
-            await page.Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(await App.RestService.GetLastRaceAsync())));
-        }
-
-
         
-
+        
 
         public static void OpenConstructorDetail(ContentPage page, string constructor)
         {

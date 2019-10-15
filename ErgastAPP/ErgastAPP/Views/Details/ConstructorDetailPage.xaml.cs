@@ -29,7 +29,8 @@ namespace ErgastAPP.Views
         {
             base.OnAppearing();
             
-            viewModel.LoadItemsCommand.Execute(null);
+            if(viewModel.Constructor == null)
+                viewModel.LoadItemsCommand.Execute(null);
         }
 
 

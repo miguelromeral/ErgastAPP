@@ -16,6 +16,8 @@ namespace ErgastAPP.ViewModels
         Driver driver;
         public Driver Item { get { return driver; } set { SetProperty(ref driver, value); } }
 
+        Driver original;
+
         SeasonTable seasonsWorldChampion;
         public SeasonTable SeasonsWorldChampions { get { return seasonsWorldChampion; } set { SetProperty(ref seasonsWorldChampion, value); } }
 
@@ -44,7 +46,7 @@ namespace ErgastAPP.ViewModels
             Driver
         }
         DataSource _source;
-
+        
 
         public DriverDetailViewModel(string driverId)
         {
@@ -57,7 +59,7 @@ namespace ErgastAPP.ViewModels
         public DriverDetailViewModel(Driver d)
         {
             DriverId = d.Id;
-            Item = d;
+            original = d;
             _source = DataSource.Driver;
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
@@ -66,7 +68,7 @@ namespace ErgastAPP.ViewModels
         private async void LoadDriverFromId()
         {
             _drivers = await App.RestService.GetDriverInfoAsync(DriverId);
-            Item = _drivers.Drivers[0];
+            original = _drivers.Drivers[0];
         }
 
 
@@ -94,8 +96,8 @@ namespace ErgastAPP.ViewModels
                 FastestLaps = await App.RestService.FastestLapsByDriverAsync(DriverId);
                 SeasonsWorldChampions = await App.RestService.GetSeasonsDriverWorldChampionAsync(DriverId);
                 Seasons = await App.RestService.GetSeasonsByDriverAsync(DriverId);
+                Item = original;
                 Title = Item.Fullname;
-
             }
             catch (Exception ex)
             {

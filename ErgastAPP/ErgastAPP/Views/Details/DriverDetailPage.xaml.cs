@@ -29,7 +29,8 @@ namespace ErgastAPP.Views
         {
             base.OnAppearing();
             
-            viewModel.LoadItemsCommand.Execute(null);
+            if(viewModel.Item == null)
+                viewModel.LoadItemsCommand.Execute(null);
         }
 
         private void ReportButton_Clicked(object sender, EventArgs e)

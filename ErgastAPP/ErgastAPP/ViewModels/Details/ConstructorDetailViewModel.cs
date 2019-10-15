@@ -15,7 +15,8 @@ namespace ErgastAPP.ViewModels
 
         Constructor constructor;
         public Constructor Constructor { get { return constructor; } set { SetProperty(ref constructor, value); } }
-        
+
+        Constructor dataoriginal;
 
         public string ConstructorId;
 
@@ -50,7 +51,7 @@ namespace ErgastAPP.ViewModels
 
         public ConstructorDetailViewModel(Constructor c)
         {
-            Constructor = c;
+            dataoriginal = c;
             Title = c.Name;
             ConstructorId = c.Id;
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -66,17 +67,18 @@ namespace ErgastAPP.ViewModels
 
             try
             {
+                Constructor = null;
                 switch (_source)
                 {
                     case DataSource.Id:
-                        Constructor = await App.RestService.GetConstructorAsync(ConstructorId);
-                        Title = Constructor.Name;
+                        dataoriginal = await App.RestService.GetConstructorAsync(ConstructorId);
+                        Title = dataoriginal.Name;
                         break;
                     case DataSource.Provided:
                     default:
                         break;
                 }
-
+                Constructor = dataoriginal;
                 FastestLaps = await App.RestService.FastestLapsByConstructorAsync(ConstructorId);
                 SeasonsWorldChampions = await App.RestService.GetSeasonsConstructorsWorldChampionAsync(ConstructorId);
                 Races = await App.RestService.GetRacesByConstructorAsync(ConstructorId);
