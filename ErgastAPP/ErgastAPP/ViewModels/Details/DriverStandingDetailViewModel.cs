@@ -23,10 +23,10 @@ namespace ErgastAPP.ViewModels
 
         public int Year;
 
-        public DriverStandingDetailViewModel(Race r, int year)
+        public DriverStandingDetailViewModel(Race r)
         {
             Race = r;
-            Year = year;
+            Year = r.Season;
 
             Items = new ObservableCollection<DriverStandings>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -43,6 +43,8 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Standings = await App.RestService.DriverStandingsByRace(Year, Race.Round);
+
+                Title = Year + " " + Race.Name;
 
                 Items.Clear();
                 foreach (var r in Standings.Standings[0].DriverStandings.OrderBy(x => x.Position).ThenBy(x => x.Wins))

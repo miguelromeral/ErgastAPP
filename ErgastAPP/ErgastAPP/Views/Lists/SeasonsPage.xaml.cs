@@ -27,7 +27,7 @@ namespace ErgastAPP.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            Navigator.OpenRaces(this, args.SelectedItem as Season);
+            Navigator.OpenRaces(this, args.SelectedItem as Season, false);
             ItemsListView.SelectedItem = null;
         }
 

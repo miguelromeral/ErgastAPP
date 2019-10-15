@@ -70,22 +70,12 @@ namespace ErgastAPP.Views
 
         private void Constructors_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Constructors != null && viewModel.Races != null)
-            {
-                Navigation.PushAsync(new ConstructorPage(new ConstructorViewModel(viewModel.Constructors, viewModel.Item.Fullname + " Teams")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenConstructor(this, ConstructorOrigin.Drivers, viewModel.Constructors, viewModel.Item);
         }
 
         private void FastestLaps_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Item != null && viewModel.FastestLaps != null)
-            {
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.FastestLaps, viewModel.Item.Fullname + " Fastest Laps")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.DriverFastestLaps, viewModel.FastestLaps, viewModel.Item);
         }
     }
 }

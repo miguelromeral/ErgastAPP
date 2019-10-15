@@ -30,7 +30,6 @@ namespace ErgastAPP.Views
         {
             base.OnAppearing();
 
-            Title = viewModel.Race.Season + " " + viewModel.Race.Name;
 
             if (viewModel.Items != null)
             {
@@ -42,7 +41,7 @@ namespace ErgastAPP.Views
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as Result;
-            Navigator.OpenResultDetail(this, item, viewModel.Race, item?.Driver);
+            Navigator.OpenResultDetail(this, item, viewModel.Race, item?.Driver, false);
             ItemsListView.SelectedItem = null;
         }
     }

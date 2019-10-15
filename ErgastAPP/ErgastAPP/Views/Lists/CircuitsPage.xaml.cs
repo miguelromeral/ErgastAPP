@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,13 +27,7 @@ namespace ErgastAPP.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Circuit;
-            if (item == null)
-                return;
-
-            await Navigation.PushAsync(new CircuitDetailPage(new CircuitDetailViewModel(item)));
-
-            // Manually deselect item.
+            Navigator.OpenCircuitDetail(this, args.SelectedItem as Circuit, false);
             ItemsListView.SelectedItem = null;
         }
 

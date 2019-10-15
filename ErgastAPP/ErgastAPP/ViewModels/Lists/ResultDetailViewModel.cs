@@ -44,6 +44,8 @@ namespace ErgastAPP.ViewModels
                 var aux = await App.RestService.ResultsByRaceAsync(Race.Season, Race.Round);
                 Race.Results = aux.Results;
 
+                Title = Race.Season + " " + Race.Name;
+
                 Items.Clear();
                 foreach(var r in Race.Results.OrderBy(x => x.Position))
                 {

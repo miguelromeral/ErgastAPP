@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Services;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace ErgastAPP.Views
             }
             else
             {
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+                Navigator.ShowWarning(this, true);
             }
         }
     }

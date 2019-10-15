@@ -26,7 +26,7 @@ namespace ErgastAPP.Views
         
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            Navigator.OpenRaceDetail(this, args.SelectedItem as Race);
+            Navigator.OpenRaceDetail(this, args.SelectedItem as Race, false);
             ItemsListView.SelectedItem = null;
         }
 

@@ -21,10 +21,10 @@ namespace ErgastAPP.ViewModels
 
         public int Year;
 
-        public QualyViewModel(Race r, int year)
+        public QualyViewModel(Race r)
         {
             Race = r;
-            Year = year;
+            Year = r.Season;
 
             Items = new ObservableCollection<Qualifying>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -43,6 +43,8 @@ namespace ErgastAPP.ViewModels
                 
                 var aux = await App.RestService.QualifyingByRaceAsync(Year, Race.Round);
                 Race.Qualifying = aux.Qualifying;
+
+                Title = Year + " " + Race.Name;
 
                 Items.Clear();
                 foreach (var r in Race.Qualifying.OrderBy(x => x.Position))

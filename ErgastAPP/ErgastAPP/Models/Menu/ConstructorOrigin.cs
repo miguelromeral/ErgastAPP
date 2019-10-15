@@ -4,10 +4,9 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
-    public enum SeasonOrigin
+
+    public enum ConstructorOrigin
     {
-        DriverSeasons,
-        DriverWorldChampion,
-        ConstructorWorldChampion
+        Drivers
     }
 }

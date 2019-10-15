@@ -6,6 +6,8 @@ namespace ErgastAPP.Models
 {
     public enum DriverOrigin
     {
-        Id
+        Id,
+
+        Constructors,
     }
 }

@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Services;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,22 +34,12 @@ namespace ErgastAPP.Views
 
         private void Driver_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Result != null)
-            {
-                Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel(viewModel.Result.Driver)));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenDriverDetail(this, viewModel?.Result?.Driver);
         }
 
         private void Constructor_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Result != null)
-            {
-                Navigation.PushAsync(new ConstructorDetailPage(new ConstructorDetailViewModel(viewModel.Result.Constructor)));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenConstructorDetail(this, viewModel?.Result?.Constructor);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ErgastAPP.ViewModels;
+﻿using ErgastAPP.Services;
+using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,14 +39,7 @@ namespace ErgastAPP.Views
 
         private void Races_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Races != null && viewModel.Circuit != null)
-            {
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Races, viewModel.Circuit.Name + " Races")));
-            }
-            else
-            {
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
-            }
+            Navigator.OpenRaces(this, Models.RaceOrigin.CircuitRaces, viewModel.Races, viewModel.Circuit);
         }
 
 

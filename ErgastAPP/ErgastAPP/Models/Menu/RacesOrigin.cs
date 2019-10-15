@@ -10,11 +10,21 @@ namespace ErgastAPP.Models
         YearRound,
         Provided,
 
+
         // List
         Season,
         DriverPodiums,
         DriverWins,
         DriverPoles,
-        DriverRaces
+        DriverRaces,
+        DriverFastestLaps,
+
+        ConstructorFastestLaps,
+        ConstructorPodiums,
+        ConstructorWins,
+        ConstructorPoles,
+        ConstructorRaces,
+
+        CircuitRaces,
     }
 }

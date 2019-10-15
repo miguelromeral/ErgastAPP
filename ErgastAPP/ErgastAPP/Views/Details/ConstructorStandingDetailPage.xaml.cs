@@ -26,7 +26,6 @@ namespace ErgastAPP.Views
         {
             base.OnAppearing();
 
-            Title = viewModel.Year + " " + viewModel.Race.Name;
 
             if (viewModel.Items != null)
             {

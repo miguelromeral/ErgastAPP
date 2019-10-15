@@ -96,10 +96,10 @@
                                    Style="{StaticResource Details_Info}" />
 
                             <Button Text="{Binding Race.Winner.Constructor.Name}"
-            Clicked="Constructor_Clicked"
-            Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Winner.Constructor.Id}"
-            Grid.Column="2" />
+                                    Clicked="Constructor_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    CommandParameter="{Binding Race.Winner.Constructor}"
+                                    Grid.Column="2" />
 
                         </Grid>
                     </StackLayout>
@@ -128,7 +128,7 @@
                             <Button Text="{Binding Race.Second.Constructor.Name}"
             Clicked="Constructor_Clicked"
             Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Second.Constructor.Id}"
+                                    CommandParameter="{Binding Race.Second.Constructor}"
             Grid.Column="2" />
                             
                         </Grid>
@@ -158,7 +158,7 @@
                             <Button Text="{Binding Race.Third.Constructor.Name}"
             Clicked="Constructor_Clicked"
             Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Third.Constructor.Id}"
+                                    CommandParameter="{Binding Race.Third.Constructor}"
             Grid.Column="2"/>
 
                         </Grid>
@@ -230,7 +230,7 @@
                             <Button Text="{Binding Race.Qualy_First.Constructor.Name}"
                 Clicked="Constructor_Clicked"
                 Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Qualy_First.Constructor.Id}"
+                                    CommandParameter="{Binding Race.Qualy_First.Constructor}"
                 Grid.Column="2"
                 Grid.Row="0" />
 
@@ -273,7 +273,7 @@
                             <Button Text="{Binding Race.Qualy_Second.Constructor.Name}"
         Clicked="Constructor_Clicked"
         Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Qualy_Second.Constructor.Id}"
+                                    CommandParameter="{Binding Race.Qualy_Second.Constructor}"
         Grid.Column="2"
         Grid.Row="0" />
 
@@ -311,7 +311,7 @@
                             <Button Text="{Binding Race.Qualy_Third.Constructor.Name}"
                                     Clicked="Constructor_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.Qualy_Third.Constructor.Id}"
+                                    CommandParameter="{Binding Race.Qualy_Third.Constructor}"
                                     Grid.Column="2"
                                     Grid.Row="0"/>
 
@@ -362,7 +362,7 @@
                             <Button Text="{Binding Race.FastestLap.Constructor.Name}"
                                     Clicked="Constructor_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
-                                    CommandParameter="{Binding Race.FastestLap.Constructor.Id}"
+                                    CommandParameter="{Binding Race.FastestLap.Constructor}"
                                     Grid.Column="1" />
 
                             <Label Text="{Binding Race.FastestLap.FastestLap.PrettyTime}"

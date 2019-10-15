@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -34,82 +35,37 @@ namespace ErgastAPP.Views
 
         private void Races_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Constructor != null && viewModel.Races != null)
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.Races, viewModel.Constructor.Name + " Races")));
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.ConstructorRaces, viewModel.Races, viewModel.Constructor);
         }
         
         private void RacesPoles_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Constructor != null && viewModel.Races != null)
-            {
-                var table = new RaceTable();
-                table.Races = viewModel.Races.RacesPolePosition;
-
-                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Constructor.Name + " Pole positions")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.ConstructorPoles, viewModel.Races, viewModel.Constructor);
         }
 
         private void RacesWon_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Constructor != null && viewModel.Races != null)
-            {
-                var table = new RaceTable();
-                table.Races = viewModel.Races.RacesWon;
-
-                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Constructor.Name + " Wins")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.ConstructorFastestLaps, viewModel.Races, viewModel.Constructor);
         }
 
         private void Podiums_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Constructor != null && viewModel.Races != null)
-            {
-                var table = new RaceTable();
-                table.Races = viewModel.Races.RacesPodiums;
-
-                Navigation.PushAsync(new RacePage(new RaceViewModel(table, viewModel.Constructor.Name + " Podiums")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.ConstructorFastestLaps, viewModel.FastestLaps, viewModel.Constructor);
         }
-
-
+        
         private void WorldChampion_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.SeasonsWorldChampions != null && viewModel.Constructor != null)
-            {
-                Navigation.PushAsync(new SeasonsPage(new SeasonViewModel(viewModel.SeasonsWorldChampions, viewModel.Constructor.Name + " World Champions")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenSeasons(this, SeasonOrigin.ConstructorWorldChampion, viewModel.SeasonsWorldChampions, viewModel.Constructor);
         }
-
-
+        
         private void Drivers_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Drivers != null && viewModel.Constructor != null)
-            {
-                Navigation.PushAsync(new DriversPage(new DriversViewModel(viewModel.Drivers, viewModel.Constructor.Name + " Drivers")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenDriver(this, DriverOrigin.Constructors, viewModel.Drivers, viewModel.Constructor);
         }
-
-
+        
         private void FastestLaps_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Constructor != null && viewModel.FastestLaps != null)
-            {
-                Navigation.PushAsync(new RacePage(new RaceViewModel(viewModel.FastestLaps, viewModel.Constructor.Name + " Fastest Laps")));
-            }
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenRaces(this, RaceOrigin.ConstructorFastestLaps, viewModel.FastestLaps, viewModel.Constructor);
         }
 
         private void ReportButton_Clicked(object sender, EventArgs e)

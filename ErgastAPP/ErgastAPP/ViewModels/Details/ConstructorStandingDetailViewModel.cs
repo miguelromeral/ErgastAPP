@@ -24,10 +24,10 @@ namespace ErgastAPP.ViewModels
 
         public int Year;
 
-        public ConstructorStandingDetailViewModel(Race r, int year)
+        public ConstructorStandingDetailViewModel(Race r)
         {
             Race = r;
-            Year = year;
+            Year = r.Season;
 
             Items = new ObservableCollection<ConstructorStandings>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -44,6 +44,7 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Standings = await App.RestService.ConstructorStandingsByRace(Year, Race.Round);
+                Title = Year + " " + Race.Name;
 
                 Items.Clear();
                 foreach (var r in Standings.Standings[0].ConstructorStandings.OrderBy(x => x.Position).ThenBy(x => x.Wins))

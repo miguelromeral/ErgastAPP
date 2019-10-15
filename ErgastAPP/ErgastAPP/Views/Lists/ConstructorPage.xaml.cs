@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Services;
 using ErgastAPP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,16 +26,8 @@ namespace ErgastAPP.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-
-            var item = args.SelectedItem as Constructor;
-            if (item == null)
-                return;
-
-            await Navigation.PushAsync(new ConstructorDetailPage(new ConstructorDetailViewModel(item)));
-
-            // Manually deselect item.
+            Navigator.OpenConstructorDetail(this, args.SelectedItem as Constructor, false);
             ItemsListView.SelectedItem = null;
-
         }
 
 

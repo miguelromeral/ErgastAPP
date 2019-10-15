@@ -51,43 +51,23 @@ namespace ErgastAPP.Views
 
         private void Results_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Race != null)
-            {
-                Navigation.PushAsync(new ResultsPage(new ResultViewModel(viewModel.Race)));
-            }
-            else
-            {
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
-            }
+            Navigator.OpenResult(this, viewModel?.Race);
         }
 
         private void Qualy_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Race != null)
-                Navigation.PushAsync(new QualyPage(new QualyViewModel(viewModel.Race, viewModel._year)));
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenQualy(this, viewModel?.Race);
         }
 
         private void DriverStandings_Clicked(object sender, EventArgs e)
         {
-            if (viewModel.Race != null)
-                Navigation.PushAsync(new DriverStandingDetailPage(new DriverStandingDetailViewModel(viewModel.Race, viewModel._year)));
-            else
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
+            Navigator.OpenDriverStandings(this, viewModel.Race);
         }
 
         private void ConstructorStandings_Clicked(object sender, EventArgs e)
         {
-            if(viewModel.Race == null)
-                DisplayAlert("Data not available yet", "Please, wait until the data is successfully loaded", "OK");
-            else
-                if(viewModel.Race?.Season >= 1958)
-                    Navigation.PushAsync(new ConstructorStandingDetailPage(new ConstructorStandingDetailViewModel(viewModel.Race, viewModel._year)));
-                else
-                    DisplayAlert("Constructor Standings Missing", "The Constructor Championship wasn't be awarded since 1958.", "OK");
+            Navigator.OpenConstructorStandings(this, viewModel.Race);
         }
-
 
         private void Circuit_Clicked(object sender, EventArgs e)
         {
@@ -101,12 +81,12 @@ namespace ErgastAPP.Views
 
         void Constructor_Clicked(object sender, SelectedItemChangedEventArgs args)
         {
-            Navigation.PushAsync(new ConstructorDetailPage(new ConstructorDetailViewModel((sender as Button).CommandParameter.ToString())));
+            Navigator.OpenConstructorDetail(this, (sender as Button).CommandParameter as Constructor);
         }
 
         private void Evolution_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new EvolutionPage(new EvolutionViewModel(viewModel.Race)));
+            Navigator.OpenEvolution(this, viewModel.Race);
         }
     }
 }

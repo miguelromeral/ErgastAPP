@@ -96,7 +96,7 @@ namespace ErgastAPP.ViewModels
                         break;
                 }
 
-                if (original?.Results == null)
+                if (original?.Results == null || original.Results.Count <= 1)
                 {
                     var res = await App.RestService.ResultsByRaceAsync(_year, _round);
                     original.Results = res.Results;
