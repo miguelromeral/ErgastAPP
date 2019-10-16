@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FormulaGP</name>
+    </assembly>
+    <members>
+        <member name="T:ErgastAPP.Models.Circuit">
+            <summary>
+            Circuit Model.
+            <see cref="!:https://ergast.com/mrd/methods/circuits/"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Circuit.Id">
+            <summary>
+            Circuit PK.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Circuit.URL">
+            <summary>
+            Wikipedia link to circuit info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Circuit.Name">
+            <summary>
+            Circuit Name.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Circuit.Location">
+            <summary>
+            Circuit Location in coordinates.
+            <seealso cref="P:ErgastAPP.Models.Circuit.Location"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Circuit.GoogleMapsURI">
+            <summary>
+            Get automatically the Google Maps URI.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.CircuitTable">
+            <summary>
+            Circuit Table.
+            Allows to have many circuit instances.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.CircuitTable.Circuits">
+            <summary>
+            List of circuits
+            <seealso cref="T:ErgastAPP.Models.Circuit"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Location">
+            <summary>
+            Location details for circuits.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Location.Latitud">
+            <summary>
+            Latitud.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Location.Longitud">
+            <summary>
+            Longitud.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Location.Locality">
+            <summary>
+            Locality of the track.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Location.Country">
+            <summary>
+            Country circuit.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Location.Address">
+            <summary>
+            Address Circuit.
+            Displays the details in only one string.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Location.Flag">
+            <summary>
+            Wikipedia URL with the flag of the country.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Constructor">
+            <summary>
+            Constructor Model.
+            <see cref="!:https://ergast.com/mrd/methods/constructors/"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Constructor.Id">
+            <summary>
+            Constructor PK.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Constructor.URL">
+            <summary>
+            Wikipedia URL for constructor.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Constructor.Name">
+            <summary>
+            Constructor Name.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Constructor.Nationality">
+            <summary>
+            Constructor Nationality.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Constructor.Flag">
+            <summary>
+            Wikipedia URL for the flag of its nationality.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.ConstructorTable">
+            <summary>
+            Constructor Table.
+            
+            It allows to have a list of Constructors.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorTable.DriverId">
+            <summary>
+            Driver ID.
+            When the constructors are for a specified driver.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorTable.Constructors">
+            <summary>
+            List of Constructors.
+            <seealso cref="T:ErgastAPP.Models.Constructor"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Driver">
+            <summary>
+            Driver Model
+            <see cref="!:https://ergast.com/mrd/methods/drivers/"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.Id">
+            <summary>
+            Driver PK.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.URL">
+            <summary>
+            Wikipedia URL with the driver info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.GivenName">
+            <summary>
+            Driver firstname.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.FamilyName">
+            <summary>
+            Driver lastname.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.DateOfBirth">
+            <summary>
+            Driver birthday with a yyyy-MM-dd format.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.Birthday">
+            <summary>
+            Driver birthday with a dd-MM-yyyy format.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.Nationality">
+            <summary>
+            Driver Nationality.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.Flag">
+            <summary>
+            Wikipedia URL from flag depends on the nationality.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.Number">
+            <summary>
+            Permanent number.
+            Since 2014, the drivers were allowed to choose their own number.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.PrettyNumber">
+            <summary>
+            Display the permanent driver in string.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.Code">
+            <summary>
+            Three letters shortname
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.PrettyCode">
+            <summary>
+            display the shortname in string..
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Driver.Fullname">
+            <summary>
+            Driver Fullname.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DriverTable">
+            <summary>
+            Driver Table.
+            Allows to have many drivers listed.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverTable.ConstructorId">
+            <summary>
+            Constructor ID.
+            When looking for driver in an specific team.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverTable.Drivers">
+            <summary>
+            List of Drivers.
+            <seealso cref="T:ErgastAPP.Models.Driver"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Lap">
+            <summary>
+            Lap Model
+            Displays the info of a lap.
+            <see cref="!:https://ergast.com/mrd/methods/laps/"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Lap.Number">
+            <summary>
+            Lap number, begining from 1.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Lap.Timings">
+            <summary>
+            List of every timing set by the drivers on this lap umber.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Timing">
+            <summary>
+            Timing details.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Timing.DriverId">
+            <summary>
+            Driver ID who did the lap.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Timing.Position">
+            <summary>
+            Driver position at this lap.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Timing.Time">
+            <summary>
+            Time in M:ss.tcm format.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.HomeMenuItem">
+            <summary>
+            Menu item. Its instances will be displayed on the MasterPageDetail menu.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.HomeMenuItem.Image">
+            <summary>
+            URL image from the icon.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.HomeMenuItem.Id">
+            <summary>
+            Menu ID.
+            <seealso cref="T:ErgastAPP.Models.MenuItemType"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.HomeMenuItem.Title">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

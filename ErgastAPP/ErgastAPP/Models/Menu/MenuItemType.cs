@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum MenuItemType
     {
         Home,

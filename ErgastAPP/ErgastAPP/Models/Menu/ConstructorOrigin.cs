@@ -4,7 +4,6 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
-
     public enum ConstructorOrigin
     {
         Drivers

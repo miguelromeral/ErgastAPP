@@ -6,7 +6,13 @@ This is an application that shows the all time Formula 1 Statistics along its Hi
 
 ## Instalation (DEMO)
 
-You can check the [DEMO Android version](https://github.com/miguelromeral/ErgastAPP/blob/master/es.miguelromeral.f1stats.apk?raw=true), deployed on 2019 October 10th ('unknown sources' required).
+### Android (5.0+)
+
+Comming Soon!
+
+### Windows Store (16299+)
+
+<a href='//www.microsoft.com/store/apps/9N739RJ76595?cid=storebadge&ocid=badge'><img src='https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png' alt='English badge' style='width: 284px; height: 104px;'/></a>
 
 ## Screenshots
 
