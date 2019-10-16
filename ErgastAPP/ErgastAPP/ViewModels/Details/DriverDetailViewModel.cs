@@ -1,4 +1,5 @@
 ﻿using ErgastAPP.Models;
+using ErgastAPP.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,12 +41,15 @@ namespace ErgastAPP.ViewModels
         public RaceTable FastestLaps { get { return fastestLaps; } set { SetProperty(ref fastestLaps, value); } }
 
 
+
         enum DataSource
         {
             Id,
             Driver
         }
         DataSource _source;
+
+        public DriverDetailPage Page { get; set; }
         
 
         public DriverDetailViewModel(string driverId)
@@ -98,6 +102,7 @@ namespace ErgastAPP.ViewModels
                 Seasons = await App.RestService.GetSeasonsByDriverAsync(DriverId);
                 Item = original;
                 Title = Item.Fullname;
+                Page.LoadEntries(Races.Races.Count, Races.RacesWon.Count, Races.RacesPolePosition.Count, Races.RacesPodiums.Count, Races.RacesDNF.Count);
             }
             catch (Exception ex)
             {

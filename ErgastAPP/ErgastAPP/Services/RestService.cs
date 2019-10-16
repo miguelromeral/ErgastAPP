@@ -25,7 +25,7 @@ namespace ErgastAPP.Services
 
         public async Task<DataErgastSeasons> GetSeasonsDataAsync()
         {
-            string uri = _api.Seasons;
+            string uri = _api.Seasons();
             DataErgastSeasons data = null;
             try
             {
@@ -46,7 +46,7 @@ namespace ErgastAPP.Services
 
         public async Task<Race> GetLastRaceAsync()
         {
-            string uri = _api.Last;
+            string uri = _api.LastRace();
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
@@ -182,7 +182,7 @@ namespace ErgastAPP.Services
 
         public async Task<ConstructorTable> GetConstructorsAsync()
         {
-            string uri = _api.Constructors;
+            string uri = _api.Constructors();
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);

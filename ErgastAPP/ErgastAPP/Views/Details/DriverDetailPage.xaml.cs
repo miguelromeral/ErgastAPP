@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Microcharts.Forms;
+using SkiaSharp;
+using Microcharts;
+
 namespace ErgastAPP.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -17,20 +21,70 @@ namespace ErgastAPP.Views
 	{
         DriverDetailViewModel viewModel;
 
-		public DriverDetailPage (DriverDetailViewModel viewModel)
+        List<Microcharts.Entry> EntriesRaces;
+
+
+        public DriverDetailPage (DriverDetailViewModel viewModel)
 		{
 			InitializeComponent ();
-            
+
+            EntriesRaces = new List<Microcharts.Entry>();
+            viewModel.Page = this;
             BindingContext = this.viewModel = viewModel;
+            
         }
 
         
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            
-            if(viewModel.Item == null)
+
+            if (viewModel.Item == null)
+            {
                 viewModel.LoadItemsCommand.Execute(null);
+                
+            }
+        }
+
+        public void LoadEntries(int total, int wins, int poles, int podiums, int outs)
+        {
+            EntriesRaces.Add(new Microcharts.Entry(total)
+            {
+                Label = "Races",
+                ValueLabel = total.ToString(),
+                Color = SKColor.Parse("#dddddd")
+            });
+            EntriesRaces.Add(new Microcharts.Entry(podiums)
+            {
+                Label = "Podiums",
+                ValueLabel = podiums.ToString(),
+                Color = SKColor.Parse("#3b8cff")
+            });
+            EntriesRaces.Add(new Microcharts.Entry(poles)
+            {
+                Label = "Poles",
+                ValueLabel = poles.ToString(),
+                Color = SKColor.Parse("#e114ff")
+            });
+            EntriesRaces.Add(new Microcharts.Entry(wins)
+            {
+                Label = "Wins",
+                ValueLabel = wins.ToString(),
+                Color = SKColor.Parse("#1be02b")
+            });
+            EntriesRaces.Add(new Microcharts.Entry(outs)
+            {
+                Label = "Not Finished",
+                ValueLabel = outs.ToString(),
+                Color = SKColor.Parse("#111111")
+            });
+
+
+            chartRaces.Chart = new RadialGaugeChart()
+            {
+                Entries = EntriesRaces,
+                BackgroundColor = SKColor.Parse("#303030") 
+            };
         }
 
         private void ReportButton_Clicked(object sender, EventArgs e)

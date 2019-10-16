@@ -4,11 +4,16 @@ using System.Text;
 
 namespace ErgastAPP.Resources
 {
+    /// <summary>
+    /// Gets URL for images.
+    /// </summary>
     public static class Images
     {
-
+        #region FLAGS
+        // Unknown flag.
         private static string _unknown = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/1280px-Flag_of_None.svg.png";
 
+        // List of flags.
         private static string _australia = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1920px-Flag_of_Australia_%28converted%29.svg.png";
         private static string _morocco = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/1280px-Flag_of_Morocco.svg.png";
         private static string _spain = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1280px-Flag_of_Spain.svg.png";
@@ -42,11 +47,16 @@ namespace ErgastAPP.Resources
         private static string _UAE = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1920px-Flag_of_the_United_Arab_Emirates.svg.png";
         private static string _korea = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/1280px-Flag_of_South_Korea.svg.png";
         private static string _netherlands = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/1280px-Flag_of_the_Netherlands.svg.png";
+        #endregion
 
-
-        public static string FlagByCountry(string cou)
+        /// <summary>
+        /// Gets the flag depends the country name.
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns>Wikipedia URL flag.</returns>
+        public static string FlagByCountry(string country)
         {
-            switch (cou)
+            switch (country)
             {
                 case "Spain": return _spain;
                 case "Australia": return _australia;
@@ -86,9 +96,14 @@ namespace ErgastAPP.Resources
             }
         }
 
-        public static string FlagByNationality(string nat)
+        /// <summary>
+        /// Gets the flag depends on the nationality.
+        /// </summary>
+        /// <param name="nationality">Nationality string</param>
+        /// <returns>Wikipedia URL flag.</returns>
+        public static string FlagByNationality(string nationality)
         {
-            switch (nat)
+            switch (nationality)
             {
                 case "Spanish":
                     return _spain;

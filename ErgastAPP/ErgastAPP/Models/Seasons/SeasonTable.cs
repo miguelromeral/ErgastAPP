@@ -5,12 +5,20 @@ using System.Text;
 
 namespace ErgastAPP.Models
 {
+    /// <summary>
+    /// Season info.
+    /// </summary>
     public class SeasonTable
     {
+        /// <summary>
+        /// List of seasons.
+        /// </summary>
         [JsonProperty("seasons")]
         public List<Season> Seasons { get; set; }
 
-
+        /// <summary>
+        /// Indicates the number of the seasons with the list
+        /// </summary>
         public string PrettySeasons
         {
             get

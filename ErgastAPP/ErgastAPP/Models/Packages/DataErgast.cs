@@ -62,6 +62,7 @@ namespace ErgastAPP.Models
 
             foreach (var jprop in raw)
             {
+                // We only need the value of the only duple we have.
                 return JsonConvert.SerializeObject(jprop.Value);
             }
             return "";

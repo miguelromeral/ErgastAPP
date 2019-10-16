@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="ErgastAPP.Views.DriverDetailPage"
              Title="{Binding Title}">
 
@@ -113,6 +114,10 @@
                     <Label Style="{StaticResource SectionHeader}"
                            Text="ACHIEVEMENTS" />
 
+                    <charts:ChartView x:Name="chartRaces"
+                                      HeightRequest="200"
+                                      WidthRequest="100" />
+
                     <StackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -124,7 +129,7 @@
                                    Grid.Column="0"
                                    Style="{StaticResource Details_Header}" />
 
-                            <Button Text="{Binding SeasonsWorldChampions.PrettySeasons}"
+                            <Button Text="{Binding SeasonsWorldChampions.Seasons.Count}"
                                     Clicked="WorldChampion_Clicked"
                                     Style="{StaticResource ButtonTransparent}"
                                     Grid.Column="1" />
@@ -222,7 +227,7 @@
 
                         </Grid>
                     </StackLayout>
-                    
+
                     <StackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -281,10 +286,6 @@
                     </StackLayout>
 
                 </StackLayout>
-
-                    
-                    
-                    
 
                 <StackLayout>
                     <Grid>
