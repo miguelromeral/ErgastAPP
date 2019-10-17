@@ -102,6 +102,7 @@ namespace ErgastAPP.ViewModels
                 Seasons = await App.RestService.GetSeasonsByDriverAsync(DriverId);
                 Item = original;
                 Title = Item.Fullname;
+                Page.LoadEntriesTeams();
                 Page.LoadEntries(Races.Races.Count, Races.RacesWon.Count, Races.RacesPolePosition.Count, Races.RacesPodiums.Count, Races.RacesDNF.Count);
             }
             catch (Exception ex)

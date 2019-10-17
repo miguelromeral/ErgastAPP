@@ -13,6 +13,7 @@ using Xamarin.Forms.Xaml;
 using Microcharts.Forms;
 using SkiaSharp;
 using Microcharts;
+using FormulaGP.Resources;
 
 namespace ErgastAPP.Views
 {
@@ -22,6 +23,7 @@ namespace ErgastAPP.Views
         DriverDetailViewModel viewModel;
 
         List<Microcharts.Entry> EntriesRaces;
+        List<Microcharts.Entry> EntriesRacesPerTeam;
 
 
         public DriverDetailPage (DriverDetailViewModel viewModel)
@@ -29,6 +31,7 @@ namespace ErgastAPP.Views
 			InitializeComponent ();
 
             EntriesRaces = new List<Microcharts.Entry>();
+            EntriesRacesPerTeam = new List<Microcharts.Entry>();
             viewModel.Page = this;
             BindingContext = this.viewModel = viewModel;
             
@@ -44,6 +47,52 @@ namespace ErgastAPP.Views
                 viewModel.LoadItemsCommand.Execute(null);
                 
             }
+        }
+
+
+        public void LoadEntriesTeams()
+        {
+            EntriesRacesPerTeam.Clear();
+            Dictionary<string, int> entries = new Dictionary<string, int>();
+            Dictionary<string, string> constructors = new Dictionary<string, string>();
+            foreach (var r in viewModel.Races.Races)
+            {
+                var result = r.Results[0];
+                string team = result.Constructor.Name;
+                if (!entries.Keys.Contains(team))
+                {
+                    entries.Add(team, 1);
+                    constructors.Add(team, result.Constructor.Id);
+                }
+                else
+                {
+                    int value = 0;
+                    if (entries.TryGetValue(team, out value))
+                    {
+                        entries.Remove(team);
+                        entries.Add(team, value + 1);
+                    }
+                }
+            }
+
+            foreach(KeyValuePair<string, int> entry in entries)
+            {
+                string id = "";
+                constructors.TryGetValue(entry.Key, out id);
+                EntriesRacesPerTeam.Add(new Microcharts.Entry(entry.Value)
+                {
+                    Label = entry.Key,
+                    ValueLabel = entry.Value.ToString(),
+                    
+                    Color = SKColor.Parse(Colors.GetColorByTeam(id))
+                });
+            }
+            chartTeams.Chart = new DonutChart()
+            {
+                HoleRadius = 0.3f,
+                Entries = EntriesRacesPerTeam,
+                BackgroundColor = SKColor.Parse("#303030")
+            };
         }
 
         public void LoadEntries(int total, int wins, int poles, int podiums, int outs)
@@ -83,7 +132,7 @@ namespace ErgastAPP.Views
             chartRaces.Chart = new RadialGaugeChart()
             {
                 Entries = EntriesRaces,
-                BackgroundColor = SKColor.Parse("#303030") 
+                BackgroundColor = SKColor.Parse("#303030")
             };
         }
 
