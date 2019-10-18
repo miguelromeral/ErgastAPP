@@ -245,6 +245,12 @@ namespace ErgastAPP.Models
         #endregion
 
         #region RESULTS
+        /// <summary>
+        /// Gets all the race results given the year and round.
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="round"></param>
+        /// <returns></returns>
         public string RaceResults(int year, int round)
         {
             return URL + "/" + year + "/" + round + _results + _json + "?" + AddLimit();

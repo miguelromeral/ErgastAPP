@@ -84,7 +84,7 @@ namespace ErgastAPP.Views
                     Label = entry.Key,
                     ValueLabel = entry.Value.ToString(),
                     
-                    Color = SKColor.Parse(Colors.GetColorByTeam(id))
+                    Color = SKColor.Parse(Colors.GetColorByTeam(id)),
                 });
             }
             chartTeams.Chart = new DonutChart()

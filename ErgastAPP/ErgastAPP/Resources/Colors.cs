@@ -4,8 +4,12 @@ using System.Text;
 
 namespace FormulaGP.Resources
 {
+    /// <summary>
+    /// Color to distinguish elements of the statistics.
+    /// </summary>
     public static class Colors
     {
+        #region CONSTRUCTORS ID
         public const string adams = "adams";
         public const string afm = "afm";
         public const string ags = "ags";
@@ -215,7 +219,14 @@ namespace FormulaGP.Resources
         public const string williams = "williams";
         public const string wolf = "wolf";
         public const string zakspeed = "zakspeed";
+        #endregion
 
+        /// <summary>
+        /// Gets a specific color for each constructor.
+        /// In case the constructor is not very well-known, a random color will be returned.
+        /// </summary>
+        /// <param name="constructorid">Constructor ID</param>
+        /// <returns>Color in string hexadecimal format.</returns>
         public static string GetColorByTeam(string constructorid)
         {
             switch (constructorid)

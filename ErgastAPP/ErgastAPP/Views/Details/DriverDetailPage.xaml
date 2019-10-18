@@ -114,24 +114,27 @@
                     <Label Style="{StaticResource SectionHeader}"
                            Text="ACHIEVEMENTS" />
 
-                    <StackLayout x:Name="pCharts"
-                                 Orientation="Horizontal"
-                                 HorizontalOptions="CenterAndExpand"
-                                 HeightRequest="200"
-                                 WidthRequest="700">
+                    <ScrollView Orientation="Horizontal">
+                        <StackLayout x:Name="pCharts"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="CenterAndExpand"
+                                     HeightRequest="200"
+                                     WidthRequest="700">
 
-                        <charts:ChartView x:Name="chartRaces"
-                                          HeightRequest="200"
-                                          WidthRequest="350" 
-                                          HorizontalOptions="StartAndExpand"/>
-                        <charts:ChartView x:Name="chartTeams"
-                                        HeightRequest="200"
-                                          WidthRequest="350"
-                                          HorizontalOptions="EndAndExpand" />
+                            <charts:ChartView x:Name="chartRaces"
+                                              HeightRequest="200"
+                                              WidthRequest="350"
+                                              HorizontalOptions="StartAndExpand" />
+                            <charts:ChartView x:Name="chartTeams"
+                                              HeightRequest="200"
+                                              WidthRequest="350"
+                                              HorizontalOptions="EndAndExpand" />
 
+                        </StackLayout>
 
-                    </StackLayout>
+                    </ScrollView>
                     
+                   
                     <StackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>

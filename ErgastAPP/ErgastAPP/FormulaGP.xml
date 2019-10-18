@@ -282,5 +282,921 @@
             
             </summary>
         </member>
+        <member name="T:ErgastAPP.Models.MenuItemType">
+            <summary>
+            Type of menu links.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.MenuItemType.Home">
+            <summary>
+            Home Menu. Begining of the application.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.MenuItemType.Seasons">
+            <summary>
+            List of seasons and its champions.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.MenuItemType.Races">
+            <summary>
+            List of all races.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.MenuItemType.Circuits">
+            <summary>
+            List of all circuits.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.MenuItemType.Drivers">
+            <summary>
+            List of all drivers.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.MenuItemType.Constructors">
+            <summary>
+            List of all constructors.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.MenuItemType.About">
+            <summary>
+            About page. Application information.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DataErgast">
+            <summary>
+            Main package.
+            Every response will have this format.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgast.XMLNS">
+            <summary>
+            XMLNS response file.
+            Contains a URL with the data format.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgast.Series">
+            <summary>
+            Motorsports series. Will ever be "f1"
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgast.URL">
+            <summary>
+            URL requested by the client.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgast.Limit">
+            <summary>
+            Limit of items retrieved.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgast.Offset">
+            <summary>
+            Number of items the search will begin in.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgast.Total">
+            <summary>
+            Total number of items for this request.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.Models.DataErgast.RemoveMRData(System.String)">
+            <summary>
+            Removes the first value.
+            Every response has a root element "MRData" and then a package with this
+            format. We remove this element in order to be able to parse every response.
+            </summary>
+            <param name="content">Raw string with the all response.</param>
+            <returns>The raw string response without the MRData as root node.</returns>
+        </member>
+        <member name="T:ErgastAPP.Models.DataErgastCircuits">
+            <summary>
+            Response for a circuit request.
+            <seealso cref="T:ErgastAPP.Models.DataErgast"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgastCircuits.CircuitTable">
+            <summary>
+            Circuits info.
+            <seealso cref="P:ErgastAPP.Models.DataErgastCircuits.CircuitTable"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DataErgastConstructors">
+            <summary>
+            Response for a constructor request.
+            <seealso cref="T:ErgastAPP.Models.DataErgast"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgastConstructors.ConstructorTable">
+            <summary>
+            Constructor info.
+            <seealso cref="P:ErgastAPP.Models.DataErgastConstructors.ConstructorTable"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DataErgastDrivers">
+            <summary>
+            Response for drivers request.
+            <seealso cref="T:ErgastAPP.Models.DataErgast"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgastDrivers.DriverTable">
+            <summary>
+            Driver info.
+            <seealso cref="P:ErgastAPP.Models.DataErgastDrivers.DriverTable"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DataErgastRaces">
+            <summary>
+            Response for races request.
+            <seealso cref="T:ErgastAPP.Models.DataErgast"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgastRaces.RaceTable">
+            <summary>
+            Race info.
+            <seealso cref="P:ErgastAPP.Models.DataErgastRaces.RaceTable"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DataErgastSeasons">
+            <summary>
+            Response for seasons request.
+            <seealso cref="T:ErgastAPP.Models.DataErgast"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgastSeasons.SeasonTable">
+            <summary>
+            Seasons info.
+            <seealso cref="P:ErgastAPP.Models.DataErgastSeasons.SeasonTable"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DataErgastStandings">
+            <summary>
+            Response for standings request.
+            <seealso cref="T:ErgastAPP.Models.DataErgast"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DataErgastStandings.StandingsTable">
+            <summary>
+            Standings info.
+            <seealso cref="P:ErgastAPP.Models.DataErgastStandings.StandingsTable"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.PitStop">
+            <summary>
+            Pit stop info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.PitStop.DriverId">
+            <summary>
+            Driver ID who made the stop.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.PitStop.Lap">
+            <summary>
+            Number of lap the driver entered.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.PitStop.Stop">
+            <summary>
+            Number of the current stop along the race for this driver.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.PitStop.Time">
+            <summary>
+            Local Time when de Driver made his stop.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.PitStop.Duration">
+            <summary>
+            Time since the driver crossed the Pit Lane limiter until he gets off pit lane.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Qualifying">
+            <summary>
+            Qualyfing info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Qualifying.Number">
+            <summary>
+            Car number.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Qualifying.Position">
+            <summary>
+            Qualifying position.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Qualifying.Driver">
+            <summary>
+            Driver who set the times.
+            <seealso cref="P:ErgastAPP.Models.Qualifying.Driver"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Qualifying.Constructor">
+            <summary>
+            Constructor that set the time.
+            <seealso cref="P:ErgastAPP.Models.Qualifying.Constructor"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Qualifying.Q1">
+            <summary>
+            Time set in the first Qualy round.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Qualifying.Q2">
+            <summary>
+            Time set in the second Qualy round.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Qualifying.Q3">
+            <summary>
+            Time set in the third Qualy round.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.EvolutionRaceRow">
+            <summary>
+            Custom row that allows display the Race evolution based on drivers laps for a race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.EvolutionRaceRow.Time">
+            <summary>
+            Time set in the lap.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.EvolutionRaceRow.Position">
+            <summary>
+            Current position for the driver in the lap.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.EvolutionRaceRow.Driver">
+            <summary>
+            Driver who made the time.
+            <seealso cref="P:ErgastAPP.Models.EvolutionRaceRow.Driver"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.EvolutionRaceRow.Constructor">
+            <summary>
+            Constructor that made the time.
+            <seealso cref="P:ErgastAPP.Models.EvolutionRaceRow.Constructor"/>
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Race">
+            <summary>
+            Race info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Season">
+            <summary>
+            Year when the race was celebrated.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Round">
+            <summary>
+            Number of race in that year.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.URL">
+            <summary>
+            Wikipedia URL with the race report.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Name">
+            <summary>
+            Race name.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Circuit">
+            <summary>
+            Circuit that host the Grand Prix.
+            <seealso cref="P:ErgastAPP.Models.Race.Circuit"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Date">
+            <summary>
+            Date when the GP was celebrated in yyyy-MM-dd format.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Time">
+            <summary>
+            Local Time for the begining of the race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Results">
+            <summary>
+            List of all results for this race.
+            <seealso cref="T:ErgastAPP.Models.Result"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Qualifying">
+            <summary>
+            List of all qualifying result for this race.
+            <seealso cref="P:ErgastAPP.Models.Race.Qualifying"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Laps">
+            <summary>
+            List of all laps that the drivers set in the race.
+            <seealso cref="T:ErgastAPP.Models.Lap"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.PitStops">
+            <summary>
+            List of all pit stops that the race had.
+            <seealso cref="T:ErgastAPP.Models.PitStop"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.PrettyDate">
+            <summary>
+            Gets the race date with dd/MM/yyyy format.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Winner">
+            <summary>
+            Race winner result.
+            <seealso cref="T:ErgastAPP.Models.Result"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Second">
+            <summary>
+            Second driver in the race result. 
+            <seealso cref="T:ErgastAPP.Models.Result"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Third">
+            <summary>
+            Third driver in the race result.
+            <seealso cref="T:ErgastAPP.Models.Result"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Qualy_First">
+            <summary>
+            First qualifyied in the race.
+            <seealso cref="P:ErgastAPP.Models.Race.Qualifying"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Qualy_Second">
+            <summary>
+            Second qualifyied in the race.
+            <seealso cref="P:ErgastAPP.Models.Race.Qualifying"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Qualy_Third">
+            <summary>
+            Third qualifyed in the race.
+            <seealso cref="P:ErgastAPP.Models.Race.Qualifying"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.FastestLap">
+            <summary>
+            Result of the fastest lap in the race.
+            <seealso cref="T:ErgastAPP.Models.Result"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Race.Number">
+            <summary>
+            Number of the list.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.RaceTable">
+            <summary>
+            Race info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.Season">
+            <summary>
+            Season of the races.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.Round">
+            <summary>
+            Number of race in the season.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.Races">
+            <summary>
+            List of races in the table.
+            <seealso cref="T:ErgastAPP.Models.Race"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.DriverId">
+            <summary>
+            Driver ID who participated in the races.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.CircuitId">
+            <summary>
+            Circuit ID where the races was celebrated.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.RacesWon">
+            <summary>
+            List of races which it has a winner.
+            <seealso cref="T:ErgastAPP.Models.Race"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.RacesPolePosition">
+            <summary>
+            Lisst of races that it has a pole sitter.
+            <seealso cref="T:ErgastAPP.Models.Race"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.RacesPodiums">
+            <summary>
+            List of races that there was a podium (1,2,3).
+            <seealso cref="T:ErgastAPP.Models.Race"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.RacesDNF">
+            <summary>
+            List of races that there was a DNF.
+            <seealso cref="T:ErgastAPP.Models.Race"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.RaceTable.TotalPoints">
+            <summary>
+            Number of total points in the race list results.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.AverageSpeed">
+            <summary>
+            Average race speed.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.AverageSpeed.Units">
+            <summary>
+            Unit of measurement (kph).
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.AverageSpeed.Speed">
+            <summary>
+            Speed value.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.FastestLap">
+            <summary>
+            Fastest lap info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.FastestLap.Rank">
+            <summary>
+            Number of how fast was the lap in comparission with all the laps of the race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.FastestLap.Lap">
+            <summary>
+            Number of lap it has been set.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.FastestLap.Time">
+            <summary>
+            Time set in the lap.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.FastestLap.AverageSpeed">
+            <summary>
+            Average speed of the lap.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.FastestLap.PrettyTime">
+            <summary>
+            Displays the fastest lap time formatted.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Result">
+            <summary>
+            Result of a driver in one race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Number">
+            <summary>
+            Car number.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Position">
+            <summary>
+            Driver position at the end of the race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.PositionText">
+            <summary>
+            Position at the end of the race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Points">
+            <summary>
+            Points obtained in the race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Driver">
+            <summary>
+            Driver who has this result.
+            <seealso cref="P:ErgastAPP.Models.Result.Driver"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Constructor">
+            <summary>
+            Constructor that gets this result.
+            <seealso cref="P:ErgastAPP.Models.Result.Constructor"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Grid">
+            <summary>
+            Grid position when the race started.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Laps">
+            <summary>
+            Number of laps made in the race.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Status">
+            <summary>
+            Finish status of the driver.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.Time">
+            <summary>
+            Time completed in the race.
+            <seealso cref="P:ErgastAPP.Models.Result.Time"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.FastestLap">
+            <summary>
+            Fastest lap made by the driver.
+            <seealso cref="P:ErgastAPP.Models.Result.FastestLap"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.PrettyPosition">
+            <summary>
+            Displays the position more legible.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.PrettyGrid">
+            <summary>
+            Displays the grid position more legible.
+            It substitutes the 0 grid position by "PL" indicating that the driver started on the Pit Lane.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Result.PrettyResult">
+            <summary>
+            Displays the time if there is or the final status.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Time">
+            <summary>
+            Lap Time.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Time.Millis">
+            <summary>
+            Time in milliseconds in string format.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Time.TotalTime">
+            <summary>
+            Total time with a formatted way.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Season">
+            <summary>
+            Season Model.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Season.Year">
+            <summary>
+            Year of the season.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Season.URL">
+            <summary>
+            Wikipedia URL report of the season.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Season.DriverChampion">
+            <summary>
+            Driver Champion of the season.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Season.DriverConstructorChampion">
+            <summary>
+            Constructor of the Driver Champion.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Season.ConstructorChampion">
+            <summary>
+            Constructor Champion of the season.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.SeasonTable">
+            <summary>
+            Season info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.SeasonTable.Seasons">
+            <summary>
+            List of seasons.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.SeasonTable.PrettySeasons">
+            <summary>
+            Indicates the number of the seasons with the list
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.ConstructorStandings">
+            <summary>
+            Constructor Standing Model.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorStandings.Position">
+            <summary>
+            Constructor position.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorStandings.PositionText">
+            <summary>
+            Position in formatted text.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorStandings.Points">
+            <summary>
+            Amount of points in the standings.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorStandings.Wins">
+            <summary>
+            Number of wins.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorStandings.Constructor">
+            <summary>
+            Constructor of the row.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.ConstructorStandings.PrettyPoints">
+            <summary>
+            Amount of points formatted to string.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.DriverStandings">
+            <summary>
+            Driver Standing Model.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.Position">
+            <summary>
+            Driver position.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.PositionText">
+            <summary>
+            Position in text.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.Points">
+            <summary>
+            Amount of driver points.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.Wins">
+            <summary>
+            Number of wins.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.Driver">
+            <summary>
+            Driver of the row.
+            <seealso cref="P:ErgastAPP.Models.DriverStandings.Driver"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.Constructor">
+            <summary>
+            Constructors that the driver has been in.
+            <seealso cref="P:ErgastAPP.Models.DriverStandings.Constructor"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.PrettyPoints">
+            <summary>
+            Points formatted.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.DriverStandings.LastConstructor">
+            <summary>
+            Last constructor so far the Driver has.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.Models.Standings">
+            <summary>
+            Standings Table.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Standings.Season">
+            <summary>
+            Year of the season.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Standings.Round">
+            <summary>
+            Round of the season.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Standings.DriverStandings">
+            <summary>
+            List of drivers standings.
+            <seealso cref="P:ErgastAPP.Models.Standings.DriverStandings"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Standings.ConstructorStandings">
+            <summary>
+            List of constructors standings.
+            <seealso cref="P:ErgastAPP.Models.Standings.ConstructorStandings"/>
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Standings.DriverConstructorChampion">
+            <summary>
+            Constructor of the Driver Champion.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Standings.DriverChampion">
+            <summary>
+            Driver Champion.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.Standings.ConstructorChampion">
+            <summary>
+            Constructor Champion.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.Models.Standings.DoFormat(System.Double)">
+            <summary>
+            Formats the double points to string. Avoids to have many zeros at the right.
+            </summary>
+            <param name="myNumber">Double number to be parsed.</param>
+            <returns>String with the number and only decimals required.</returns>
+        </member>
+        <member name="T:ErgastAPP.Models.ErgastAPI">
+            <summary>
+            Generates API REST URL to be called by the service.
+            <see cref="!:https://ergast.com/mrd/"/>
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.ErgastAPI.URL">
+            <summary>
+            Main URL of the API.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Models.ErgastAPI.limit">
+            <summary>
+            Limit of rows in each call. Established by the API.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.AddLimit">
+            <summary>
+            Appends the limit of rows to be retrieved to the URL.
+            </summary>
+            <returns>String formatted param.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.AddOffset(System.Int32)">
+            <summary>
+            Appends the offset of rows to begin retrieving rows.
+            </summary>
+            <param name="offset">Number of the first N rows to be ignored.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.Seasons">
+            <summary>
+            Get all seasons.
+            </summary>
+            <returns>URL for the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.SeasonByYear(System.Int32)">
+            <summary>
+            Gets a season info by the year provided.
+            </summary>
+            <param name="year">Year of the season</param>
+            <returns>URL for the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.SeasonsByDriver(System.String)">
+            <summary>
+            Gets the seasons which one driver have participated in.
+            </summary>
+            <param name="driver">Driver ID</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.SeasonWorldChampionByDriver(System.String)">
+            <summary>
+            Gets all the seasons filtering by the driver champion.
+            </summary>
+            <param name="driver">Driver ID</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.SeasonWorldChampionByConstructor(System.String)">
+            <summary>
+            Get the seasons when a constructor won the championship.
+            </summary>
+            <param name="constructor">Constructor ID</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.LastRace">
+            <summary>
+            Gets the last race info.
+            </summary>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.Races(System.Int32)">
+            <summary>
+            Gets all the races until the limit.
+            </summary>
+            <param name="offset">Offset of the URL</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.RacesBySeason(System.Int32)">
+            <summary>
+            Gets all the races for a specific season.
+            </summary>
+            <param name="year">Year of the season.</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.RaceByDriverPosition(System.String,System.Int32)">
+            <summary>
+            Gets all the races a driver has been on an specific position.
+            </summary>
+            <param name="driver">Driver ID</param>
+            <param name="position">Position to be searched</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.RacesByCircuit(System.String)">
+            <summary>
+            Gets the races for a same circuit.
+            </summary>
+            <param name="circuit">Circuit ID</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.Drivers(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Drivers that have been in, at least, one race. It can be filtered by year and round.
+            </summary>
+            <param name="year">Season year</param>
+            <param name="round">Season round</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.Drivers(System.String)">
+            <summary>
+            Get Driver info based upon the Driver ID.
+            </summary>
+            <param name="driverId">Driver ID</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.DriversByConstructor(System.String)">
+            <summary>
+            Get the drivers that have been in a constructor.
+            </summary>
+            <param name="constructor">Constructor ID</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.Constructors">
+            <summary>
+            Get all constructors.
+            </summary>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.ConstructorsByDriver(System.String)">
+            <summary>
+            Gets the constructors of a driver.
+            </summary>
+            <param name="driver">Driver ID</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.Constructor(System.String)">
+            <summary>
+            Gets the constructor info by its ID
+            </summary>
+            <param name="cons">Constructor ID</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.Circuits(System.Nullable{System.Int32})">
+            <summary>
+            Gets all the circuits.
+            </summary>
+            <param name="year">Year to filter the circuits</param>
+            <returns>URL to make the request</returns>
+        </member>
+        <member name="T:ErgastAPP.Resources.Images">
+            <summary>
+            Gets URL for images.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.Resources.Images.FlagByCountry(System.String)">
+            <summary>
+            Gets the flag depends the country name.
+            </summary>
+            <param name="country"></param>
+            <returns>Wikipedia URL flag.</returns>
+        </member>
+        <member name="M:ErgastAPP.Resources.Images.FlagByNationality(System.String)">
+            <summary>
+            Gets the flag depends on the nationality.
+            </summary>
+            <param name="nationality">Nationality string</param>
+            <returns>Wikipedia URL flag.</returns>
+        </member>
     </members>
 </doc>
