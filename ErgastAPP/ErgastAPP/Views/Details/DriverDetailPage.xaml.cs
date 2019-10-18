@@ -159,12 +159,12 @@ namespace ErgastAPP.Views
 
         private void WorldChampion_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenSeasons(this, viewModel.SeasonsWorldChampions, viewModel.Item.FamilyName + " World Champion");
+            Navigator.OpenSeasons(this, viewModel.SeasonsWorldChampions, viewModel.Item?.FamilyName + " World Champion");
         }
 
         private void Seasons_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenSeasons(this, viewModel.Seasons, viewModel.Item.FamilyName + " Seasons");
+            Navigator.OpenSeasons(this, viewModel.Seasons, viewModel.Item?.FamilyName + " Seasons");
         }
 
         private void Podiums_Clicked(object sender, EventArgs e)

@@ -27,7 +27,7 @@ namespace ErgastAPP.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            viewModel.Lap = "Please, wait. It could take few minutes.";
             viewModel.Slider = slider;
 
             if (viewModel.Items.Count == 0)
