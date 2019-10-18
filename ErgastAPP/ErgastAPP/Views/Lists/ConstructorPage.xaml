@@ -50,6 +50,7 @@
 
                                 </StackLayout>
 
+                              
                                 <Button Text="REPORT"
                                         Clicked="ShowReport_Clicked"
                                         CommandParameter="{Binding Id}"

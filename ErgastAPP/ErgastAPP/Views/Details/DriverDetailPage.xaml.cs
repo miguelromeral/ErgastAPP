@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 using Microcharts.Forms;
 using SkiaSharp;
 using Microcharts;
-using FormulaGP.Resources;
+using ErgastAPP.Resources;
 
 namespace ErgastAPP.Views
 {
@@ -75,7 +75,7 @@ namespace ErgastAPP.Views
                 }
             }
 
-            foreach(KeyValuePair<string, int> entry in entries)
+            foreach (KeyValuePair<string, int> entry in entries)
             {
                 string id = "";
                 constructors.TryGetValue(entry.Key, out id);
@@ -83,7 +83,7 @@ namespace ErgastAPP.Views
                 {
                     Label = entry.Key,
                     ValueLabel = entry.Value.ToString(),
-                    
+
                     Color = SKColor.Parse(Colors.GetColorByTeam(id)),
                 });
             }
@@ -159,12 +159,12 @@ namespace ErgastAPP.Views
 
         private void WorldChampion_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenSeasons(this, SeasonOrigin.DriverWorldChampion, viewModel.SeasonsWorldChampions, viewModel.Item);
+            Navigator.OpenSeasons(this, viewModel.SeasonsWorldChampions, viewModel.Item.FamilyName + " World Champion");
         }
 
         private void Seasons_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenSeasons(this, SeasonOrigin.DriverSeasons, viewModel.Seasons, viewModel.Item);
+            Navigator.OpenSeasons(this, viewModel.Seasons, viewModel.Item.FamilyName + " Seasons");
         }
 
         private void Podiums_Clicked(object sender, EventArgs e)

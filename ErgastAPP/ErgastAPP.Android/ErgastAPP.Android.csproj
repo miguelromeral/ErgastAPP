@@ -25,6 +25,7 @@
     </AndroidSigningKeyStore>
     <AndroidSigningStorePass>
     </AndroidSigningStorePass>
+    <NoWarn>5101</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,13 +48,16 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <AndroidSupportedAbis>armeabi;armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
     <EnableProguard>true</EnableProguard>
-    <AotAssemblies>true</AotAssemblies>
-    <EnableLLVM>true</EnableLLVM>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <NoWarn>XA5101; XA3001</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -69,7 +73,13 @@
     <PackageReference Include="Microcharts.Forms">
       <Version>0.7.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Android.Support.Annotations">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Compat">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />

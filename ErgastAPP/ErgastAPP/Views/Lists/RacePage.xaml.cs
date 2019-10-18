@@ -49,7 +49,7 @@ namespace ErgastAPP.Views
         }
         
         
-        void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
+        protected void ShowReport_Clicked(object sender, EventArgs args)
         {
             Device.OpenUri(new Uri((sender as Button).CommandParameter.ToString()));
         }

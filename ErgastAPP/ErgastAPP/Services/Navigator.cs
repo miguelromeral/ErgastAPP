@@ -8,33 +8,22 @@ using Xamarin.Forms;
 
 namespace ErgastAPP.Services
 {
+    /// <summary>
+    /// Push instances of Activities in function of the page the user wants to be displayed.
+    /// </summary>
     public static class Navigator
     {
+        // Warning titles.
+        static readonly string warning_title = "Data not available yet";
+        static readonly string warning_body = "Please, wait until the data is successfully loaded";
+        static readonly string warning_answer = "OK";
 
-        static string warning_title = "Data not available yet";
-        static string warning_body = "Please, wait until the data is successfully loaded";
-        static string warning_answer = "OK";
 
 
-
-        public static void OpenSeasons(ContentPage page, SeasonOrigin origin, SeasonTable seasons, Driver driver, bool warning = true)
+        public static void OpenSeasons(ContentPage page, SeasonTable seasons, string title, bool warning = true)
         {
-            if (seasons != null && driver != null)
+            if (seasons != null)
             {
-                string title = "Seasons";
-
-                switch (origin)
-                {
-                    case SeasonOrigin.DriverSeasons:
-                        title = driver.FamilyName + " Seasons";
-                        break;
-                    case SeasonOrigin.DriverWorldChampion:
-                        title = driver.FamilyName + " World Champions";
-                        break;
-                    default:
-                        break;
-                }
-
                 page.Navigation.PushAsync(new SeasonsPage(new SeasonViewModel(seasons, title)));
             }
             else

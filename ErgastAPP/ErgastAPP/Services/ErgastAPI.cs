@@ -248,36 +248,63 @@ namespace ErgastAPP.Models
         /// <summary>
         /// Gets all the race results given the year and round.
         /// </summary>
-        /// <param name="year"></param>
-        /// <param name="round"></param>
-        /// <returns></returns>
+        /// <param name="year">Year of the season.</param>
+        /// <param name="round">Round of that season.</param>
+        /// <returns>URL to make the request.</returns>
         public string RaceResults(int year, int round)
         {
             return URL + "/" + year + "/" + round + _results + _json + "?" + AddLimit();
         }
 
+        /// <summary>
+        /// Gets all race results by driver.
+        /// </summary>
+        /// <param name="driver">Driver ID.</param>
+        /// <returns>URL to make the request.</returns>
         public string RacesByDriver(string driver)
         {
             return URL + _drivers + "/" + driver + _results + _json + "?" + AddLimit();
         }
+
+        /// <summary>
+        /// Gets all results by constructor.
+        /// </summary>
+        /// <param name="constructor">Constructor ID.</param>
+        /// <param name="offset">Offset to begin retrieving.</param>
+        /// <returns>URL to make the request.</returns>
         public string RacesByConstructor(string constructor, int offset)
         {
             return URL + _constructors + "/" + constructor + _results + _json + "?" + AddLimit() + "&" + AddOffset(offset);
         }
+
+        /// <summary>
+        /// Get all the results for Fastest Laps for a driver.
+        /// </summary>
+        /// <param name="driver">Driver ID.</param>
+        /// <returns>URL to make the request.</returns>
         public string FastestLapsByDriver(string driver)
         {
             return URL + _drivers + "/" + driver + _fastest + "/1" + _results + _json + "?" + AddLimit();
         }
 
+        /// <summary>
+        /// Gets all results of fastest laps by a constructor.
+        /// </summary>
+        /// <param name="constructor">Constructor ID.</param>
+        /// <returns>URL to make the request.</returns>
         public string FastestLapsByConstructor(string constructor)
         {
             return URL + _constructors + "/" + constructor + _fastest + "/1" + _results + _json + "?" + AddLimit();
         }
-
-
         #endregion
 
         #region QUALIFYING
+        /// <summary>
+        /// Get the qualifying resutls by race.
+        /// </summary>
+        /// <param name="year">Year of the race.</param>
+        /// <param name="round">Round of the seasons.</param>
+        /// <returns>URL to make the request.</returns>
         public string QualifyingByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _qualifying + _json + "?" + AddLimit();
@@ -285,25 +312,51 @@ namespace ErgastAPP.Models
         #endregion
 
         #region STANDINGS
+        /// <summary>
+        /// Get the Driver World Champion by season.
+        /// </summary>
+        /// <param name="year">Year of the season.</param>
+        /// <returns>URL to make the request.</returns>
         public string SeasonWorldChampionByYear(int year)
         {
             return URL + year + _driverStandings + "/1" + _json;
         }
 
+        /// <summary>
+        /// Get all the Driver Champions.
+        /// </summary>
+        /// <returns>URL to make the request.</returns>
         public string ChampionsByYear()
         {
             return URL + _driverStandings + "/1" + _json + "?" + AddLimit();
         }
 
+        /// <summary>
+        /// Get all the Constructor Champions.
+        /// </summary>
+        /// <returns>URL to make the request.</returns>
         public string ChampionsByYearConstrcutor()
         {
             return URL + _constructorStandings + "/1" + _json + "?" + AddLimit();
         }
+
+        /// <summary>
+        /// Get the driver standings at the end of one race.
+        /// </summary>
+        /// <param name="year">Year of the race.</param>
+        /// <param name="round">Round of the season.</param>
+        /// <returns>URL to make the request.</returns>
         public string DriverStandingsByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _driverStandings + _json + "?" + AddLimit();
         }
 
+        /// <summary>
+        /// Get the constructor standings at the end of one race.
+        /// </summary>
+        /// <param name="year">Year of the race.</param>
+        /// <param name="round">Round of the season.</param>
+        /// <returns>URL to make the request.</returns>
         public string ConstructorStandingsByRace(int year, int round)
         {
             return URL + "/" + year + "/" + round + _constructorStandings + _json + "?" + AddLimit();
@@ -311,11 +364,25 @@ namespace ErgastAPP.Models
         #endregion
 
         #region LAPS
+        /// <summary>
+        /// Get the laps made by one driver in a race.
+        /// </summary>
+        /// <param name="year">Year of the race.</param>
+        /// <param name="round">Round of the season.</param>
+        /// <param name="driver">Driver ID.</param>
+        /// <returns>URL to make the request.</returns>
         public string LapsByRaceAndDriver(int year, int round, string driver)
         {
             return URL + "/" + year + "/" + round + _drivers + "/" + driver + _laps + _json + "?" + AddLimit();
         }
 
+        /// <summary>
+        /// Get all laps for a race.
+        /// </summary>
+        /// <param name="year">Year of the race.</param>
+        /// <param name="round">Round of the season.</param>
+        /// <param name="offset">Offset to begin retrieving.</param>
+        /// <returns>URL to make the request.</returns>
         public string LapsByRace(int year, int round, int offset)
         {
             return URL + "/" + year + "/" + round + _laps + _json + "?" + AddLimit() + "&" + AddOffset(offset);
@@ -323,6 +390,13 @@ namespace ErgastAPP.Models
         #endregion
 
         #region PIT STOPS
+        /// <summary>
+        /// Get the pit stops time for a race and driver.
+        /// </summary>
+        /// <param name="year">Year of the race.</param>
+        /// <param name="round">Round of the season.</param>
+        /// <param name="driver">Driver ID.</param>
+        /// <returns>URL to make the request.</returns>
         public string PitStopsByRaceAndDriver(int year, int round, string driver)
         {
             return URL + "/" + year + "/" + round + _drivers + "/" + driver + _pitstops + _json + "?" + AddLimit();

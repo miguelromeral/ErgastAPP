@@ -114,7 +114,8 @@
                     <Label Style="{StaticResource SectionHeader}"
                            Text="ACHIEVEMENTS" />
 
-                    <ScrollView Orientation="Horizontal">
+                    <ScrollView Orientation="Horizontal"
+                                HorizontalOptions="CenterAndExpand">
                         <StackLayout x:Name="pCharts"
                                      Orientation="Horizontal"
                                      HorizontalOptions="CenterAndExpand"

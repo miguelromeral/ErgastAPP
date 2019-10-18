@@ -67,6 +67,8 @@
                                     
                                 </StackLayout>
 
+                              
+                              
                                 <Button Text="SHOW REPORT"
                                         Clicked="ShowReport_Clicked"
                                         CommandParameter="{Binding Year}"

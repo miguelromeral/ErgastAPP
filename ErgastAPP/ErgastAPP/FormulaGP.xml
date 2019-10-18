@@ -1032,6 +1032,27 @@
             <param name="myNumber">Double number to be parsed.</param>
             <returns>String with the number and only decimals required.</returns>
         </member>
+        <member name="T:ErgastAPP.Models.StandingsTable">
+            <summary>
+            Standings info.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.StandingsTable.DriverStandingsPosition">
+            <summary>
+            Position of the driver standings.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.StandingsTable.ConstructorStandingsPosition">
+            <summary>
+            Position of the construcotr standings.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.Models.StandingsTable.Standings">
+            <summary>
+            List of standings.
+            <seealso cref="P:ErgastAPP.Models.StandingsTable.Standings"/>
+            </summary>
+        </member>
         <member name="T:ErgastAPP.Models.ErgastAPI">
             <summary>
             Generates API REST URL to be called by the service.
@@ -1179,6 +1200,126 @@
             <param name="year">Year to filter the circuits</param>
             <returns>URL to make the request</returns>
         </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.RaceResults(System.Int32,System.Int32)">
+            <summary>
+            Gets all the race results given the year and round.
+            </summary>
+            <param name="year">Year of the season.</param>
+            <param name="round">Round of that season.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.RacesByDriver(System.String)">
+            <summary>
+            Gets all race results by driver.
+            </summary>
+            <param name="driver">Driver ID.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.RacesByConstructor(System.String,System.Int32)">
+            <summary>
+            Gets all results by constructor.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <param name="offset">Offset to begin retrieving.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.FastestLapsByDriver(System.String)">
+            <summary>
+            Get all the results for Fastest Laps for a driver.
+            </summary>
+            <param name="driver">Driver ID.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.FastestLapsByConstructor(System.String)">
+            <summary>
+            Gets all results of fastest laps by a constructor.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.QualifyingByRace(System.Int32,System.Int32)">
+            <summary>
+            Get the qualifying resutls by race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the seasons.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.SeasonWorldChampionByYear(System.Int32)">
+            <summary>
+            Get the Driver World Champion by season.
+            </summary>
+            <param name="year">Year of the season.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.ChampionsByYear">
+            <summary>
+            Get all the Driver Champions.
+            </summary>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.ChampionsByYearConstrcutor">
+            <summary>
+            Get all the Constructor Champions.
+            </summary>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.DriverStandingsByRace(System.Int32,System.Int32)">
+            <summary>
+            Get the driver standings at the end of one race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.ConstructorStandingsByRace(System.Int32,System.Int32)">
+            <summary>
+            Get the constructor standings at the end of one race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.LapsByRaceAndDriver(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get the laps made by one driver in a race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <param name="driver">Driver ID.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.LapsByRace(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get all laps for a race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <param name="offset">Offset to begin retrieving.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.PitStopsByRaceAndDriver(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get the pit stops time for a race and driver.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <param name="driver">Driver ID.</param>
+            <returns>URL to make the request.</returns>
+        </member>
+        <member name="T:ErgastAPP.Resources.Colors">
+            <summary>
+            Color to distinguish elements of the statistics.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.Resources.Colors.GetColorByTeam(System.String)">
+            <summary>
+            Gets a specific color for each constructor.
+            In case the constructor is not very well-known, a random color will be returned.
+            </summary>
+            <param name="constructorid">Constructor ID</param>
+            <returns>Color in string hexadecimal format.</returns>
+        </member>
         <member name="T:ErgastAPP.Resources.Images">
             <summary>
             Gets URL for images.
@@ -1197,6 +1338,11 @@
             </summary>
             <param name="nationality">Nationality string</param>
             <returns>Wikipedia URL flag.</returns>
+        </member>
+        <member name="T:ErgastAPP.Services.Navigator">
+            <summary>
+            Push instances of Activities in function of the page the user wants to be displayed.
+            </summary>
         </member>
     </members>
 </doc>

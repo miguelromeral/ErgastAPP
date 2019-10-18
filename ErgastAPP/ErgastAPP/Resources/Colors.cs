@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FormulaGP.Resources
+namespace ErgastAPP.Resources
 {
     /// <summary>
     /// Color to distinguish elements of the statistics.

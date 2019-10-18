@@ -49,7 +49,7 @@ namespace ErgastAPP.Views
         }
 
 
-        void ShowReport_Clicked(object sender, SelectedItemChangedEventArgs args)
+        async void ShowReport_Clicked(object sender, EventArgs args)
         {
             var selectedLocation = viewModel.Items.First(item => item.Id == (sender as Button).CommandParameter.ToString());
 

@@ -75,12 +75,12 @@ namespace ErgastAPP.Views
             Navigator.OpenCircuitDetail(this, viewModel?.Race?.Circuit);
         }
         
-        void Driver_Clicked(object sender, SelectedItemChangedEventArgs args)
+        private void Driver_Clicked(object sender, EventArgs args)
         {
             Navigator.OpenDriverDetail(this, (sender as Button).CommandParameter as Driver);
         }
 
-        void Constructor_Clicked(object sender, SelectedItemChangedEventArgs args)
+        private void Constructor_Clicked(object sender, EventArgs args)
         {
             Navigator.OpenConstructorDetail(this, (sender as Button).CommandParameter as Constructor);
         }
