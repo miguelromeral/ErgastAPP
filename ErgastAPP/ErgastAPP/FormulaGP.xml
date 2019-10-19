@@ -1173,6 +1173,13 @@
             <param name="constructor">Constructor ID</param>
             <returns>URL to make the request.</returns>
         </member>
+        <member name="M:ErgastAPP.Models.ErgastAPI.DriversWinnersInCircuit(System.String)">
+            <summary>
+            Get the drivers that have ever won in this circuit.
+            </summary>
+            <param name="circuit">Circuit ID.</param>
+            <returns>URL to make the request.</returns>
+        </member>
         <member name="M:ErgastAPP.Models.ErgastAPI.Constructors">
             <summary>
             Get all constructors.
@@ -1343,6 +1350,41 @@
             <summary>
             Push instances of Activities in function of the page the user wants to be displayed.
             </summary>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenSeasons(Xamarin.Forms.ContentPage,ErgastAPP.Models.SeasonTable,System.String,System.Boolean)">
+            <summary>
+            Open a list of specific seasons.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="seasons">List of seasons to display.</param>
+            <param name="title">Title to display in the bar.</param>
+            <param name="warning">Indicates it show a warning if not seasons provided.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenRaces(Xamarin.Forms.ContentPage,ErgastAPP.Models.Season,System.Boolean)">
+            <summary>
+            Open the races list given the season.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="season">Season instance.</param>
+            <param name="warning">Indicates if show a warning when no data is provided.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenConstructor(Xamarin.Forms.ContentPage,ErgastAPP.Models.ConstructorTable,System.String,System.Boolean)">
+            <summary>
+            Open a constructor list with that info.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="constructors">List of constructors.</param>
+            <param name="title">Title to display in the bar.</param>
+            <param name="warning">Indicates if show a warning when no data is provided.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenDriver(Xamarin.Forms.ContentPage,ErgastAPP.Models.DriverTable,System.String,System.Boolean)">
+            <summary>
+            Open a driver list with the drivers provided.
+            </summary>
+            <param name="page">Current ContentPage</param>
+            <param name="drivers">List of drivers.</param>
+            <param name="title">Title to display in the bar.</param>
+            <param name="warning">Indicates if show a warning if no data provided.</param>
         </member>
     </members>
 </doc>

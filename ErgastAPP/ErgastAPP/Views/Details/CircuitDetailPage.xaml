@@ -113,6 +113,25 @@
                         </Grid>
                     </StackLayout>
 
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="WINNERS"
+                                   Grid.Column="0"
+                                   Style="{StaticResource Details_Header}" />
+
+                            <Button Text="{Binding DriverWinners.Drivers.Count}"
+                                    Clicked="Winners_Clicked"
+                                    Style="{StaticResource ButtonTransparent}"
+                                    Grid.Column="1" />
+
+                        </Grid>
+                    </StackLayout>
+
                 </StackLayout>
 
                 

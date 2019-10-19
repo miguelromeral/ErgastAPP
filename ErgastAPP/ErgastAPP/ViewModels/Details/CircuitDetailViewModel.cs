@@ -21,6 +21,9 @@ namespace ErgastAPP.ViewModels
         public RaceTable Races { get { return _races; } set { SetProperty(ref _races, value); } }
 
 
+        private DriverTable _winners;
+        public DriverTable DriverWinners { get { return _winners; } set { SetProperty(ref _winners, value); } }
+
 
         public CircuitDetailViewModel(Circuit circuit)
         {
@@ -41,6 +44,7 @@ namespace ErgastAPP.ViewModels
             try
             {
                 Races = await App.RestService.RacesByCircuit(dataoriginal.Id);
+                DriverWinners = await App.RestService.GetDriversWinnerCircuitAsync(dataoriginal.Id);
                 Circuit = dataoriginal;
             }
             catch (Exception ex)

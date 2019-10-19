@@ -56,12 +56,12 @@ namespace ErgastAPP.Views
         
         private void WorldChampion_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenSeasons(this, SeasonOrigin.ConstructorWorldChampion, viewModel.SeasonsWorldChampions, viewModel.Constructor);
+            Navigator.OpenSeasons(this, viewModel.SeasonsWorldChampions, viewModel.Constructor?.Name + " World Champions");
         }
         
         private void Drivers_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenDriver(this, DriverOrigin.Constructors, viewModel.Drivers, viewModel.Constructor);
+            Navigator.OpenDriver(this, viewModel.Drivers, viewModel.Constructor?.Name + " Drivers");
         }
         
         private void FastestLaps_Clicked(object sender, EventArgs e)

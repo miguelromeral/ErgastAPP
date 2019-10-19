@@ -704,5 +704,24 @@ namespace ErgastAPP.Services
             }
             return null;
         }
+
+        public async Task<DriverTable> GetDriversWinnerCircuitAsync(string circuit)
+        {
+            string uri = _api.DriversWinnersInCircuit(circuit);
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<DataErgastDrivers>(DataErgast.RemoveMRData(content))?.DriverTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+            return null;
+        }
     }
 }

@@ -196,6 +196,16 @@ namespace ErgastAPP.Models
         {
             return URL + _constructors + "/" + constructor + _drivers + _json + "?" + AddLimit();
         }
+
+        /// <summary>
+        /// Get the drivers that have ever won in this circuit.
+        /// </summary>
+        /// <param name="circuit">Circuit ID.</param>
+        /// <returns>URL to make the request.</returns>
+        public string DriversWinnersInCircuit(string circuit)
+        {
+            return URL + _circuits + "/" + circuit + _results + "/1" + _drivers + _json + "?" + AddLimit();
+        }
         #endregion
 
         #region CONSTRUCTORS

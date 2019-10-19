@@ -174,7 +174,7 @@ namespace ErgastAPP.Views
 
         private void Constructors_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenConstructor(this, ConstructorOrigin.Drivers, viewModel.Constructors, viewModel.Item);
+            Navigator.OpenConstructor(this, viewModel.Constructors, viewModel.Item?.FamilyName + " Constructors");
         }
 
         private void FastestLaps_Clicked(object sender, EventArgs e)

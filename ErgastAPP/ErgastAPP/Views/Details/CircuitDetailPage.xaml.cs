@@ -49,5 +49,10 @@ namespace ErgastAPP.Views
             if (viewModel.Circuit != null)
                 Device.OpenUri(new Uri(viewModel.Circuit.URL));
         }
+
+        private void Winners_Clicked(object sender, EventArgs e)
+        {
+            Navigator.OpenDriver(this, viewModel.DriverWinners, viewModel.Circuit?.Name + " Winners");
+        }
     }
 }
