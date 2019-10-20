@@ -18,14 +18,14 @@ Comming Soon!
 
 ### Android
 
-![Home](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Home.png)
-![Seasons](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Seasons.png)
-![Races](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Races.png)
-![Race Details](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceDetails.png)
-![Race Evolution](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceEvolution.png)
-![Race Results](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceResults.png)
-![Driver](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Driver.png)
-![Constructor](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Constructor.png)
+![Home](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Home.jpg)
+![Seasons](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Seasons.jpg)
+![Races](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Races.jpg)
+![Race Details](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceDetails.jpg)
+![Race Evolution](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceEvolution.jpg)
+![Race Results](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceResults.jpg)
+![Driver](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Driver.jpg)
+![Constructor](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Constructor.jpg)
 
 ### UWP
 
