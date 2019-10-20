@@ -95,12 +95,12 @@ namespace ErgastAPP.ViewModels
                     default:
                         break;
                 }
-
-                if (original?.Results == null || original.Results.Count <= 1)
-                {
-                    var res = await App.RestService.ResultsByRaceAsync(_year, _round);
-                    original.Results = res.Results;
-                }
+                
+                // We retrieve the results without checks because the original race could
+                // have the results only for the constructors/drivers results.
+                var res = await App.RestService.ResultsByRaceAsync(_year, _round);
+                original.Results = res.Results;
+                
 
                 if (original?.Qualifying == null)
                 {

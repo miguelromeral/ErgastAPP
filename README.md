@@ -4,15 +4,12 @@ Application for Ergast API.
 
 This is an application that shows the all time Formula 1 Statistics along its History.
 
-## Instalation (DEMO)
+## Instalation
 
-### Android (5.0+)
+You can download the latest version of the application on Google Play (Android 5.0+) and Microsoft Store (16299+).
 
-Comming Soon!
-
-### Windows Store (16299+)
-
-<a href='//www.microsoft.com/store/apps/9N739RJ76595?cid=storebadge&ocid=badge'><img src='https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png' alt='English badge' style='width: 142px; height: 52px;'/></a>
+<a href='https://play.google.com/store/apps/details?id=es.miguelromeral.formulagp&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="70" width="auto" /></a>
+<a href='//www.microsoft.com/store/apps/9N739RJ76595?cid=storebadge&ocid=badge'><img src='https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png' alt='Get it on Microsoft Store' height='70' width='auto'/></a>
 
 ## Screenshots
 
