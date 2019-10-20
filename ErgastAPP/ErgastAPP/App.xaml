@@ -225,6 +225,8 @@
                         Value="{StaticResource BackgroundLightDark}" />
                 <Setter Property="TextColor"
                         Value="{StaticResource BackgroundWhite}" />
+                <Setter Property="PlaceholderColor"
+                        Value="{StaticResource BackgroundWhite}" />
 
             </Style>
             

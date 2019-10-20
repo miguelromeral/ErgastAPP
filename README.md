@@ -16,21 +16,27 @@ Comming Soon!
 
 ## Screenshots
 
-Some application screenshots in UWP (design susceptible to change)
+### Android
 
-![Home](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Home.png)
+![Home](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Home.png)
+![Seasons](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Seasons.png)
+![Races](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Races.png)
+![Race Details](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceDetails.png)
+![Race Evolution](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceEvolution.png)
+![Race Results](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/RaceResults.png)
+![Driver](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Driver.png)
+![Constructor](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Android/Constructor.png)
 
-![Seasons](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Seasons.png)
+### UWP
 
-![Races](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Races.png)
-
-![Results](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Results.png)
-
-![Driver](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Driver.png)
-
-![Constructors](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Constructors.png)
-
-![Circuits](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/Circuits.png)
+![Home](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/Home.png)
+![Race Details](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/race.png)
+![Race Results](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/results.png)
+![Race Evolution](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/evolution.png)
+![Race Standings](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/standings.png)
+![Driver](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/driver.png)
+![Constructor](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/constructor.png)
+![Circuit](https://github.com/miguelromeral/ErgastAPP/blob/master/Screenshots/UWP/circuit.png)
 
 ## Copyright
 

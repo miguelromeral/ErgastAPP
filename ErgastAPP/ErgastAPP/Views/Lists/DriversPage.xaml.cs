@@ -42,10 +42,13 @@ namespace ErgastAPP.Views
 
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(e.NewTextValue.ToString()))
-                viewModel.LoadItemsFromData();
-            else
-                viewModel.LoadItemsFromData(e.NewTextValue.ToString());
+            if (viewModel.Items != null)
+            {
+                if (string.IsNullOrWhiteSpace(e.NewTextValue.ToString()))
+                    viewModel.LoadItemsFromData();
+                else
+                    viewModel.LoadItemsFromData(e.NewTextValue.ToString());
+            }
         }
 
 

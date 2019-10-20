@@ -46,12 +46,12 @@ namespace ErgastAPP.Views
 
         private void RacesWon_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenRaces(this, RaceOrigin.ConstructorFastestLaps, viewModel.Races, viewModel.Constructor);
+            Navigator.OpenRaces(this, RaceOrigin.ConstructorWins, viewModel.Races, viewModel.Constructor);
         }
 
         private void Podiums_Clicked(object sender, EventArgs e)
         {
-            Navigator.OpenRaces(this, RaceOrigin.ConstructorFastestLaps, viewModel.FastestLaps, viewModel.Constructor);
+            Navigator.OpenRaces(this, RaceOrigin.ConstructorPodiums, viewModel.FastestLaps, viewModel.Constructor);
         }
         
         private void WorldChampion_Clicked(object sender, EventArgs e)
