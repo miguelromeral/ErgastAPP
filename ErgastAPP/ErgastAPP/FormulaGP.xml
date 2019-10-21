@@ -1377,6 +1377,53 @@
             <param name="title">Title to display in the bar.</param>
             <param name="warning">Indicates if show a warning when no data is provided.</param>
         </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenRaceDetail(Xamarin.Forms.ContentPage,System.Int32,System.Int32)">
+            <summary>
+            Open a Race Detail page given the year and round.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenRaceDetail(Xamarin.Forms.ContentPage,ErgastAPP.Models.Race,System.Boolean)">
+            <summary>
+            Open a Race Detail page given the race.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="race">Year of the race.</param>
+            <param name="warning">Round of the season.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenConstructorDetail(Xamarin.Forms.ContentPage,System.String)">
+            <summary>
+            Open a Constructor Detail given its ID.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="constructor">Constructor ID.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenConstructorDetail(Xamarin.Forms.ContentPage,ErgastAPP.Models.Constructor,System.Boolean)">
+            <summary>
+            Open a Constructor Detail page given the instance.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="constructor">Constructor instance.</param>
+            <param name="warning">Indicates if show warning if data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenConstructorStandings(Xamarin.Forms.ContentPage,ErgastAPP.Models.Race,System.Boolean)">
+            <summary>
+            Open Constructor Standings page given the race.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="race">Race instance.</param>
+            <param name="warning">Indicates if show warning if data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenDriverStandings(Xamarin.Forms.ContentPage,ErgastAPP.Models.Race,System.Boolean)">
+            <summary>
+            Open Driver Standings page given the race.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="race">Race instance.</param>
+            <param name="warning">Indicates if show warning if data is not available.</param>
+        </member>
         <member name="M:ErgastAPP.Services.Navigator.OpenDriver(Xamarin.Forms.ContentPage,ErgastAPP.Models.DriverTable,System.String,System.Boolean)">
             <summary>
             Open a driver list with the drivers provided.
@@ -1385,6 +1432,172 @@
             <param name="drivers">List of drivers.</param>
             <param name="title">Title to display in the bar.</param>
             <param name="warning">Indicates if show a warning if no data provided.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenDriverDetail(Xamarin.Forms.ContentPage,System.String)">
+            <summary>
+            Open Driver details page given its ID.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="driver">Driver ID.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenDriverDetail(Xamarin.Forms.ContentPage,ErgastAPP.Models.Driver,System.Boolean)">
+            <summary>
+            Open Driver details page given the driver instance.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="driver">Driver instance.</param>
+            <param name="warning">Indicates if show warning if the data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenCircuitDetail(Xamarin.Forms.ContentPage,ErgastAPP.Models.Circuit,System.Boolean)">
+            <summary>
+            Open circuit detail page given the instance.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="circuit">Circuit instance.</param>
+            <param name="warning">Indicates if show warning if the data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenResultDetail(Xamarin.Forms.ContentPage,ErgastAPP.Models.Result,ErgastAPP.Models.Race,ErgastAPP.Models.Driver,System.Boolean)">
+            <summary>
+            Open results details page.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="result">Result instance.</param>
+            <param name="race">Race instance that result belong to.</param>
+            <param name="driver">Driver who got that result.</param>
+            <param name="warning">Indicates if show warning if the data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenResult(Xamarin.Forms.ContentPage,ErgastAPP.Models.Race,System.Boolean)">
+            <summary>
+            Open Result list page.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="race">Race instance.</param>
+            <param name="warning">Indicates if show warning if the data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenQualy(Xamarin.Forms.ContentPage,ErgastAPP.Models.Race,System.Boolean)">
+            <summary>
+            Open qualy list page.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="race">Race instance.</param>
+            <param name="warning">Indicates if show warning if the data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.OpenEvolution(Xamarin.Forms.ContentPage,ErgastAPP.Models.Race,System.Boolean)">
+            <summary>
+            Open race evolution page.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="race">Race instance.</param>
+            <param name="warning">Indicates if show warning if the data is not available.</param>
+        </member>
+        <member name="M:ErgastAPP.Services.Navigator.ShowWarning(Xamarin.Forms.ContentPage,System.Boolean)">
+            <summary>
+            Shows a message warning.
+            </summary>
+            <param name="page">Current ContentPage.</param>
+            <param name="warning">Indicates if show warning.</param>
+        </member>
+        <member name="T:ErgastAPP.Services.RestService">
+            <summary>
+            Performs the request to the Ergast API.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Services.RestService._client">
+            <summary>
+            HTTP Client to performs the request.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.Services.RestService._api">
+            <summary>
+            API request URI Builder.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.#ctor">
+            <summary>
+            Main Constructor.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetSeasonsDataAsync">
+            <summary>
+            Retrieves all seasons data.
+            </summary>
+            <returns>All seasons data.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetLastRaceAsync">
+            <summary>
+            Get the last race data.
+            </summary>
+            <returns>Last race data.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetRacesBySeasonAsync(System.Int32)">
+            <summary>
+            Get all races in a year.
+            </summary>
+            <param name="year">Year of the season.</param>
+            <returns>All races in a year.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetRacesByURIAsync(System.Int32)">
+            <summary>
+            Gets all races starting by the offset.
+            </summary>
+            <param name="offset">Offset to begin counting.</param>
+            <returns>All races starting in the offset.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetRacesAsync">
+            <summary>
+            Gets all races in History.
+            </summary>
+            <returns>All races in History.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetDriversAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets drivers info. It can be filtered by year and round.
+            </summary>
+            <param name="year">Drivers of this year.</param>
+            <param name="round">Drivers of this round that year.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetCircuitsAsync(System.Nullable{System.Int32})">
+            <summary>
+            Gets all circuits info. It can be filtered by year.
+            </summary>
+            <param name="year">Year to be filtered.</param>
+            <returns>All circuits info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetDriverInfoAsync(System.String)">
+            <summary>
+            Gets driver info given its ID.
+            </summary>
+            <param name="driverId">Driver ID.</param>
+            <returns>Driver data.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetConstructorsAsync">
+            <summary>
+            Gets constructor list.
+            </summary>
+            <returns>Constructors info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetRaceResultsAsync(System.Int32,System.Int32)">
+            <summary>
+            Gets race results given the year and round of the race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <returns>Race results info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetSeasonsDriverWorldChampionAsync(System.String)">
+            <summary>
+            Gets all the seasons a specific driver has won the Driver WC.
+            </summary>
+            <param name="driver">Driver ID.</param>
+            <returns>Seasons data.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetSeasonsConstructorsWorldChampionAsync(System.String)">
+            <summary>
+            Gets all seasons a specific constructor has won the Constructor WC.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <returns>Seasons data.</returns>
         </member>
     </members>
 </doc>
