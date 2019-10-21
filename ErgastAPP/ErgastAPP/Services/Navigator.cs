@@ -171,12 +171,23 @@ namespace ErgastAPP.Services
         }
 
         
-
+        /// <summary>
+        /// Open a Race Detail page given the year and round.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="year">Year of the race.</param>
+        /// <param name="round">Round of the season.</param>
         public static void OpenRaceDetail(ContentPage page, int year, int round)
         {
             page.Navigation.PushAsync(new RaceDetailPage(new RaceDetailViewModel(year, round)));
         }
 
+        /// <summary>
+        /// Open a Race Detail page given the race.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="race">Year of the race.</param>
+        /// <param name="warning">Round of the season.</param>
         public static void OpenRaceDetail(ContentPage page, Race race, bool warning = true)
         {
             if (race != null)
@@ -188,12 +199,22 @@ namespace ErgastAPP.Services
         }
         
         
-
+        /// <summary>
+        /// Open a Constructor Detail given its ID.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="constructor">Constructor ID.</param>
         public static void OpenConstructorDetail(ContentPage page, string constructor)
         {
             page.Navigation.PushAsync(new ConstructorDetailPage(new ConstructorDetailViewModel(constructor)));
         }
 
+        /// <summary>
+        /// Open a Constructor Detail page given the instance.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="constructor">Constructor instance.</param>
+        /// <param name="warning">Indicates if show warning if data is not available.</param>
         public static void OpenConstructorDetail(ContentPage page, Constructor constructor, bool warning = true)
         {
             if (constructor != null)
@@ -203,7 +224,12 @@ namespace ErgastAPP.Services
         }
 
 
-
+        /// <summary>
+        /// Open Constructor Standings page given the race.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="race">Race instance.</param>
+        /// <param name="warning">Indicates if show warning if data is not available.</param>
         public static void OpenConstructorStandings(ContentPage page, Race race, bool warning = true)
         {
             if(race != null)
@@ -212,6 +238,12 @@ namespace ErgastAPP.Services
                 ShowWarning(page, warning);
         }
 
+        /// <summary>
+        /// Open Driver Standings page given the race.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="race">Race instance.</param>
+        /// <param name="warning">Indicates if show warning if data is not available.</param>
         public static void OpenDriverStandings(ContentPage page, Race race, bool warning = true)
         {
             if (race != null)
@@ -239,12 +271,22 @@ namespace ErgastAPP.Services
                 ShowWarning(page, warning);
         }
         
+        /// <summary>
+        /// Open Driver details page given its ID.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="driver">Driver ID.</param>
         public static void OpenDriverDetail(ContentPage page, string driver)
         {
             page.Navigation.PushAsync(new DriverDetailPage(new DriverDetailViewModel(driver)));
         }
 
-
+        /// <summary>
+        /// Open Driver details page given the driver instance.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="driver">Driver instance.</param>
+        /// <param name="warning">Indicates if show warning if the data is not available.</param>
         public static void OpenDriverDetail(ContentPage page, Driver driver, bool warning = true)
         {
             if(driver != null)
@@ -254,7 +296,12 @@ namespace ErgastAPP.Services
         }
 
 
-
+        /// <summary>
+        /// Open circuit detail page given the instance.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="circuit">Circuit instance.</param>
+        /// <param name="warning">Indicates if show warning if the data is not available.</param>
         public static void OpenCircuitDetail(ContentPage page, Circuit circuit, bool warning = true)
         {
             if (circuit != null)
@@ -263,9 +310,14 @@ namespace ErgastAPP.Services
                 ShowWarning(page, warning);
         }
 
-
-
-
+        /// <summary>
+        /// Open results details page.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="result">Result instance.</param>
+        /// <param name="race">Race instance that result belong to.</param>
+        /// <param name="driver">Driver who got that result.</param>
+        /// <param name="warning">Indicates if show warning if the data is not available.</param>
         public static void OpenResultDetail(ContentPage page, Result result, Race race, Driver driver, bool warning = true)
         {
             if (result != null && race != null && driver != null)
@@ -276,6 +328,12 @@ namespace ErgastAPP.Services
                 ShowWarning(page, warning);
         }
 
+        /// <summary>
+        /// Open Result list page.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="race">Race instance.</param>
+        /// <param name="warning">Indicates if show warning if the data is not available.</param>
         public static void OpenResult(ContentPage page, Race race, bool warning = true)
         {
             if (race != null)
@@ -285,6 +343,13 @@ namespace ErgastAPP.Services
             else
                 ShowWarning(page, warning);
         }
+
+        /// <summary>
+        /// Open qualy list page.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="race">Race instance.</param>
+        /// <param name="warning">Indicates if show warning if the data is not available.</param>
         public static void OpenQualy(ContentPage page, Race race, bool warning = true)
         {
             if (race != null)
@@ -295,7 +360,12 @@ namespace ErgastAPP.Services
                 ShowWarning(page, warning);
         }
 
-
+        /// <summary>
+        /// Open race evolution page.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="race">Race instance.</param>
+        /// <param name="warning">Indicates if show warning if the data is not available.</param>
         public static void OpenEvolution(ContentPage page, Race race, bool warning = true)
         {
             if (race != null)
@@ -304,7 +374,11 @@ namespace ErgastAPP.Services
                 ShowWarning(page, warning);
         }
 
-
+        /// <summary>
+        /// Shows a message warning.
+        /// </summary>
+        /// <param name="page">Current ContentPage.</param>
+        /// <param name="warning">Indicates if show warning.</param>
         public static void ShowWarning(ContentPage page, bool warning)
         {
             if (warning)
