@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ErgastAPP.Views.EvolutionPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              Title="{Binding Title}">
 
     <StackLayout Style="{StaticResource MainLayout}">
@@ -42,7 +43,8 @@
                   RefreshCommand="{Binding LoadItemsCommand}"
                   IsPullToRefreshEnabled="true"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                  CachingStrategy="RecycleElement">
+                  CachingStrategy="RecycleElement"
+                  android:ListView.IsFastScrollEnabled="true">
             <ListView.Header>
                 <Grid ColumnSpacing="0">
                     <Grid.ColumnDefinitions>

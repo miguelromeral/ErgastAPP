@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ErgastAPP.Views.ConstructorPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              Title="{Binding Title}">
 
     <StackLayout Style="{StaticResource MainLayout}">
@@ -19,7 +20,8 @@
                   IsPullToRefreshEnabled="true"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                   CachingStrategy="RecycleElement"
-                  ItemSelected="OnItemSelected">
+                  ItemSelected="OnItemSelected"
+                  android:ListView.IsFastScrollEnabled="true">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
