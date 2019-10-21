@@ -17,7 +17,8 @@
                   RefreshCommand="{Binding LoadItemsCommand}"
                   IsPullToRefreshEnabled="true"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                  ItemSelected="OnItemSelected">
+                  ItemSelected="OnItemSelected"
+                  CachingStrategy="RecycleElementAndDataTemplate">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -54,7 +55,7 @@
 
                                     </StackLayout>
 
-                                    <Label Text="{Binding Date}"
+                                    <Label Text="{Binding PrettyDate}"
                                            Style="{StaticResource LabelListItemDetails}"
                                            FontSize="11" />
                                 </StackLayout>

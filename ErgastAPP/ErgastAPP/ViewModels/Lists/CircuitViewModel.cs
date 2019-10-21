@@ -10,28 +10,46 @@ using Xamarin.Forms;
 
 namespace ErgastAPP.ViewModels
 {
+    /// <summary>
+    /// ViewModel for circuit list.
+    /// </summary>
+    /// <seealso cref="ErgastAPP.ViewModels.BaseViewModel" />
     public class CircuitViewModel : BaseViewModel
     {
+        /// <summary>
+        /// List of the circuits.
+        /// </summary>
+        /// <value>
+        /// The items.
+        /// </value>
         public ObservableCollection<Circuit> Items { get; set; }
+
+        /// <summary>
+        /// Command to load the items.
+        /// </summary>
+        /// <value>
+        /// The load items command.
+        /// </value>
         public Command LoadItemsCommand { get; set; }
 
-        public ObservableCollection<string> Years { get; set; }
-        
-        
-        RaceTable _races;
+        /// <summary>
+        /// The original data of circuits.
+        /// </summary>
         CircuitTable _circuits;
 
-        public static string ALL_TEXT = "All";
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CircuitViewModel"/> class.
+        /// </summary>
         public CircuitViewModel()
         {
             Title = "Circuits";
             Items = new ObservableCollection<Circuit>();
-            Years = new ObservableCollection<string>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
-
+        /// <summary>
+        /// Executes the load items command.
+        /// </summary>
         async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
@@ -55,7 +73,10 @@ namespace ErgastAPP.ViewModels
             }
         }
 
-
+        /// <summary>
+        /// Loads the items from data given a criteria to search for.
+        /// </summary>
+        /// <param name="content">Criteria to look for.</param>
         public void LoadItemsFromData(string content = "")
         {
             Items.Clear();

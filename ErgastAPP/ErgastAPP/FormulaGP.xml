@@ -2128,5 +2128,160 @@
             Executes the load stops command.
             </summary>
         </member>
+        <member name="T:ErgastAPP.ViewModels.CircuitViewModel">
+            <summary>
+            ViewModel for circuit list.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.CircuitViewModel.Items">
+            <summary>
+            List of the circuits.
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.CircuitViewModel.LoadItemsCommand">
+            <summary>
+            Command to load the items.
+            </summary>
+            <value>
+            The load items command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.CircuitViewModel._circuits">
+            <summary>
+            The original data of circuits.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.CircuitViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.CircuitViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.CircuitViewModel.ExecuteLoadItemsCommand">
+            <summary>
+            Executes the load items command.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.CircuitViewModel.LoadItemsFromData(System.String)">
+            <summary>
+            Loads the items from data given a criteria to search for.
+            </summary>
+            <param name="content">Criteria to look for.</param>
+        </member>
+        <member name="T:ErgastAPP.ViewModels.ConstructorViewModel">
+            <summary>
+            ViewModel for the constructor list.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ConstructorViewModel.Items">
+            <summary>
+            List of constructors to display in the listview.
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ConstructorViewModel.LoadItemsCommand">
+            <summary>
+            Main command to load the page content.
+            </summary>
+            <value>
+            The load items command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.ConstructorViewModel._constructors">
+            <summary>
+            The original data.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.ConstructorViewModel._origin_notprovided">
+            <summary>
+            Indicates if the constructor has not been passed to the viewmodel.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ConstructorViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.ConstructorViewModel"/> class displaying all constructors.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ConstructorViewModel.#ctor(ErgastAPP.Models.ConstructorTable,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.ConstructorViewModel"/> class given the list of constructors to display.
+            </summary>
+            <param name="data">Constructor table to print.</param>
+            <param name="title">Title of the content page.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ConstructorViewModel.ExecuteLoadItemsCommand(System.String)">
+            <summary>
+            Executes the load items command.
+            </summary>
+            <param name="origin">The origin.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ConstructorViewModel.LoadItemsFromData(System.String)">
+            <summary>
+            Display the list of constructor filtering by a string.
+            </summary>
+            <param name="content">Criteria to be searched.</param>
+        </member>
+        <member name="T:ErgastAPP.ViewModels.DriversViewModel">
+            <summary>
+            ViewModel for drivers list page.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.DriversViewModel.Items">
+            <summary>
+            List of drivers to show.
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.DriversViewModel.LoadItemsCommand">
+            <summary>
+            Main command to load the page.
+            </summary>
+            <value>
+            The load items command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.DriversViewModel._drivers">
+            <summary>
+            Original list of drivers.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.DriversViewModel._origin_notprovided">
+            <summary>
+            Indicates if the drivers list is not provided.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.DriversViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.DriversViewModel"/> class for display all drivers.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.DriversViewModel.#ctor(ErgastAPP.Models.DriverTable,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.DriversViewModel"/> class for display only the drivers passed as arguments.
+            </summary>
+            <param name="drivers">The driver list</param>
+            <param name="title">Title of the content page.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.DriversViewModel.ExecuteLoadItemsCommand(System.String)">
+            <summary>
+            Executes the load items command.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.DriversViewModel.LoadItemsFromData(System.String)">
+            <summary>
+            Loads the items from data given a criteria to look for.
+            </summary>
+            <param name="content">The content to search.</param>
+        </member>
     </members>
 </doc>
