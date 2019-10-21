@@ -11,29 +11,60 @@ using Xamarin.Forms;
 
 namespace ErgastAPP.ViewModels
 {
+    /// <summary>
+    /// ViewModel for Constructor Standings page.
+    /// </summary>
+    /// <seealso cref="ErgastAPP.ViewModels.BaseViewModel" />
     public class ConstructorStandingDetailViewModel : BaseViewModel
     {
+        /// <summary>
+        /// Every row of the standings
+        /// </summary>
+        /// <value>
+        /// The items.
+        /// </value>
         public ObservableCollection<ConstructorStandings> Items { get; set; }
 
+        /// <summary>
+        /// Command to load all the data in the page.
+        /// </summary>
+        /// <value>
+        /// The load items command.
+        /// </value>
         public Command LoadItemsCommand { get; set; }
 
+        /// <summary>
+        /// Race that the standings belongs.
+        /// </summary>
         public Race Race;
 
+        /// <summary>
+        /// The standings table.
+        /// </summary>
         private StandingsTable _standings;
+        /// <summary>
+        /// Gets or sets the standings.
+        /// </summary>
+        /// <value>
+        /// The standings.
+        /// </value>
         public StandingsTable Standings { get { return _standings; } set { SetProperty(ref _standings, value); } }
 
-        public int Year;
-
-        public ConstructorStandingDetailViewModel(Race r)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConstructorStandingDetailViewModel"/> class.
+        /// </summary>
+        /// <param name="race">The race</param>
+        public ConstructorStandingDetailViewModel(Race race)
         {
-            Race = r;
-            Year = r.Season;
-
+            Race = race;
+            
             Items = new ObservableCollection<ConstructorStandings>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
-
+        /// <summary>
+        /// Executes the load items command.
+        /// </summary>
         async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
@@ -43,9 +74,9 @@ namespace ErgastAPP.ViewModels
 
             try
             {
-                Standings = await App.RestService.ConstructorStandingsByRace(Year, Race.Round);
-                Title = Year + " " + Race.Name;
-
+                Standings = await App.RestService.ConstructorStandingsByRace(Race.Season, Race.Round);
+                Title = Race.Season + " " + Race.Name;
+                
                 Items.Clear();
                 foreach (var r in Standings.Standings[0].ConstructorStandings.OrderBy(x => x.Position).ThenBy(x => x.Wins))
                 {
