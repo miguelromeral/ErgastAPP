@@ -1599,5 +1599,534 @@
             <param name="constructor">Constructor ID.</param>
             <returns>Seasons data.</returns>
         </member>
+        <member name="M:ErgastAPP.Services.RestService.ResultsByRaceAsync(System.Int32,System.Int32)">
+            <summary>
+            Gets race results given the year and round of the race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <returns>Race data with results provided.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.QualifyingByRaceAsync(System.Int32,System.Int32)">
+            <summary>
+            Gets qualifying results given the year and round of the race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <returns>Race data with qualifying provided.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.DriverStandingsBySeason">
+            <summary>
+            Gets driver standings for all seasons.
+            </summary>
+            <returns>Driver Standings info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.ConstructorStandingsBySeason">
+            <summary>
+            Gets constructor standings for all seasons.
+            </summary>
+            <returns>Constructor Standings info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.DriverStandingsByRace(System.Int32,System.Int32)">
+            <summary>
+            Gets driver standings at the end of the race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <returns>Driver standings info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.ConstructorStandingsByRace(System.Int32,System.Int32)">
+            <summary>
+            Gets constructor standings at the end of a race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <returns>Constructor standings info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.RacesByDriverAsync(System.String)">
+            <summary>
+            Gets all races that a Driver has been into.
+            </summary>
+            <param name="driver">Driver ID.</param>
+            <returns>Race list info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.RacesByConstructorFragmentAsync(System.String,System.Int32)">
+            <summary>
+            Gets list of races a constructor has been into, starting by the offset.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <param name="offset">Offset to start in.</param>
+            <returns>Races info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetRacesByConstructorAsync(System.String)">
+            <summary>
+            Gets all list of race a constructor has been into.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <returns>List of races info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.ConstructorsByDriverAsync(System.String)">
+            <summary>
+            Gets all constructors a driver has been along his career.
+            </summary>
+            <param name="driver">Driver ID.</param>
+            <returns>Constructors info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.FastestLapsByDriverAsync(System.String)">
+            <summary>
+            Gets all races a driver has set a fastest lap.
+            </summary>
+            <param name="driver">Driver ID.</param>
+            <returns>Races info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.FastestLapsByConstructorAsync(System.String)">
+            <summary>
+            Gets all races a constructors has set a fastest lap.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <returns>Races info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.LapsByRaceAndDriverAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            Gets all laps set by a driver in a race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <param name="driver">Driver ID.</param>
+            <returns>All laps info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.PitStopsByRaceAndDriverAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            Gets all pit stops set by a driver in a race.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <param name="driver">Driver ID.</param>
+            <returns>All pit stops info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.DriversByConstructorAsync(System.String)">
+            <summary>
+            Gets all drivers that has signed a specific constructor.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <returns>Drivers info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.RacesByCircuit(System.String)">
+            <summary>
+            Gets all races a circuit has held.
+            </summary>
+            <param name="circuit">Circuit ID.</param>
+            <returns>Races info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetConstructorAsync(System.String)">
+            <summary>
+            Gets constructor info.
+            </summary>
+            <param name="constructor">Constructor ID.</param>
+            <returns>Constructor info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetLapsByRace(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets all laps set in the whole race, starting in the offset.
+            </summary>
+            <param name="year">Year of the race.</param>
+            <param name="round">Round of the season.</param>
+            <param name="offset">Offset to start in.</param>
+            <returns>Laps info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetLapsByRace(System.Int32,System.Int32)">
+            <summary>
+            Gets all laps set in the whole race.
+            </summary>
+            <param name="year"></param>
+            <param name="round"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetSeasonsByDriverAsync(System.String)">
+            <summary>
+            Gets all seasons a driver has participated.
+            </summary>
+            <param name="driver">Driver ID.</param>
+            <returns>Season info.</returns>
+        </member>
+        <member name="M:ErgastAPP.Services.RestService.GetDriversWinnerCircuitAsync(System.String)">
+            <summary>
+            Gets all drivers who has won at least once in this circuit.
+            </summary>
+            <param name="circuit">Circuit ID.</param>
+            <returns>Drivers info.</returns>
+        </member>
+        <member name="T:ErgastAPP.ViewModels.CircuitDetailViewModel">
+            <summary>
+            ViewModel for Circuit Detail page.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.CircuitDetailViewModel.LoadItemsCommand">
+            <summary>
+            Command to load all the data in the page.
+            </summary>
+            <value>
+            The load items command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.CircuitDetailViewModel._circuit">
+            <summary>
+            The circuit
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.CircuitDetailViewModel.Circuit">
+            <summary>
+            Gets or sets the circuit.
+            </summary>
+            <value>
+            The circuit.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.CircuitDetailViewModel.dataoriginal">
+            <summary>
+            The original circuit data.
+            It contains the instance passed by the user.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.CircuitDetailViewModel._races">
+            <summary>
+            All races a circuit had held.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.CircuitDetailViewModel.Races">
+            <summary>
+            Gets or sets the races.
+            </summary>
+            <value>
+            The races.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.CircuitDetailViewModel._winners">
+            <summary>
+            The driver ever winners.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.CircuitDetailViewModel.DriverWinners">
+            <summary>
+            Gets or sets the driver winners.
+            </summary>
+            <value>
+            The driver winners.
+            </value>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.CircuitDetailViewModel.#ctor(ErgastAPP.Models.Circuit)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.CircuitDetailViewModel"/> class.
+            </summary>
+            <param name="circuit">The circuit.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.CircuitDetailViewModel.ExecuteLoadItemsCommand">
+            <summary>
+            Executes the load items command.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel">
+            <summary>
+            ViewModel for Constructor Standings page.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel.Items">
+            <summary>
+            Every row of the standings
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel.LoadItemsCommand">
+            <summary>
+            Command to load all the data in the page.
+            </summary>
+            <value>
+            The load items command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel.Race">
+            <summary>
+            Race that the standings belongs.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel._standings">
+            <summary>
+            The standings table.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel.Standings">
+            <summary>
+            Gets or sets the standings.
+            </summary>
+            <value>
+            The standings.
+            </value>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel.#ctor(ErgastAPP.Models.Race)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel"/> class.
+            </summary>
+            <param name="race">The race</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ConstructorStandingDetailViewModel.ExecuteLoadItemsCommand">
+            <summary>
+            Executes the load items command.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.ViewModels.DriverStandingDetailViewModel">
+            <summary>
+            ViewModel for Driver Standings page.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.DriverStandingDetailViewModel.Items">
+            <summary>
+            Every row of the standings.
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.DriverStandingDetailViewModel.LoadItemsCommand">
+            <summary>
+            Command to load all the data in the page.
+            </summary>
+            <value>
+            The load items command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.DriverStandingDetailViewModel.Race">
+            <summary>
+            The race that the standings belongs.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.DriverStandingDetailViewModel._standings">
+            <summary>
+            The standings table.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.DriverStandingDetailViewModel.Standings">
+            <summary>
+            Gets or sets the standings.
+            </summary>
+            <value>
+            The standings.
+            </value>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.DriverStandingDetailViewModel.#ctor(ErgastAPP.Models.Race)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.DriverStandingDetailViewModel"/> class.
+            </summary>
+            <param name="race">The race</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.DriverStandingDetailViewModel.ExecuteLoadItemsCommand">
+            <summary>
+            Executes the load items command.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.ViewModels.RaceDetailViewModel">
+            <summary>
+            ViewModel for Race Details.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.RaceDetailViewModel.LoadItemsCommand">
+            <summary>
+            Command to load all the data in the page.
+            </summary>
+            <value>
+            The load items command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.RaceDetailViewModel._race">
+            <summary>
+            The race
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.RaceDetailViewModel.Race">
+            <summary>
+            Gets or sets the race.
+            </summary>
+            <value>
+            The race.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.RaceDetailViewModel._year">
+            <summary>
+            The year of the race.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.RaceDetailViewModel._round">
+            <summary>
+            The round of the season.
+            </summary>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.RaceDetailViewModel.original">
+            <summary>
+            The original race detail.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.RaceDetailViewModel.LayoutQualy">
+            <summary>
+            Gets or sets the layout qualy.
+            </summary>
+            <value>
+            The layout qualy.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.RaceDetailViewModel.LayoutFastestLap">
+            <summary>
+            Gets or sets the layout fastest lap.
+            </summary>
+            <value>
+            The layout fastest lap.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.RaceDetailViewModel.ButtonRaceEvolution">
+            <summary>
+            Gets or sets the button race evolution.
+            </summary>
+            <value>
+            The button race evolution.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.RaceDetailViewModel.ButtonConstructorStandings">
+            <summary>
+            Gets or sets the button constructor standings.
+            </summary>
+            <value>
+            The button constructor standings.
+            </value>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.RaceDetailViewModel.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.RaceDetailViewModel"/> class.
+            </summary>
+            <param name="year">The year of the race.</param>
+            <param name="round">The round of the season.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.RaceDetailViewModel.#ctor(ErgastAPP.Models.Race)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.RaceDetailViewModel"/> class.
+            </summary>
+            <param name="race">The race to be detailed.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.RaceDetailViewModel.DisplayLayouts">
+            <summary>
+            Displays the layouts if the year is appropiate for the API.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.RaceDetailViewModel.ExecuteLoadItemsCommand(System.String)">
+            <summary>
+            Executes the load items command.
+            </summary>
+        </member>
+        <member name="T:ErgastAPP.ViewModels.ResultDetailViewModel">
+            <summary>
+            ViewModel for Result details page.
+            </summary>
+            <seealso cref="T:ErgastAPP.ViewModels.BaseViewModel" />
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.LoadLaps">
+            <summary>
+            Command to load all the laps.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.LoadStops">
+            <summary>
+            Command to load the pit stops.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.MainCommand">
+            <summary>
+            Command to load all the data at the begining.
+            </summary>
+            <value>
+            The main command.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.ResultDetailViewModel._result">
+            <summary>
+            The result
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.Result">
+            <summary>
+            Gets or sets the result.
+            </summary>
+            <value>
+            The result.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.ResultDetailViewModel._race">
+            <summary>
+            The race that result belongs to.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.Race">
+            <summary>
+            Gets or sets the race.
+            </summary>
+            <value>
+            The race.
+            </value>
+        </member>
+        <member name="F:ErgastAPP.ViewModels.ResultDetailViewModel._driver">
+            <summary>
+            The driver who got that result.
+            </summary>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.Driver">
+            <summary>
+            Gets or sets the driver.
+            </summary>
+            <value>
+            The driver.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.Laps">
+            <summary>
+            List of laps displayed on the layout.
+            </summary>
+            <value>
+            The laps.
+            </value>
+        </member>
+        <member name="P:ErgastAPP.ViewModels.ResultDetailViewModel.PitStops">
+            <summary>
+            List of pit stops displayed on the layout.
+            </summary>
+            <value>
+            The pit stops.
+            </value>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ResultDetailViewModel.#ctor(ErgastAPP.Models.Result,ErgastAPP.Models.Race,ErgastAPP.Models.Driver,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErgastAPP.ViewModels.ResultDetailViewModel"/> class.
+            </summary>
+            <param name="r">The r.</param>
+            <param name="ra">The ra.</param>
+            <param name="d">The d.</param>
+            <param name="title">The title.</param>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ResultDetailViewModel.ExecuteMainCommand">
+            <summary>
+            Executes the main command in order to get the laps and pit stops times at the same time.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ResultDetailViewModel.ExecuteLoadLapsCommand">
+            <summary>
+            Executes the load laps command.
+            </summary>
+        </member>
+        <member name="M:ErgastAPP.ViewModels.ResultDetailViewModel.ExecuteLoadStopsCommand">
+            <summary>
+            Executes the load stops command.
+            </summary>
+        </member>
     </members>
 </doc>
