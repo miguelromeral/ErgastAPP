@@ -34,7 +34,11 @@ namespace ErgastAPP.Views
 
         private void Maps_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri(viewModel.Circuit.GoogleMapsURI));
+            string uri = viewModel.Circuit?.GoogleMapsURI;
+            if (uri != null)
+                Device.OpenUri(new Uri(uri));
+            else
+                Navigator.ShowWarning(this, true);
         }
 
 
@@ -43,11 +47,10 @@ namespace ErgastAPP.Views
             Navigator.OpenRaces(this, Models.RaceOrigin.CircuitRaces, viewModel.Races, viewModel.Circuit);
         }
 
-
         private void ReportButton_Clicked(object sender, EventArgs e)
         {
             if (viewModel.Circuit != null)
-                Device.OpenUri(new Uri(viewModel.Circuit.URL));
+                Device.OpenUri(new Uri(viewModel.Circuit?.URL));
         }
 
         private void Winners_Clicked(object sender, EventArgs e)
