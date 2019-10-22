@@ -44,7 +44,7 @@ namespace ErgastAPP.Views
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (viewModel.Items != null)
+            if (!viewModel.IsBusy && viewModel.Items != null)
             {
                 if (string.IsNullOrWhiteSpace(e.NewTextValue.ToString()))
                     viewModel.LoadItemsFromData();

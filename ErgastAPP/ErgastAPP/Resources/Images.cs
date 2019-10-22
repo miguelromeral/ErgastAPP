@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace ErgastAPP.Resources
 {
@@ -9,7 +10,7 @@ namespace ErgastAPP.Resources
     /// </summary>
     public static class Images
     {
-        #region FLAGS
+        #region FLAGS WIKIPEDIA
         // Unknown flag.
         private static string _unknown = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/1280px-Flag_of_None.svg.png";
 
@@ -49,6 +50,48 @@ namespace ErgastAPP.Resources
         private static string _netherlands = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/1280px-Flag_of_the_Netherlands.svg.png";
         #endregion
 
+
+        #region FLAGS ANDROID
+        // Android flags provided by: openmoji.org
+
+        private static string a_unknown = "unknown.png";
+
+        // List of flags.
+        private static string a_australia = "australia.png";
+        private static string a_morocco = "morocco.png";
+        private static string a_spain = "spain";
+        private static string a_UK = "greatbritain.png";
+        private static string a_USA = "usa.png";
+        private static string a_sweden = "sweden.png";
+        private static string a_germany = "germany.png";
+        private static string a_bahrain = "bahrain.png";
+        private static string a_azerbaijan = "azerbaijan.png";
+        private static string a_portugal = "portugal.png";
+        private static string a_switzerland = "switzerland.png";
+        private static string a_india = "india.png";
+        private static string a_france = "france.png";
+        private static string a_japan = "japan.png";
+        private static string a_argentina = "argentina.png";
+        private static string a_southafrica = "southafrica.png";
+        private static string a_vietnam = "vietnam.png";
+        private static string a_hungary = "hungary.png";
+        private static string a_italy = "italy.png";
+        private static string a_brazil = "brazil.png";
+        private static string a_turkey = "turkey.png";
+        private static string a_singapore = "singapore.png";
+        private static string a_monaco = "monaco.png";
+        private static string a_canada = "canada.png";
+        private static string a_belgium = "belgium.png";
+        private static string a_austria = "austria.png";
+        private static string a_mexico = "mexico.png";
+        private static string a_malaysia = "malaysa.png";
+        private static string a_china = "china.png";
+        private static string a_russia = "russia.png";
+        private static string a_UAE = "uae.png";
+        private static string a_korea = "korea.png";
+        private static string a_netherlands = "netherlands.png";
+        #endregion
+
         /// <summary>
         /// Gets the flag depends the country name.
         /// </summary>
@@ -56,6 +99,10 @@ namespace ErgastAPP.Resources
         /// <returns>Wikipedia URL flag.</returns>
         public static string FlagByCountry(string country)
         {
+            if (Device.RuntimePlatform == Device.Android)
+                return FlagByCountryAndroid(country);
+
+            // IOS and UWP:
             switch (country)
             {
                 case "Spain": return _spain;
@@ -96,6 +143,48 @@ namespace ErgastAPP.Resources
             }
         }
 
+        public static string FlagByCountryAndroid(string country)
+        {
+            switch (country)
+            {
+                case "Spain": return a_spain;
+                case "Australia": return a_australia;
+                case "Morocco": return a_morocco;
+                case "UK": return a_UK;
+                case "USA": return a_USA;
+                case "Sweden": return a_sweden;
+                case "Germany": return a_germany;
+                case "Bahrain": return a_bahrain;
+                case "Azerbaijan": return a_azerbaijan;
+                case "Portugal": return a_portugal;
+                case "Switzerland": return a_switzerland;
+                case "India": return a_india;
+                case "France": return a_france;
+                case "Japan": return a_japan;
+                case "Argentina": return a_argentina;
+                case "South Africa": return a_southafrica;
+                case "Vietnam": return a_vietnam;
+                case "Hungary": return a_hungary;
+                case "Italy": return a_italy;
+                case "Brazil": return a_brazil;
+                case "Turkey": return a_turkey;
+                case "Singapore": return a_singapore;
+                case "Monaco": return a_monaco;
+                case "Canada": return a_canada;
+                case "Belgium": return a_belgium;
+                case "Austria": return a_austria;
+                case "Mexico": return a_mexico;
+                case "Malaysia": return a_malaysia;
+                case "China": return a_china;
+                case "Russia": return a_russia;
+                case "UAE": return a_UAE;
+                case "Korea": return a_korea;
+                case "Netherlands": return a_netherlands;
+                default:
+                    return a_unknown;
+            }
+        }
+
         /// <summary>
         /// Gets the flag depends on the nationality.
         /// </summary>
@@ -103,6 +192,10 @@ namespace ErgastAPP.Resources
         /// <returns>Wikipedia URL flag.</returns>
         public static string FlagByNationality(string nationality)
         {
+
+            if (Device.RuntimePlatform == Device.Android)
+                return FlagByNationalityAndroid(nationality);
+
             switch (nationality)
             {
                 case "Spanish":
@@ -187,6 +280,93 @@ namespace ErgastAPP.Resources
                 case "Argentine-Italian":
                 default:
                     return _unknown;
+            }
+        }
+
+        public static string FlagByNationalityAndroid(string nationality)
+        {
+            switch (nationality)
+            {
+                case "Spanish":
+                    return a_spain;
+                case "British":
+                    return a_UK;
+                case "Italian":
+                    return a_italy;
+                case "American":
+                    return a_USA;
+                case "Belgian":
+                    return a_belgium;
+                case "German":
+                    return a_germany;
+                case "Dutch":
+                    return a_netherlands;
+                case "Thai":
+                    return "thai.png";
+                case "French":
+                    return a_france;
+                case "New Zealander":
+                    return "newzeland.png";
+                case "Swedish":
+                    return a_sweden;
+                case "Brazilian":
+                    return a_brazil;
+                case "Hungarian":
+                    return a_hungary;
+                case "Danish":
+                    return "denmark.png";
+                case "Monegasque":
+                    return a_monaco;
+                case "Finnish":
+                    return "finland.png";
+                case "Australian":
+                    return a_australia;
+                case "Russian":
+                    return a_russia;
+                case "Mexican":
+                    return a_mexico;
+                case "Canadian":
+                    return a_canada;
+                case "Polish":
+                    return "poland.png";
+                case "Austrian":
+                    return a_austria;
+                case "Argentine":
+                    return a_argentina;
+                case "South African":
+                    return a_southafrica;
+                case "Swiss":
+                    return a_switzerland;
+                case "Portuguese":
+                    return a_portugal;
+                case "Uruguayan":
+                    return "uruguay.png";
+                case "Venezuelan":
+                    return "venezuela.png";
+                case "Indian":
+                    return a_india;
+                case "Irish":
+                    return "irland.png";
+                case "Czech":
+                    return "czech.png";
+                case "Japanese":
+                    return a_japan;
+                case "Colombian":
+                    return "colombia.png";
+                case "Indonesian":
+                    return "indonesia.png";
+                case "Liechtensteiner":
+                    return "liechtenstein.png";
+                case "Malaysian":
+                    return a_malaysia;
+                case "Hong Kong":
+                    return "hongkong.png";
+                case "American-Italian":
+                case "Argentine-Italian":
+                case "East German":
+                case "Rhodesian":
+                default:
+                    return a_unknown;
             }
         }
     }

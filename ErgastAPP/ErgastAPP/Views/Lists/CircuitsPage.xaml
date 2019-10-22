@@ -39,7 +39,8 @@
                                             LineBreakMode="NoWrap"
                                             Style="{StaticResource LabelListItemHeader}" />
 
-                                    <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="StartAndExpand">
 
                                         <Image Source="{Binding Location.Flag}"
                                                Style="{StaticResource ImageFlag}"
@@ -47,6 +48,8 @@
 
                                         <Label Text="{Binding Location.Country}"
                                                Style="{StaticResource LabelListItemDetails}"
+                                               HorizontalOptions="StartAndExpand"
+                                               LineBreakMode="WordWrap"
                                                FontSize="13" />
 
                                     </StackLayout>

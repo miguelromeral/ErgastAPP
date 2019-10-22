@@ -45,7 +45,8 @@
                                         </Label.FormattedText>
                                     </Label>
 
-                                    <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="StartAndExpand">
 
                                         <Image Source="{Binding Circuit.Location.Flag}"
                                                Style="{StaticResource ImageFlag}"
@@ -53,7 +54,9 @@
 
                                         <Label Text="{Binding Circuit.Name}"
                                                Style="{StaticResource LabelListItemDetails}"
-                                               FontSize="13" />
+                                               FontSize="13"
+                                               HorizontalOptions="StartAndExpand"
+                                               LineBreakMode="WordWrap" />
 
                                     </StackLayout>
 

@@ -39,17 +39,19 @@
                                                LineBreakMode="NoWrap"
                                                Style="{StaticResource LabelListItemHeader}" />
 
-                                        <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="StartAndExpand">
 
                                             <Image Source="{Binding Flag}"
                                                    Style="{StaticResource ImageFlag}"
                                                    HorizontalOptions="Start" />
 
-                                            <Label Text="{Binding Nationality}"
-                                                   Style="{StaticResource LabelListItemDetails}"
-                                                   HorizontalOptions="Start" />
+                                        <Label Text="{Binding Nationality}"
+                                               Style="{StaticResource LabelListItemDetails}"
+                                               HorizontalOptions="StartAndExpand"
+                                               LineBreakMode="WordWrap" />
 
-                                        </StackLayout>
+                                    </StackLayout>
 
                                     </StackLayout>
 
