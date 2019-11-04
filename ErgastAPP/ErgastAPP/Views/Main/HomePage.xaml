@@ -71,7 +71,7 @@
                                     <ColumnDefinition Width="1*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="2018 WC DRIVER"
+                                <Label Text="2019 WC DRIVER"
                                        Style="{StaticResource Details_Header}"
                                        Grid.Column="0" />
 
